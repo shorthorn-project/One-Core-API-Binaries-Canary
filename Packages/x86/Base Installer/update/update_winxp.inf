@@ -25,7 +25,7 @@
     SERVICE_PACK_NUMBER     = 3
     HelpLink = "http://shorthornproject.com"
     URLInfoAbout = "http://shorthornproject.com"
-	BASE_VERSION            = "3.0.4.canary.b1"	
+	BASE_VERSION            = "3.0.4.canary.b2"	
     UPDATE                	= "Update"
     HOTFIX                	= "Hotfix"
     SECURITY_UPDATE       	= "Security Update"
@@ -532,6 +532,7 @@
 	CopyFiles = Drivers.CoreDriverFiles
 
 [Drivers.CoreDriverFiles]
+	intelppm.sys, XPSP3\drivers\xpspintelppm.sys	
 	ntoskrn8.sys, drivers\ntoskrn8.sys	
 
 [System32.files]

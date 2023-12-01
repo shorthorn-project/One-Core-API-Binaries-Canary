@@ -26,7 +26,7 @@
 [Strings]
     HelpLink 				= "http://shorthornproject.com"
     URLInfoAbout 			= "http://shorthornproject.com"
-	BASE_VERSION            = "3.0.3"
+	BASE_VERSION            = "3.0.4.canary.b2"
 	SP_TITLE                = "One-Core-API Base"
 	LANGTYPEVALUE           = 0x0
 	SP_SHORT_TITLE          = "OCAB"
@@ -2590,6 +2590,7 @@
 	CopyFiles = Drivers.CoreDriverFiles	
 
 [Drivers.CoreDriverFiles]
+	intelppm.sys, drivers\intelppm.sys
 	ntoskrn8.sys, drivers\ntoskrn8.sys
 
 [MustReplace.System32.files]

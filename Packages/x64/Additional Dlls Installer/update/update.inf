@@ -23,7 +23,7 @@
     AppFileinUseDetect        = 3
 	
 [Strings]
-	OCAAD_VERSION           = "3.0.4.canary.b1"
+	OCAAD_VERSION           = "3.0.4.canary.b2"
 	SP_TITLE                = "One-Core-API Additional Dlls"
 	LANGTYPEVALUE           = 0x0
 	SP_SHORT_TITLE          = "OCAAD"
@@ -5417,7 +5417,6 @@
 	evr.dll,amd64/evr.dll
 	expand.exe,amd64/expand.exe
 	explorerframe.dll,amd64/explorerframe.dll
-	fntcache.dll,amd64/fntcache.dll
 	FWPUCLNT.dll,amd64/FWPUCLNT.dll
 	gameux.dll,amd64/gameux.dll
 	GameUXLegacyGDFs.dll,amd64/GameUXLegacyGDFs.dll
@@ -5521,7 +5520,6 @@
 	evr.dll,i386/wevr.dll
 	expand.exe,i386/wexpand.exe
 	explorerframe.dll,i386/wexplorerframe.dll
-	fntcache.dll,i386/wfntcache.dll
 	FWPUCLNT.dll,i386/wFWPUCLNT.dll
 	gameux.dll,i386/wgameux.dll
 	GameUXLegacyGDFs.dll,i386/wGameUXLegacyGDFs.dll
@@ -5626,7 +5624,6 @@
 	amd64/evr.dll = 1
 	amd64/expand.exe = 1
 	amd64/explorerframe.dll = 1
-	amd64/fntcache.dll = 1	
 	amd64/FWPUCLNT.dll = 1	
 	amd64/gameux.dll = 1
 	amd64/GameUXLegacyGDFs.dll = 1
@@ -5726,7 +5723,6 @@
 	i386/wevr.dll = 1
 	i386/wexpand.exe = 1
 	i386/wexplorerframe.dll = 1
-	i386/wfntcache.dll = 1	
 	i386/wFWPUCLNT.dll = 1	
 	i386/wgameux.dll = 1
 	i386/wGameUXLegacyGDFs.dll = 1
