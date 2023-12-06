@@ -23,7 +23,7 @@
     AppFileinUseDetect        = 3
 	
 [Strings]
-	OCAAD_VERSION           = "3.0.4.canary.b2"
+	OCAAD_VERSION           = "3.0.4"
 	SP_TITLE                = "One-Core-API Additional Dlls"
 	LANGTYPEVALUE           = 0x0
 	SP_SHORT_TITLE          = "OCAAD"

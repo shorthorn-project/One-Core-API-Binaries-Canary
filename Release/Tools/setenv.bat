@@ -5,7 +5,6 @@ cls
 for %%d in (%~dp0..\..) do set ProjectDir=%%~fd
 echo ProjectDir=%ProjectDir%
 
-
 REM ECHO Please choose architecture of you want compress package:
 REM ECHO.
 REM ECHO 1.x86
