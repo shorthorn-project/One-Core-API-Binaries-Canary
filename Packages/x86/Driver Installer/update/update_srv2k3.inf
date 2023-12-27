@@ -25,7 +25,7 @@
     SERVICE_PACK_NUMBER     = 3
     HelpLink = "http://shorthornproject.com"
     URLInfoAbout = "http://shorthornproject.com"
-	OCADU_VERSION           = "3.0.4"
+	OCADU_VERSION           = "3.0.5.canary.b1"
 	SP_TITLE                = "One-Core-API Driver Update"
     UPDATE                	= "Update"
     HOTFIX                	= "Hotfix"
@@ -170,6 +170,7 @@
 	
 [Drivers.CoreDriverFiles]
 	acpi.sys, drivers\srv2k3\srvacpi.sys
+	AmdPPM.sys, drivers\AmdPPM.sys
 	disk.sys, drivers\disk.sys
 	;ksecdd.sys, drivers\srv2k3\srvksecdd.sys	;commented for now because ksecdd on XP cause Wifi connection empty list 
 	drmk.sys, drivers\drmk.sys
@@ -198,6 +199,7 @@
 
 [CopyAlways.DriverCab.files]
 	acpi.sys, drivers\srv2k3\srvacpi.sys
+	AmdPPM.sys, drivers\AmdPPM.sys
 	disk.sys, drivers\disk.sys
 	drmk.sys, drivers\drmk.sys
 	drmkaud.sys, drivers\drmkaud.sys
@@ -227,6 +229,7 @@
 	wpprecor.sys, drivers\wpprecor.sys	
 	
 [CopyAlways.Inf.files]
+    AmdPPM.inf, inf\AmdPPM.inf
     drvindex.inf, inf\srv2k3\srvdrvindex.inf
     hdaudbus.inf, inf\hdaudbus.inf
     hdaudio.inf, inf\hdaudio.inf
@@ -247,6 +250,7 @@
     1=%ServicePackSourceFiles%
 
 [SourceDisksFiles]
+    drivers\AmdPPM.sys = 1
     drivers\acpi.sys = 1
     drivers\disk.sys = 1
     drivers\partmgr.sys = 1

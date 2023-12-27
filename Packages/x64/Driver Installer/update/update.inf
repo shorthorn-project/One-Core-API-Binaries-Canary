@@ -26,7 +26,7 @@
     SERVICE_PACK_NUMBER     = 3
     HelpLink = "http://shorthornproject.com"
     URLInfoAbout = "http://shorthornproject.com"
-	OCADU_VERSION           = "3.0.4"
+	OCADU_VERSION           = "3.0.5.canary.b1"
 	SP_TITLE                = "One-Core-API Driver Update"
     UPDATE                	= "Update"
     HOTFIX                	= "Hotfix"
@@ -167,12 +167,14 @@
 	CopyFiles = Drivers.CoreDriverFiles	
 	
 [CopyAlways.CatRoot.Main.files]	
+	CatRoot\{F750E6C3-38EE-11D1-85E5-00C04FC295EE}\AmdPPM.cat, CatRoot\{F750E6C3-38EE-11D1-85E5-00C04FC295EE}\AmdPPM.cat	
 	CatRoot\{F750E6C3-38EE-11D1-85E5-00C04FC295EE}\stornvme64.cat, CatRoot\{F750E6C3-38EE-11D1-85E5-00C04FC295EE}\stornvme64.cat	
 	
 [System32.files]
 	
 [Drivers.CoreDriverFiles]
 	acpi.sys, drivers\acpi.sys
+	AmdPPM64.sys, drivers\AmdPPM64.sys
 	disk.sys, drivers\disk.sys
 	;ksecdd.sys, drivers\ksecdd.sys
 	drmk.sys, drivers\drmk.sys
@@ -202,6 +204,7 @@
 
 [CopyAlways.DriverCab.files]
 	acpi.sys, drivers\acpi.sys
+	AmdPPM64.sys, drivers\AmdPPM64.sys
 	disk.sys, drivers\disk.sys
 	drmk.sys, drivers\drmk.sys
 	drmkaud.sys, drivers\drmkaud.sys
@@ -232,6 +235,7 @@
 	WppRecorder.sys, drivers\WppRecorder.sys	
 	
 [CopyAlways.Inf.files]
+    AmdPPM.inf, inf\AmdPPM.inf
     drvindex.inf, inf\drvindex.inf
     hdaudbus.inf, inf\hdaudbus.inf
     hdaudio.inf, inf\hdaudio.inf	
