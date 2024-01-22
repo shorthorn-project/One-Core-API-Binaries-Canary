@@ -3,7 +3,7 @@
 	MaxNtBuildToUpdate        = 9600
 	MaxNtMajorVersionToUpdate = 6
 	MaxNtMinorVersionToUpdate = 3
-	MaxNtServicePackVersion   = 768
+	MaxNtServicePackVersion   = 1024
 	MinNtServicePackVersion   = 256
 	NtBuildToUpdate           = 2600
 	NtMajorVersionToUpdate    = 5
@@ -29,7 +29,7 @@
     Display_String="%LatestUpdateFail%"		
 	
 [Strings]
-	OCAAD_VERSION           = "3.0.5.canary.b1"
+	OCAAD_VERSION           = "3.0.5"
 	SP_TITLE                = "One-Core-API Additional Dlls"
 	LANGTYPEVALUE           = 0x0
 	SP_SHORT_TITLE          = "OCAAD"
