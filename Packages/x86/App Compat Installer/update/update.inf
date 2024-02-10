@@ -1,15 +1,15 @@
 [Version]
-	LanguageType 		  = %LANGTYPEVALUE%
-	MaxNtBuildToUpdate        = 9600
-	MaxNtMajorVersionToUpdate = 6
-	MaxNtMinorVersionToUpdate = 3
-	MaxNtServicePackVersion   = 1024
-	MinNtServicePackVersion   = 0
-	NtBuildToUpdate           = 2600
-	NtMajorVersionToUpdate    = 5
-	NtMinorVersionToUpdate    = 1
-	Signature                 = "$Windows NT$"
-	
+    LanguageType           = %LANGTYPEVALUE%
+    MaxNtBuildToUpdate        = 9600
+    MaxNtMajorVersionToUpdate = 6
+    MaxNtMinorVersionToUpdate = 3
+    MaxNtServicePackVersion   = 1024
+    MinNtServicePackVersion   = 0
+    NtBuildToUpdate           = 2600
+    NtMajorVersionToUpdate    = 5
+    NtMinorVersionToUpdate    = 1
+    Signature                 = "$Windows NT$"
+    
 [Configuration]
     noPNPfiles=1
     InstallationType        = Hotfix
@@ -17,16 +17,16 @@
     UnInstallLogFileName    = %SP_SHORT_TITLE%Uninst.log
     UnInstallDirName        = $NtUninstall%SP_SHORT_TITLE%$
     EventLogKeyName         = NtServicePack
-    EventLogDllName         = spmsg.dll	
-	
+    EventLogDllName         = spmsg.dll    
+    
 [Strings]
     SERVICE_PACK_NUMBER     = 3
     HelpLink = "http://shorthornproject.com"
     URLInfoAbout = "http://shorthornproject.com"
-	APPC_VERSION            = "3.0.5"	
-    UPDATE                	= "Update"
-    HOTFIX                	= "Hotfix"
-    SECURITY_UPDATE       	= "Security Update"
+    APPC_VERSION            = "4.0.0.rc1"    
+    UPDATE                    = "Update"
+    HOTFIX                    = "Hotfix"
+    SECURITY_UPDATE           = "Security Update"
     LangTypeValue           = 0x0
     ServicePackSourceFiles  = "One-Core-API AppCompat Source Files"
     SP_SHORT_TITLE          = "OCAAC"
@@ -35,8 +35,8 @@
     LOC_UPDATE="Update"
     LOC_CRITICALUPDATE="Critical Update"
     LOC_HOTFIX="Hotfix"
-    LOC_SECURITY_UPDATE="Security Update"	
-	
+    LOC_SECURITY_UPDATE="Security Update"    
+    
 [Product.Add.Reg]
     HKLM,"Software\Microsoft\Windows\CurrentVersion\RunOnce",%SP_SHORT_TITLE%,,"rundll32.exe apphelp.dll,ShimFlushCache"
     HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Setup", "LogLevel", 0x10001, 0
@@ -54,14 +54,14 @@
     HKLM,SOFTWARE\Microsoft\Windows NT\CurrentVersion\Hotfix\%SP_SHORT_TITLE%\File 1\,"New File",0,""
     HKLM,SOFTWARE\Microsoft\Windows NT\CurrentVersion\Hotfix\%SP_SHORT_TITLE%\File 1\,"New Link Date",0,""
     HKLM,SOFTWARE\Microsoft\Windows NT\CurrentVersion\Hotfix\%SP_SHORT_TITLE%\File 1\,"Old Link Date",0,""
-	HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE%,"DisplayVersion",0x00000000,%APPC_VERSION%
+    HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE%,"DisplayVersion",0x00000000,%APPC_VERSION%
     HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE%,"ReleaseType",0,%HOTFIX%
 
 [ProductInstall.ReplaceFilesIfExist]
     CopyFiles=System32.files
-	
+    
 [ProductInstall.DontDelayUntilReboot]
-    CopyFiles=MustReplace.System32.files	
+    CopyFiles=MustReplace.System32.files    
 
 [ProductInstall.CopyFilesAlways]
     CopyFiles=CopyAlways.Cache.files
@@ -80,34 +80,34 @@
     CopyAlways.Cache.files=65619        ; %windir%\system32\DllCache (copy even if don't exist)
     AppPatch.Files=10,AppPatch
     CopyAlways.AppPatch.Files=10,AppPatch       ; copy always
-	CopyAlways.System32.files=11  ; %windir%\system32 (don't delay until reboot)
+    CopyAlways.System32.files=11  ; %windir%\system32 (don't delay until reboot)
 
 [ProductInstall.CopyFilesAlways]
-	CopyFiles                  = CopyAlways.AppPatch.files
+    CopyFiles                  = CopyAlways.AppPatch.files
     CopyFiles                  = CopyAlways.System32.files
 
 [CopyAlways.Cache.files]
-	"apphelp.sdb"
-	"drvmain.sdb"
-	"msimain.sdb"
-	"sysmain.sdb"
-	
+    "apphelp.sdb"
+    "drvmain.sdb"
+    "msimain.sdb"
+    "sysmain.sdb"
+    
 [CopyAlways.System32.Files]
-    "SlayerXP.dll"	
+    "SlayerXP.dll"    
 
 [AppPatch.Files]
     "AcLayers.dll"
-	"apphelp.sdb"
-	"drvmain.sdb"
-	"msimain.sdb"
-	"sysmain.sdb"
+    "apphelp.sdb"
+    "drvmain.sdb"
+    "msimain.sdb"
+    "sysmain.sdb"
 
 [CopyAlways.AppPatch.Files]
     "AcLayers.dll"
-	"apphelp.sdb"
-	"drvmain.sdb"
-	"msimain.sdb"
-	"sysmain.sdb"
+    "apphelp.sdb"
+    "drvmain.sdb"
+    "msimain.sdb"
+    "sysmain.sdb"
 
 [DirectoriesToCleanUp.Uninstall]
 
@@ -116,17 +116,17 @@
 
 [SourceDisksFiles]
     "AcLayers.dll" =1
-	"apphelp.sdb" =1
-	"drvmain.sdb" =1
-	"msimain.sdb" =1
-	"sysmain.sdb" =1
-	"SlayerXP.dll" =1
-	
+    "apphelp.sdb" =1
+    "drvmain.sdb" =1
+    "msimain.sdb" =1
+    "sysmain.sdb" =1
+    "SlayerXP.dll" =1
+    
 [UninstallSections]
     GlobalRegistryChanges, GlobalRegistryChanges.UnInstall
     Add.Reg, Add.Reg.Uninstall
     Del.Reg, Del.Reg.Uninstall
-	
+    
 [Save.Reg.For.Uninstall]
     HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Setup","LogLevel"
     HKLM,SOFTWARE\Microsoft\Windows NT\CurrentVersion\Hotfix\%SP_SHORT_TITLE%
@@ -138,9 +138,9 @@
     DelReg=Del.Reg
 
 [Del.Reg.Uninstall]
-	HKLM,SOFTWARE\Microsoft\Updates\Windows Server 2003\SP%SERVICE_PACK_NUMBER%\%SP_SHORT_TITLE%
-	HKLM,SOFTWARE\Microsoft\Updates\Windows XP\SP%SERVICE_PACK_NUMBER%\%SP_SHORT_TITLE%
-	HKLM,SOFTWARE\Microsoft\Updates\Windows XP Version 2003\SP%SERVICE_PACK_NUMBER%\%SP_SHORT_TITLE%
+    HKLM,SOFTWARE\Microsoft\Updates\Windows Server 2003\SP%SERVICE_PACK_NUMBER%\%SP_SHORT_TITLE%
+    HKLM,SOFTWARE\Microsoft\Updates\Windows XP\SP%SERVICE_PACK_NUMBER%\%SP_SHORT_TITLE%
+    HKLM,SOFTWARE\Microsoft\Updates\Windows XP Version 2003\SP%SERVICE_PACK_NUMBER%\%SP_SHORT_TITLE%
 
 [Add.Reg.Uninstall]
 
