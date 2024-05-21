@@ -496,7 +496,26 @@
     ;TaskBar Communication key required by visual studio 2012+
     HKCR,"CLSID\{56FDF344-FD6D-11d0-958A-006097C9A090}",,0x0,"Task Bar Communication"
     HKCR,"CLSID\{56FDF344-FD6D-11d0-958A-006097C9A090}\InProcServer32",,0x20000,"%%SystemRoot%%\system32\explorerframe.dll"
-    HKCR,"CLSID\{56FDF344-FD6D-11d0-958A-006097C9A090}\InProcServer32","ThreadingModel",0x0,"Apartment"    
+    HKCR,"CLSID\{56FDF344-FD6D-11d0-958A-006097C9A090}\InProcServer32","ThreadingModel",0x0,"Apartment"   
+
+	;TLS 1.1 and 1.2
+    HKLM,"SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client","DisabledByDefault",0x10001,00,00,00,00
+    HKLM,"SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server","DisabledByDefault",0x10001,00,00,00,00
+    HKLM,"SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client","DisabledByDefault",0x10001,00,00,00,00
+    HKLM,"SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server","DisabledByDefault",0x10001,00,00,00,00
+    HKLM,"SOFTWARE\Microsoft\Internet Explorer\AdvancedOptions\CRYPTO\TLS1.1","OSVersion",0x0,"3.5.1.0.0"
+    HKLM,"SOFTWARE\Microsoft\Internet Explorer\AdvancedOptions\CRYPTO\TLS1.2","OSVersion",0x0,"3.5.1.0.0"
+    HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp","DefaultSecureProtocols",0x10001,80,0a,00,00
+    HKLM,"SOFTWARE\Cert_Updater","SST_Download_URL",0x0,"http://wsus.ds.download.windowsupdate.com/msdownload/update/v3/static/trustedr/en"
+    HKLM,"SOFTWARE\Cert_Updater","SST_Download_URL_D1",0x0,"http://ds.download.windowsupdate.com/msdownload/update/v3/static/trustedr/en"
+
+    ;SHA256 support
+    HKLM,"SOFTWARE\Microsoft\Cryptography\Defaults\Provider\Microsoft Enhanced RSA and AES Cryptographic Provider","Image Path",0x0,"%%SystemRoot%%\system32\rsaenh.dll"
+    HKLM,"SOFTWARE\Microsoft\Cryptography\Defaults\Provider\Microsoft Enhanced RSA and AES Cryptographic Provider","Type",0x10001,18,00,00,00
+    HKLM,"SOFTWARE\Microsoft\Cryptography\Defaults\Provider\Microsoft Enhanced RSA and AES Cryptographic Provider","SigInFile",0x10001,00,00,00,00
+
+	;Disabling Hardware Acceleration for solve PowerShell with BlackScreen
+	HKCU,"SOFTWARE\Microsoft\Avalon.Graphics","DisableHWAcceleration",0x10001,01,00,00,00	
     
 [ProductInstall.ReplaceFilesIfExist]
     CopyFiles=System32.files

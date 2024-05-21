@@ -95,10 +95,12 @@
     d3d10core.dll
     d3d11.dll
     ;d3d12.dll
-    dwrite.dll,XPSP3\xpspdwrite.dll
+    dwrite.dll
     dxdiag.exe
     dxdiagn.dll    
     dxgi.dll
+    D3DCompiler_39.dll    
+    D3DCompiler_43.dll    
     D3DCompiler_47.dll    
     wined3d.dll
     wineft2.dll
@@ -120,6 +122,8 @@
     dxdiag.exe = 1
     dxdiagn.dll = 1        
     dxgi.dll = 1
+    D3DCompiler_39.dll = 1
+    D3DCompiler_43.dll = 1
     D3DCompiler_47.dll = 1
     wined3d.dll = 1
     wineft2.dll = 1
