@@ -88,6 +88,8 @@
     d3d10core.dll,amd64/d3d10core.dll
     d3d11.dll,amd64/d3d11.dll
     ;d3d12.dll,amd64/d3d12.dll
+    d3dcompiler_39.dll,amd64/d3dcompiler_39.dll
+    d3dcompiler_43.dll,amd64/d3dcompiler_43.dll
     d3dcompiler_47.dll,amd64/d3dcompiler_47.dll
     dwrite.dll,amd64/dwrite.dll
     dxdiag.exe,amd64/dxdiag.exe
@@ -106,6 +108,8 @@
     d3d10core.dll,i386/wd3d10core.dll
     d3d11.dll,i386/wd3d11.dll
     d3d12.dll,i386/wd3d12.dll
+    d3dcompiler_39.dll,i386/wd3dcompiler_39.dll
+    d3dcompiler_43.dll,i386/wd3dcompiler_43.dll
     d3dcompiler_47.dll,i386/wd3dcompiler_47.dll
     dwrite.dll,i386/wdwrite.dll
     dxdiag.exe,i386/wdxdiag.exe
@@ -127,6 +131,8 @@
     amd64/d3d10core.dll = 1
     amd64/d3d11.dll = 1
     ;amd64/d3d12.dll = 1
+    amd64/d3dcompiler_39.dll = 1
+    amd64/d3dcompiler_43.dll = 1
     amd64/d3dcompiler_47.dll = 1
     amd64/dwrite.dll = 1
     amd64/dwrite.dll = 1

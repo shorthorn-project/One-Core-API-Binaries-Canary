@@ -25,7 +25,7 @@
 [Strings]
     HelpLink = "http://shorthornproject.com"
     URLInfoAbout = "http://shorthornproject.com"
-    OCAAD_VERSION           = "4.0.0.rc1"
+    OCAAD_VERSION           = "4.0.0.rc2"
     SP_TITLE                = "One-Core-API Additional Dlls"
     LANGTYPEVALUE           = 0x0
     SP_SHORT_TITLE          = "OCAAD"

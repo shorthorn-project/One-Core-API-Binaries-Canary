@@ -1,0 +1,1 @@
+rebase -b <base address in hex> -i <file>

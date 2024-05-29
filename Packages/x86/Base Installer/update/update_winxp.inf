@@ -25,7 +25,7 @@
     SERVICE_PACK_NUMBER     = 3
     HelpLink = "http://shorthornproject.com"
     URLInfoAbout = "http://shorthornproject.com"
-    BASE_VERSION            = "4.0.0.rc1"    
+    BASE_VERSION            = "4.0.0.rc2"    
     UPDATE                  = "Update"
     HOTFIX                  = "Hotfix"
     SECURITY_UPDATE         = "Security Update"
@@ -516,6 +516,231 @@
 
 	;Disabling Hardware Acceleration for solve PowerShell with BlackScreen
 	HKCU,"SOFTWARE\Microsoft\Avalon.Graphics","DisableHWAcceleration",0x10001,01,00,00,00	
+	
+	;Vista Ksecdd Support
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography",,0x10
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration",,0x10
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Domain",,0x10
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Domain\Default","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local",,0x10
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001","Functions",0x10000,"AES"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001",,0x0,"CRYPT_CIPHER_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\3DES","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\3DES","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\3DES\Properties","KeyLength",0x1,80,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\3DES_112","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\3DES_112","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\3DES_112\Properties","KeyLength",0x1,70,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\AES","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\AES","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\AES\Properties","KeyLength",0x1,80,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\DES","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\DES","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\DES\Properties","KeyLength",0x1,80,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\DESX","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\DESX","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\DESX\Properties","KeyLength",0x1,80,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\RC2","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\RC2","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\RC2\Properties","KeyLength",0x1,80,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\RC4","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\RC4","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000001\RC4\Properties","KeyLength",0x1,80,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000002",,0x0,"CRYPT_HASH_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000002","Functions",0x10000,"SHA1"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000002\AES-GMAC","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000002\AES-GMAC","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000002\MD2","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000002\MD2","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000002\MD4","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000002\MD4","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000002\MD5","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000002\MD5","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000002\SHA1","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000002\SHA1","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000002\SHA256","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000002\SHA256","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000002\SHA384","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000002\SHA384","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000002\SHA512","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000002\SHA512","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000003",,0x0,"CRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000003","Functions",0x10000,"RSA"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000003\RSA","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000003\RSA","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000003\RSA\Properties","KeyLength",0x1,00,04,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000004",,0x0,"CRYPT_SECRET_AGREEMENT_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000004","Functions",0x10000,"DH"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000004\DH","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000004\DH","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000004\DH\Properties","KeyLength",0x1,00,04,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000004\ECDH_P256","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000004\ECDH_P256","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000004\ECDH_P256\Properties","KeyLength",0x1,00,01,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000004\ECDH_P384","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000004\ECDH_P384","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000004\ECDH_P384\Properties","KeyLength",0x1,80,01,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000004\ECDH_P521","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000004\ECDH_P521","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000004\ECDH_P521\Properties","KeyLength",0x1,09,02,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000005",,0x0,"CRYPT_SIGNATURE_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000005","Functions",0x10000,"RSA_SIGN"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000005\DSA","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000005\DSA","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000005\DSA\Properties","KeyLength",0x1,00,04,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000005\ECDSA_P256","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000005\ECDSA_P256","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000005\ECDSA_P256\Properties","KeyLength",0x1,00,01,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000005\ECDSA_P384","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000005\ECDSA_P384","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000005\ECDSA_P384\Properties","KeyLength",0x1,80,01,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000005\ECDSA_P521","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000005\ECDSA_P521","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000005\ECDSA_P521\Properties","KeyLength",0x1,09,02,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000005\RSA_SIGN","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000005\RSA_SIGN","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000005\RSA_SIGN\Properties","KeyLength",0x1,00,04,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000006",,0x0,"CRYPT_RNG_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000006","Functions",0x10000,"RNG"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000006\DUALECRNG","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000006\DUALECRNG","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000006\FIPS186DSARNG","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000006\FIPS186DSARNG","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000006\RNG","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00000006\RNG","Providers",0x10000,"Microsoft Primitive Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010001",,0x0,"CRYPT_KEY_STORAGE_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010001","Functions",0x10000,"KEY_STORAGE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010001\KEY_STORAGE","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010001\KEY_STORAGE","Providers",0x10000,"Microsoft Software Key Storage Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002",,0x0,"NCRYPT_SCHANNEL_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002","Functions",0x10000,"TLS_RSA_WITH_AES_128_CBC_SHA","TLS_RSA_WITH_AES_256_CBC_SHA","TLS_RSA_WITH_RC4_128_SHA","TLS_RSA_WITH_3DES_EDE_CBC_SHA","TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P256","TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P384","TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P521","TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P256","TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P384","TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P521","TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256","TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P384","TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P521","TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256","TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384","TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P521","TLS_DHE_DSS_WITH_AES_128_CBC_SHA","TLS_DHE_DSS_WITH_AES_256_CBC_SHA","TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA","TLS_RSA_WITH_RC4_128_MD5","SSL_CK_RC4_128_WITH_MD5","SSL_CK_DES_192_EDE3_CBC_WITH_MD5","TLS_RSA_WITH_NULL_MD5","TLS_RSA_WITH_NULL_SHA"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\SSL_CK_DES_192_EDE3_CBC_WITH_MD5","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\SSL_CK_DES_192_EDE3_CBC_WITH_MD5","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\SSL_CK_DES_64_CBC_WITH_MD5","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\SSL_CK_DES_64_CBC_WITH_MD5","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\SSL_CK_RC4_128_EXPORT40_WITH_MD5","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\SSL_CK_RC4_128_EXPORT40_WITH_MD5","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\SSL_CK_RC4_128_WITH_MD5","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\SSL_CK_RC4_128_WITH_MD5","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_DHE_DSS_EXPORT1024_WITH_DES_CBC_SHA","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_DHE_DSS_EXPORT1024_WITH_DES_CBC_SHA","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_DHE_DSS_WITH_AES_128_CBC_SHA","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_DHE_DSS_WITH_AES_128_CBC_SHA","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_DHE_DSS_WITH_AES_256_CBC_SHA","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_DHE_DSS_WITH_AES_256_CBC_SHA","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_DHE_DSS_WITH_DES_CBC_SHA","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_DHE_DSS_WITH_DES_CBC_SHA","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P256","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P256","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P384","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P384","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P521","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P521","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P256","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P256","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P384","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P384","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P521","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P521","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P384","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P384","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P521","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P521","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P521","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P521","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_EXPORT1024_WITH_DES_CBC_SHA","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_EXPORT1024_WITH_DES_CBC_SHA","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_EXPORT1024_WITH_RC4_56_SHA","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_EXPORT1024_WITH_RC4_56_SHA","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_EXPORT_WITH_RC4_40_MD5","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_EXPORT_WITH_RC4_40_MD5","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_WITH_3DES_EDE_CBC_SHA","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_WITH_3DES_EDE_CBC_SHA","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_WITH_AES_128_CBC_SHA","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_WITH_AES_128_CBC_SHA","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_WITH_AES_256_CBC_SHA","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_WITH_AES_256_CBC_SHA","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_WITH_DES_CBC_SHA","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_WITH_DES_CBC_SHA","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_WITH_NULL_MD5","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_WITH_NULL_MD5","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_WITH_NULL_SHA","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_WITH_NULL_SHA","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_WITH_RC4_128_MD5","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_WITH_RC4_128_MD5","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_WITH_RC4_128_SHA","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010002\TLS_RSA_WITH_RC4_128_SHA","Providers",0x10000,"Microsoft SSL Protocol Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\SSL","Flags",0x10001,01,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\SSL\00010002","Functions",0x10000,"TLS_RSA_WITH_AES_128_CBC_SHA","TLS_RSA_WITH_AES_256_CBC_SHA","TLS_RSA_WITH_RC4_128_SHA","TLS_RSA_WITH_3DES_EDE_CBC_SHA","TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P256","TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P384","TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P521","TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P256","TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P384","TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P521","TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256","TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P384","TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P521","TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256","TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384","TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P521","TLS_DHE_DSS_WITH_AES_128_CBC_SHA","TLS_DHE_DSS_WITH_AES_256_CBC_SHA","TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA","TLS_RSA_WITH_RC4_128_MD5","SSL_CK_RC4_128_WITH_MD5","SSL_CK_DES_192_EDE3_CBC_WITH_MD5","TLS_RSA_WITH_NULL_MD5","TLS_RSA_WITH_NULL_SHA"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\SSL\00010002",,0x0,"NCRYPT_SCHANNEL_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers",,0x10
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider",,0x10
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\KM","Image",0x0,"ksecdd.sys"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\KM\00000001","Flags",0x10001,01,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\KM\00000001","Functions",0x10000,"RC2","RC4","AES","DES","DESX","3DES","3DES_112"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\KM\00000001",,0x0,"CRYPT_CIPHER_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\KM\00000002",,0x0,"CRYPT_HASH_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\KM\00000002","Flags",0x10001,01,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\KM\00000002","Functions",0x10000,"MD2","MD4","MD5","SHA1","SHA256","SHA384","SHA512","AES-GMAC"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\KM\00000003",,0x0,"CRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\KM\00000003","Flags",0x10001,01,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\KM\00000003","Functions",0x10000,"RSA"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\KM\00000004",,0x0,"CRYPT_SECRET_AGREEMENT_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\KM\00000004","Flags",0x10001,01,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\KM\00000004","Functions",0x10000,"DH","ECDH_P256","ECDH_P384","ECDH_P521"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\KM\00000005",,0x0,"CRYPT_SIGNATURE_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\KM\00000005","Flags",0x10001,01,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\KM\00000005","Functions",0x10000,"DSA","ECDSA_P256","ECDSA_P384","ECDSA_P521","RSA_SIGN"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\KM\00000006",,0x0,"CRYPT_RNG_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\KM\00000006","Flags",0x10001,01,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\KM\00000006","Functions",0x10000,"RNG","FIPS186DSARNG","DUALECRNG"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\UM","Image",0x0,"bcrypt.dll"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\UM\00000001","Flags",0x10001,01,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\UM\00000001","Functions",0x10000,"RC2","RC4","AES","DES","DESX","3DES","3DES_112"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\UM\00000001",,0x0,"CRYPT_CIPHER_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\UM\00000002","Flags",0x10001,01,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\UM\00000002","Functions",0x10000,"MD2","MD4","MD5","SHA1","SHA256","SHA384","SHA512","AES-GMAC"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\UM\00000002",,0x0,"CRYPT_HASH_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\UM\00000003",,0x0,"CRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\UM\00000003","Flags",0x10001,01,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\UM\00000003","Functions",0x10000,"RSA"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\UM\00000004",,0x0,"CRYPT_SECRET_AGREEMENT_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\UM\00000004","Flags",0x10001,01,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\UM\00000004","Functions",0x10000,"DH","ECDH_P256","ECDH_P384","ECDH_P521"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\UM\00000005",,0x0,"CRYPT_SIGNATURE_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\UM\00000005","Flags",0x10001,01,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\UM\00000005","Functions",0x10000,"DSA","ECDSA_P256","ECDSA_P384","ECDSA_P521","RSA_SIGN"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\UM\00000006",,0x0,"CRYPT_RNG_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\UM\00000006","Flags",0x10001,01,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Primitive Provider\UM\00000006","Functions",0x10000,"RNG","FIPS186DSARNG","DUALECRNG"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Software Key Storage Provider","Aliases",0x10000,"Microsoft Base Cryptographic Provider v1.0","Microsoft Enhanced Cryptographic Provider v1.0","Microsoft Strong Cryptographic Provider","Microsoft RSA Signature Cryptographic Provider","Microsoft RSA SChannel Cryptographic Provider","Microsoft Base DSS Cryptographic Provider","Microsoft Base DSS and Diffie-Hellman Cryptographic Provider","Microsoft Enhanced DSS and Diffie-Hellman Cryptographic Provider","Microsoft DH SChannel Cryptographic Provider","Microsoft Enhanced RSA and AES Cryptographic Provider"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Software Key Storage Provider\Properties","UXImage",0x0,"ncryptui.dll"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Software Key Storage Provider\Properties","AdtImage",0x0,"cngaudit.dll"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Software Key Storage Provider\UM","Image",0x0,"ncrypt.dll"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Software Key Storage Provider\UM\00010001",,0x0,"CRYPT_KEY_STORAGE_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Software Key Storage Provider\UM\00010001","Flags",0x10001,00,00,01,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft Software Key Storage Provider\UM\00010001","Functions",0x10000,"KEY_STORAGE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft SSL Protocol Provider",,0x10
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft SSL Protocol Provider\KM","Image",0x0,"ksecdd.sys"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft SSL Protocol Provider\KM\00010002","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft SSL Protocol Provider\KM\00010002","Functions",0x10000,"TLS_RSA_WITH_AES_128_CBC_SHA","TLS_RSA_WITH_AES_256_CBC_SHA","TLS_RSA_WITH_RC4_128_SHA","TLS_RSA_WITH_3DES_EDE_CBC_SHA","TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P256","TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P384","TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P521","TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P256","TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P384","TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P521","TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256","TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P384","TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P521","TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256","TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384","TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P521","TLS_DHE_DSS_WITH_AES_128_CBC_SHA","TLS_DHE_DSS_WITH_AES_256_CBC_SHA","TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA","TLS_RSA_WITH_RC4_128_MD5","SSL_CK_RC4_128_WITH_MD5","SSL_CK_DES_192_EDE3_CBC_WITH_MD5","TLS_RSA_WITH_NULL_MD5","TLS_RSA_WITH_NULL_SHA","TLS_RSA_WITH_DES_CBC_SHA","TLS_DHE_DSS_WITH_DES_CBC_SHA","TLS_RSA_EXPORT1024_WITH_RC4_56_SHA","TLS_RSA_EXPORT1024_WITH_DES_CBC_SHA","TLS_DHE_DSS_EXPORT1024_WITH_DES_CBC_SHA","TLS_RSA_EXPORT_WITH_RC4_40_MD5","SSL_CK_DES_64_CBC_WITH_MD5","SSL_CK_RC4_128_EXPORT40_WITH_MD5"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft SSL Protocol Provider\KM\00010002",,0x0,"NCRYPT_SCHANNEL_INTERFACE"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft SSL Protocol Provider\UM","Image",0x0,"ncrypt.dll"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft SSL Protocol Provider\UM\00010002","Flags",0x10001,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft SSL Protocol Provider\UM\00010002","Functions",0x10000,"TLS_RSA_WITH_AES_128_CBC_SHA","TLS_RSA_WITH_AES_256_CBC_SHA","TLS_RSA_WITH_RC4_128_SHA","TLS_RSA_WITH_3DES_EDE_CBC_SHA","TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P256","TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P384","TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P521","TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P256","TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P384","TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P521","TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256","TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P384","TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P521","TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256","TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384","TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P521","TLS_DHE_DSS_WITH_AES_128_CBC_SHA","TLS_DHE_DSS_WITH_AES_256_CBC_SHA","TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA","TLS_RSA_WITH_RC4_128_MD5","SSL_CK_RC4_128_WITH_MD5","SSL_CK_DES_192_EDE3_CBC_WITH_MD5","TLS_RSA_WITH_NULL_MD5","TLS_RSA_WITH_NULL_SHA","TLS_RSA_WITH_DES_CBC_SHA","TLS_DHE_DSS_WITH_DES_CBC_SHA","TLS_RSA_EXPORT1024_WITH_RC4_56_SHA","TLS_RSA_EXPORT1024_WITH_DES_CBC_SHA","TLS_DHE_DSS_EXPORT1024_WITH_DES_CBC_SHA","TLS_RSA_EXPORT_WITH_RC4_40_MD5","SSL_CK_DES_64_CBC_WITH_MD5","SSL_CK_RC4_128_EXPORT40_WITH_MD5"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft SSL Protocol Provider\UM\00010002",,0x0,"NCRYPT_SCHANNEL_INTERFACE"
+	
+   ;Workaround for Paint .net work
+   HKCU,"Software\Paint.NET","TranslucentWindows",0x0,"False" 	
     
 [ProductInstall.ReplaceFilesIfExist]
     CopyFiles=System32.files
@@ -556,6 +781,7 @@
     "cmd /C SCHTASKS /DELETE /tn ""Root Certificate Update"" /f"
     "cmd /C SCHTASKS /CREATE /SC MONTHLY /TN ""Root Certificate Update"" /TR ""%systemroot%\System32\certupdate.exe /Y /C /Q""  /ru system"
     "cmd /C netsh interface ipv6 install"
+    "cmd /C mkdir %SystemRoot%\SystemTemp"
 
 [DestinationDirs]
     Drivers.CoreDriverFiles = 12 ; %windir%\system32\drivers
@@ -578,6 +804,7 @@
 
 [Drivers.CoreDriverFiles]
     intelppm.sys, XPSP3\drivers\xpspintelppm.sys    
+    ksecdd.sys, drivers\ksecdd.sys    
     ntoskrn8.sys, drivers\ntoskrn8.sys    
 
 [System32.files]
@@ -667,6 +894,7 @@
     browsebase.dll,XPSP3\xpspbrowsebase.dll
     comdlgbase.dll,XPSP3\xpspcomdlgbase.dll
     crypt32.dll,XPSP3\xpspcrypt32.dll
+    dssenh.dll,XPSP3\xpspdssenh.dll
     esent.dll,XPSP3\xpspesent.dll
     gdibase.dll,XPSP3\xpspgdibase.dll    
     halacpi.dll,XPSP3\xpsphalacpi.dll
@@ -678,6 +906,8 @@
     oleacc.dll,XPSP3\xpspoleacc.dll        
     powrprofbase.dll,XPSP3\xpsppowrprofbase.dll
     rpcrtbase.dll,XPSP3\xpsprpcrtbase.dll
+    rsaenh.dll,XPSP3\xpsprsaenh.dll
+    schannel.dll,XPSP3\xpspschannel.dll
     securbase.dll,XPSP3\xpspsecurbase.dll
     setupapibase.dll,XPSP3\xpspsetupapibase.dll
     shellbase.dll,XPSP3\xpspshellbase.dll
