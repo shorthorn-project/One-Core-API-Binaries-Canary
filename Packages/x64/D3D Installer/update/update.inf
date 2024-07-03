@@ -25,7 +25,7 @@
 [Strings]
     HelpLink                 = "http://shorthornproject.com"
     URLInfoAbout             = "http://shorthornproject.com"
-    D3DR_VERSION            = "4.0.0"
+    D3DR_VERSION            = "4.0.0.rc3"
     SP_TITLE                = "One-Core-API D3D Runtime"
     LANGTYPEVALUE           = 0x0
     SP_SHORT_TITLE          = "OCAD3DR"
@@ -87,7 +87,8 @@
     d3d10_1.dll,amd64/d3d10_1.dll
     d3d10core.dll,amd64/d3d10core.dll
     d3d11.dll,amd64/d3d11.dll
-    ;d3d12.dll,amd64/d3d12.dll
+    d3d12.dll,amd64/d3d12.dll
+    d3d12core.dll,amd64/d3d12core.dll
     d3dcompiler_39.dll,amd64/d3dcompiler_39.dll
     d3dcompiler_43.dll,amd64/d3dcompiler_43.dll
     d3dcompiler_47.dll,amd64/d3dcompiler_47.dll
@@ -108,6 +109,7 @@
     d3d10core.dll,i386/wd3d10core.dll
     d3d11.dll,i386/wd3d11.dll
     d3d12.dll,i386/wd3d12.dll
+    d3d12core.dll,i386/wd3d12core.dll
     d3dcompiler_39.dll,i386/wd3dcompiler_39.dll
     d3dcompiler_43.dll,i386/wd3dcompiler_43.dll
     d3dcompiler_47.dll,i386/wd3dcompiler_47.dll

@@ -26,7 +26,7 @@
     SERVICE_PACK_NUMBER     = 2
     HelpLink = "http://shorthornproject.com"
     URLInfoAbout = "http://shorthornproject.com"
-    BASE_VERSION            = "4.0.0.rc2"    
+    BASE_VERSION            = "4.0.0.rc3"    
     UPDATE                  = "Update"
     HOTFIX                  = "Hotfix"
     SECURITY_UPDATE         = "Security Update"
@@ -458,6 +458,7 @@
     ;Special key to bypass palemon and some others application startup error
     HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","API-MS-WIN-CORE-MEMORY-L1-1-0",0x0,"API-MS-WIN-CORE-MEMORY-L1-1-0.DLL"
     HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","API-MS-WIN-CORE-SYNCH-L1-2-0",0x0,"API-MS-WIN-CORE-SYNCH-L1-2-0.DLL"
+    HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","progwrp",0x0,"progwrp.dll"
 
     ;key to prevent .net framework 4.5+ installation error when Windows XP is without any previous .net Framework installed
     ;HKLM,"Software\Microsoft\.NETFramework","InstallRoot",0x0,"%SystemRoot%\Microsoft.NET\Framework\" ;Commented for now, because .net Framework not allow %SystemRoot% to get "C:\Windows"
@@ -742,7 +743,15 @@
 	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft SSL Protocol Provider\UM\00010002",,0x0,"NCRYPT_SCHANNEL_INTERFACE"
 
    ;Workaround for Paint .net work
-   HKCU,"Software\Paint.NET","TranslucentWindows",0x0,"False"   
+   HKCU,"Software\Paint.NET","TranslucentWindows",0x0,"False"
+
+   ;WinRT key for CLSID dlls
+   HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId",,0x10 
+   HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","ActivationType",0x10001,00,00,00,00
+   HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","CLSID",0x0,"{f1f065d1-063a-3d94-bcef-0cfcc580817e}"
+   HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","DllPath",0x0,"C:\Windows\System32\Windows.UI.dll"
+   HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","Threading",0x10001,00,00,00,00
+   HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","TrustLevel",0x10001,00,00,00,00 
     
 [ProductInstall.ReplaceFilesIfExist]
     CopyFiles=System32.files
@@ -755,6 +764,7 @@
     CopyFiles                  = CopyAlways.System32.files
     CopyFiles                  = CopyAlways.System32.APISET.Files
     CopyFiles                  = CopyAlways.System32.Mui.0409.files
+	CopyFiles                  = CopyAlways.WinRT.files
     CopyFiles                  = CopyAlways.WinSxS.Main.files
     CopyFiles                  = CopyAlways.WinSxS.Manifests.files
     CopyFiles                  = CopyAlways.WinSxS.Policies.files
@@ -774,15 +784,22 @@
     CopyFiles=Multiprocessor.Kernel.files    
 
 [ProcessesToRun]
+    "regsvr32.exe /s msi.dll"
     "regsvr32.exe /s propsys.dll"
     "updatehal.exe"
     
 [ProcessesToRunAfterCopying]
     "certupdate.exe" /Y /C /Q
     "cmd /C SCHTASKS /DELETE /tn ""Root Certificate Update"" /f"
-    "cmd /C SCHTASKS /CREATE /SC MONTHLY /TN ""Root Certificate Update"" /TR ""C:\Windows\System32\certupdate.exe /Y /C /Q""  /ru system"
+    "cmd /C SCHTASKS /CREATE /SC MONTHLY /TN ""Root Certificate Update"" /TR ""%systemroot%\System32\certupdate.exe /Y /C /Q""  /ru system"
     "cmd /C netsh interface ipv6 install"
     "cmd /C mkdir %SystemRoot%\SystemTemp"
+    "cmd /C mkdir %SystemDrive%\ProgramData"
+    "cmd /C attrib +h %SystemDrive%\ProgramData /s /d"
+    "cmd /C setx MOZ_DISABLE_CONTENT_SANDBOX 1"
+    "cmd /C setx COMPLUS_EnableWriteXorExecute 0"	
+    "cmd /C setx _JAVA_OPTIONS -Djava.net.preferIPv4Stack=true"	
+    "cmd /C setx NODE_SKIP_PLATFORM_CHECK 1"
 
 [DestinationDirs]
     Drivers.CoreDriverFiles = 12 ; %windir%\system32\drivers
@@ -790,6 +807,7 @@
     CopyAlways.System32.files=11  ; %windir%\system32 (don't delay until reboot)
     CopyAlways.System32.APISET.Files=11  ; %windir%\system32 (don't delay until reboot)
     CopyAlways.System32.Mui.0409.files=11  ; %windir%\system32 (don't delay until reboot)
+	CopyAlways.WinRT.files = 11 ; %windir%
     CopyAlways.WinSxS.Main.files = 10 ; %windir%
     CopyAlways.WinSxS.Manifests.files = 10 ; %windir%
     CopyAlways.WinSxS.Policies.files = 10 ; %windir%
@@ -868,26 +886,28 @@
 [MustReplace.WinSxS.Main.files]    
     WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.3790.5190_x-ww_319264BE\comctl32.dll, WinSxS\winsrv2k3\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.3790.5190_x-ww_319264BE\comctl32.dll
     WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.3790.4929_x-ww_00269083\winhttp.dll, WinSxS\winsrv2k3\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.3790.4929_x-ww_00269083\winhttp.dll
-    WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24180_x-ww_22f8358c\gdiplus.dll    
+    WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.3790.3959_x-ww_8251BDDE\gdiplus.dll    
+    WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_22782591\gdiplus.dll    
     
 [CopyAlways.WinSxS.Main.files]    
     WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.3790.5190_x-ww_319264BE\comctl32.dll, WinSxS\winsrv2k3\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.3790.5190_x-ww_319264BE\comctl32.dll
     WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.3790.4929_x-ww_00269083\winhttp.dll, WinSxS\winsrv2k3\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.3790.4929_x-ww_00269083\winhttp.dll
-    WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24180_x-ww_22f8358c\gdiplus.dll
+    WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.3790.3959_x-ww_8251BDDE\gdiplus.dll
+    WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_22782591\gdiplus.dll
     
 [CopyAlways.WinSxS.Manifests.files]    
     "WinSxS\manifests\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.3790.5190_x-ww_319264BE.cat"
     "WinSxS\manifests\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.3790.5190_x-ww_319264BE.manifest"
-    "WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24180_x-ww_22f8358c.cat"
-    "WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24180_x-ww_22f8358c.manifest"
+    "WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_22782591.cat"
+    "WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_22782591.manifest"
     "WinSxS\manifests\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.3790.4929_x-ww_00269083.cat"
     "WinSxS\manifests\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.3790.4929_x-ww_00269083.manifest"
     
 [CopyAlways.WinSxS.Policies.files]
     "WinSxS\Policies\x86_policy.6.0.Microsoft.Windows.Common-Controls_6595b64144ccf1df_x-ww_5DDAD775\6.0.3790.5190.policy"
     "WinSxS\Policies\x86_policy.6.0.Microsoft.Windows.Common-Controls_6595b64144ccf1df_x-ww_5DDAD775\6.0.3790.5190.cat"    
-    "WinSxS\Policies\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4E8510AC\1.0.6002.24180.cat"
-    "WinSxS\Policies\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4E8510AC\1.0.6002.24180.policy"
+    "WinSxS\Policies\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4E8510AC\1.0.6003.20617.cat"
+    "WinSxS\Policies\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4E8510AC\1.0.6003.20617.policy"
     "WinSxS\Policies\x86_policy.5.1.Microsoft.Windows.WinHTTP_6595b64144ccf1df_x-ww_7D68AE49\5.1.3790.4929.cat"
     "WinSxS\Policies\x86_policy.5.1.Microsoft.Windows.WinHTTP_6595b64144ccf1df_x-ww_7D68AE49\5.1.3790.4929.policy"
     
@@ -898,6 +918,7 @@
     browsebase.dll,2k3SP2\srvbrowsebase.dll
     comdlgbase.dll,2k3SP2\srvcomdlgbase.dll
     crypt32.dll,2k3SP2\srvcrypt32.dll
+    dnsapi.dll,2k3SP2\srvdnsapi.dll
     dssenh.dll,2k3SP2\srvdssenh.dll
     esent.dll,2k3SP2\srvesent.dll
     gdibase.dll,2k3SP2\srvgdibase.dll    
@@ -924,6 +945,7 @@
     winhttpbase.dll, 2k3SP2\srvwinhttpbase.dll
     winsrv.dll, 2k3SP2\srvwinsrv.dll
     winstabase.dll, 2k3SP2\srvwinstabase.dll
+    wintrust.dll,2k3SP2\srvwintrust.dll
     ws2_base.dll,2k3SP2\srvws2_base.dll
     xpsp2res.dll,2k3SP2\srvxpsp2res.dll
     advapi32.dll    
@@ -938,6 +960,7 @@
     cryptnew.dll
     d3dkmt.dll
     devcon.exe    
+    dnsapiext.dll    
     esentbase.dll    
     fileextd.dll
     fntcache.dll    
@@ -962,11 +985,13 @@
     pdh.dll
     pdhbase.dll
     powrprof.dll
+    progwrp.dll   
     propsys.dll    
     psapi.dll    
     rpcrt4.dll    
     secur32.dll
     setupapi.dll
+    setx.exe
     shell32.dll
     shlwapi.dll
     sspicli.dll
@@ -981,6 +1006,31 @@
     winsta.dll
     winstanew.dll
     ws2_32.dll
+	
+[CopyAlways.WinRT.Files]
+    cryptowinrt.dll,winrt\cryptowinrt.dll
+    threadpoolwinrt.dll,winrt\threadpoolwinrt.dll
+    twinapi.appcore.dll,winrt\twinapi.appcore.dll
+    windows.applicationmodel.dll,winrt\windows.applicationmodel.dll
+    windows.devices.bluetooth.dll,winrt\windows.devices.bluetooth.dll
+    windows.devices.enumeration.dll,winrt\windows.devices.enumeration.dll
+    windows.devices.usb.dll,winrt\windows.devices.usb.dll
+    windows.gaming.input.dll,winrt\windows.gaming.input.dll
+    windows.gaming.ui.gamebar.dll,winrt\windows.gaming.ui.gamebar.dll
+    windows.globalization.dll,winrt\windows.globalization.dll
+    windows.media.devices.dll,winrt\windows.media.devices.dll
+    windows.media.dll,winrt\windows.media.dll
+    windows.media.mediacontrol.dll,winrt\windows.media.mediacontrol.dll
+    windows.media.speech.dll,winrt\windows.media.speech.dll
+    windows.networking.dll,winrt\windows.networking.dll
+    windows.networking.hostname.dll,winrt\windows.networking.hostname.dll
+    windows.perception.stub.dll,winrt\windows.perception.stub.dll
+    windows.security.authentication.onlineid.dll,winrt\windows.security.authentication.onlineid.dll
+    windows.security.credentials.ui.userconsentverifier.dll,winrt\windows.security.credentials.ui.userconsentverifier.dll
+    windows.storage.applicationdata.dll,winrt\windows.storage.applicationdata.dll
+    windows.system.profile.systemmanufacturers.dll,winrt\windows.system.profile.systemmanufacturers.dll
+    windows.ui.ui.userconsentverifier.dll,winrt\windows.ui.dll
+    wintypes.dll,winrt\wintypes.dll	
     
 [CopyAlways.System32.APISET.Files]    
    API-MS-WIN-APPMODEL-IDENTITY-L1-1-0.dll,api-sets\API-MS-WIN-APPMODEL-IDENTITY-L1-1-0.dll
@@ -1358,12 +1408,14 @@
     pdh.dll = 1
     pdhbase.dll = 1
     powrprof.dll = 1
-    propsys.dll = 1    
+    progwrp.dll = 1  
+    propsys.dll = 1  
     psapi.dll = 1    
     rpcrt4.dll = 1
     secur32.dll = 1
     ;securnew.dll = 1
     setupapi.dll = 1
+    setx.exe = 1
     shell32.dll = 1
     shlwapi.dll = 1
     sspicli.dll = 1
@@ -1386,11 +1438,11 @@
     WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.3790.5190_x-ww_319264BE.manifest = 1
     WinSxS\Policies\x86_policy.6.0.Microsoft.Windows.Common-Controls_6595b64144ccf1df_x-ww_5DDAD775\6.0.3790.5190.policy = 1
     WinSxS\Policies\x86_policy.6.0.Microsoft.Windows.Common-Controls_6595b64144ccf1df_x-ww_5DDAD775\6.0.3790.5190.cat = 1    
-    WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24180_x-ww_22f8358c\gdiplus.dll =1
-    WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24180_x-ww_22f8358c.cat =1
-    WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24180_x-ww_22f8358c.manifest =1
-    WinSxS\polices\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4E8510AC\1.0.6002.24180.cat =1
-    WinSxS\polices\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4E8510AC\1.0.6002.24180.policy =1    
+    WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_22782591\gdiplus.dll =1
+    WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_22782591.cat =1
+    WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_22782591.manifest =1
+    WinSxS\polices\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4E8510AC\1.0.6003.20617.cat =1
+    WinSxS\polices\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4E8510AC\1.0.6003.20617.policy =1    
     
 [UninstallSections]
     GlobalRegistryChanges, GlobalRegistryChanges.UnInstall

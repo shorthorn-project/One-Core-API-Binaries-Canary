@@ -27,7 +27,7 @@
     SERVICE_PACK_NUMBER     = 2
     HelpLink = "http://shorthornproject.com"
     URLInfoAbout = "http://shorthornproject.com"
-    BASE_VERSION            = "4.0.0.rc2"    
+    BASE_VERSION            = "4.0.0.rc3"    
     UPDATE                    = "Update"
     HOTFIX                    = "Hotfix"
     SECURITY_UPDATE           = "Security Update"
@@ -1213,6 +1213,8 @@
 
     ;Special key to bypass palemon and some others application startup error
     HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","API-MS-WIN-CORE-MEMORY-L1-1-0",0x0,"API-MS-WIN-CORE-MEMORY-L1-1-0.DLL"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","API-MS-WIN-CORE-SYNCH-L1-2-0",0x0,"API-MS-WIN-CORE-SYNCH-L1-2-0.DLL"
+    HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","progwrp",0x0,"progwrp.DLL"
 
     ;key to prevent .net framework 4.5+ installation error when Windows XP is without any previous .net Framework installed
     ;HKLM,"Software\Microsoft\.NETFramework","InstallRoot",0x0,"%SystemRoot%\Microsoft.NET\Framework64\"
@@ -1283,6 +1285,10 @@
     HKCR,"CLSID\{56FDF344-FD6D-11d0-958A-006097C9A090}",,0x0,"Task Bar Communication"
     HKCR,"CLSID\{56FDF344-FD6D-11d0-958A-006097C9A090}\InProcServer32",,0x20000,"%%SystemRoot%%\system32\explorerframe.dll"
     HKCR,"CLSID\{56FDF344-FD6D-11d0-958A-006097C9A090}\InProcServer32","ThreadingModel",0x0,"Apartment"
+	
+    HKCR,"SOFTWARE\Wow6432Node\Classes\CLSID\{56FDF344-FD6D-11d0-958A-006097C9A090}",,0x0,"Task Bar Communication"
+    HKCR,"SOFTWARE\Wow6432Node\Classes\CLSID\{56FDF344-FD6D-11d0-958A-006097C9A090}\InProcServer32",,0x20000,"%%SystemRoot%%\system32\explorerframe.dll"
+    HKCR,"SOFTWARE\Wow6432Node\Classes\CLSID\{56FDF344-FD6D-11d0-958A-006097C9A090}\InProcServer32","ThreadingModel",0x0,"Apartment"	
 	
 	;TLS 1.1 and 1.2
     HKLM,"SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client","DisabledByDefault",0x10001,00,00,00,00
@@ -1521,6 +1527,21 @@
 	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft SSL Protocol Provider\UM\00010002","Flags",0x10001,00,00,00,00
 	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft SSL Protocol Provider\UM\00010002","Functions",0x10000,"TLS_RSA_WITH_AES_128_CBC_SHA","TLS_RSA_WITH_AES_256_CBC_SHA","TLS_RSA_WITH_RC4_128_SHA","TLS_RSA_WITH_3DES_EDE_CBC_SHA","TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P256","TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P384","TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P521","TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P256","TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P384","TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P521","TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256","TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P384","TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P521","TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256","TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384","TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P521","TLS_DHE_DSS_WITH_AES_128_CBC_SHA","TLS_DHE_DSS_WITH_AES_256_CBC_SHA","TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA","TLS_RSA_WITH_RC4_128_MD5","SSL_CK_RC4_128_WITH_MD5","SSL_CK_DES_192_EDE3_CBC_WITH_MD5","TLS_RSA_WITH_NULL_MD5","TLS_RSA_WITH_NULL_SHA","TLS_RSA_WITH_DES_CBC_SHA","TLS_DHE_DSS_WITH_DES_CBC_SHA","TLS_RSA_EXPORT1024_WITH_RC4_56_SHA","TLS_RSA_EXPORT1024_WITH_DES_CBC_SHA","TLS_DHE_DSS_EXPORT1024_WITH_DES_CBC_SHA","TLS_RSA_EXPORT_WITH_RC4_40_MD5","SSL_CK_DES_64_CBC_WITH_MD5","SSL_CK_RC4_128_EXPORT40_WITH_MD5"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Microsoft SSL Protocol Provider\UM\00010002",,0x0,"NCRYPT_SCHANNEL_INTERFACE"	
+	
+    ;WinRT key for CLSID dlls
+    HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId",,0x10 
+    HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","ActivationType",0x10001,00,00,00,00
+    HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","CLSID",0x0,"{f1f065d1-063a-3d94-bcef-0cfcc580817e}"
+    HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","DllPath",0x0,"C:\Windows\System32\Windows.UI.dll"
+    HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","Threading",0x10001,00,00,00,00
+    HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","TrustLevel",0x10001,00,00,00,00
+   
+    HKLM,"SOFTWARE\Wow6432Node\Microsoft\WindowsRuntime\ActivatableClassId",,0x10 
+    HKLM,"SOFTWARE\Wow6432Node\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","ActivationType",0x10001,00,00,00,00
+    HKLM,"SOFTWARE\Wow6432Node\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","CLSID",0x0,"{f1f065d1-063a-3d94-bcef-0cfcc580817e}"
+    HKLM,"SOFTWARE\Wow6432Node\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","DllPath",0x0,"C:\Windows\SysWOW64\Windows.UI.dll"
+    HKLM,"SOFTWARE\Wow6432Node\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","Threading",0x10001,00,00,00,00
+    HKLM,"SOFTWARE\Wow6432Node\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","TrustLevel",0x10001,00,00,00,00 	   
 
 [ProductInstall.CopyFilesAlways]
     CopyFiles                  = Drivers.CoreDriverFiles
@@ -1528,6 +1549,8 @@
     CopyFiles                  = CopyAlways.System32.APISET.Files
     CopyFiles                  = CopyAlways.SysWOW64.files
     CopyFiles                  = CopyAlways.SysWOW64.APISET.Files
+    CopyFiles                  = CopyAlways.WinRT.files
+    CopyFiles                  = CopyAlways.WinRT.Wow64.files
     CopyFiles                  = CopyAlways.WinSxS.Main.files
     CopyFiles                  = CopyAlways.WinSxS.Manifests.files
     CopyFiles                  = CopyAlways.WinSxS.Policies.files
@@ -1554,6 +1577,12 @@
     "cmd /C SCHTASKS /CREATE /SC MONTHLY /TN ""Root Certificate Update"" /TR ""%systemroot%\Syswow64\certupdate.exe /Y /C /Q""  /ru system"
     "cmd /C netsh interface ipv6 install"
     "cmd /C mkdir %SystemRoot%\SystemTemp"
+    "cmd /C mkdir %SystemDrive%\ProgramData"
+    "cmd /C attrib +h %SystemDrive%\ProgramData /s /d"
+    "cmd /C setx MOZ_DISABLE_CONTENT_SANDBOX 1"
+    "cmd /C setx COMPLUS_EnableWriteXorExecute 0"	
+    "cmd /C setx _JAVA_OPTIONS -Djava.net.preferIPv4Stack=true"
+    "cmd /C setx NODE_SKIP_PLATFORM_CHECK 1"
     
 [ProductInstall.GlobalRegistryChanges.Install]
     AddReg=Product.Add.Reg
@@ -1567,6 +1596,8 @@
     CopyAlways.System32.APISET.Files=11  ; %windir%\system32 (don't delay until reboot)
     CopyAlways.SysWOW64.files=10,SysWOW64  ; %windir%\SysWOW64 (don't delay until reboot)
     CopyAlways.SysWOW64.APISET.files=10,SysWOW64  ; %windir%\SysWOW64 (don't delay until reboot)
+    CopyAlways.WinRT.files = 11 ; %windir%
+    CopyAlways.WinRT.Wow64.files = 10 ; %windir%
     CopyAlways.WinSxS.Main.files = 10 ; %windir%
     CopyAlways.WinSxS.Manifests.files = 10 ; %windir%
     CopyAlways.WinSxS.Policies.files = 10 ; %windir%
@@ -1602,8 +1633,8 @@
 [MustReplace.WinSxS.Main.files]		
 	"WinSxS\amd64_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.3790.6824_x-ww_958E862F\comctl32.dll"
 	"WinSxS\wow64_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.3790.6824_x-ww_EAB4E148\comctl32.dll"
-	; ; "WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24064_x-ww_22782591\gdiplus.dll"
-	; ; "WinSxS\amd64_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24064_x-ww_54820B71\gdiplus.dll"
+	"WinSxS\amd64_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_738112C4\gdiplus.dll"
+	"WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_41772CE4\gdiplus.dll"	
 	"WinSxS\amd64_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.3790.4929_x-ww_32307663\winhttp.dll"
 	"WinSxS\amd64_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.3790.5888_x-ww_603F391A\winhttp.dll"
 	"WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.3790.4929_x-ww_00269083\winhttp.dll"
@@ -1612,10 +1643,10 @@
 [CopyAlways.WinSxS.Main.files]	
 	"WinSxS\amd64_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.3790.6824_x-ww_958E862F\comctl32.dll"
 	"WinSxS\wow64_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.3790.6824_x-ww_EAB4E148\comctl32.dll"
-	; ; "WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.3790.3959_x-ww_8251BDDE\gdiplus.dll"
-	; ; "WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24064_x-ww_22782591\gdiplus.dll"
-	; ; "WinSxS\amd64_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.3790.3959_x-ww_B45BA3BE\gdiplus.dll"
-	; ; "WinSxS\amd64_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24064_x-ww_54820B71\gdiplus.dll"
+	"WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.3790.3959_x-ww_8251BDDE\gdiplus.dll"
+	"WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_41772CE4\gdiplus.dll"
+	"WinSxS\amd64_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.3790.3959_x-ww_B45BA3BE\gdiplus.dll"
+	"WinSxS\amd64_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_738112C4\gdiplus.dll"
 	"WinSxS\amd64_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.3790.4929_x-ww_32307663\winhttp.dll"
 	"WinSxS\amd64_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.3790.5888_x-ww_603F391A\winhttp.dll"
 	"WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.3790.4929_x-ww_00269083\winhttp.dll"
@@ -1624,12 +1655,12 @@
 [CopyAlways.WinSxS.Manifests.files]	
 	"WinSxS\manifests\amd64_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.3790.6824_x-ww_958E862F.cat"
 	"WinSxS\manifests\amd64_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.3790.6824_x-ww_958E862F.manifest"
-	"WinSxS\manifests\amd64_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24064_x-ww_54820B71.cat"
-	"WinSxS\manifests\amd64_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24064_x-ww_54820B71.manifest"	
+	"WinSxS\manifests\amd64_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_738112C4.cat"
+	"WinSxS\manifests\amd64_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_738112C4.manifest"	
 	"WinSxS\manifests\wow64_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.3790.6824_x-ww_EAB4E148.cat"
 	"WinSxS\manifests\wow64_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.3790.6824_x-ww_EAB4E148.manifest"
-	; ; "WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24064_x-ww_22782591.cat"
-	; ; "WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24064_x-ww_22782591.manifest"	
+	"WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_41772CE4.cat"
+	"WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_41772CE4.manifest"	
 	"WinSxS\manifests\amd64_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.3790.4929_x-ww_32307663.manifest"	
 	;"WinSxS\manifests\amd64_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.3790.5888_x-ww_603F391A.manifest"	
 	"WinSxS\manifests\amd64_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.3790.4929_x-ww_32307663.cat"
@@ -1644,10 +1675,10 @@
 	"WinSxS\Policies\amd64_policy.6.0.Microsoft.Windows.Common-Controls_6595b64144ccf1df_x-ww_BD997995\6.0.3790.6824.cat"	
 	"WinSxS\Policies\wow64_policy.6.0.Microsoft.Windows.Common-Controls_6595b64144ccf1df_x-ww_5C2DC83C\6.0.3790.6824.policy"
 	"WinSxS\Policies\wow64_policy.6.0.Microsoft.Windows.Common-Controls_6595b64144ccf1df_x-ww_5C2DC83C\6.0.3790.6824.cat"	
-	; ; "WinSxS\Policies\amd64_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_AE43B2CC\1.0.6002.24064.cat"
-	; ; "WinSxS\Policies\amd64_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_AE43B2CC\1.0.6002.24064.policy"	
-	; ; "WinSxS\Policies\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4e8510ac\1.0.6002.24064.cat"
-	; ; "WinSxS\Policies\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4e8510ac\1.0.6002.24064.policy"	
+	"WinSxS\Policies\amd64_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_AE43B2CC\5.1.6003.20617.cat"
+	"WinSxS\Policies\amd64_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_AE43B2CC\5.1.6003.20617.policy"	
+	"WinSxS\Policies\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4e8510ac\5.1.6003.20617.cat"
+	"WinSxS\Policies\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4e8510ac\5.1.6003.20617.policy"	
 	"WinSxS\Policies\amd64_policy.5.1.Microsoft.Windows.WinHTTP_6595b64144ccf1df_x-ww_DD275069\5.1.3790.4929.cat"	
 	;"WinSxS\Policies\amd64_policy.5.1.Microsoft.Windows.WinHTTP_6595b64144ccf1df_x-ww_DD275069\5.1.3790.5888.cat"	
 	"WinSxS\Policies\amd64_policy.5.1.Microsoft.Windows.WinHTTP_6595b64144ccf1df_x-ww_DD275069\5.1.3790.4929.policy"
@@ -1663,6 +1694,7 @@
     comdlgbase.dll,XP64SP2/amd64/comdlgbase.dll
     crypt32.dll,XP64SP2/amd64/crypt32.dll
     dssenh.dll,XP64SP2/amd64/dssenh.dll
+    dnsapi.dll,XP64SP2/amd64/dnsapi.dll
     esent.dll,XP64SP2/amd64/esent.dll
     gdibase.dll,XP64SP2/amd64/gdibase.dll
     kernel32.dll,XP64SP2/amd64/kernel32.dll     
@@ -1685,9 +1717,10 @@
     winstabase.dll,XP64SP2/amd64/winstabase.dll   
     winhttpbase.dll,XP64SP2/amd64/winhttpbase.dll    
     winsrv.dll, XP64SP2/amd64/winsrv.dll
+    ;wintrust.dll, XP64SP2/amd64/wintrust.dll
     wow64win.dll, XP64SP2/amd64/wow64win.dll    
     ws2_base.dll,XP64SP2/amd64/ws2_base.dll
-    xpsp2res.dll,XP64SP2/amd64/xpsp2res.dll    
+    xpsp2res.dll,XP64SP2/amd64/xpsp2res.dll
     advapi32.dll,amd64/advapi32.dll
     bcrypt.dll,amd64/bcrypt.dll
     browseui.dll,amd64/browseui.dll
@@ -1697,7 +1730,8 @@
     cryptnew.dll,amd64/cryptnew.dll    
     cryptbase.dll,amd64/cryptbase.dll    
     cryptex.dll,amd64/cryptex.dll    
-    d3dkmt.dll,amd64/d3dkmt.dll    
+    dnsapiext.dll,amd64/dnsapiext.dll 
+    d3dkmt.dll,amd64/d3dkmt.dll 
     fileextd.dll,amd64/fileextd.dll
     fntcache.dll,amd64/fntcache.dll    
     esentbase.dll,amd64/esentbase.dll    
@@ -1721,6 +1755,7 @@
     pdhbase.dll,amd64/pdhbase.dll    
     pdh.dll,amd64/pdh.dll
     powrprof.dll,amd64/powrprof.dll
+    progwrp.dll,amd64/progwrp.dll
     propsys.dll,amd64/propsys.dll
     psapi.dll,amd64/psapi.dll
     rpcrt4.dll,amd64/rpcrt4.dll
@@ -1739,6 +1774,90 @@
     winstanew.dll,amd64/winstanew.dll
     ws2_32.dll,amd64/ws2_32.dll
     ;mui/0409/mscorees.dll,amd64/mui/0409/mscorees.dll
+	
+[CopyAlways.SysWOW64.Files]
+    advapibase.dll,XP64SP2/i386/wadvapibase.dll
+    browsebase.dll,XP64SP2/i386/wbrowsebase.dll
+    comdlgbase.dll,XP64SP2/i386/wcomdlgbase.dll        
+    crypt32.dll,XP64SP2/i386/wcrypt32.dll
+    dnsapi.dll,XP64SP2/i386/wdnsapi.dll
+    dssenh.dll,XP64SP2/i386/wdssenh.dll
+    esent.dll,XP64SP2/i386/wesent.dll    
+    gdibase.dll,XP64SP2/i386/wgdibase.dll    
+    iphlpapibase.dll,XP64SP2/i386/wiphlpapibase.dll
+    kernel32.dll,XP64SP2/i386/wkernel32.dll
+    netapibase.dll,XP64SP2/i386/wnetapibase.dll    
+    olebase.dll,XP64SP2/i386/wolebase.dll    
+    oleacc.dll,XP64SP2/i386/woleacc.dll    
+    powrprofbase.dll,XP64SP2/i386/wpowrprofbase.dll
+    rpcrtbase.dll,XP64SP2/i386/wrpcrtbase.dll
+    rsaenh.dll,XP64SP2/i386/wrsaenh.dll
+    schannel.dll,XP64SP2/i386/wschannel.dll
+    securbase.dll,XP64SP2/i386/wsecurbase.dll
+    setupapibase.dll,XP64SP2/i386/wsetupapibase.dll
+    shellbase.dll,XP64SP2/i386/wshellbase.dll
+    shlwapibase.dll,XP64SP2/i386/wshlwapibase.dll    
+    userbase.dll,XP64SP2/i386/wuserbase.dll
+    userenvbase.dll,XP64SP2/i386/wuserenvbase.dll
+    uxthemebase.dll,XP64SP2/i386/wuxthemebase.dll
+    winhttpbase.dll,XP64SP2/i386/wwinhttpbase.dll    
+    winstabase.dll,XP64SP2/i386/wwinstabase.dll
+    ;wintrust.dll,XP64SP2/i386/wwintrust.dll
+    ws2_base.dll,XP64SP2/i386/wws2_base.dll
+    xpsp2res.dll,XP64SP2/i386/wxpsp2res.dll
+    certupdate.exe
+    advapi32.dll,i386/wadvapi32.dll
+    bcrypt.dll,i386/wbcrypt.dll
+    browseui.dll,i386/wbrowseui.dll
+    cfgmgr32.dll,i386/wcfgmgr32.dll
+    comctlext.dll,i386/wcomctlext.dll
+    comdlg32.dll,i386/wcomdlg32.dll
+    cryptbase.dll,i386/wcryptbase.dll
+    cryptnew.dll,i386/wcryptnew.dll
+    cryptex.dll,i386/wcryptex.dll
+    dnsapiext.dll,i386/wdnsapiext.dll
+    d3dkmt.dll,i386/wd3dkmt.dll
+    esentbase.dll,i386/wesentbase.dll
+    fileextd.dll,i386/wfileextd.dll
+    gdi32.dll,i386/wgdi32.dll
+    gdiplusnew.dll,i386/wgdiplusnew.dll
+    iphlpapi.dll,i386/wiphlpapi.dll
+    idndl.dll,i386/widndl.dll
+    kernelbase.dll,i386/wkernelbase.dll    
+    ;mscoree.dll,i386/wmscoree.dll ;comment becuase if copied, must be set HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\InstallRoot too, however, we don't know Windows drive letter installation. 
+    msctfime.ime,i386/wmsctfime.ime
+    msvcrt.dll,i386/wmsvcrt.dll
+    ncrypt.dll,i386/wncrypt.dll
+    netapi32.dll,i386/wnetapi32.dll
+    netfxperf.dll,i386/wnetfxperf.dll
+    Nlsdl.dll,i386/wNlsdl.dll
+    NNN4NT5.exe,NNN4NT5.exe
+    normaliz.dll,i386/wnormaliz.dll
+    nsi.dll,i386/wnsi.dll
+    ntext.dll,i386/wntext.dll    
+    ole32.dll,i386/wole32.dll    
+    pdhbase.dll,i386/wpdhbase.dll    
+    pdh.dll,i386/wpdh.dll
+    powrprof.dll,i386/wpowrprof.dll
+    progwrp.dll,i386/wprogwrp.dll
+    propsys.dll,i386/wpropsys.dll
+    psapi.dll,i386/wpsapi.dll
+    rpcrt4.dll,i386/wrpcrt4.dll
+    secur32.dll,i386/wsecur32.dll
+    setupapi.dll,i386/wsetupapi.dll
+    shell32.dll,i386/wshell32.dll
+    shlwapi.dll,i386/wshlwapi.dll
+    sspicli.dll,i386/wsspicli.dll
+    user32.dll,i386/wuser32.dll
+    userenv.dll,i386/wuserenv.dll
+    uxtheme.dll,i386/wuxtheme.dll
+    version.dll,i386/wversion.dll
+    winbrand.dll,i386/wwinbrand.dll    
+    winhttp.dll,i386/wwinhttp.dll
+    winsta.dll,i386/wwinsta.dll
+    winstanew.dll,i386/wwinstanew.dll
+    ws2_32.dll,i386/wws2_32.dll  
+    ;mui/0409/mscorees.dll,i386/mui/0409/wmscorees.dll	
     
 [CopyAlways.System32.APISET.Files]
    API-MS-WIN-APPMODEL-IDENTITY-L1-1-0.dll,api-sets\amd64\API-MS-WIN-APPMODEL-IDENTITY-L1-1-0.dll
@@ -2346,86 +2465,57 @@
    ext-ms-win-xaml-pal-l1-1-0.dll,api-sets\i386\ext-ms-win-xaml-pal-l1-1-0.dll
    ucrtbase.dll,api-sets\i386\wucrtbase.dll
     
-[CopyAlways.SysWOW64.Files]
-    advapibase.dll,XP64SP2/i386/wadvapibase.dll
-    browsebase.dll,XP64SP2/i386/wbrowsebase.dll
-    comdlgbase.dll,XP64SP2/i386/wcomdlgbase.dll        
-    crypt32.dll,XP64SP2/i386/wcrypt32.dll
-    dssenh.dll,XP64SP2/i386/wdssenh.dll
-    esent.dll,XP64SP2/i386/wesent.dll    
-    gdibase.dll,XP64SP2/i386/wgdibase.dll    
-    iphlpapibase.dll,XP64SP2/i386/wiphlpapibase.dll
-    kernel32.dll,XP64SP2/i386/wkernel32.dll
-    netapibase.dll,XP64SP2/i386/wnetapibase.dll    
-    olebase.dll,XP64SP2/i386/wolebase.dll    
-    oleacc.dll,XP64SP2/i386/woleacc.dll    
-    powrprofbase.dll,XP64SP2/i386/wpowrprofbase.dll
-    rpcrtbase.dll,XP64SP2/i386/wrpcrtbase.dll
-    rsaenh.dll,XP64SP2/i386/wrsaenh.dll
-    schannel.dll,XP64SP2/i386/wschannel.dll
-    securbase.dll,XP64SP2/i386/wsecurbase.dll
-    setupapibase.dll,XP64SP2/i386/wsetupapibase.dll
-    shellbase.dll,XP64SP2/i386/wshellbase.dll
-    shlwapibase.dll,XP64SP2/i386/wshlwapibase.dll    
-    userbase.dll,XP64SP2/i386/wuserbase.dll
-    userenvbase.dll,XP64SP2/i386/wuserenvbase.dll
-    uxthemebase.dll,XP64SP2/i386/wuxthemebase.dll
-    winhttpbase.dll,XP64SP2/i386/wwinhttpbase.dll    
-    winstabase.dll,XP64SP2/i386/wwinstabase.dll
-    ws2_base.dll,XP64SP2/i386/wws2_base.dll
-    xpsp2res.dll,XP64SP2/i386/wxpsp2res.dll
-    certupdate.exe
-    advapi32.dll,i386/wadvapi32.dll
-    bcrypt.dll,i386/wbcrypt.dll
-    browseui.dll,i386/wbrowseui.dll
-    cfgmgr32.dll,i386/wcfgmgr32.dll
-    comctlext.dll,i386/wcomctlext.dll
-    comdlg32.dll,i386/wcomdlg32.dll
-    cryptbase.dll,i386/wcryptbase.dll
-    cryptnew.dll,i386/wcryptnew.dll
-    cryptex.dll,i386/wcryptex.dll
-    d3dkmt.dll,i386/wd3dkmt.dll
-    esentbase.dll,i386/wesentbase.dll
-    fileextd.dll,i386/wfileextd.dll
-    gdi32.dll,i386/wgdi32.dll
-    gdiplusnew.dll,i386/wgdiplusnew.dll
-    iphlpapi.dll,i386/wiphlpapi.dll
-    idndl.dll,i386/widndl.dll
-    kernelbase.dll,i386/wkernelbase.dll    
-    ;mscoree.dll,i386/wmscoree.dll ;comment becuase if copied, must be set HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\InstallRoot too, however, we don't know Windows drive letter installation. 
-    msctfime.ime,i386/wmsctfime.ime
-    msvcrt.dll,i386/wmsvcrt.dll
-    ncrypt.dll,i386/wncrypt.dll
-    netapi32.dll,i386/wnetapi32.dll
-    netfxperf.dll,i386/wnetfxperf.dll
-    Nlsdl.dll,i386/wNlsdl.dll
-    NNN4NT5.exe,NNN4NT5.exe
-    normaliz.dll,i386/wnormaliz.dll
-    nsi.dll,i386/wnsi.dll
-    ntext.dll,i386/wntext.dll    
-    ole32.dll,i386/wole32.dll    
-    pdhbase.dll,i386/wpdhbase.dll    
-    pdh.dll,i386/wpdh.dll
-    powrprof.dll,i386/wpowrprof.dll
-    propsys.dll,i386/wpropsys.dll
-    psapi.dll,i386/wpsapi.dll
-    rpcrt4.dll,i386/wrpcrt4.dll
-    secur32.dll,i386/wsecur32.dll
-    setupapi.dll,i386/wsetupapi.dll
-    shell32.dll,i386/wshell32.dll
-    shlwapi.dll,i386/wshlwapi.dll
-    sspicli.dll,i386/wsspicli.dll
-    user32.dll,i386/wuser32.dll
-    userenv.dll,i386/wuserenv.dll
-    uxtheme.dll,i386/wuxtheme.dll
-    version.dll,i386/wversion.dll
-    winbrand.dll,i386/wwinbrand.dll    
-    winhttp.dll,i386/wwinhttp.dll
-    winsta.dll,i386/wwinsta.dll
-    winstanew.dll,i386/wwinstanew.dll
-    ws2_32.dll,i386/wws2_32.dll  
-    ;mui/0409/mscorees.dll,i386/mui/0409/wmscorees.dll
-    
+
+[CopyAlways.WinRT.Files]
+    cryptowinrt.dll,winrt\amd64\cryptowinrt.dll
+    threadpoolwinrt.dll,winrt\amd64\threadpoolwinrt.dll
+    twinapi.appcore.dll,winrt\amd64\twinapi.appcore.dll
+    windows.applicationmodel.dll,winrt\amd64\windows.applicationmodel.dll
+    windows.devices.bluetooth.dll,winrt\amd64\windows.devices.bluetooth.dll
+    windows.devices.enumeration.dll,winrt\amd64\windows.devices.enumeration.dll
+    windows.devices.usb.dll,winrt\amd64\windows.devices.usb.dll
+    windows.gaming.input.dll,winrt\amd64\windows.gaming.input.dll
+    windows.gaming.ui.gamebar.dll,winrt\amd64\windows.gaming.ui.gamebar.dll
+    windows.globalization.dll,winrt\amd64\windows.globalization.dll
+    windows.media.devices.dll,winrt\amd64\windows.media.devices.dll
+    windows.media.dll,winrt\amd64\windows.media.dll
+    windows.media.mediacontrol.dll,winrt\amd64\windows.media.mediacontrol.dll
+    windows.media.speech.dll,winrt\amd64\windows.media.speech.dll
+    windows.networking.dll,winrt\amd64\windows.networking.dll
+    windows.networking.hostname.dll,winrt\amd64\windows.networking.hostname.dll
+    windows.perception.stub.dll,winrt\amd64\windows.perception.stub.dll
+    windows.security.authentication.onlineid.dll,winrt\amd64\windows.security.authentication.onlineid.dll
+    windows.security.credentials.ui.userconsentverifier.dll,winrt\amd64\windows.security.credentials.ui.userconsentverifier.dll
+    windows.storage.applicationdata.dll,winrt\amd64\windows.storage.applicationdata.dll
+    windows.system.profile.systemmanufacturers.dll,winrt\amd64\windows.system.profile.systemmanufacturers.dll
+    windows.ui.dll,winrt\amd64\windows.ui.dll
+    wintypes.dll,winrt\amd64\wintypes.dll
+	
+[CopyAlways.WinRT.Wow64.Files]
+    cryptowinrt.dll,winrt\i386\cryptowinrt.dll
+    threadpoolwinrt.dll,winrt\i386\threadpoolwinrt.dll
+    twinapi.appcore.dll,winrt\i386\twinapi.appcore.dll
+    windows.applicationmodel.dll,winrt\i386\windows.applicationmodel.dll
+    windows.devices.bluetooth.dll,winrt\i386\windows.devices.bluetooth.dll
+    windows.devices.enumeration.dll,winrt\i386\windows.devices.enumeration.dll
+    windows.devices.usb.dll,winrt\i386\windows.devices.usb.dll
+    windows.gaming.input.dll,winrt\i386\windows.gaming.input.dll
+    windows.gaming.ui.gamebar.dll,winrt\i386\windows.gaming.ui.gamebar.dll
+    windows.globalization.dll,winrt\i386\windows.globalization.dll
+    windows.media.devices.dll,winrt\i386\windows.media.devices.dll
+    windows.media.dll,winrt\i386\windows.media.dll
+    windows.media.mediacontrol.dll,winrt\i386\windows.media.mediacontrol.dll
+    windows.media.speech.dll,winrt\i386\windows.media.speech.dll
+    windows.networking.dll,winrt\i386\windows.networking.dll
+    windows.networking.hostname.dll,winrt\i386\windows.networking.hostname.dll
+    windows.perception.stub.dll,winrt\i386\windows.perception.stub.dll
+    windows.security.authentication.onlineid.dll,winrt\i386\windows.security.authentication.onlineid.dll
+    windows.security.credentials.ui.userconsentverifier.dll,winrt\i386\windows.security.credentials.ui.userconsentverifier.dll
+    windows.storage.applicationdata.dll,winrt\i386\windows.storage.applicationdata.dll
+    windows.system.profile.systemmanufacturers.dll,winrt\i386\windows.system.profile.systemmanufacturers.dll
+    windows.ui.dll,winrt\i386\windows.ui.dll
+    wintypes.dll,winrt\i386\wintypes.dll
+
 [CopyAlways.DriverCab.files]
     ntoskrnl.exe,XP64SP2/amd64/ntoskrnl.exe
     ntkrnlmp.exe,XP64SP2/amd64/ntkrnlmp.exe

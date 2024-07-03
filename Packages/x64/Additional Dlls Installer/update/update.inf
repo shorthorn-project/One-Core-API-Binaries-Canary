@@ -25,7 +25,7 @@
 [Strings]
     HelpLink = "http://shorthornproject.com"
     URLInfoAbout = "http://shorthornproject.com"
-    OCAAD_VERSION           = "4.0.0.rc2"
+    OCAAD_VERSION           = "4.0.0.rc3"
     SP_TITLE                = "One-Core-API Additional Dlls"
     LANGTYPEVALUE           = 0x0
     SP_SHORT_TITLE          = "OCAAD"
@@ -5408,6 +5408,7 @@
     credui.dll,amd64/credui.dll
     ;cryptbase.dll,amd64/cryptbase.dll
     cryptsp.dll,amd64/cryptsp.dll
+    dcomp.dll,amd64/dcomp.dll
     dbgeng.dll,amd64/dbgeng.dll
     dbghelp.dll,amd64/dbghelp.dll
     dpx.dll,amd64/dpx.dll
@@ -5456,6 +5457,7 @@
     prntvpt.dll,amd64/prntvpt.dll        
     puiapi.dll,amd64/puiapi.dll        
     pwrshplugin.dll,amd64/pwrshplugin.dll        
+    qwave.dll,amd64/qwave.dll        
     RstrtMgr.dll,amd64/RstrtMgr.dll
     rtworkq.dll,amd64/rtworkq.dll
     samcli.dll,amd64/samcli.dll
@@ -5472,7 +5474,7 @@
     taskschd.dll,amd64/taskschd.dll
     tbs.dll,amd64/tbs.dll
     tdh.dll,amd64/tdh.dll
-    traffic.dll,amd64/traffic.dll
+    ;traffic.dll,amd64/traffic.dll ; Cause getmac hang, disabled for now.
     tzres.dll,amd64/tzres.dll
     UIAnimation.dll,amd64/UIAnimation.dll
     UIAutomationCore.dll,amd64/UIAutomationCore.dll
@@ -5520,6 +5522,7 @@
     credui.dll,i386/wcredui.dll
     ;cryptbase.dll,i386/wcryptbase.dll
     cryptsp.dll,i386/wcryptsp.dll
+    dcomp.dll,i386/wdcomp.dll
     dbgeng.dll,i386/wdbgeng.dll
     dbghelp.dll,i386/wdbghelp.dll
     dpx.dll,i386/wdpx.dll
@@ -5568,6 +5571,7 @@
     prntvpt.dll,i386/wprntvpt.dll        
     puiapi.dll,i386/wpuiapi.dll        
     pwrshplugin.dll,i386/wpwrshplugin.dll        
+    qwave.dll,i386/wqwave.dll        
     RstrtMgr.dll,i386/wRstrtMgr.dll
     rtworkq.dll,i386/wrtworkq.dll
     samcli.dll,i386/wsamcli.dll
@@ -5584,7 +5588,7 @@
     taskschd.dll,i386/wtaskschd.dll
     tbs.dll,i386/wtbs.dll
     tdh.dll,i386/wtdh.dll
-    traffic.dll,i386/wtraffic.dll
+    ;traffic.dll,i386/wtraffic.dll ; Cause getmac hang, disabled for now
     tzres.dll,i386/wtzres.dll
     UIAnimation.dll,i386/wUIAnimation.dll
     UIAutomationCore.dll,i386/wUIAutomationCore.dll
@@ -5679,6 +5683,7 @@
     amd64/pkgmgr.exe = 1
     amd64/prntvpt.dll = 1    
     amd64/pwrshplugin.dll = 1    
+    amd64/qwave.dll = 1    
     amd64/RstrtMgr.dll = 1
     amd64/rtworkq.dll = 1
     amd64/samcli.dll = 1
@@ -5695,7 +5700,7 @@
     amd64/taskschd.dll = 1
     amd64/tbs.dll = 1
     amd64/tdh.dll = 1
-    amd64/traffic.dll = 1
+    ;amd64/traffic.dll = 1
     amd64/tzres.dll = 1
     amd64/UIAnimation.dll = 1
     amd64/UIAutomationCore.dll = 1
@@ -5784,7 +5789,8 @@
     i386/wphotometadatahandler.dll = 1
     i386/wpkgmgr.exe = 1
     i386/wprntvpt.dll = 1    
-    i386/wpwrshplugin.dll = 1    
+    i386/wpwrshplugin.dll = 1
+    i386/wqwave.dll = 1
     i386/wRstrtMgr.dll = 1
     i386/wsamcli.dll = 1
     i386/wsas.dll = 1
@@ -5800,7 +5806,7 @@
     i386/wtaskschd.dll = 1
     i386/wtbs.dll = 1
     i386/wtdh.dll = 1
-    i386/wtraffic.dll = 1
+    ;i386/wtraffic.dll = 1
     i386/wtzres.dll = 1
     i386/wUIAnimation.dll = 1
     i386/wUIAutomationCore.dll = 1
