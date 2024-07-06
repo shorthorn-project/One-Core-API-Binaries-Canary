@@ -26,7 +26,7 @@
     SERVICE_PACK_NUMBER     = 2
     HelpLink = "http://shorthornproject.com"
     URLInfoAbout = "http://shorthornproject.com"
-    BASE_VERSION            = "4.0.0.rc3"    
+    BASE_VERSION            = "4.0.0.rc3-hotfix"    
     UPDATE                  = "Update"
     HOTFIX                  = "Hotfix"
     SECURITY_UPDATE         = "Security Update"
@@ -746,12 +746,14 @@
    HKCU,"Software\Paint.NET","TranslucentWindows",0x0,"False"
 
    ;WinRT key for CLSID dlls
-   HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId",,0x10 
+   HKLM,"SOFTWARE\Microsoft\WindowsRuntime",,0x10
+   HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId",,0x10
+   HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.System.UserProfile.GlobalizationPreferences","DllPath",0x0,"Windows.globalization.dll"
+   HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","DllPath",0x0,"C:\Windows\System32\Windows.UI.dll"
    HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","ActivationType",0x10001,00,00,00,00
    HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","CLSID",0x0,"{f1f065d1-063a-3d94-bcef-0cfcc580817e}"
-   HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","DllPath",0x0,"C:\Windows\System32\Windows.UI.dll"
    HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","Threading",0x10001,00,00,00,00
-   HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","TrustLevel",0x10001,00,00,00,00 
+   HKLM,"SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.UI.ViewManagement.UISettings","TrustLevel",0x10001,00,00,00,00
     
 [ProductInstall.ReplaceFilesIfExist]
     CopyFiles=System32.files
