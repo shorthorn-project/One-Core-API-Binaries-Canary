@@ -458,6 +458,14 @@
     ;Special key to bypass palemon and some others application startup error
     HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","API-MS-WIN-CORE-MEMORY-L1-1-0",0x0,"API-MS-WIN-CORE-MEMORY-L1-1-0.DLL"
     HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","API-MS-WIN-CORE-SYNCH-L1-2-0",0x0,"API-MS-WIN-CORE-SYNCH-L1-2-0.DLL"
+    HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","API-MS-WIN-CRT-CONVERT-L1-1-0",0x0,"API-MS-WIN-CRT-CONVERT-L1-1-0.DLL"
+    HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","API-MS-WIN-CRT-ENVIRONMENT-L1-1-0",0x0,"API-MS-WIN-CRT-ENVIRONMENT-L1-1-0.DLL"
+    HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","API-MS-WIN-CRT-HEAP-L1-1-0",0x0,"API-MS-WIN-CRT-HEAP-L1-1-0.DLL"
+    HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","API-MS-WIN-CRT-RUNTIME-L1-1-0",0x0,"API-MS-WIN-CRT-RUNTIME-L1-1-0.DLL"
+    HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","API-MS-WIN-CRT-STDIO-L1-1-0.DLL",0x0,"API-MS-WIN-CRT-STDIO-L1-1-0.DLL"
+    HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","API-MS-WIN-CRT-STRING-L1-1-0",0x0,"API-MS-WIN-CRT-STRING-L1-1-0.DLL"
+    HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","API-MS-WIN-CRT-UTILITY-L1-1-0",0x0,"API-MS-WIN-CRT-UTILITY-L1-1-0.DLL"
+    HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","vcruntim140",0x0,"vcruntime140.dll"
     HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","progwrp",0x0,"progwrp.dll"
 
     ;key to prevent .net framework 4.5+ installation error when Windows XP is without any previous .net Framework installed
@@ -952,17 +960,23 @@
     xpsp2res.dll,2k3SP2\srvxpsp2res.dll
     advapi32.dll    
     bcrypt.dll
+    bcryptprimitives.dll
     browseui.dll
     certupdate.exe
     cfgmgr32.dll
+    combase.dll
     comctlext.dll
     comdlg32.dll
+    credui.dll
     cryptbase.dll
     cryptex.dll
     cryptnew.dll
     d3dkmt.dll
+    dbgeng.dll
+    dbghelp.dll
     devcon.exe    
     dnsapiext.dll    
+    dwmapi.dll    
     esentbase.dll    
     fileextd.dll
     fntcache.dll    
@@ -994,6 +1008,7 @@
     secur32.dll
     setupapi.dll
     setx.exe
+    shcore.dll
     shell32.dll
     shlwapi.dll
     sspicli.dll

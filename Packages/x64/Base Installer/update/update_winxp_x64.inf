@@ -1726,15 +1726,21 @@
     xpsp2res.dll,XP64SP2/amd64/xpsp2res.dll
     advapi32.dll,amd64/advapi32.dll
     bcrypt.dll,amd64/bcrypt.dll
+    bcryptprimitives.dll,amd64/bcryptprimitives.dll
     browseui.dll,amd64/browseui.dll
     cfgmgr32.dll,amd64/cfgmgr32.dll
+    combase.dll,amd64/combase.dll
     comctlext.dll,amd64/comctlext.dll
     comdlg32.dll,amd64/comdlg32.dll
+    credui.dll,amd64/credui.dll
     cryptnew.dll,amd64/cryptnew.dll    
     cryptbase.dll,amd64/cryptbase.dll    
     cryptex.dll,amd64/cryptex.dll    
     dnsapiext.dll,amd64/dnsapiext.dll 
-    d3dkmt.dll,amd64/d3dkmt.dll 
+    d3dkmt.dll,amd64/d3dkmt.dll
+    dbgeng.dll,amd64/dbgeng.dll
+    dbghelp.dll,amd64/dbghelp.dll
+	dwmapi.dll,amd64/dwmapi.dll
     fileextd.dll,amd64/fileextd.dll
     fntcache.dll,amd64/fntcache.dll    
     esentbase.dll,amd64/esentbase.dll    
@@ -1764,6 +1770,7 @@
     rpcrt4.dll,amd64/rpcrt4.dll
     secur32.dll,amd64/secur32.dll
     setupapi.dll,amd64/setupapi.dll
+    shcore.dll,amd64/shcore.dll
     shell32.dll,amd64/shell32.dll    
     shlwapi.dll,amd64/shlwapi.dll    
     sspicli.dll,amd64/sspicli.dll    
@@ -1811,15 +1818,21 @@
     certupdate.exe
     advapi32.dll,i386/wadvapi32.dll
     bcrypt.dll,i386/wbcrypt.dll
+    bcryptprimitives.dll,i386/wbcryptprimitives.dll
     browseui.dll,i386/wbrowseui.dll
     cfgmgr32.dll,i386/wcfgmgr32.dll
+    combase.dll,i386/wcombase.dll
     comctlext.dll,i386/wcomctlext.dll
     comdlg32.dll,i386/wcomdlg32.dll
+    credui.dll,i386/wcredui.dll
     cryptbase.dll,i386/wcryptbase.dll
     cryptnew.dll,i386/wcryptnew.dll
     cryptex.dll,i386/wcryptex.dll
     dnsapiext.dll,i386/wdnsapiext.dll
+    dbgeng.dll,i386/wdbgeng.dll
+    dbghelp.dll,i386/wdbghelp.dll
     d3dkmt.dll,i386/wd3dkmt.dll
+    dwmapi.dll,i386/wdwmapi.dll
     esentbase.dll,i386/wesentbase.dll
     fileextd.dll,i386/wfileextd.dll
     gdi32.dll,i386/wgdi32.dll
@@ -1848,6 +1861,7 @@
     rpcrt4.dll,i386/wrpcrt4.dll
     secur32.dll,i386/wsecur32.dll
     setupapi.dll,i386/wsetupapi.dll
+    shcore.dll,i386/wshcore.dll
     shell32.dll,i386/wshell32.dll
     shlwapi.dll,i386/wshlwapi.dll
     sspicli.dll,i386/wsspicli.dll
