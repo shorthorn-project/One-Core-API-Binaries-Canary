@@ -26,7 +26,7 @@
     SERVICE_PACK_NUMBER       = 2
     HelpLink                  = "http://shorthornproject.com"
     URLInfoAbout              = "http://shorthornproject.com"
-    BASE_VERSION              = "4.0.0"    
+    BASE_VERSION              = "4.0.0.preRTM-hotfix"    
     UPDATE                    = "Update"
     HOTFIX                    = "Hotfix"
     SECURITY_UPDATE           = "Security Update"
@@ -56,9 +56,9 @@
     LANGTYPEVALUE             = 0x0
     SP_SHORT_TITLE_WIC        = "WIC"
     CURRENT_OS                = "2k3"
-	TARGET_RELEASE            = "SP1"
-	SPECIFIC_TARGET_RELEASE   = "SP"
-	RELEASE_FAMILY            = "srv"         
+    TARGET_RELEASE            = "SP1"
+    SPECIFIC_TARGET_RELEASE   = "SP"
+    RELEASE_FAMILY            = "srv"         
     SERVICE_PACK_MIN_VALUE    = "256"
     SERVICE_PACK_CURRENT_VALUE= "256"
     SERVICE_PACK_MAX_VALUE    = "256"
@@ -69,8 +69,8 @@
     BUILD_NUMBER              = "3790"	
     MAX_BUILD_NUMBER          = "3790"
     ShortCutName              = "NNN4NT5"	
-	ShortCutDir               = "Accessories\System Tools"
-	NNN4NT5Tooltip            = "Set Windows Compatibility layer by Compatibility Variable"	
+    ShortCutDir               = "Accessories\System Tools"
+    NNN4NT5Tooltip            = "Set Windows Compatibility layer by Compatibility Variable"	
 	
 [Product.Add.Reg]
     HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Setup", "LogLevel", 0x10001, 0
@@ -2230,7 +2230,6 @@
     
 [MustReplace.WinSxS.Main.files]    
     WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_02b9dd85\comctl32.dll, WinSxS\comctl32\comctl32.dll
-    ;WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.3790.4929_x-ww_00269083\winhttp.dll, base\winhttp.dll
     WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_53959eb1\winhttp.dll, base\winhttp.dll
 	WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.0.0_x-ww_8d353f13\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll
 	WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.100.0_x-ww_0D1F9F94\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll
@@ -2241,7 +2240,6 @@
     
 [CopyAlways.WinSxS.Main.files]    
     WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_02b9dd85\comctl32.dll, WinSxS\comctl32\comctl32.dll
-    ;WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.3790.4929_x-ww_00269083\winhttp.dll, base\winhttp.dll
     WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_53959eb1\winhttp.dll, base\winhttp.dll
 	WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.0.0_x-ww_8d353f13\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll
 	WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.100.0_x-ww_0D1F9F94\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll
@@ -2251,32 +2249,11 @@
     WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_22782591\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll
     
 [CopyAlways.WinSxS.Manifests.files]    
-    ;"WinSxS\manifests\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5001.0_x-ww_452C2E02.cat"
     "WinSxS\manifests\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_02b9dd85.manifest"
-    "WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24180_x-ww_22f8358c.cat"
-    "WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24180_x-ww_22f8358c.manifest"	
-    "WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24180_x-ww_22f8358c.cat"
-    "WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24180_x-ww_22f8358c.manifest"
-    "WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20488_x-ww_40820f9c.cat"
-    "WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20488_x-ww_40820f9c.manifest"
-    ; "WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_22782591.cat"
-    ; "WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_22782591.manifest"	
-    ;"WinSxS\manifests\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.3790.4929_x-ww_00269083.cat"
-    ;"WinSxS\manifests\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.3790.4929_x-ww_00269083.manifest"
-    ;"WinSxS\manifests\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5001.0_x-ww_9607EF2E.cat"
     "WinSxS\manifests\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_53959eb1.manifest"
     
 [CopyAlways.WinSxS.Policies.files]
-    "WinSxS\Policies\x86_policy.6.0.Microsoft.Windows.Common-Controls_6595b64144ccf1df_x-ww_5DDAD775\6.0.5048.0.policy"
-    ;"WinSxS\Policies\x86_policy.6.0.Microsoft.Windows.Common-Controls_6595b64144ccf1df_x-ww_5DDAD775\6.0.5001.0.cat"    
-    "WinSxS\Policies\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4E8510AC\1.0.6002.24180.cat"
-    "WinSxS\Policies\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4E8510AC\1.0.6002.24180.policy"
-    "WinSxS\Policies\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4E8510AC\1.0.6003.20488.cat"
-    "WinSxS\Policies\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4E8510AC\1.0.6003.20488.policy"
-    ; "WinSxS\Policies\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4E8510AC\1.0.6003.20617.cat"
-    ; "WinSxS\Policies\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4E8510AC\1.0.6003.20617.policy"	
-    ;"WinSxS\Policies\x86_policy.5.1.Microsoft.Windows.WinHTTP_6595b64144ccf1df_x-ww_7D68AE49\5.1.3790.4929.cat"
-    ;"WinSxS\Policies\x86_policy.5.1.Microsoft.Windows.WinHTTP_6595b64144ccf1df_x-ww_7D68AE49\5.1.5001.0.cat"
+    "WinSxS\Policies\x86_policy.6.0.Microsoft.Windows.Common-Controls_6595b64144ccf1df_x-ww_5DDAD775\6.0.5048.0.policy"  
     "WinSxS\Policies\x86_policy.5.1.Microsoft.Windows.WinHTTP_6595b64144ccf1df_x-ww_7D68AE49\5.1.5048.0.policy"
     
 [CoreOS.Common.System32.Files]

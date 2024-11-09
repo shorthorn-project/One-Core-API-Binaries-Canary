@@ -16,7 +16,6 @@ Signature="$Windows NT$"
 2=Srv2k3SP2
 
 [DefaultBranchesServicePacks.WinNt60]
-0=Lh5000
 1=Lh5001
 
 [SourceInfsBranches]

@@ -27,7 +27,7 @@
     SERVICE_PACK_NUMBER       = 2
     HelpLink                  = "http://shorthornproject.com"
     URLInfoAbout              = "http://shorthornproject.com"
-    BASE_VERSION              = "4.0.0"    
+    BASE_VERSION              = "4.0.0.preRTM-hotfix"    
     UPDATE                    = "Update"
     HOTFIX                    = "Hotfix"
     SECURITY_UPDATE           = "Security Update"
@@ -5680,6 +5680,7 @@
     d3dcompiler_39.dll,d3d/amd64/d3dcompiler_39.dll
     d3dcompiler_43.dll,d3d/amd64/d3dcompiler_43.dll
     d3dcompiler_47.dll,d3d/amd64/d3dcompiler_47.dll
+    d3dwine.dll,d3d/amd64/d3dwine.dll
     dwrite.dll,d3d/amd64/dwrite.dll
     dxdiag.exe,d3d/amd64/dxdiag.exe
     dxdiagn.dll,d3d/amd64/dxdiagn.dll    
@@ -5701,6 +5702,7 @@
     d3dcompiler_39.dll,d3d/i386/wd3dcompiler_39.dll
     d3dcompiler_43.dll,d3d/i386/wd3dcompiler_43.dll
     d3dcompiler_47.dll,d3d/i386/wd3dcompiler_47.dll
+    d3dwine.dll,d3d/i386/wd3dwine.dll
     dwrite.dll,d3d/i386/wdwrite.dll
     dxdiag.exe,d3d/i386/wdxdiag.exe
     dxdiagn.dll,d3d/i386/wdxdiagn.dll    
