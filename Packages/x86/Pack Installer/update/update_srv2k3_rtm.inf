@@ -26,7 +26,7 @@
     SERVICE_PACK_NUMBER       = 2
     HelpLink                  = "http://shorthornproject.com"
     URLInfoAbout              = "http://shorthornproject.com"
-    BASE_VERSION              = "4.0.0.preRTM-hotfix"    
+    BASE_VERSION              = "4.0.0"    
     UPDATE                    = "Update"
     HOTFIX                    = "Hotfix"
     SECURITY_UPDATE           = "Security Update"
@@ -69,8 +69,10 @@
     BUILD_NUMBER              = "3790"	
     MAX_BUILD_NUMBER          = "4008"
     ShortCutName              = "NNN4NT5"	
+    ShortCutWctName           = "Windows Compatibility Tool"	
     ShortCutDir               = "Accessories\System Tools"
-    NNN4NT5Tooltip            = "Set Windows Compatibility layer by Compatibility Variable"	
+    NNN4NT5Tooltip            = "Set Windows Compatibility layer by Compatibility Variable"
+    WctTooltip                = "A Windows Compatibility Tool emulated Windows Version"
 	
 [Product.Add.Reg]
     HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Setup", "LogLevel", 0x10001, 0
@@ -91,7 +93,7 @@
     HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE%,"DisplayVersion",0x00000000,%BASE_VERSION%
     HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE%,"ReleaseType",0,%HOTFIX%
 	
-	;Simulate WIC installed to prevent new installation, since we use WIC from Windows 8 and need exclude older REG keys
+    ; Simulate WIC installed to prevent new installation, since we use WIC from Windows 8 and need exclude older REG keys
     HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE_WIC%","DisplayName",0x00000000,"%SP_TITLE%"
     HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE_WIC%","DisplayVersion",0x00000000,%WIC_VERSION%
     HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE_WIC%","ParentKeyName",0x00000000,"OperatingSystem"
@@ -109,7 +111,7 @@
     HKLM,"SYSTEM\CurrentControlSet\Services\FontCache","Group",0x0,"AudioGroup"
     HKLM,"SYSTEM\CurrentControlSet\Services\FontCache\Parameters","ServiceDll",0x20000,"%%SystemRoot%%\system32\FntCache.dll"
     HKLM,"SYSTEM\CurrentControlSet\Services\FontCache\Parameters","ServiceDllUnloadOnStop",0x10001,01,00,00,00   
-	HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\svchost", "LocalService", 0x00010008, "FontCache"
+    HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\svchost", "LocalService", 0x00010008, "FontCache"
     
     ; propsys.dll registry info
     HKLM, Software\Classes\Interface\{20076C7E-4851-41ed-9EB8-F4E5F2BB0286}, , 0, "IShowModalDialog"
@@ -1926,8 +1928,256 @@
 	;Adding some keys to System Variables to improve compatibility
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","MOZ_DISABLE_CONTENT_SANDBOX",0x0,"1"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","COMPLUS_EnableWriteXorExecute",0x0,"0"
-	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","_JAVA_OPTIONS",0x0,"-Djava.net.preferIPv4Stack=true"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","_JAVA_OPTIONS",0x0,"-Djava.net.preferIPv4Stack=true -Djava.nio.channels.spi.SelectorProvider=sun.nio.ch.WindowsSelectorProvider"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","NODE_SKIP_PLATFORM_CHECK",0x0,"1"
+	
+	;Windows Media Foundantion
+	HKCR,"CLSID\{98230571-0087-4204-b020-3282538e57d3}\InprocServer32",,0x0,"colorcnv.dll"
+	HKCR,"CLSID\{98230571-0087-4204-b020-3282538e57d3}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{98230571-0087-4204-b020-3282538e57d3}\InprocServer32",,0x0,"colorcnv.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{98230571-0087-4204-b020-3282538e57d3}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{FA10746C-9B63-4b6c-BC49-FC300EA5F256}\InprocServer32",,0x0,"evr.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{FA10746C-9B63-4b6c-BC49-FC300EA5F256}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{F7AFD75B-BF8C-4a11-BDB9-04AD66182F84}\InprocServer32",,0x0,"evr.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{F7AFD75B-BF8C-4a11-BDB9-04AD66182F84}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{E474E05A-AB65-4f6a-827C-218B1BAAF31F}\InprocServer32",,0x0,"evr.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{E474E05A-AB65-4f6a-827C-218B1BAAF31F}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{A0A7A57B-59B2-4919-A694-ADD0A526C373}\InprocServer32",,0x0,"evr.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{A0A7A57B-59B2-4919-A694-ADD0A526C373}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{98455561-5136-4d28-AB08-4CEE40EA2781}\InprocServer32",,0x0,"evr.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{98455561-5136-4d28-AB08-4CEE40EA2781}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{62079164-233b-41f8-a80f-f01705f514a8}\InprocServer32",,0x20000,"%%SystemRoot%%\System32\evr.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{93AF0C51-2275-45D2-A35B-F2BA21CAED00}\InprocServer32",,0x0,"mfAACEnc.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{93AF0C51-2275-45D2-A35B-F2BA21CAED00}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{f792beee-aeaf-4ebb-ab14-8bc5c8c695a8}\InprocServer32",,0x0,"mfds.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{f792beee-aeaf-4ebb-ab14-8bc5c8c695a8}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{eb4d075a-65c0-476b-956c-c605eade03f7}\InprocServer32",,0x0,"mfds.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{eb4d075a-65c0-476b-956c-c605eade03f7}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{743a6e3b-a5df-43ed-b615-4256add790b8}\InprocServer32",,0x0,"mfds.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{743a6e3b-a5df-43ed-b615-4256add790b8}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{14d7a407-396b-44b3-be85-5199a0f0f80a}\InprocServer32",,0x0,"mfds.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{14d7a407-396b-44b3-be85-5199a0f0f80a}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{0344ec28-5339-4124-a186-2e8eef168785}\InprocServer32",,0x0,"mfds.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{0344ec28-5339-4124-a186-2e8eef168785}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{404A6DE5-D4D6-4260-9BC7-5A6CBD882432}\InprocServer32",,0x0,"mfdvdec.dll"
+	HKCR,"CLSID\{404A6DE5-D4D6-4260-9BC7-5A6CBD882432}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{404A6DE5-D4D6-4260-9BC7-5A6CBD882432}\InprocServer32",,0x0,"mfdvdec.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{404A6DE5-D4D6-4260-9BC7-5A6CBD882432}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{6ca50344-051a-4ded-9779-a43305165e35}\InprocServer32",,0x0,"mfh264enc.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{6ca50344-051a-4ded-9779-a43305165e35}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{6ca50344-051a-4ded-9779-a43305165e35}\InprocServer32",,0x0,"mfh264enc.dll"
+	HKCR,"CLSID\{6ca50344-051a-4ded-9779-a43305165e35}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{CB17E772-E1CC-4633-8450-5617AF577905}\InprocServer32",,0x0,"mfmjpegdec.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{CB17E772-E1CC-4633-8450-5617AF577905}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{CB17E772-E1CC-4633-8450-5617AF577905}\InprocServer32",,0x0,"mfmjpegdec.dll"
+	HKCR,"CLSID\{CB17E772-E1CC-4633-8450-5617AF577905}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{AD4C1B00-4BF7-422F-9175-756693D9130D}\InProcServer32",,0x0,"mfps.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{AD4C1B00-4BF7-422F-9175-756693D9130D}\InProcServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{743a6e3b-a5df-43ed-b615-4256add790b8}",,0x0,"MFPsiFilter"
+	HKCR,"CLSID\{AD4C1B00-4BF7-422F-9175-756693D9130D}\InProcServer32",,0x0,"mfps.dll"
+	HKCR,"CLSID\{AD4C1B00-4BF7-422F-9175-756693D9130D}\InProcServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{743a6e3b-a5df-43ed-b615-4256add790b8}",,0x0,"MFPsiFilter"
+	HKCR,"CLSID\{745057c7-f353-4f2d-a7ee-58434477730e}\InprocServer32",,0x0,"mfwmaaec.dll"
+	HKCR,"CLSID\{745057c7-f353-4f2d-a7ee-58434477730e}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{745057c7-f353-4f2d-a7ee-58434477730e}\InprocServer32",,0x0,"mfwmaaec.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{745057c7-f353-4f2d-a7ee-58434477730e}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{E1F1A0B8-BEEE-490D-BA7C-066C40B5E2B9}\InprocServer32",,0x0,"msmpeg2adec.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{E1F1A0B8-BEEE-490D-BA7C-066C40B5E2B9}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{32d186a7-218f-4c75-8876-dd77273a8999}\InprocServer32",,0x0,"msmpeg2adec.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{32d186a7-218f-4c75-8876-dd77273a8999}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{E1F1A0B8-BEEE-490D-BA7C-066C40B5E2B9}\InprocServer32",,0x0,"msmpeg2adec.dll"
+	HKCR,"CLSID\{E1F1A0B8-BEEE-490D-BA7C-066C40B5E2B9}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{32d186a7-218f-4c75-8876-dd77273a8999}\InprocServer32",,0x0,"msmpeg2adec.dll"
+	HKCR,"CLSID\{32d186a7-218f-4c75-8876-dd77273a8999}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{FA5FE7C5-6A1D-4B11-B41F-F959D6C76500}\InprocServer32",,0x0,"msmpeg2enc.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{FA5FE7C5-6A1D-4B11-B41F-F959D6C76500}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{C9D849E0-FBF6-4C26-B1EC-B5D5B4E3F29D}\InprocServer32",,0x0,"msmpeg2enc.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{C9D849E0-FBF6-4C26-B1EC-B5D5B4E3F29D}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{AEF1693C-839C-4066-82D6-6CC0324C9D20}\InprocServer32",,0x0,"msmpeg2enc.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{AEF1693C-839C-4066-82D6-6CC0324C9D20}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{ACD453BC-C58A-44D1-BBF5-BFB325BE2D78}\InprocServer32",,0x0,"msmpeg2enc.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{ACD453BC-C58A-44D1-BBF5-BFB325BE2D78}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{5F5AFF4A-2F7F-4279-88C2-CD88EB39D144}\InprocServer32",,0x0,"msmpeg2enc.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{5F5AFF4A-2F7F-4279-88C2-CD88EB39D144}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{42150CD9-CA9A-4EA5-9939-30EE037F6E74}\InprocServer32",,0x0,"msmpeg2enc.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{42150CD9-CA9A-4EA5-9939-30EE037F6E74}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{1277B60F-34D5-48D1-B7BB-59BCA9BC71A8}\InprocServer32",,0x0,"msmpeg2enc.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{1277B60F-34D5-48D1-B7BB-59BCA9BC71A8}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{FA5FE7C5-6A1D-4B11-B41F-F959D6C76500}\InprocServer32",,0x0,"msmpeg2enc.dll"
+	HKCR,"CLSID\{FA5FE7C5-6A1D-4B11-B41F-F959D6C76500}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{C9D849E0-FBF6-4C26-B1EC-B5D5B4E3F29D}\InprocServer32",,0x0,"msmpeg2enc.dll"
+	HKCR,"CLSID\{C9D849E0-FBF6-4C26-B1EC-B5D5B4E3F29D}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{AEF1693C-839C-4066-82D6-6CC0324C9D20}\InprocServer32",,0x0,"msmpeg2enc.dll"
+	HKCR,"CLSID\{AEF1693C-839C-4066-82D6-6CC0324C9D20}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{ACD453BC-C58A-44D1-BBF5-BFB325BE2D78}\InprocServer32",,0x0,"msmpeg2enc.dll"
+	HKCR,"CLSID\{ACD453BC-C58A-44D1-BBF5-BFB325BE2D78}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{5F5AFF4A-2F7F-4279-88C2-CD88EB39D144}\InprocServer32",,0x0,"msmpeg2enc.dll"
+	HKCR,"CLSID\{5F5AFF4A-2F7F-4279-88C2-CD88EB39D144}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{42150CD9-CA9A-4EA5-9939-30EE037F6E74}\InprocServer32",,0x0,"msmpeg2enc.dll"
+	HKCR,"CLSID\{42150CD9-CA9A-4EA5-9939-30EE037F6E74}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{1277B60F-34D5-48D1-B7BB-59BCA9BC71A8}\InprocServer32",,0x0,"msmpeg2enc.dll"
+	HKCR,"CLSID\{1277B60F-34D5-48D1-B7BB-59BCA9BC71A8}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{62CE7E72-4C71-4D20-B15D-452831A87D9D}\InprocServer32",,0x0,"msmpeg2vdec.dll"
+	HKCR,"CLSID\{62CE7E72-4C71-4D20-B15D-452831A87D9D}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{212690FB-83E5-4526-8FD7-74478B7939CD}\InprocServer32",,0x0,"msmpeg2vdec.dll"
+	HKCR,"CLSID\{212690FB-83E5-4526-8FD7-74478B7939CD}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{10FEF81C-0DAA-4af0-B714-1F1689C08C8C}\InprocServer32",,0x0,"msmpeg2vdec.dll"
+	HKCR,"CLSID\{10FEF81C-0DAA-4af0-B714-1F1689C08C8C}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{62CE7E72-4C71-4D20-B15D-452831A87D9D}\InprocServer32",,0x0,"msmpeg2vdec.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{62CE7E72-4C71-4D20-B15D-452831A87D9D}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{212690FB-83E5-4526-8FD7-74478B7939CD}\InprocServer32",,0x0,"msmpeg2vdec.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{212690FB-83E5-4526-8FD7-74478B7939CD}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{10FEF81C-0DAA-4af0-B714-1F1689C08C8C}\InprocServer32",,0x0,"msmpeg2vdec.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{10FEF81C-0DAA-4af0-B714-1F1689C08C8C}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{f447b69e-1884-4a7e-8055-346f74d6edb3}\InprocServer32",,0x0,"resampledmo.dll"
+	HKCR,"CLSID\{f447b69e-1884-4a7e-8055-346f74d6edb3}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Classes\CLSID\{f447b69e-1884-4a7e-8055-346f74d6edb3}\InprocServer32",,0x0,"resampledmo.dll"
+	HKLM,"SOFTWARE\Classes\CLSID\{f447b69e-1884-4a7e-8055-346f74d6edb3}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{271C3902-6095-4c45-A22F-20091816EE9E}",,0x0,"MPEG4 Byte Stream Handler"
+	HKCR,"CLSID\{271C3902-6095-4c45-A22F-20091816EE9E}\InprocServer32",,0x0,"mf.dll"
+	HKCR,"CLSID\{271C3902-6095-4c45-A22F-20091816EE9E}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{477EC299-1421-4bdd-971F-7CCB933F21AD}",,0x0,"File Scheme Handler"
+	HKCR,"CLSID\{477EC299-1421-4bdd-971F-7CCB933F21AD}\InprocServer32",,0x0,"mf.dll"
+	HKCR,"CLSID\{477EC299-1421-4bdd-971F-7CCB933F21AD}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{48e2ed0f-98c2-4a37-bed5-166312ddd83f}",,0x0,"MFReadWrite Class Factory"
+	HKCR,"CLSID\{48e2ed0f-98c2-4a37-bed5-166312ddd83f}\InprocServer32",,0x0,"mfreadwrite.dll"
+	HKCR,"CLSID\{48e2ed0f-98c2-4a37-bed5-166312ddd83f}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{926f41f7-003e-4382-9e84-9e953be10562}",,0x0,"ADTS Class Handler"
+	HKCR,"CLSID\{926f41f7-003e-4382-9e84-9e953be10562}\InprocServer32",,0x0,"mf.dll"
+	HKCR,"CLSID\{926f41f7-003e-4382-9e84-9e953be10562}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{41457294-644C-4298-A28A-BD69F2C0CF3B}",,0x0,"ASF Class Handler"
+	HKCR,"CLSID\{41457294-644C-4298-A28A-BD69F2C0CF3B}\InprocServer32",,0x0,"mf.dll"
+	HKCR,"CLSID\{41457294-644C-4298-A28A-BD69F2C0CF3B}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{7AFA253E-F823-42f6-A5D9-714BDE467412}",,0x0,"AVI Class Handler"
+	HKCR,"CLSID\{7AFA253E-F823-42f6-A5D9-714BDE467412}\InprocServer32",,0x0,"mf.dll"
+	HKCR,"CLSID\{7AFA253E-F823-42f6-A5D9-714BDE467412}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{A82E50BA-8E92-41eb-9DF2-433F50EC2993}",,0x0,"MP3 Class Handler"
+	HKCR,"CLSID\{A82E50BA-8E92-41eb-9DF2-433F50EC2993}\InprocServer32",,0x0,"mf.dll"
+	HKCR,"CLSID\{A82E50BA-8E92-41eb-9DF2-433F50EC2993}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{7A56C4CB-D678-4188-85A8-BA2EF68FA10D}",,0x0,"SAMI Class Handler"
+	HKCR,"CLSID\{7A56C4CB-D678-4188-85A8-BA2EF68FA10D}\InprocServer32",,0x0,"mf.dll"
+	HKCR,"CLSID\{7A56C4CB-D678-4188-85A8-BA2EF68FA10D}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{42C9B9F5-16FC-47ef-AF22-DA05F7C842E3}",,0x0,"WAV Class Handler"
+	HKCR,"CLSID\{42C9B9F5-16FC-47ef-AF22-DA05F7C842E3}\InprocServer32",,0x0,"mf.dll"
+	HKCR,"CLSID\{42C9B9F5-16FC-47ef-AF22-DA05F7C842E3}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{3FFB3B8C-EB99-472b-8902-E1C1B05F07CF}",,0x0,"LPCM Class Handler"
+	HKCR,"CLSID\{3FFB3B8C-EB99-472b-8902-E1C1B05F07CF}\InprocServer32",,0x0,"mf.dll"
+	HKCR,"CLSID\{3FFB3B8C-EB99-472b-8902-E1C1B05F07CF}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{B084785C-DDE0-4d30-8CA8-05A373E185BE}",,0x0,"NSC Class Handler"
+	HKCR,"CLSID\{B084785C-DDE0-4d30-8CA8-05A373E185BE}\InprocServer32",,0x0,"mf.dll"
+	HKCR,"CLSID\{B084785C-DDE0-4d30-8CA8-05A373E185BE}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{9EC4B4F9-3029-45ad-947B-344DE2A249E2}",,0x0,"Urlmon Scheme Handler"
+	HKCR,"CLSID\{9EC4B4F9-3029-45ad-947B-344DE2A249E2}\InprocServer32",,0x0,"mf.dll"
+	HKCR,"CLSID\{9EC4B4F9-3029-45ad-947B-344DE2A249E2}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{E9F4EBAB-D97B-463e-A2B1-C54EE3F9414D}",,0x0,"Net Scheme Handler"
+	HKCR,"CLSID\{E9F4EBAB-D97B-463e-A2B1-C54EE3F9414D}\InprocServer32",,0x0,"mf.dll"
+	HKCR,"CLSID\{E9F4EBAB-D97B-463e-A2B1-C54EE3F9414D}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{37A61C8B-7F8E-4d08-B12B-248D73E9AB4F}",,0x0,"Secure Http Scheme Handler"
+	HKCR,"CLSID\{37A61C8B-7F8E-4d08-B12B-248D73E9AB4F}\InprocServer32",,0x0,"mf.dll"
+	HKCR,"CLSID\{37A61C8B-7F8E-4d08-B12B-248D73E9AB4F}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKCR,"CLSID\{44CB442B-9DA9-49df-B3FD-023777B16E50}",,0x0,"Secure Http Scheme Handler"
+	HKCR,"CLSID\{44CB442B-9DA9-49df-B3FD-023777B16E50}\InprocServer32",,0x0,"mf.dll"
+	HKCR,"CLSID\{44CB442B-9DA9-49df-B3FD-023777B16E50}\InprocServer32","ThreadingModel",0x0,"Both"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation",,0x10
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers",,0x10
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.3g2","{271C3902-6095-4c45-A22F-20091816EE9E}",0x0,"MPEG4 Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.3gp","{271C3902-6095-4c45-A22F-20091816EE9E}",0x0,"MPEG4 Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.3gp2","{271C3902-6095-4c45-A22F-20091816EE9E}",0x0,"MPEG4 Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.3gpp","{271C3902-6095-4c45-A22F-20091816EE9E}",0x0,"MPEG4 Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.aac","{926f41f7-003e-4382-9e84-9e953be10562}",0x0,"ADTS Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.adt","{926f41f7-003e-4382-9e84-9e953be10562}",0x0,"ADTS Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.adts","{926f41f7-003e-4382-9e84-9e953be10562}",0x0,"ADTS Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.asf","{41457294-644C-4298-A28A-BD69F2C0CF3B}",0x0,"ASF Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.avi","{7AFA253E-F823-42f6-A5D9-714BDE467412}",0x0,"AVI Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.m4a","{271C3902-6095-4c45-A22F-20091816EE9E}",0x0,"MPEG4 Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.m4v","{271C3902-6095-4c45-A22F-20091816EE9E}",0x0,"MPEG4 Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.mov","{271C3902-6095-4c45-A22F-20091816EE9E}",0x0,"MPEG4 Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.mp3","{A82E50BA-8E92-41eb-9DF2-433F50EC2993}",0x0,"MP3 Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.mp4","{271C3902-6095-4c45-A22F-20091816EE9E}",0x0,"MPEG4 Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.mp4v","{271C3902-6095-4c45-A22F-20091816EE9E}",0x0,"MPEG4 Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.nsc","{B084785C-DDE0-4d30-8CA8-05A373E185BE}",0x0,"NSC Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.sami","{7A56C4CB-D678-4188-85A8-BA2EF68FA10D}",0x0,"SAMI Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.smi","{7A56C4CB-D678-4188-85A8-BA2EF68FA10D}",0x0,"SAMI Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.wav","{42C9B9F5-16FC-47ef-AF22-DA05F7C842E3}",0x0,"WAV Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.wm","{41457294-644C-4298-A28A-BD69F2C0CF3B}",0x0,"ASF Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.wma","{41457294-644C-4298-A28A-BD69F2C0CF3B}",0x0,"ASF Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\.wmv","{41457294-644C-4298-A28A-BD69F2C0CF3B}",0x0,"ASF Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\audio/3gpp","{271C3902-6095-4c45-A22F-20091816EE9E}",0x0,"MPEG4 Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\audio/3gpp2","{271C3902-6095-4c45-A22F-20091816EE9E}",0x0,"MPEG4 Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\audio/aac","{926f41f7-003e-4382-9e84-9e953be10562}",0x0,"ADTS Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\audio/aacp","{926f41f7-003e-4382-9e84-9e953be10562}",0x0,"ADTS Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\audio/L16","{3FFB3B8C-EB99-472b-8902-E1C1B05F07CF}",0x0,"LPCM Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\audio/mp4","{271C3902-6095-4c45-A22F-20091816EE9E}",0x0,"MPEG4 Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\audio/mpeg","{A82E50BA-8E92-41eb-9DF2-433F50EC2993}",0x0,"MP3 Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\audio/vnd.dlna.adts","{926f41f7-003e-4382-9e84-9e953be10562}",0x0,"ADTS Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\audio/wav","{42C9B9F5-16FC-47ef-AF22-DA05F7C842E3}",0x0,"WAV Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\audio/x-aac","{926f41f7-003e-4382-9e84-9e953be10562}",0x0,"ADTS Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\audio/x-mp3","{A82E50BA-8E92-41eb-9DF2-433F50EC2993}",0x0,"MP3 Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\audio/x-mpeg","{A82E50BA-8E92-41eb-9DF2-433F50EC2993}",0x0,"MP3 Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\audio/x-ms-wma","{41457294-644C-4298-A28A-BD69F2C0CF3B}",0x0,"ASF Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\audio/x-wav","{42C9B9F5-16FC-47ef-AF22-DA05F7C842E3}",0x0,"WAV Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\video/3gpp","{271C3902-6095-4c45-A22F-20091816EE9E}",0x0,"MPEG4 Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\video/3gpp2","{271C3902-6095-4c45-A22F-20091816EE9E}",0x0,"MPEG4 Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\video/avi","{7AFA253E-F823-42f6-A5D9-714BDE467412}",0x0,"AVI Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\video/mp4","{271C3902-6095-4c45-A22F-20091816EE9E}",0x0,"MPEG4 Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\video/msvideo","{7AFA253E-F823-42f6-A5D9-714BDE467412}",0x0,"AVI Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\video/x-ms-asf","{41457294-644C-4298-A28A-BD69F2C0CF3B}",0x0,"ASF Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\video/x-ms-wm","{41457294-644C-4298-A28A-BD69F2C0CF3B}",0x0,"ASF Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\video/x-ms-wmv","{41457294-644C-4298-A28A-BD69F2C0CF3B}",0x0,"ASF Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\ByteStreamHandlers\video/x-msvideo","{7AFA253E-F823-42f6-A5D9-714BDE467412}",0x0,"AVI Byte Stream Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\HardwareMFT","EnableDecoders",0x10001,00,00,00,00
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\HardwareMFT","EnableEncoders",0x10001,01,00,00,00
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\HardwareMFT","EnableVideoProcessors",0x10001,01,00,00,00
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\Platform",,0x10
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\Platform\EVR",,0x10
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\Platform\EVR\{16260968-C914-4aa1-8736-B7A6F3C5AE9B}","SWVideoDecodePowerLevel",0x10001,00,00,00,00
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\Platform\EVR\{16260968-C914-4aa1-8736-B7A6F3C5AE9B}","OptimizationFlags",0x10001,90,05,00,00
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\Platform\EVR\{5C67A112-A4C9-483f-B4A7-1D473BECAFDC}","SWVideoDecodePowerLevel",0x10001,64,00,00,00
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\Platform\EVR\{5C67A112-A4C9-483f-B4A7-1D473BECAFDC}","OptimizationFlags",0x10001,10,0a,00,00
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\Platform\EVR\{651288E5-A7ED-4076-A96B-6CC62D848FE1}","SWVideoDecodePowerLevel",0x10001,32,00,00,00
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\Platform\EVR\{651288E5-A7ED-4076-A96B-6CC62D848FE1}","OptimizationFlags",0x10001,90,05,00,00
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\RemoteDesktop","PluginCLSID",0x0,"{636c15cf-df63-4790-866a-117163d10a46}"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\SchemeHandlers",,0x10
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\SchemeHandlers\file:","{477EC299-1421-4bdd-971F-7CCB933F21AD}",0x0,"File Scheme Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\SchemeHandlers\http:","{9EC4B4F9-3029-45ad-947B-344DE2A249E2}",0x0,"Urlmon Scheme Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\SchemeHandlers\http:","{E9F4EBAB-D97B-463e-A2B1-C54EE3F9414D}",0x0,"Net Scheme Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\SchemeHandlers\httpd:","{44CB442B-9DA9-49df-B3FD-023777B16E50}",0x0,"Http Scheme Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\SchemeHandlers\httpnd:","{2EEEED04-0908-4cdb-AF8F-AC5B768A34C9}",0x0,"Drm Scheme Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\SchemeHandlers\https:","{37A61C8B-7F8E-4d08-B12B-248D73E9AB4F}",0x0,"Secure Http Scheme Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\SchemeHandlers\httpsd:","{37A61C8B-7F8E-4d08-B12B-248D73E9AB4F}",0x0,"Secure Http Scheme Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\SchemeHandlers\httpt:","{E9F4EBAB-D97B-463e-A2B1-C54EE3F9414D}",0x0,"Net Scheme Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\SchemeHandlers\httpu:","{E9F4EBAB-D97B-463e-A2B1-C54EE3F9414D}",0x0,"Net Scheme Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\SchemeHandlers\mcast:","{E9F4EBAB-D97B-463e-A2B1-C54EE3F9414D}",0x0,"Net Scheme Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\SchemeHandlers\mms:","{E9F4EBAB-D97B-463e-A2B1-C54EE3F9414D}",0x0,"Net Scheme Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\SchemeHandlers\rtsp:","{E9F4EBAB-D97B-463e-A2B1-C54EE3F9414D}",0x0,"Net Scheme Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\SchemeHandlers\rtspt:","{E9F4EBAB-D97B-463e-A2B1-C54EE3F9414D}",0x0,"Net Scheme Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\SchemeHandlers\rtspu:","{E9F4EBAB-D97B-463e-A2B1-C54EE3F9414D}",0x0,"Net Scheme Handler"
+	HKLM,"SOFTWARE\Microsoft\Windows Media Foundation\SchemeHandlers\sdp:","{E9F4EBAB-D97B-463e-A2B1-C54EE3F9414D}",0x0,"Net Scheme Handler"
+
+	;MSU updates package-current-l1-1-0
+    HKLM,"SOFTWARE\Classes\.msu",,0x0,"Microsoft.System.Update.1"
+	HKLM,"SOFTWARE\Classes\Microsoft.System.Update.1",,0x0,"Microsoft Update Standalone Package"
+	HKLM,"SOFTWARE\Classes\Microsoft.System.Update.1","FriendlyTypeName",0x20000,"@""%%systemroot%%\system32\wusa.exe"",-102"
+	HKLM,"SOFTWARE\Classes\Microsoft.System.Update.1\CurVer",,0x0,"Microsoft.System.Update.1"
+	HKLM,"SOFTWARE\Classes\Microsoft.System.Update.1\DefaultIcon",,0x20000,"""%%systemroot%%\system32\wusa.exe"",-101"
+	HKLM,"SOFTWARE\Classes\Microsoft.System.Update.1\shell",,0x10
+	HKLM,"SOFTWARE\Classes\Microsoft.System.Update.1\shell\open",,0x10
+	HKLM,"SOFTWARE\Classes\Microsoft.System.Update.1\shell\open\command",,0x20000,"""%%systemroot%%\system32\wusa.exe"" ""%%1"" %%2 %%3 %%4"
+	
+	;Trusted Installer (place holder)
+	HKLM,"SYSTEM\CurrentControlSet\Services\TrustedInstaller","DisplayName",0x0,"Windows Module Installer"
+	HKLM,"SYSTEM\CurrentControlSet\Services\TrustedInstaller","ImagePath",0x20000,"%%SystemRoot%%\servicing\TrustedInstaller.exe"
+	HKLM,"SYSTEM\CurrentControlSet\Services\TrustedInstaller","Description",0x0,"Enables installation, modification, and removal of Windows updates and optional components. If this service is disabled, install or uninstall of Windows updates might fail for this computer."
+	HKLM,"SYSTEM\CurrentControlSet\Services\TrustedInstaller","ObjectName",0x0,"localSystem"
+	HKLM,"SYSTEM\CurrentControlSet\Services\TrustedInstaller","ErrorControl",0x10001,01,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Services\TrustedInstaller","Start",0x10001,03,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Services\TrustedInstaller","Type",0x10001,10,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Services\TrustedInstaller","ServiceSidType",0x10001,01,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Services\TrustedInstaller","FailureActions",0x1,84,03,00,00,00,00,00,00,00,00,00,00,03,00,00,00,14,00,00,00,01,00,00,00,c0,d4,01,00,01,00,00,00,e0,93,04,00,00,00,00,00,00,00,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Services\TrustedInstaller","BlockTime",0x10001,30,2a,00,00
+	HKLM,"SYSTEM\CurrentControlSet\Services\TrustedInstaller","PreshutdownTimeout",0x10001,80,ee,36,00
+	HKLM,"SYSTEM\CurrentControlSet\Services\TrustedInstaller","Group",0x0,"ProfSvc_Group"
+	HKLM,"SYSTEM\CurrentControlSet\Services\TrustedInstaller\Security","Security",0x1,01,00,14,90,90,00,00,00,a0,00,00,00,14,00,00,00,34,00,00,00,02,00,20,00,01,00,00,00,02,c0,18,00,00,00,0c,00,01,02,00,00,00,00,00,05,20,00,00,00,20,02,00,00,02,00,5c,00,04,00,00,00,00,02,14,00,ff,01,0f,00,01,01,00,00,00,00,00,05,12,00,00,00,00,00,18,00,ff,01,02,00,01,02,00,00,00,00,00,05,20,00,00,00,20,02,00,00,00,00,14,00,8d,01,02,00,01,01,00,00,00,00,00,05,04,00,00,00,00,00,14,00,8d,01,02,00,01,01,00,00,00,00,00,05,06,00,00,00,01,02,00,00,00,00,00,05,20,00,00,00,20,02,00,00,01,02,00,00,00,00,00,05,20,00,00,00,20,02,00,00
 
 [Product.Del.Reg]
     HKCR,"CLSID\{0131BE10-2001-4C5F-A9B0-CC88FAB64CE8}"
@@ -1994,6 +2244,8 @@
     HKCR,"CLSID\{F3C633A2-46C8-498E-8FBB-CC6F721BBCDE}"
     HKCR,"CLSID\{FAE3D380-FEA4-4623-8C75-C6B61110B681}"
     HKCR,"CLSID\{FB012959-F4F6-44D7-9D09-DAA087A9DB57}"
+    ;To prevent wrong installed version if using Mui packs and trying use WMP12
+    HKLM,"SOFTWARE\Microsoft\MediaPlayer\Setup\Installed Versions"	
 	
 [ProductInstall.DontDelayUntilReboot]
     ;CopyFiles=Core.System32.Files
@@ -2040,6 +2292,7 @@
     CopyFiles= CopyAlways.Mui.0427.Files	
     CopyFiles= CopyAlways.Mui.0804.Files
     CopyFiles= CopyAlways.Mui.0816.Files	
+    CopyFiles= CopyAlways.Servicing.Files	
     CopyFiles= CopyAlways.System32.APISET.Files
     CopyFiles= CopyAlways.System32.Mui.0409.Files
     CopyFiles= CopyAlways.WinRT.Files
@@ -2094,6 +2347,7 @@
     CopyAlways.Mui.0427.Files=10,"mui\Fallback\0427"
     CopyAlways.Mui.0804.Files=10,"mui\Fallback\0804"
     CopyAlways.Mui.0816.Files=10,"mui\Fallback\0816"
+    CopyAlways.Servicing.Files=10,Servicing       ; copy always	
     CopyAlways.System32.APISET.Files=11  ; %windir%\system32 (don't delay until reboot)
     CopyAlways.System32.Mui.0409.Files=11  ; %windir%\system32 (don't delay until reboot)
 	CopyAlways.WinRT.Files = 11 ; %windir%\system32 (don't delay until reboot)
@@ -2145,16 +2399,17 @@
 	
 [LinkItems.Create]
    %ShortCutName%=0x00000017,%ShortCutDir%,"""%SystemRoot%\System32\NNN4NT5.exe""",%SystemRoot%\System32\NNN4NT5.exe,0,"%HOMEDRIVE%%HOMEPATH%",,1,"%NNN4NT5Tooltip%",,	
+   %ShortCutWctName%=0x00000017,%ShortCutDir%,"""%SystemRoot%\System32\wct.exe""",%SystemRoot%\System32\wct.exe,0,"%HOMEDRIVE%%HOMEPATH%",,1,"%WctTooltip%",,	
 
 [DestinationDirs.Uninstall]
    SystemTemp.Dir = 10,SystemTemp
   
 [ProcessesToRun]
-    "regsvr32.exe /s msi.dll"
-    "regsvr32.exe /s propsys.dll"
+    "%systemroot%\system32\regsvr32.exe /s msi.dll"
+    "%systemroot%\system32\regsvr32.exe /s propsys.dll"
     "updatehal.exe"
 	"rundll32.exe apphelp.dll,ShimFlushCache"
-	"regsvr32.exe /s mmdevapi.dll"	
+	"%systemroot%\system32\regsvr32.exe /s mmdevapi.dll"	
     
 [ProcessesToRunAfterCopying]
     "certupdate.exe" /Y /C /Q
@@ -2228,25 +2483,20 @@
     ntoskrnl.exe,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%ntkrnlmp.exe
     hal.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%halmacpi.dll  
     
-[MustReplace.WinSxS.Main.files]    
-    WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_02b9dd85\comctl32.dll, WinSxS\comctl32\comctl32.dll
-    WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_53959eb1\winhttp.dll, base\winhttp.dll
-	WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.0.0_x-ww_8d353f13\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll
-	WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.100.0_x-ww_0D1F9F94\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll
-	WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.3790.3959_x-ww_8251BDDE\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll
-	WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24180_x-ww_22f8358c\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll
-	WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20488_x-ww_40820f9c\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll  
-	WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_22782591\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll 
-    
 [CopyAlways.WinSxS.Main.files]    
     WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_02b9dd85\comctl32.dll, WinSxS\comctl32\comctl32.dll
+    WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.5048.0_x-ww_349122d8\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll	
     WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_53959eb1\winhttp.dll, base\winhttp.dll
-	WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.0.0_x-ww_8d353f13\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll
-	WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.100.0_x-ww_0D1F9F94\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll
-	WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.3790.3959_x-ww_8251BDDE\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll
-	WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6002.24180_x-ww_22f8358c\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll
-    WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20488_x-ww_40820f9c\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll
-    WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.6003.20617_x-ww_22782591\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll
+    
+[CopyAlways.WinSxS.Manifests.files]    
+    "WinSxS\manifests\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_02b9dd85.manifest"
+    "WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.5048.0_x-ww_349122d8.manifest"
+    "WinSxS\manifests\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_53959eb1.manifest"
+    
+[CopyAlways.WinSxS.Policies.files]
+    "WinSxS\Policies\x86_policy.6.0.Microsoft.Windows.Common-Controls_6595b64144ccf1df_x-ww_5DDAD775\6.0.5048.0.policy"  
+    "WinSxS\Policies\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4E8510AC\5.1.5048.0.policy"  
+    "WinSxS\Policies\x86_policy.5.1.Microsoft.Windows.WinHTTP_6595b64144ccf1df_x-ww_7D68AE49\5.1.5048.0.policy"
     
 [CopyAlways.WinSxS.Manifests.files]    
     "WinSxS\manifests\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_02b9dd85.manifest"
@@ -2259,7 +2509,7 @@
 [CoreOS.Common.System32.Files]
     ;advpack.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%advpack.dll
     crypt32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%crypt32.dll
-    comdlg32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%comdlg32.dll
+    comdlgbase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%comdlgbase.dll
     dssenh.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%dssenh.dll
     esent.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%esent.dll	
     gdibase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%gdibase.dll
@@ -2276,11 +2526,12 @@
     rsaenh.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%rsaenh.dll
     schannel.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%schannel.dll
     secur32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%secur32.dll
-    setupapi.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%setupapi.dll	
+    setupapibase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%setupapibase.dll	
     sxs.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%sxs.dll	
     userbase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%userbase.dll
     win32k.sys, osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%win32k.sys
     winsrv.dll, osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%winsrv.dll
+    wintrust.dll, osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%wintrust.dll
     ws2_base.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%ws2_base.dll
 
 [CoreOS.SPFiles.System32.Files]
@@ -2298,7 +2549,7 @@
 
 [Extensions.System32.Files]
     advapiex.dll,extensions\advapiex.dll
-    comdlgex.dll,extensions\comdlgex.dll
+    bcryptext.dll,extensions\bcryptext.dll
     comctlext.dll,extensions\comctlext.dll	
     cryptex.dll,extensions\cryptex.dll
     dnsapiext.dll,extensions\dnsapiext.dll
@@ -2311,9 +2562,9 @@
     powrpext.dll,extensions\powrpext.dll
     rpcrtext.dll,extensions\rpcrtext.dll    
     securex.dll,extensions\securex.dll	
-    setupext.dll,extensions\setupext.dll	
     shellex.dll,extensions\shellex.dll	
-    shlwext.dll,extensions\shlwext.dll
+    shlwext.dll,extensions\shlwext.dll	
+    uiautomationcoreext.dll,extensions\uiautomationcoreext.dll	
     userenvext.dll,extensions\userenvext.dll	
     uxthext.dll,extensions\uxthext.dll
     winhttpext.dll,extensions\winhttpext.dll		
@@ -2321,10 +2572,13 @@
 [Core.System32.Files]
     browseui.dll,core\browseui.dll
     cfgmgr32.dll,core\cfgmgr32.dll	
+    comdlg32.dll,core\comdlg32.dll	
     gdi32.dll,core\gdi32.dll
     msvcrt.dll,base\msvcrt.dll
     pdh.dll,core\pdh.dll
     psapi.dll,core\psapi.dll
+    setupapi.dll,core\setupapi.dll
+    ;shlwapi.dll,core\shlwapi.dll ;The export table order is different than SP1/SP2, disabling just for RTM
     user32.dll,core\user32.dll
     ws2_32.dll,core\ws2_32.dll	
 	
@@ -2359,9 +2613,11 @@
     propsys.dll,base\propsys.dll		
     setx.exe,base\setx.exe
     shcore.dll,base\shcore.dll	
+    ;ShimEng.dll,base\ShimEng.dll	
     sspicli.dll,base\sspicli.dll
     updatehal.exe,base\updatehal.exe
     version.dll,base\version.dll
+    wct.exe,base\wct.exe
     wevtapibase.dll,base\wevtapibase.dll
     winbrand.dll,base\winbrand.dll
     winhttp.dll,base\winhttp.dll
@@ -2443,6 +2699,7 @@
     browcli.dll,additionaldlls\browcli.dll
     cabiext.dll,additionaldlls\cabiext.dll
     cardgames.dll,additionaldlls\cardgames.dll        
+    COLORCNV.dll,additionaldlls\COLORCNV.dll
     connect.dll,additionaldlls\connect.dll
     cryptsp.dll,additionaldlls\cryptsp.dll
     dcomp.dll,additionaldlls\dcomp.dll
@@ -2457,23 +2714,39 @@
     evr.dll,additionaldlls\evr.dll
     expand.exe,additionaldlls\expand.exe
     explorerframe.dll,additionaldlls\explorerframe.dll
+    FirewallAPI.dll,additionaldlls\FirewallAPI.dll    
     FWPUCLNT.dll,additionaldlls\FWPUCLNT.dll    
     gameux.dll,additionaldlls\gameux.dll
-    ;GameUXLegacyGDFs.dll - Cause error with sfxcab when build hotfix    
+    GameUXLegacyGDFs.dll,additionaldlls\GameUXLegacyGDFs.dll
     httpapi.dll,additionaldlls\httpapi.dll
     httpnew.dll,additionaldlls\httpnew.dll
     ktmw32.dll,additionaldlls\ktmw32.dll
     logoncli.dll,additionaldlls\logoncli.dll
     lsalookup.dll,additionaldlls\lsalookup.dll
+    Magnification.dll,additionaldlls\Magnification.dll
     mf.dll,additionaldlls\mf.dll
+    mfAACEnc.dll,additionaldlls\mfAACEnc.dll
+    mfds.dll,additionaldlls\mfds.dll
+    mfdvdec.dll,additionaldlls\mfdvdec.dll
+    mfh264enc.dll,additionaldlls\mfh264enc.dll
+    mfmjpegdec.dll,additionaldlls\mfmjpegdec.dll	
     mfplat.dll,additionaldlls\mfplat.dll
+    MFPlay.dll,additionaldlls\MFPlay.dll
+    mfps.dll,additionaldlls\mfps.dll
     mfreadwrite.dll,additionaldlls\mfreadwrite.dll
+    mfvdsp.dll,additionaldlls\mfvdsp.dll
+    MFWMAAEC.dll,additionaldlls\MFWMAAEC.dll
     milcore.dll,additionaldlls\milcore.dll
+    milmagn.dll,additionaldlls\milmagn.dll
     mlang.dll,additionaldlls\mlang.dll
     mmdevapi.dll,additionaldlls\mmdevapi.dll
     mscms.dll,additionaldlls\mscms.dll
     msdrm.dll,additionaldlls\msdrm.dll
+    mshtmlmedia.dll,additionaldlls\mshtmlmedia.dll
     msidcrl30.dll,additionaldlls\msidcrl30.dll
+    msmpeg2adec.dll,additionaldlls\msmpeg2adec.dll
+    MSMPEG2ENC.dll,additionaldlls\MSMPEG2ENC.dll
+    msmpeg2vdec.dll,additionaldlls\msmpeg2vdec.dll
     mspatcha.dll,additionaldlls\mspatcha.dll
     msvcrt.dll,base\msvcrt.dll	
     ndfapi.dll,additionaldlls\ndfapi.dll
@@ -2482,6 +2755,7 @@
     netutils.dll,additionaldlls\netutils.dll
     ninput.dll,additionaldlls\ninput.dll
     npmshtml.dll,additionaldlls\npmshtml.dll
+    offreg32.dll,additionaldlls\offreg32.dll
     onex.dll,additionaldlls\onex.dll
     opcservices.dll,additionaldlls\opcservices.dll    
     pidgenx.dll,additionaldlls\pidgenx.dll
@@ -2491,6 +2765,7 @@
     puiapi.dll,additionaldlls\puiapi.dll        
     pwrshplugin.dll,additionaldlls\pwrshplugin.dll   
     qwave.dll,additionaldlls\qwave.dll        
+    resampledmo.dll,additionaldlls\resampledmo.dll
     RstrtMgr.dll,additionaldlls\RstrtMgr.dll
     rtworkq.dll,additionaldlls\rtworkq.dll
     samcli.dll,additionaldlls\samcli.dll
@@ -2506,7 +2781,8 @@
     taskschd.dll,additionaldlls\taskschd.dll
     tbs.dll,additionaldlls\tbs.dll
     tdh.dll,additionaldlls\tdh.dll
-    ;traffic.dll ; Cause getmac hang, disabled for now.
+    traffic.dll,additionaldlls\traffic.dll ; Cause getmac hang, disabled for now.
+    trafficex.dll,additionaldlls\trafficex.dll ; Cause getmac hang, disabled for now.
     tzres.dll,additionaldlls\tzres.dll
     UIAnimation.dll,additionaldlls\UIAnimation.dll
     UIAutomationCore.dll,additionaldlls\UIAutomationCore.dll
@@ -2535,11 +2811,13 @@
     wlanutil.dll,additionaldlls\wlanutil.dll
     wldp.dll,additionaldlls\wldp.dll
     wmphoto.dll,additionaldlls\wmphoto.dll
+    wmsgapi.dll,additionaldlls\wmsgapi.dll
     WMDRMSDK.DLL,additionaldlls\WMDRMSDK.DLL
     wpc.dll,additionaldlls\wpc.dll
     WSDApi.dll,additionaldlls\WSDApi.dll
     wtsapi32.dll,additionaldlls\wtsapi32.dll
     wusa.exe,additionaldlls\wusa.exe
+    xinput1_4.dll,additionaldlls\xinput1_4.dll        
     XInput9_1_0.dll,additionaldlls\XInput9_1_0.dll        
     xmllite.dll,additionaldlls\xmllite.dll      
     xmlrw.dll,additionaldlls\xmlrw.dll      
@@ -2637,13 +2915,23 @@
 	seguisb.ttf,fonts\seguisb.ttf
 	seguisym.ttf,fonts\seguisym.ttf
 	
+[CopyAlways.Servicing.Files]
+    0.0.0.1\CbsCore.dll,servicing\0.0.0.1\CbsCore.dll
+    0.0.0.1\cmiadapter.dll,servicing\0.0.0.1\cmiadapter.dll
+    0.0.0.1\wcp.dll,servicing\0.0.0.1\wcp.dll
+    CbsApi.dll,servicing\CbsApi.dll
+    TrustedInstaller.exe,servicing\TrustedInstaller.exe
+    Version\6.0.6002.18005\x86_installed,servicing\Version\6.0.6002.18005\x86_installed
+	
 [CopyAlways.Mui.0c0a.Files]
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0C0A\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\0C0A\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\0C0A\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\kernel32.dll.mui
@@ -2655,8 +2943,11 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0C0A\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\user32.dll.mui
@@ -2669,9 +2960,11 @@
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\crypt32.dll.mui
 	dxdiag.exe.mui,mui\040b\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\040b\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\040b\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\kernel32.dll.mui
@@ -2683,8 +2976,11 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\040b\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\user32.dll.mui
@@ -2697,9 +2993,11 @@
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\crypt32.dll.mui
 	dxdiag.exe.mui,mui\040c\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\040c\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\040c\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\kernel32.dll.mui
@@ -2711,23 +3009,28 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\040c\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\040c\win32k.sys.mui
-    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\winsrv.dll.mui
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\winsrv.dll.mui	
 
 [CopyAlways.Mui.040d.Files]
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\crypt32.dll.mui
 	dxdiag.exe.mui,mui\040d\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\040d\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\040d\dwrite.dll.mui	
     ;esent.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\kernel32.dll.mui
@@ -2739,8 +3042,11 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\040d\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\user32.dll.mui
@@ -2753,9 +3059,11 @@
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\crypt32.dll.mui
 	dxdiag.exe.mui,mui\040e\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\040e\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\040e\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\kernel32.dll.mui
@@ -2767,22 +3075,30 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\040e\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\040e\win32k.sys.mui
-    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\winsrv.dll.mui
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\winsrv.dll.mui	
 	
 [CopyAlways.Mui.041a.Files]
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\comdlg32.dll.mui
+    dwrite.dll.dll.dll.mui,mui\041a\dwrite.dll.mui	
     nusrmgr.cpl.mui,osfiles\%CURRENT_OS%\MUI\041a\nusrmgr.cpl.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\041a\slayerxp.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\uxtheme.dll.mui
@@ -2791,9 +3107,11 @@
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\crypt32.dll.mui
 	dxdiag.exe.mui,mui\041b\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\041b\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\041b\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\kernel32.dll.mui
@@ -2805,23 +3123,28 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\041b\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\041b\win32k.sys.mui
-    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\winsrv.dll.mui
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\winsrv.dll.mui	
 
 [CopyAlways.Mui.041d.Files]
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\crypt32.dll.mui
 	dxdiag.exe.mui,mui\041d\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\041d\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\041d\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\kernel32.dll.mui
@@ -2833,22 +3156,30 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\041d\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\041d\win32k.sys.mui
-    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\winsrv.dll.mui
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\winsrv.dll.mui	
 	
 [CopyAlways.Mui.041e.Files]
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\comdlg32.dll.mui
+    dwrite.dll.dll.dll.mui,mui\041e\dwrite.dll.mui	
     nusrmgr.cpl.mui,osfiles\%CURRENT_OS%\MUI\041e\nusrmgr.cpl.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\041e\slayerxp.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\uxtheme.dll.mui
@@ -2857,9 +3188,11 @@
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\crypt32.dll.mui
 	dxdiag.exe.mui,mui\041f\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\041f\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\041f\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\kernel32.dll.mui
@@ -2871,8 +3204,11 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\041f\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\user32.dll.mui
@@ -2885,9 +3221,11 @@
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0401\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\0401\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\0401\dwrite.dll.mui	
     ;esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\kernel32.dll.mui
@@ -2899,22 +3237,30 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0401\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\0401\win32k.sys.mui
-    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\winsrv.dll.mui	
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\winsrv.dll.mui		
 	
 [CopyAlways.Mui.0402.Files]
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\comdlg32.dll.mui
+    dwrite.dll.dll.dll.mui,mui\0402\dwrite.dll.mui	
     nusrmgr.cpl.mui,osfiles\%CURRENT_OS%\MUI\0402\nusrmgr.cpl.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0402\slayerxp.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\uxtheme.dll.mui
@@ -2923,9 +3269,11 @@
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0404\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\0404\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\0404\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\kernel32.dll.mui
@@ -2937,22 +3285,28 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0404\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\0404\win32k.sys.mui
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\winsrv.dll.mui	
 
 [CopyAlways.Mui.0405.Files]
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0405\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\0405\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\0405\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\kernel32.dll.mui
@@ -2964,47 +3318,61 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0405\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\0405\win32k.sys.mui
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\winsrv.dll.mui	
 
 [CopyAlways.Mui.0406.Files]
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0406\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\0406\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\0406\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\lsasrv.dll.mui
+	mmc.exe.mui,mui\0406\mmc.exe.mui	
+	mmcbase.dll.mui,mui\0406\mmcbase.dll.mui	
     ntdll.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\ntdll.dll.mui
     nusrmgr.cpl.mui,osfiles\%CURRENT_OS%\MUI\0406\nusrmgr.cpl.mui
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0406\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\0406\win32k.sys.mui
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\winsrv.dll.mui	
 
 [CopyAlways.Mui.0407.Files]
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0407\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\0407\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\0407\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\kernel32.dll.mui
@@ -3016,22 +3384,28 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0407\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\0407\win32k.sys.mui
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\winsrv.dll.mui	
 
 [CopyAlways.Mui.0408.Files]
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0408\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\0408\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\0408\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\kernel32.dll.mui
@@ -3043,27 +3417,38 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0408\slayerxp.dll.mui
-    userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\user32.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\user32.dll.mui
+    userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\0408\win32k.sys.mui
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\winsrv.dll.mui	
 	
 [CopyAlways.Mui.0409.Files]
-	dxdiag.exe.mui,mui\0409\dxdiag.exe.mui	
-	dxdiagn.dll.dll.dll.mui,mui\0409\dxdiagn.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\comdlg32.dll.mui
+	dxdiag.exe.mui,mui\0409\dxdiag.exe.mui
+	dxdiagn.dll.mui,mui\0409\dxdiagn.dll.mui
+    dwrite.dll.dll.dll.mui,mui\0409\dwrite.dll.mui
+    setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\setupapi.dll.mui
+    shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\shlwapi.dll.mui	
 	slayerxp.dll.mui,mui\0409\slayerxp.dll.mui
+    user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\user32.dll.mui
 
 [CopyAlways.Mui.0410.Files]
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0410\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\0410\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\0410\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\kernel32.dll.mui
@@ -3075,22 +3460,28 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0410\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\0410\win32k.sys.mui
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\winsrv.dll.mui	
 
 [CopyAlways.Mui.0411.Files]
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0411\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\0411\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\0411\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\kernel32.dll.mui
@@ -3102,22 +3493,28 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0411\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\0411\win32k.sys.mui
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\winsrv.dll.mui
 
 [CopyAlways.Mui.0412.Files]
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0412\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\0412\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\0412\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\kernel32.dll.mui
@@ -3129,22 +3526,28 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0412\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\0412\win32k.sys.mui
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\winsrv.dll.mui
 
 [CopyAlways.Mui.0413.Files]
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0413\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\0413\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\0413\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\kernel32.dll.mui
@@ -3156,22 +3559,28 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0413\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\0413\win32k.sys.mui
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\winsrv.dll.mui
 
 [CopyAlways.Mui.0414.Files]
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0414\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\0414\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\0414\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\kernel32.dll.mui
@@ -3183,22 +3592,28 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0414\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\0414\win32k.sys.mui
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\winsrv.dll.mui
 
 [CopyAlways.Mui.0415.Files]
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0415\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\0415\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\0415\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\kernel32.dll.mui
@@ -3210,22 +3625,28 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0415\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\0415\win32k.sys.mui
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\winsrv.dll.mui
 
 [CopyAlways.Mui.0416.Files]
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0416\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\0416\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\0416\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\kernel32.dll.mui
@@ -3237,21 +3658,30 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0416\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\user32.dll.mui
+    userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\0416\win32k.sys.mui
     winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\winsrv.dll.mui
 	
 [CopyAlways.Mui.0418.Files]
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\comdlg32.dll.mui
+    dwrite.dll.dll.dll.mui,mui\0418\dwrite.dll.mui	
     nusrmgr.cpl.mui,osfiles\%CURRENT_OS%\MUI\0418\nusrmgr.cpl.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0418\slayerxp.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\uxtheme.dll.mui
@@ -3260,9 +3690,11 @@
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0419\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\0419\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\0419\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\kernel32.dll.mui
@@ -3274,22 +3706,28 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0419\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\0419\win32k.sys.mui
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\winsrv.dll.mui
 	
 [CopyAlways.Mui.0424.Files]
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0424\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\0424\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\0424\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\kernel32.dll.mui
@@ -3301,41 +3739,60 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0424\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\0424\win32k.sys.mui
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\winsrv.dll.mui
 
 [CopyAlways.Mui.0425.Files]
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\comdlg32.dll.mui
+    dwrite.dll.dll.dll.mui,mui\0425\dwrite.dll.mui	
     nusrmgr.cpl.mui,osfiles\%CURRENT_OS%\MUI\0425\nusrmgr.cpl.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0425\slayerxp.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\uxtheme.dll.mui
 
 [CopyAlways.Mui.0426.Files]
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\comdlg32.dll.mui
+    dwrite.dll.dll.dll.mui,mui\0426\dwrite.dll.mui	
     nusrmgr.cpl.mui,osfiles\%CURRENT_OS%\MUI\0426\nusrmgr.cpl.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0426\slayerxp.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\uxtheme.dll.mui
 
 [CopyAlways.Mui.0427.Files]
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\comdlg32.dll.mui
+    dwrite.dll.dll.dll.mui,mui\0427\dwrite.dll.mui	
     nusrmgr.cpl.mui,osfiles\%CURRENT_OS%\MUI\0427\nusrmgr.cpl.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0427\slayerxp.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\uxtheme.dll.mui
@@ -3344,9 +3801,11 @@
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0804\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\0804\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\0804\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\kernel32.dll.mui
@@ -3358,22 +3817,28 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0804\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\0804\win32k.sys.mui
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\winsrv.dll.mui
 
 [CopyAlways.Mui.0816.Files]
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\comdlg32.dll.mui
+    comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0816\dxdiag.exe.mui	
 	dxdiagn.dll.dll.dll.mui,mui\0816\dxdiagn.dll.mui	
+	dwrite.dll.dll.dll.mui,mui\0816\dwrite.dll.mui	
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\iphlpapi.dll.mui
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\kernel32.dll.mui
@@ -3385,14 +3850,18 @@
     ole32.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\ole32.dll.mui
     pdh.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\pdh.dll.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\setupapi.dll.mui
+    setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\shlwapi.dll.mui
+    shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\shlwapi.dll.mui
 	slayerxp.dll.mui,mui\0816\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\uxtheme.dll.mui
     win32k.sys.mui,osfiles\%CURRENT_OS%\MUI\0816\win32k.sys.mui
+    winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\winsrv.dll.mui
 	
 [CopyAlways.System32.APISET.Files]    
    API-MS-WIN-APPMODEL-IDENTITY-L1-1-0.dll,api-sets\API-MS-WIN-APPMODEL-IDENTITY-L1-1-0.dll
@@ -3728,7 +4197,7 @@
     HKLM,SOFTWARE\Microsoft\Updates\Windows XP\SP%SERVICE_PACK_NUMBER%\%SP_SHORT_TITLE%
     HKLM,SOFTWARE\Microsoft\Updates\Windows XP Version 2003\SP%SERVICE_PACK_NUMBER%\%SP_SHORT_TITLE%
 	HKLM,"SYSTEM\CurrentControlSet\Services\FontCache"
-   ;Special key to bypass palemon and some others application startup error
+    ;Special key to bypass palemon and some others application startup error
     HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","API-MS-WIN-CORE-MEMORY-L1-1-0",0x0,"API-MS-WIN-CORE-MEMORY-L1-1-0.DLL"
     HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","API-MS-WIN-CORE-SYNCH-L1-2-0",0x0,"API-MS-WIN-CORE-SYNCH-L1-2-0.DLL"
     HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","API-MS-WIN-CRT-CONVERT-L1-1-0",0x0,"API-MS-WIN-CRT-CONVERT-L1-1-0.DLL"
@@ -3783,7 +4252,7 @@
     HKCR,"CLSID\{56FDF344-FD6D-11d0-958A-006097C9A090}\InProcServer32","ThreadingModel",0x0,"Apartment"
 	
 	;Disabling Hardware Acceleration for solve PowerShell with BlackScreen
-	HKCU,"SOFTWARE\Microsoft\Avalon.Graphics","DisableHWAcceleration",0x10001,01,00,00,00
+	;HKCU,"SOFTWARE\Microsoft\Avalon.Graphics","DisableHWAcceleration",0x10001,01,00,00,00
 	
 	;Vista Ksecdd Support
 	HKLM,"SYSTEM\CurrentControlSet\Control\Cryptography"
@@ -3880,10 +4349,13 @@
     HKLM,Software\Windows\LicenseInformation,"Shell-InBoxGames-SpiderSolitaire-EnableGame",0x10001,0x00000001
     HKLM,Software\Windows\LicenseInformation,"Shell-PremiumInBoxGames-Chess-EnableGame",0x10001,0x00000001 	
 	
-	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","MOZ_DISABLE_CONTENT_SANDBOX"
+	;HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","MOZ_DISABLE_CONTENT_SANDBOX"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","COMPLUS_EnableWriteXorExecute"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","_JAVA_OPTIONS"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","NODE_SKIP_PLATFORM_CHECK"
+	
+	;Windows Media Foundation
+    ;HKLM,"SOFTWARE\Microsoft\Windows Media Foundation"
 
 [Add.Reg.Uninstall]
 
@@ -3892,4 +4364,6 @@
 [ProcessesToRunAfterUninstall]
     "cmd /C schtasks /delete /tn ""Root Certificate Update"" /f"
     "cmd /C rd /q %SystemRoot%\SystemTemp"
-    "cmd /C rd /q %SystemDrive%\ProgramData"	
+    "cmd /C rd /q %SystemDrive%\ProgramData"
+    ; "regsvr32.exe /u mf.dll"
+	;"regsvr32.exe /u mmdevapi.dll"	
