@@ -6844,32 +6844,32 @@
     winhttpext.dll,extensions\i386\wwinhttpext.dll	
 	
 [Core.System32.Files]
-    browseui.dll,core\amd64\browseui.dll
-    cfgmgr32.dll,core\amd64\cfgmgr32.dll	
-    comdlg32.dll,core\amd64\comdlg32.dll	
-    gdi32.dll,core\amd64\gdi32.dll
+    browseui.dll,wrappers\amd64\browseui.dll
+    cfgmgr32.dll,wrappers\amd64\cfgmgr32.dll	
+    comdlg32.dll,wrappers\amd64\comdlg32.dll	
+    gdi32.dll,wrappers\amd64\gdi32.dll
     msvcrt.dll,base\amd64\msvcrt.dll
-    pdh.dll,core\amd64\pdh.dll
-    psapi.dll,core\amd64\psapi.dll
-    rpcrt4.dll,core\amd64\rpcrt4.dll
-    setupapi.dll,core\amd64\setupapi.dll
-    shlwapi.dll,core\amd64\shlwapi.dll
-    user32.dll,core\amd64\user32.dll
-    ws2_32.dll,core\amd64\ws2_32.dll
+    pdh.dll,wrappers\amd64\pdh.dll
+    psapi.dll,wrappers\amd64\psapi.dll
+    rpcrt4.dll,wrappers\amd64\rpcrt4.dll
+    setupapi.dll,wrappers\amd64\setupapi.dll
+    shlwapi.dll,wrappers\amd64\shlwapi.dll
+    user32.dll,wrappers\amd64\user32.dll
+    ws2_32.dll,wrappers\amd64\ws2_32.dll
 
 [Core.SysWow64.Files]
-    browseui.dll,core\i386\wbrowseui.dll
-    cfgmgr32.dll,core\i386\wcfgmgr32.dll
-    comdlg32.dll,core\i386\wcomdlg32.dll	
-    gdi32.dll,core\i386\wgdi32.dll
+    browseui.dll,wrappers\i386\wbrowseui.dll
+    cfgmgr32.dll,wrappers\i386\wcfgmgr32.dll
+    comdlg32.dll,wrappers\i386\wcomdlg32.dll	
+    gdi32.dll,wrappers\i386\wgdi32.dll
     msvcrt.dll,base\i386\wmsvcrt.dll
-    pdh.dll,core\i386\wpdh.dll
-    psapi.dll,core\i386\wpsapi.dll
-    rpcrt4.dll,core\i386\wrpcrt4.dll
-    setupapi.dll,core\i386\wsetupapi.dll
-    shlwapi.dll,core\i386\wshlwapi.dll
-    user32.dll,core\i386\wuser32.dll
-    ws2_32.dll,core\i386\wws2_32.dll	
+    pdh.dll,wrappers\i386\wpdh.dll
+    psapi.dll,wrappers\i386\wpsapi.dll
+    rpcrt4.dll,wrappers\i386\wrpcrt4.dll
+    setupapi.dll,wrappers\i386\wsetupapi.dll
+    shlwapi.dll,wrappers\i386\wshlwapi.dll
+    user32.dll,wrappers\i386\wuser32.dll
+    ws2_32.dll,wrappers\i386\wws2_32.dll	
 	
 [Base.System32.Files]
     atl.dll,base\amd64\atl.dll	

@@ -76,7 +76,7 @@
     BUILD_NUMBER              = "3790"	
     MAX_BUILD_NUMBER          = "3790"
     RELEASE_TYPE              = "original"
-    RELEASE_TYPE_WIN32SS      = "original"
+    RELEASE_TYPE_WIN32SS      = "custom"
     RELEASE_TYPE_SPECIAL      = "original"
     ShortCutName              = "NNN4NT5"	
     ShortCutWctName           = "Windows Compatibility Tool"	
@@ -2687,7 +2687,6 @@
     "%systemroot%\system32\regsvr32.exe /s propsys.dll"
     "updatehal.exe"
 	"rundll32.exe apphelp.dll,ShimFlushCache"
-	"%systemroot%\system32\regsvr32.exe /s mmdevapi.dll"	
     
 [ProcessesToRunAfterCopying]
     ;"certupdate.exe" /Y /C /Q
@@ -2698,6 +2697,7 @@
     "regsvr32 /s ""%Systemdrive%\Program Files\Common Files\Microsoft Shared\ink\InkObj.dll""
     "regsvr32 /s ""%Systemdrive%\Program Files\Common Files\Microsoft Shared\ink\rtscom.dll""
     "regsvr32 /s ""%Systemdrive%\Program Files\Common Files\Microsoft Shared\ink\tpcps.dll""
+	"regsvr32 /s mmdevapi.dll"	
     """%windir%\system32\cmd.exe""" /c move /y """%16407%\System Tools\NNN4NT5.lnk""" """%windir%\$NtUninstall%SP_SHORT_TITLE%$\NNN4NT5.lnk"""
 
 [ProcessesToRunBeforeArchive]
@@ -2854,17 +2854,17 @@
     winhttpext.dll,extensions\winhttpext.dll	
 	
 [Core.System32.Files]
-    browseui.dll,core\browseui.dll
-    cfgmgr32.dll,core\cfgmgr32.dll
-    comdlg32.dll,core\comdlg32.dll
-    gdi32.dll,core\gdi32.dll
+    browseui.dll,wrappers\browseui.dll
+    cfgmgr32.dll,wrappers\cfgmgr32.dll
+    comdlg32.dll,wrappers\comdlg32.dll
+    gdi32.dll,wrappers\gdi32.dll
     msvcrt.dll,base\msvcrt.dll
-    pdh.dll,core\pdh.dll
-    psapi.dll,core\psapi.dll
-    setupapi.dll,core\setupapi.dll
-    shlwapi.dll,core\shlwapi.dll
-    user32.dll,core\user32.dll
-    ws2_32.dll,core\ws2_32.dll	
+    pdh.dll,wrappers\pdh.dll
+    psapi.dll,wrappers\psapi.dll
+    setupapi.dll,wrappers\setupapi.dll
+    shlwapi.dll,wrappers\shlwapi.dll
+    user32.dll,wrappers\user32.dll
+    ws2_32.dll,wrappers\ws2_32.dll	
 	
 [Base.System32.Files]
     atl.dll,base\atl.dll	
@@ -2971,6 +2971,7 @@
     d3d12core.dll,d3d\d3d12core.dll
     d3dwine.dll,d3d\d3dwine.dll
     dwrite.dll,d3d\dwrite.dll
+    dwritecore.dll,d3d\dwritecore.dll
     dxdiag.exe,d3d\dxdiag.exe
     dxdiagn.dll,d3d\dxdiagn.dll    
     dxgi.dll,d3d\dxgi.dll
@@ -3021,6 +3022,7 @@
     connect.dll,additionaldlls\connect.dll
     cryptsp.dll,additionaldlls\cryptsp.dll
     cryptxml.dll,additionaldlls\cryptxml.dll
+    davclnt.dll,additionaldlls\davclnt.dll
     dcomp.dll,additionaldlls\dcomp.dll
     dpx.dll,additionaldlls\dpx.dll
     dsrole.dll,additionaldlls\dsrole.dll
@@ -3097,6 +3099,7 @@
     rtworkq.dll,additionaldlls\rtworkq.dll
     samcli.dll,additionaldlls\samcli.dll
     sas.dll,additionaldlls\sas.dll
+    schtasks.exe,additionaldlls\schtasks.exe
     sddlbase.dll,additionaldlls\sddlbase.dll
     secbase.dll,additionaldlls\secbase.dll
     slc.dll,additionaldlls\slc.dll
@@ -4699,9 +4702,11 @@
 
 [PreRequisite.Uninstall]
 
+[ProcessesToRunBeforeUninstall]
+    "regsvr32.exe /u /s mf.dll"
+	"regsvr32.exe /u /s mmdevapi.dll"
+
 [ProcessesToRunAfterUninstall]
     "cmd /C schtasks /delete /tn ""Root Certificate Update"" /f"
     "cmd /C rd /q %SystemRoot%\SystemTemp"
-    "cmd /C rd /q %SystemDrive%\ProgramData"
-    ; "regsvr32.exe /u mf.dll"
-	;"regsvr32.exe /u mmdevapi.dll"	
+    "cmd /C rd /q %SystemDrive%\ProgramData"	
