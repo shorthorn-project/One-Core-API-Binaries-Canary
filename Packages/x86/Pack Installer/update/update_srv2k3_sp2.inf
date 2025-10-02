@@ -2456,6 +2456,21 @@
 
     ;IconCodecService to convert PNG icons into Bitmap Icons
     HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows","IconServiceLib",0x0,"IconCodecService.dll"	
+	
+	;Office 2013 needed keys
+    HKCR,"CLSID\{00000323-0000-0000-C000-000000000046}",,0x0,"StdGlobalInterfaceTable"
+    HKCR,"CLSID\{00000323-0000-0000-C000-000000000046}\InProcServer32",,0x0,"ole32.dll" 
+    HKCR,"CLSID\{00000323-0000-0000-C000-000000000046}\InProcServer32","ThreadingModel",0x0,"Both"
+    HKCR,"CLSID\{1f486a52-3cb1-48fd-8f50-b8dc300d9f9d}",,0x0,"Memory Mapped Cache Mgr" 
+    HKCR,"CLSID\{1f486a52-3cb1-48fd-8f50-b8dc300d9f9d}\InProcServer32",,0x0,"propsys.dll"
+    HKCR,"CLSID\{1f486a52-3cb1-48fd-8f50-b8dc300d9f9d}\InProcServer32","ThreadingModel",0x0,"Both"
+    HKCR,"CLSID\{00000344-0000-0000-c000-000000000046}",,0x0,"InprocActpropsUnmarshaller"
+    HKCR,"CLSID\{00000344-0000-0000-c000-000000000046}\InProcServer32",,0x0,"ole32.dll"
+    HKCR,"CLSID\{00000344-0000-0000-c000-000000000046}\InProcServer32","ThreadingModel",0x0,"Both"
+	
+	;Fix for Firefox 142+
+    HKCU,"Environment","MOZ_CRASHREPORTER_DISABLE",0x0,"1"
+    HKU,".DEFAULT\Environment","MOZ_CRASHREPORTER_DISABLE",0x0,"1"	
 
 [Product.Del.Reg]
     HKCR,"CLSID\{0131BE10-2001-4C5F-A9B0-CC88FAB64CE8}"
