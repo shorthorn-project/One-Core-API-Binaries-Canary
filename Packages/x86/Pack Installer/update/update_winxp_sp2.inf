@@ -2919,6 +2919,7 @@
     winbrand.dll,base\winbrand.dll
     winhttp.dll,base\winhttp.dll
     winstanew.dll,base\winstanew.dll
+    wintrustnew.dll,base\wintrustnew.dll
     wbem\WMIC.exe,base\WMIC.exe
 	
 [CopyAlways.WinRT.Files]

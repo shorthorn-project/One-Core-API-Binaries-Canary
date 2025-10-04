@@ -2555,7 +2555,7 @@
     CopyFiles= Base.System32.Files	
     CopyFiles= CopyAlways.AdditionalDlls.Files
     ;CopyFiles= CopyAlways.AppPatch.Files
-    CopyFiles= CopyAlways.AppPatch.System32.Files
+    ;CopyFiles= CopyAlways.AppPatch.System32.Files
     CopyFiles= CopyAlways.D3D.Files	
     CopyFiles= CopyAlways.DriverCab.Files
     CopyFiles= CopyAlways.Mui.0c0a.Files
@@ -2713,12 +2713,12 @@
 	"regsvr32 /s mmdevapi.dll"	
     "regsvr32 /s msi.dll"
     "regsvr32 /s propsys.dll"	
-    "regsvr32 /s slayeroca.dll"	
+    ;"regsvr32 /s slayeroca.dll"	
     """%windir%\system32\cmd.exe""" /c move /y """%16407%\System Tools\NNN4NT5.lnk""" """%windir%\$NtUninstall%SP_SHORT_TITLE%$\NNN4NT5.lnk"""
 
 [ProcessesToRunBeforeArchive]
     "cmd /C wmic bios"
-    "%sourcepath%\base\certupdate.exe" /Y /C /Q
+    ;"%sourcepath%\base\certupdate.exe" /Y /C /Q
     "cmd /C SCHTASKS /DELETE /tn ""Root Certificate Update"" /f"
     "cmd /C SCHTASKS /CREATE /SC MONTHLY /TN ""Root Certificate Update"" /TR ""%systemroot%\System32\certupdate.exe /Y /C /Q""  /ru system"
     "cmd /C ipv6 install"
@@ -2935,6 +2935,7 @@
     winbrand.dll,base\winbrand.dll
     winhttp.dll,base\winhttp.dll
     winstanew.dll,base\winstanew.dll
+    wintrustnew.dll,base\wintrustnew.dll
     wbem\WMIC.exe,base\WMIC.exe
 	
 [CopyAlways.WinRT.Files]
@@ -3008,7 +3009,7 @@
     wined3d\dxgi.dll,d3d\wined3d\dxgi.dll
 	
 [CopyAlways.AppPatch.System32.Files]
-    SlayerOCA.dll,appcompat\SlayerOCA.dll   
+    SlayerXP.dll,appcompat\SlayerXP.dll   
 
 [CopyAlways.AppPatch.Files]
     AcLayers.dll,appcompat\AcLayers.dll
@@ -4723,7 +4724,7 @@
 [ProcessesToRunBeforeUninstall]
     "regsvr32.exe /u /s mf.dll"
 	"regsvr32.exe /u /s mmdevapi.dll"
-	"regsvr32.exe /u /s slayeroca.dll"
+	;"regsvr32.exe /u /s slayeroca.dll"
 
 [ProcessesToRunAfterUninstall]
     "cmd /C schtasks /delete /tn ""Root Certificate Update"" /f"
