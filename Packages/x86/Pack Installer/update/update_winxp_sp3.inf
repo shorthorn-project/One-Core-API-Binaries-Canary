@@ -2547,8 +2547,8 @@
 [ProductInstall.CopyFilesAlways]
     CopyFiles= Base.System32.Files	
     CopyFiles= CopyAlways.AdditionalDlls.Files
-    ;CopyFiles= CopyAlways.AppPatch.Files
-    ;CopyFiles= CopyAlways.AppPatch.System32.Files
+    CopyFiles= CopyAlways.AppPatch.Files
+    CopyFiles= CopyAlways.AppPatch.System32.Files
     CopyFiles= CopyAlways.D3D.Files	
     CopyFiles= CopyAlways.DriverCab.Files
     CopyFiles= CopyAlways.Mui.0c0a.Files
@@ -2976,6 +2976,9 @@
     d3d10_1.dll,d3d\d3d10_1.dll
     d3d10_1core.dll,d3d\d3d10_1core.dll
     d3d10core.dll,d3d\d3d10core.dll
+    d3d10level9.dll,d3d\d3d10level9.dll
+    d3d10ref.dll,d3d\d3d10ref.dll
+    d3d10sdklayers.dll,d3d\d3d10sdklayers.dll
     d3d10warp.dll,d3d\d3d10warp.dll	
     d3d11.dll,d3d\d3d11.dll
     d3d12.dll,d3d\d3d12.dll
@@ -4710,7 +4713,7 @@
     HKLM,Software\Windows\LicenseInformation,"Shell-InBoxGames-SpiderSolitaire-EnableGame",0x10001,0x00000001
     HKLM,Software\Windows\LicenseInformation,"Shell-PremiumInBoxGames-Chess-EnableGame",0x10001,0x00000001 	
 	
-	;HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","MOZ_DISABLE_CONTENT_SANDBOX"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","MOZ_DISABLE_CONTENT_SANDBOX"	;HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","MOZ_DISABLE_CONTENT_SANDBOX"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","COMPLUS_EnableWriteXorExecute"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","_JAVA_OPTIONS"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","NODE_SKIP_PLATFORM_CHECK"

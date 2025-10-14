@@ -5,7 +5,7 @@
     MaxNtMinorVersionToUpdate = 0
     MaxNtServicePackVersion   = 1024
     MinNtServicePackVersion   = 0
-    NtBuildToUpdate           = 6000
+    NtBuildToUpdate           = 6002
     NtMajorVersionToUpdate    = 6
     NtMinorVersionToUpdate    = 0
     Signature                 = "$Windows NT$"
@@ -55,17 +55,23 @@
     HKLM,SOFTWARE\Microsoft\Windows NT\CurrentVersion\Hotfix\%SP_SHORT_TITLE%\File 1\,"Old Link Date",0,""
     HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE%,"DisplayVersion",0x00000000,%APPC_VERSION%
     HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE%,"ReleaseType",0,%HOTFIX%
+	
+	;Adding some keys to System Variables to improve compatibility
+	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","MOZ_DISABLE_CONTENT_SANDBOX",0x0,"1"	
 
 [ProductInstall.ReplaceFilesIfExist]
     ;CopyFiles=System32.files
     
 [ProductInstall.DontDelayUntilReboot]
-    CopyFiles=CopyAlways.System32.APISET.files    
-    CopyFiles=MustReplace.System32.files    
+    CopyFiles = CopyAlways.System32.APISET.files
+    CopyFiles = Drivers.CoreDriverFiles 	
+    CopyFiles = MustReplace.System32.files
+    CopyFiles = CopyAlways.AppPatch.Files
 
 [ProductInstall.CopyFilesAlways]
     CopyFiles = CopyAlways.System32.APISET.files
     CopyFiles = CopyAlways.System32.files
+    CopyFiles = CopyAlways.AppPatch.System32.Files		
 
 [ProductInstall.GlobalRegistryChanges.Install]
     AddReg=Product.Add.Reg
@@ -74,9 +80,22 @@
     AddReg=Product.Add.Reg
 
 [DestinationDirs]
+    CopyAlways.AppPatch.Files=10,AppPatch       ; copy always
+    CopyAlways.AppPatch.System32.Files=11  ; %windir%\system32 (don't delay until reboot)	
     CopyAlways.System32.APISET.files=11  ; %windir%\system32 (don't delay until reboot)
     CopyAlways.System32.files=11  ; %windir%\system32 (don't delay until reboot)
+    Drivers.CoreDriverFiles = 12 ; %windir%\system32\drivers
     MustReplace.System32.Files=11  ; %windir%\system32 (don't delay until reboot)
+	
+[CopyAlways.AppPatch.System32.Files]
+    SlayerXP.dll,appcompat\SlayerXP.dll
+
+[CopyAlways.AppPatch.Files]
+    AcLayers.dll,appcompat\AcLayers.dll
+    apphelp.sdb,appcompat\apphelp.sdb
+    drvmain.sdb,appcompat\drvmain.sdb
+    msimain.sdb,appcompat\msimain.sdb
+    sysmain.sdb,appcompat\sysmain.sdb	
 	
 [CopyAlways.System32.Files]
     cfgmgrex.dll,extensions\cfgmgrex.dll
