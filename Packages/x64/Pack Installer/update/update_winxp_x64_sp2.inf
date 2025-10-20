@@ -6343,7 +6343,11 @@
     HKCR,"Wow6432Node\CLSID\{1f486a52-3cb1-48fd-8f50-b8dc300d9f9d}\InProcServer32","ThreadingModel",0x0,"Both"
     HKCR,"Wow6432Node\CLSID\{00000344-0000-0000-c000-000000000046}",,0x0,"InprocActpropsUnmarshaller"
     HKCR,"Wow6432Node\CLSID\{00000344-0000-0000-c000-000000000046}\InProcServer32",,0x0,"ole32.dll"
-    HKCR,"Wow6432Node\CLSID\{00000344-0000-0000-c000-000000000046}\InProcServer32","ThreadingModel",0x0,"Both"	
+    HKCR,"Wow6432Node\CLSID\{00000344-0000-0000-c000-000000000046}\InProcServer32","ThreadingModel",0x0,"Both"
+	
+	;Fix for Firefox 142+
+    HKCU,"Environment","MOZ_CRASHREPORTER_DISABLE",0x0,"1"
+    HKU,".DEFAULT\Environment","MOZ_CRASHREPORTER_DISABLE",0x0,"1"		
 
 [Product.Del.Reg]
     HKCR,"CLSID\{0131BE10-2001-4C5F-A9B0-CC88FAB64CE8}"
@@ -6660,17 +6664,9 @@
    %ShortCutWctName%=0x00000017,%ShortCutDir%,"""%SystemRoot%\System32\wct.exe""",%SystemRoot%\System32\wct.exe,0,"%HOMEDRIVE%%HOMEPATH%",,1,"%WctTooltip%",,	
 
 [ProcessesToRun]
-    "regsvr32.exe /s propsys.dll"    
-    "Syswow64/regsvr32.exe /s Syswow64/propsys.dll"
-	"rundll32.exe apphelp.dll,ShimFlushCache"
-    "regsvr32.exe /s mmdevapi.dll"        
-    "Syswow64/regsvr32.exe /s Syswow64/mmdevapi.dll"	
+	"rundll32.exe apphelp.dll,ShimFlushCache"	
     
 [ProcessesToRunAfterCopying]
-    ;"cmd /C "%systemroot%\Syswow64\certupdate.exe" /Y /C /Q"
-    "cmd /C SCHTASKS /DELETE /tn ""Root Certificate Update"" /f"
-    "cmd /C SCHTASKS /CREATE /SC MONTHLY /TN ""Root Certificate Update"" /TR ""%systemroot%\Syswow64\certupdate.exe /Y /C /Q""  /ru system"
-    "cmd /C netsh interface ipv6 install"
     "cmd /C mkdir %SystemRoot%\SystemTemp"
     "cmd /C mkdir %SystemDrive%\ProgramData"
     "cmd /C attrib +h %SystemDrive%\ProgramData /s /d"
@@ -6678,11 +6674,20 @@
     "regsvr32 /s ""%Systemdrive%\Program Files\Common Files\Microsoft Shared\ink\InkObj.dll""
     "regsvr32 /s ""%Systemdrive%\Program Files\Common Files\Microsoft Shared\ink\rtscom.dll""
     "regsvr32 /s ""%Systemdrive%\Program Files\Common Files\Microsoft Shared\ink\tpcps.dll""
-    """%windir%\system32\cmd.exe""" /c move /y """%16407%\System Tools\NNN4NT5.lnk""" """%windir%\$NtUninstall%SP_SHORT_TITLE%$\NNN4NT5.lnk"""
+    "regsvr32.exe /s propsys.dll"    
+    "%SystemRoot%\Syswow64\regsvr32.exe /s Syswow64/propsys.dll"
+	"rundll32.exe apphelp.dll,ShimFlushCache"
+    "regsvr32.exe /s mmdevapi.dll"        
+    "%SystemRoot%\Syswow64\regsvr32.exe /s Syswow64/mmdevapi.dll"	
+    """%windir%\system32\cmd.exe""" /c move /y """%16407%\System Tools\NNN4NT5.lnk""" """%windir%\$NtUninstall%SP_SHORT_TITLE%$\NNN4NT5.lnk"""l
+	"%SystemRoot%\Syswow64\ocacertinstall.bat"
 	
 [ProcessesToRunBeforeArchive]
     "cmd /C wmic bios"		
-    "%sourcepath%\base\i386\wcertupdate.exe" /Y /C /Q		
+    "cmd /C SCHTASKS /DELETE /tn ""Root Certificate Update"" /f"
+    "cmd /C SCHTASKS /CREATE /SC MONTHLY /TN ""Root Certificate Update"" /TR ""%systemroot%\Syswow64\certupdate.exe /Y /C /Q""  /ru system"	
+    "cmd /C netsh interface ipv6 install"	
+   ; "%sourcepath%\base\i386\wcertupdate.exe" /Y /C /Q		
 
 [Drivers.CoreDriverFiles]
     kseext.sys, drivers\kseext.sys
@@ -6750,7 +6755,7 @@
     userbase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%userbase.dll
     win32k.sys, osfiles\%CURRENT_OS%\COMMON\amd64\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%win32k.sys
     winsrv.dll, osfiles\%CURRENT_OS%\COMMON\amd64\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%winsrv.dll
-    wintrustbase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%wintrustbase.dll	
+    wintrust.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%wintrust.dll	
     ws2_base.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%ws2_base.dll
 	
 [CoreOS.Common.SysWow64.Files]
@@ -6773,7 +6778,7 @@
     setupapibase.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wsetupapibase.dll	
     sxs.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wsxs.dll
     userbase.dll,osfiles\%CURRENT_OS%\COMMON\i386\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%wuserbase.dll
-    wintrustbase.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wwintrustbase.dll
+    wintrust.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wwintrust.dll
     ws2_base.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wws2_base.dll	
 
 [CoreOS.SPFiles.System32.Files]
@@ -6913,12 +6918,11 @@
     winbrand.dll,base\amd64\winbrand.dll
     winhttp.dll,base\amd64\winhttp.dll
     winstanew.dll,base\amd64\winstanew.dll
-    wintrust.dll,base\amd64\wintrust.dll
     wbem\WMIC.exe,base\amd64\WMIC.exe
 	
 [Base.SysWOW64.Files]
     atl.dll,base\i386\watl.dll
-    authroots.sst,base\i386\authroots.sst	
+    authroots.sst,base\i386\wauthroots.sst	
     bcrypt.dll,base\i386\wbcrypt.dll
     bcryptprimitives.dll,base\i386\wbcryptprimitives.dll
     certupdate.exe,base\i386\wcertupdate.exe
@@ -6928,9 +6932,9 @@
     dbgeng.dll,base\i386\wdbgeng.dll
     dbghelp.dll,base\i386\wdbghelp.dll	
     d3dkmt.dll,base\i386\wd3dkmt.dll
-    delroots.sst,base\i386\delroots.sst	
+    delroots.sst,base\i386\wdelroots.sst	
     devcon.exe,base\i386\wdevcon.exe
-    disallowedcert.sst,base\i386\disallowedcert.sst	
+    disallowedcert.sst,base\i386\wdisallowedcert.sst	
     dwmapi.dll,base\i386\wdwmapi.dll   
     dwrgdi.dll,base\i386\wdwrgdi.dll    
     esentbase.dll,base\i386\wesentbase.dll    
@@ -6949,21 +6953,21 @@
     nsi.dll,base\i386\wnsi.dll	
     Nlsdl.dll,base\i386\wNlsdl.dll
     normaliz.dll,base\i386\wnormaliz.dll
+    ocacertinstall.bat,base\i386\wocacertinstall.bat
     progwrp.dll,base\i386\wprogwrp.dll
     propsys.dll,base\i386\wpropsys.dll
-    roots.sst,base\i386\roots.sst 	
+    roots.sst,base\i386\wroots.sst 	
     setx.exe,base\i386\wsetx.exe
     shcore.dll,base\i386\wshcore.dll	
     ;ShimEng.dll,base\i386\wShimEng.dll	
     sspicli.dll,base\i386\wsspicli.dll
-    updroots.exe,base\i386\updroots.exe
-    updroots.sst,base\i386\updroots.sst 	
+    updroots.exe,base\i386\wupdroots.exe
+    updroots.sst,base\i386\wupdroots.sst 	
     version.dll,base\i386\wversion.dll
     wevtapibase.dll,base\i386\wwevtapibase.dll
     winbrand.dll,base\i386\wwinbrand.dll
     winhttp.dll,base\i386\wwinhttp.dll
-    winstanew.dll,base\i386\wwinstanew.dll	
-    wintrust.dll,base\i386\wwintrust.dll	
+    winstanew.dll,base\i386\wwinstanew.dll
     wbem\WMIC.exe,base\i386\wWMIC.exe	
 
 [CopyAlways.WinRT.Files]

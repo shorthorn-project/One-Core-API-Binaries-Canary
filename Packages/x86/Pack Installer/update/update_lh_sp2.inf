@@ -19,71 +19,25 @@
     EventLogKeyName         = NtServicePack
     EventLogDllName         = spmsg.dll    
     
-[Prerequisite]
-    ;condition=SingleOp,LatestUpdateCheck1.Section
-    
-[LatestUpdateCheck1.Section]
-	NotPresentOp = CheckReg, HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\HotFix\OCAB",Installed,0x10001
-    Display_String="%LatestUpdateFail%"
-    
 [Strings]
-    SERVICE_PACK_NUMBER       = 2
-    HelpLink                  = "http://shorthornproject.com"
-    URLInfoAbout              = "http://shorthornproject.com"
-    BASE_VERSION              = "4.1.0"    
-    UPDATE                    = "Update"
-    HOTFIX                    = "Hotfix"
-    SECURITY_UPDATE           = "Security Update"
-    LangTypeValue             = 0x0
-    ServicePackSourceFiles    = "One-Core-API Pack Source Files"
-    SP_SHORT_TITLE            = "OCAB"
-    SP_TITLE                  = "One-Core-API Pack"
-    PARENT_DISPLAY_NAME       = "One-Core-API"
-    LOC_UPDATE                = "Update"
-    LOC_CRITICALUPDATE        = "Critical Update"
-    LOC_HOTFIX                = "Hotfix"
-    LOC_SECURITY_UPDATE       = "Security Update"
-    FNTCACHESVC_DISPLAY_NAME  = "Windows Font Cache Service"
-    FNTCACHESVC_DESCRIPTION   = "Optimizes performance of applications by caching commonly used font data. Applications will start this service if it is not already running. It can be disabled, though doing so will degrade application performance."
-    SERVICE_DEMAND_START      = 0x3
-    CLSID_PhotoPropertyStore  = "{A38B883C-1682-497E-97B0-0A3A9E801682}"
-    CLSID_PolicyComponent     = "{6F13DD2E-EBEE-4DD5-A72E-850B2087F5DD}"
-    CLSID_WMP                 = "{57A37CAA-367A-4540-916B-F183C5093A4B}"
-    CLSID_TIFF                = "{163BCC30-E2E9-4F0B-961D-A3E9FDB788A3}"
-    CLSID_WIC                 = "{FAE3D380-FEA4-4623-8C75-C6B61110B681}"
-    CLSID_WIC_Prefix          = "{BB5ACC38-F216-4CEC-A6C5-5F6E739763A9}"
-    CLSID_WIC_Namespace       = "{22383CF1-ED17-4E2E-AF17-D85B8F6B30D0}"
-    MSFT_Prefix               = "MicrosoftPhoto"
-    MSFT_Namespace            = "http://ns.microsoft.com/photo/1.0"
-    WIC_FILE_VERSION          = "6.0.5840.16388"
-    WIC_VERSION               = "3.0.0.0"
-    LANGTYPEVALUE             = 0x0
-    SP_SHORT_TITLE_WIC        = "WIC"
-    CURRENT_OS                = "LH"
-    TARGET_RELEASE            = "SP2"
-    SPECIFIC_TARGET_RELEASE   = "SP"
-    RELEASE_FAMILY            = "lh"         
-    SERVICE_PACK_MIN_VALUE    = "768"
-    SERVICE_PACK_CURRENT_VALUE= "768"
-    SERVICE_PACK_MAX_VALUE    = "768"
-    MAJOR_VERSION             = "5"
-    MINOR_VERSION             = "1"
-    MAX_MAJOR_VERSION         = "5"
-    MIN_MINOR_VERSION         = "1"
-    BUILD_NUMBER              = "2600"	
-    MAX_BUILD_NUMBER          = "2600"
-    RELEASE_TYPE              = "original"
-    RELEASE_TYPE_WIN32SS      = "custom"
-    RELEASE_TYPE_SPECIAL      = "original"
-    ShortCutName              = "NNN4NT5"	
-    ShortCutWctName           = "Windows Compatibility Tool"	
-    ShortCutDir               = "Accessories\System Tools"
-    NNN4NT5Tooltip            = "Set Windows Compatibility layer by Compatibility Variable"
-    WctTooltip                = "A Windows Compatibility Tool emulated Windows Version"
-    LatestUpdateFail          = "Please Uninstall One-Core-API first!" 
+    SERVICE_PACK_NUMBER     = 3
+    HelpLink = "http://shorthornproject.com"
+    URLInfoAbout = "http://shorthornproject.com"
+    APPC_VERSION            = "4.1.0"    
+    UPDATE                  = "Update"
+    HOTFIX                  = "Hotfix"
+    SECURITY_UPDATE         = "Security Update"
+    LangTypeValue           = 0x0
+    ServicePackSourceFiles  = "One-Core-API AppCompat Source Files"
+    SP_SHORT_TITLE          = "OCAB"
+    SP_TITLE                = "One-Core-API Pack"
+    PARENT_DISPLAY_NAME     = "One-Core-API"
+    LOC_UPDATE="Update"
+    LOC_CRITICALUPDATE="Critical Update"
+    LOC_HOTFIX="Hotfix"
+    LOC_SECURITY_UPDATE="Security Update"    
     
 [Product.Add.Reg]
-    HKLM,"Software\Microsoft\Windows\CurrentVersion\RunOnce",%SP_SHORT_TITLE%,,"rundll32.exe apphelp.dll,ShimFlushCache"
     HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Setup", "LogLevel", 0x10001, 0
     HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE%","ParentKeyName",0x00000000,"OperatingSystem"
     HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE%","ParentDisplayName",0x00000000,"%PARENT_DISPLAY_NAME%"
@@ -101,6 +55,26 @@
     HKLM,SOFTWARE\Microsoft\Windows NT\CurrentVersion\Hotfix\%SP_SHORT_TITLE%\File 1\,"Old Link Date",0,""
     HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE%,"DisplayVersion",0x00000000,%APPC_VERSION%
     HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE%,"ReleaseType",0,%HOTFIX%
+	
+	;Adding some keys to System Variables to improve compatibility
+	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","MOZ_DISABLE_CONTENT_SANDBOX",0x0,"1"
+
+    HKCR,"CLSID\{513D916F-2A8E-4F51-AEAB-0CBC76FB1AF8}\InprocServer32",,0x0,"SlayerXP.dll"
+    HKLM,"SOFTWARE\Classes\CLSID\{513D916F-2A8E-4F51-AEAB-0CBC76FB1AF8}\InprocServer32",,0x0,"SlayerXP.dll"
+
+[ProductInstall.ReplaceFilesIfExist]
+    ;CopyFiles=System32.files
+    
+[ProductInstall.DontDelayUntilReboot]
+    CopyFiles = CopyAlways.System32.APISET.files
+    CopyFiles = Drivers.CoreDriverFiles 	
+    CopyFiles = MustReplace.System32.files
+    CopyFiles = CopyAlways.AppPatch.Files
+
+[ProductInstall.CopyFilesAlways]
+    CopyFiles = CopyAlways.System32.APISET.files
+    CopyFiles = CopyAlways.System32.files
+    CopyFiles = CopyAlways.AppPatch.System32.Files		
 
 [ProductInstall.GlobalRegistryChanges.Install]
     AddReg=Product.Add.Reg
@@ -109,24 +83,23 @@
     AddReg=Product.Add.Reg
 
 [DestinationDirs]
-    Base.System32.Files=11  ; %windir%\system32 (don't delay until reboot)
-    MustReplace.System32.Files=11  ; %windir%\system32 (don't delay until reboot)
-	CopyAlways.AdditionalDlls.Files=11  ; %windir%\system32 (don't delay until reboot)
-    CopyAlways.System32.APISET.Files=11  ; %windir%\system32 (don't delay until reboot)
+    CopyAlways.AppPatch.Files=10,AppPatch       ; copy always
+    CopyAlways.AppPatch.System32.Files=11  ; %windir%\system32 (don't delay until reboot)	
+    CopyAlways.System32.APISET.files=11  ; %windir%\system32 (don't delay until reboot)
     CopyAlways.System32.files=11  ; %windir%\system32 (don't delay until reboot)
-
-[ProductInstall.CopyFilesAlways]
-    CopyFiles = CopyAlways.AdditionalDlls.Files
-    CopyFiles = CopyAlways.System32.files
-    CopyFiles = Base.System32.Files
+    Drivers.CoreDriverFiles = 12 ; %windir%\system32\drivers
+    MustReplace.System32.Files=11  ; %windir%\system32 (don't delay until reboot)
 	
-[ProductInstall.DontDelayUntilReboot]
-    ;CopyFiles=Wrappers.System32.Files
-    ;CopyFiles  = CoreOS.Common.System32.Files
-    ;CopyFiles= CoreOS.SPFiles.System32.Files	
-    CopyFiles  = MustReplace.System32.Files	
-	CopyFiles  = CopyAlways.System32.APISET.Files	
-   
+[CopyAlways.AppPatch.System32.Files]
+    SlayerXP.dll,appcompat\SlayerXP.dll
+
+[CopyAlways.AppPatch.Files]
+    AcLayers.dll,appcompat\AcLayers.dll
+    apphelp.sdb,appcompat\apphelp.sdb
+    drvmain.sdb,appcompat\drvmain.sdb
+    msimain.sdb,appcompat\msimain.sdb
+    sysmain.sdb,appcompat\sysmain.sdb	
+	
 [CopyAlways.System32.Files]
     cfgmgrex.dll,extensions\cfgmgrex.dll
     dwmapiext.dll,base\dwmapi.dll
@@ -136,13 +109,11 @@
     powrpext.dll,extensions\powrpext.dll  
     shellex.dll,extensions\shellex.dll  
     userex.dll,extensions\userex.dll  
-    uxthext.dll,extensions\uxthext.dll  
+    uxthext.dll,extensions\uxthext.dll 	
 	
-[Base.System32.Files]
-    combase.dll,base\combase.dll	
-
 [MustReplace.System32.Files]
     cfgmgr32.dll,osfiles\vista\COMMON\lhcfgmgr32.dll	
+    csrsrv.dll,osfiles\vista\COMMON\lhcsrsrv.dll	
     ci.dll,osfiles\vista\COMMON\lhci.dll	
     dwmapi.dll,osfiles\vista\COMMON\lhdwmapi.dll	
     kernel32.dll,osfiles\vista\COMMON\lhkernel32.dll	
@@ -154,8 +125,8 @@
 	uxtheme.dll,osfiles\vista\COMMON\lhuxtheme.dll	
 	winload.exe,osfiles\vista\COMMON\lhwinload.exe
 	
-[CopyAlways.System32.APISET.Files]    
-   API-MS-WIN-APPMODEL-IDENTITY-L1-1-0.dll,api-sets\API-MS-WIN-APPMODEL-IDENTITY-L1-1-0.dll
+[CopyAlways.System32.APISET.files]    
+    API-MS-WIN-APPMODEL-IDENTITY-L1-1-0.dll,api-sets\API-MS-WIN-APPMODEL-IDENTITY-L1-1-0.dll
    API-MS-WIN-APPMODEL-RUNTIME-L1-1-0.dll,api-sets\API-MS-WIN-APPMODEL-RUNTIME-L1-1-0.dll
    API-MS-WIN-APPMODEL-RUNTIME-L1-1-1.dll,api-sets\API-MS-WIN-APPMODEL-RUNTIME-L1-1-1.dll
    API-MS-WIN-APPMODEL-RUNTIME-L1-1-2.dll,api-sets\API-MS-WIN-APPMODEL-RUNTIME-L1-1-2.dll
@@ -458,10 +429,13 @@
    ext-ms-win-shell-shell32-l1-2-0.dll,api-sets\ext-ms-win-shell-shell32-l1-2-0.dll   
    ext-ms-win-uxtheme-themes-l1-1-0.dll,api-sets\ext-ms-win-uxtheme-themes-l1-1-0.dll
    ext-ms-win-xaml-pal-l1-1-0.dll,api-sets\ext-ms-win-xaml-pal-l1-1-0.dll
-   ucrtbase.dll,api-sets\ucrtbase.dll	
-	
+   ucrtbase.dll,api-sets\ucrtbase.dll		
+
 [ProcessesToRunBeforeArchive]
-    "cmd /C bcdedit /set nointegritychecks on"	
+    "cmd /C bcdedit /set nointegritychecks on"
+	
+[ProcessesToRunAfterCopying]
+    "regsvr32 /s slayerxp.dll"	
 
 [DirectoriesToCleanUp.Uninstall]
 
@@ -469,7 +443,6 @@
     1=%ServicePackSourceFiles%
 
 [SourceDisksFiles]
-    "SlayerXP.dll" =1
     
 [UninstallSections]
     GlobalRegistryChanges, GlobalRegistryChanges.UnInstall
