@@ -125,6 +125,12 @@
 	uxtheme.dll,osfiles\vista\COMMON\lhuxtheme.dll	
 	winload.exe,osfiles\vista\COMMON\lhwinload.exe
 	
+[Base.System32.Files]
+    bcryptprimitives.dll,base\bcryptprimitives.dll
+    certupdate.exe,base\certupdate.exe
+    combase.dll,base\combase.dll
+    shcore.dll,base\shcore.dll	
+	
 [CopyAlways.System32.APISET.files]    
     API-MS-WIN-APPMODEL-IDENTITY-L1-1-0.dll,api-sets\API-MS-WIN-APPMODEL-IDENTITY-L1-1-0.dll
    API-MS-WIN-APPMODEL-RUNTIME-L1-1-0.dll,api-sets\API-MS-WIN-APPMODEL-RUNTIME-L1-1-0.dll
