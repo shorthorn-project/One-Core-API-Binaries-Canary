@@ -72,6 +72,7 @@
     CopyFiles = CopyAlways.AppPatch.Files
 
 [ProductInstall.CopyFilesAlways]
+    CopyFiles = Base.System32.Files
     CopyFiles = CopyAlways.System32.APISET.files
     CopyFiles = CopyAlways.System32.files
     CopyFiles = CopyAlways.AppPatch.System32.Files		
@@ -83,6 +84,7 @@
     AddReg=Product.Add.Reg
 
 [DestinationDirs]
+    CopyFiles= Base.System32.Files
     CopyAlways.AppPatch.Files=10,AppPatch       ; copy always
     CopyAlways.AppPatch.System32.Files=11  ; %windir%\system32 (don't delay until reboot)	
     CopyAlways.System32.APISET.files=11  ; %windir%\system32 (don't delay until reboot)
@@ -104,6 +106,7 @@
     cfgmgrex.dll,extensions\cfgmgrex.dll
     dwmapiext.dll,base\dwmapi.dll
     kernelex.dll,extensions\kernelex.dll
+    kernelbase.dll,extensions\kernelex.dll
     ntext.dll,extensions\ntext.dll
     oleex.dll,extensions\oleex.dll
     powrpext.dll,extensions\powrpext.dll  
@@ -129,6 +132,7 @@
     bcryptprimitives.dll,base\bcryptprimitives.dll
     certupdate.exe,base\certupdate.exe
     combase.dll,base\combase.dll
+    cryptbase.dll,base\cryptbase.dll
     shcore.dll,base\shcore.dll	
 	
 [CopyAlways.System32.APISET.files]    
