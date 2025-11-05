@@ -3280,6 +3280,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\comdlg32.dll.mui
+	credui.dll.mui,mui\0C0A\credui.dll.mui	
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0C0A\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\0C0A\dxdiagn.dll.mui	
@@ -3300,7 +3301,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0C0A\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0C0A\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\userenv.dll.mui
@@ -3313,6 +3314,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\comdlg32.dll.mui
+	credui.dll.mui,mui\040b\credui.dll.mui		
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\crypt32.dll.mui
 	dxdiag.exe.mui,mui\040b\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\040b\dxdiagn.dll.mui	
@@ -3333,7 +3335,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\040b\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\040b\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\userenv.dll.mui
@@ -3346,6 +3348,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\comdlg32.dll.mui
+	credui.dll.mui,mui\040c\credui.dll.mui	
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\crypt32.dll.mui
 	dxdiag.exe.mui,mui\040c\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\040c\dxdiagn.dll.mui	
@@ -3366,7 +3369,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\040c\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\040c\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\userenv.dll.mui
@@ -3379,6 +3382,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\comdlg32.dll.mui
+	credui.dll.mui,mui\040d\credui.dll.mui	
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\crypt32.dll.mui
 	dxdiag.exe.mui,mui\040d\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\040d\dxdiagn.dll.mui	
@@ -3399,7 +3403,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\040d\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\040d\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\userenv.dll.mui
@@ -3412,6 +3416,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\comdlg32.dll.mui
+	credui.dll.mui,mui\040e\credui.dll.mui	
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\crypt32.dll.mui
 	dxdiag.exe.mui,mui\040e\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\040e\dxdiagn.dll.mui	
@@ -3432,7 +3437,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\040e\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\040e\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\userenv.dll.mui
@@ -3443,6 +3448,7 @@
 [CopyAlways.Mui.041a.Files]
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\comdlg32.dll.mui
+	credui.dll.mui,mui\041a\credui.dll.mui	
     dwrite.dll.mui,mui\041a\dwrite.dll.mui	
     nusrmgr.cpl.mui,osfiles\%CURRENT_OS%\MUI\041a\nusrmgr.cpl.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\setupapi.dll.mui
@@ -3451,7 +3457,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\041a\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\041a\slayerxp.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\uxtheme.dll.mui
 
@@ -3460,6 +3466,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\comdlg32.dll.mui
+	credui.dll.mui,mui\041b\credui.dll.mui	
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\crypt32.dll.mui
 	dxdiag.exe.mui,mui\041b\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\041b\dxdiagn.dll.mui	
@@ -3480,7 +3487,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\041b\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\041b\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\userenv.dll.mui
@@ -3492,6 +3499,7 @@
     advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\advapi32.dll.mui
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\comdlg32.dll.mui
+	credui.dll.mui,mui\041d\credui.dll.mui	
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\crypt32.dll.mui
 	dxdiag.exe.mui,mui\041d\dxdiag.exe.mui	
@@ -3513,7 +3521,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\041d\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\041d\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\userenv.dll.mui
@@ -3524,6 +3532,7 @@
 [CopyAlways.Mui.041e.Files]
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\comdlg32.dll.mui
+	credui.dll.mui,mui\041e\credui.dll.mui	
     dwrite.dll.mui,mui\041e\dwrite.dll.mui	
     nusrmgr.cpl.mui,osfiles\%CURRENT_OS%\MUI\041e\nusrmgr.cpl.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\setupapi.dll.mui
@@ -3532,7 +3541,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\041e\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\041e\slayerxp.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\uxtheme.dll.mui
 
@@ -3541,6 +3550,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\comdlg32.dll.mui
+	credui.dll.mui,mui\041f\credui.dll.mui	
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\crypt32.dll.mui
 	dxdiag.exe.mui,mui\041f\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\041f\dxdiagn.dll.mui	
@@ -3561,7 +3571,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\041f\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\041f\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\userenv.dll.mui
@@ -3574,6 +3584,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\comdlg32.dll.mui
+	credui.dll.mui,mui\0401\credui.dll.mui	
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0401\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\0401\dxdiagn.dll.mui	
@@ -3594,7 +3605,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0401\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0401\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\userenv.dll.mui
@@ -3605,6 +3616,7 @@
 [CopyAlways.Mui.0402.Files]
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\comdlg32.dll.mui
+	credui.dll.mui,mui\0402\credui.dll.mui	
     dwrite.dll.mui,mui\0402\dwrite.dll.mui	
     nusrmgr.cpl.mui,osfiles\%CURRENT_OS%\MUI\0402\nusrmgr.cpl.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\setupapi.dll.mui
@@ -3613,7 +3625,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0402\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0402\slayerxp.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\uxtheme.dll.mui
 
@@ -3622,6 +3634,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\comdlg32.dll.mui
+	credui.dll.mui,mui\0404\credui.dll.mui	
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0404\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\0404\dxdiagn.dll.mui	
@@ -3642,7 +3655,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0404\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0404\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\userenv.dll.mui
@@ -3655,6 +3668,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\comdlg32.dll.mui
+	credui.dll.mui,mui\0405\credui.dll.mui	
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0405\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\0405\dxdiagn.dll.mui	
@@ -3675,7 +3689,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0405\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0405\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\userenv.dll.mui
@@ -3688,6 +3702,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\comdlg32.dll.mui
+	credui.dll.mui,mui\0406\credui.dll.mui	
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0406\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\0406\dxdiagn.dll.mui	
@@ -3708,7 +3723,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0406\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0406\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\userenv.dll.mui
@@ -3721,6 +3736,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\comdlg32.dll.mui
+	credui.dll.mui,mui\0407\credui.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0407\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\0407\dxdiagn.dll.mui	
@@ -3741,7 +3757,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0407\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0407\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\userenv.dll.mui
@@ -3754,6 +3770,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\comdlg32.dll.mui
+	credui.dll.mui,mui\0408\credui.dll.mui	
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0408\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\0408\dxdiagn.dll.mui	
@@ -3774,7 +3791,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0408\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0408\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\userenv.dll.mui
@@ -3790,7 +3807,7 @@
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\kernel32.dll.mui	
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\setupapi.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\shlwapi.dll.mui	
-	;slayerxp.dll.mui,mui\0409\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0409\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\user32.dll.mui
 
 [CopyAlways.Mui.0410.Files]
@@ -3798,6 +3815,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\comdlg32.dll.mui
+	credui.dll.mui,mui\0410\credui.dll.mui	
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0410\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\0410\dxdiagn.dll.mui	
@@ -3818,7 +3836,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0410\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0410\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\userenv.dll.mui
@@ -3831,6 +3849,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\comdlg32.dll.mui
+	credui.dll.mui,mui\0411\credui.dll.mui	
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0411\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\0411\dxdiagn.dll.mui	
@@ -3851,7 +3870,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0411\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0411\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\userenv.dll.mui
@@ -3864,6 +3883,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\comdlg32.dll.mui
+	credui.dll.mui,mui\0412\credui.dll.mui	
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0412\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\0412\dxdiagn.dll.mui	
@@ -3884,7 +3904,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0412\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0412\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\userenv.dll.mui
@@ -3897,6 +3917,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\comdlg32.dll.mui
+	credui.dll.mui,mui\0413\credui.dll.mui	
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0413\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\0413\dxdiagn.dll.mui	
@@ -3917,7 +3938,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0413\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0413\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\userenv.dll.mui
@@ -3930,6 +3951,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\comdlg32.dll.mui
+	credui.dll.mui,mui\0414\credui.dll.mui	
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0414\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\0414\dxdiagn.dll.mui	
@@ -3950,7 +3972,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0414\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0414\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\userenv.dll.mui
@@ -3963,6 +3985,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\comdlg32.dll.mui
+	credui.dll.mui,mui\0415\credui.dll.mui	
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0415\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\0415\dxdiagn.dll.mui	
@@ -3983,7 +4006,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0415\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0415\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\userenv.dll.mui
@@ -3997,6 +4020,7 @@
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\crypt32.dll.mui
+	credui.dll.mui,mui\0416\credui.dll.mui	
 	dxdiag.exe.mui,mui\0416\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\0416\dxdiagn.dll.mui	
 	dwrite.dll.mui,mui\0416\dwrite.dll.mui	
@@ -4016,7 +4040,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0416\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0416\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\userenv.dll.mui
@@ -4027,6 +4051,7 @@
 [CopyAlways.Mui.0418.Files]
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\comdlg32.dll.mui
+	credui.dll.mui,mui\0418\credui.dll.mui	
     dwrite.dll.mui,mui\0418\dwrite.dll.mui	
     nusrmgr.cpl.mui,osfiles\%CURRENT_OS%\MUI\0418\nusrmgr.cpl.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\setupapi.dll.mui
@@ -4035,7 +4060,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0418\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0418\slayerxp.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\uxtheme.dll.mui
 
@@ -4044,6 +4069,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\comdlg32.dll.mui
+	credui.dll.mui,mui\0419\credui.dll.mui	
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0419\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\0419\dxdiagn.dll.mui	
@@ -4064,7 +4090,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0419\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0419\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\userenv.dll.mui
@@ -4077,6 +4103,7 @@
     browseui.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\browseui.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\comdlg32.dll.mui
+	credui.dll.mui,mui\0424\credui.dll.mui	
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\crypt32.dll.mui
 	dxdiag.exe.mui,mui\0424\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\0424\dxdiagn.dll.mui	
@@ -4097,7 +4124,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0424\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0424\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\userenv.dll.mui
@@ -4108,6 +4135,7 @@
 [CopyAlways.Mui.0425.Files]
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\comdlg32.dll.mui
+	credui.dll.mui,mui\0425\credui.dll.mui	
     dwrite.dll.mui,mui\0425\dwrite.dll.mui	
     nusrmgr.cpl.mui,osfiles\%CURRENT_OS%\MUI\0425\nusrmgr.cpl.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\setupapi.dll.mui
@@ -4116,13 +4144,14 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0425\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0425\slayerxp.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\uxtheme.dll.mui
 
 [CopyAlways.Mui.0426.Files]
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\comdlg32.dll.mui
+	credui.dll.mui,mui\0426\credui.dll.mui	
     dwrite.dll.mui,mui\0426\dwrite.dll.mui	
     nusrmgr.cpl.mui,osfiles\%CURRENT_OS%\MUI\0426\nusrmgr.cpl.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\setupapi.dll.mui
@@ -4131,13 +4160,14 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0426\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0426\slayerxp.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\uxtheme.dll.mui
 
 [CopyAlways.Mui.0427.Files]
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\comdlg32.dll.mui
+	credui.dll.mui,mui\0427\credui.dll.mui	
     dwrite.dll.mui,mui\0427\dwrite.dll.mui	
     nusrmgr.cpl.mui,osfiles\%CURRENT_OS%\MUI\0427\nusrmgr.cpl.mui
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\setupapi.dll.mui
@@ -4146,7 +4176,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0427\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0427\slayerxp.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\userenv.dll.mui
     uxtheme.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\uxtheme.dll.mui
 	
@@ -4156,6 +4186,7 @@
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\crypt32.dll.mui
+	credui.dll.mui,mui\0804\credui.dll.mui	
 	dxdiag.exe.mui,mui\0804\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\0804\dxdiagn.dll.mui	
 	dwrite.dll.mui,mui\0804\dwrite.dll.mui	
@@ -4175,7 +4206,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0804\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0804\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\userenv.dll.mui
@@ -4189,6 +4220,7 @@
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\comdlg32.dll.mui
     crypt32.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\crypt32.dll.mui
+	credui.dll.mui,mui\0816\credui.dll.mui	
 	dxdiag.exe.mui,mui\0816\dxdiag.exe.mui	
 	dxdiagn.dll.mui,mui\0816\dxdiagn.dll.mui	
 	dwrite.dll.mui,mui\0816\dwrite.dll.mui	
@@ -4208,7 +4240,7 @@
     ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\shlwapi.dll.mui
-	;slayerxp.dll.mui,mui\0816\slayerxp.dll.mui
+	slayerxp.dll.mui,mui\0816\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\user32.dll.mui
     userbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\user32.dll.mui
     userenv.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\userenv.dll.mui

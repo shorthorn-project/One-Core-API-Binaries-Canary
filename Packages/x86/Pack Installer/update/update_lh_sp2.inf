@@ -103,16 +103,21 @@
     sysmain.sdb,appcompat\sysmain.sdb	
 	
 [CopyAlways.System32.Files]
+    advapiex.dll,extensions\advapiex.dll
     cfgmgrex.dll,extensions\cfgmgrex.dll
     dwmapiext.dll,base\dwmapi.dll
     kernelex.dll,extensions\kernelex.dll
     kernelbase.dll,extensions\kernelex.dll
+    netapiex.dll,extensions\netapiex.dll
     ntext.dll,extensions\ntext.dll
     oleex.dll,extensions\oleex.dll
     powrpext.dll,extensions\powrpext.dll  
     shellex.dll,extensions\shellex.dll  
+    uiautomationcoreext.dll,extensions\uiautomationcoreext.dll  
+    userenvext.dll,extensions\userenvext.dll  
     userex.dll,extensions\userex.dll  
     uxthext.dll,extensions\uxthext.dll 	
+    winhttpext.dll,extensions\winhttpext.dll 	
 	
 [MustReplace.System32.Files]
     cfgmgr32.dll,osfiles\vista\COMMON\lhcfgmgr32.dll	
@@ -120,12 +125,15 @@
     ci.dll,osfiles\vista\COMMON\lhci.dll	
     dwmapi.dll,osfiles\vista\COMMON\lhdwmapi.dll	
     kernel32.dll,osfiles\vista\COMMON\lhkernel32.dll	
+	netapi32.dll,osfiles\vista\COMMON\lhnetapi32.dll
 	ntdll.dll,osfiles\vista\COMMON\lhntdll.dll
 	ole32.dll,osfiles\vista\COMMON\lhole32.dll
 	powrprof.dll,osfiles\vista\COMMON\lhpowrprof.dll
 	shell32.dll,osfiles\vista\COMMON\lhshell32.dll
 	user32.dll,osfiles\vista\COMMON\lhuser32.dll	
+	userenv.dll,osfiles\vista\COMMON\lhuserenv.dll	
 	uxtheme.dll,osfiles\vista\COMMON\lhuxtheme.dll	
+	winhttp.dll,osfiles\vista\COMMON\lhwinhttp.dll
 	winload.exe,osfiles\vista\COMMON\lhwinload.exe
 	
 [Base.System32.Files]
