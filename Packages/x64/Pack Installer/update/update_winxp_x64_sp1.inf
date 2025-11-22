@@ -6883,6 +6883,7 @@
     combase.dll,base\amd64\combase.dll
     credui.dll,base\amd64\credui.dll	
     cryptbase.dll,base\amd64\cryptbase.dll
+    cryptnet.dll,base\amd64\cryptnet.dll
     dbgeng.dll,base\amd64\dbgeng.dll
     dbghelp.dll,base\amd64\dbghelp.dll	
     d3dkmt.dll,base\amd64\d3dkmt.dll
@@ -6929,6 +6930,7 @@
     combase.dll,base\i386\wcombase.dll
     credui.dll,base\i386\wcredui.dll	
     cryptbase.dll,base\i386\wcryptbase.dll
+    cryptnet.dll,base\i386\wcryptnet.dll
     dbgeng.dll,base\i386\wdbgeng.dll
     dbghelp.dll,base\i386\wdbghelp.dll	
     d3dkmt.dll,base\i386\wd3dkmt.dll
@@ -8659,6 +8661,7 @@
    API-MS-WIN-CORE-VERSION-L1-1-1.dll,api-sets\amd64\API-MS-WIN-CORE-VERSION-L1-1-1.dll
    API-MS-WIN-CORE-VERSION-PRIVATE-L1-1-0.dll,api-sets\amd64\API-MS-WIN-CORE-VERSION-PRIVATE-L1-1-0.dll
    API-MS-WIN-CORE-VERSIONANSI-L1-1-0.dll,api-sets\amd64\API-MS-WIN-CORE-VERSIONANSI-L1-1-0.dll
+   API-MS-WIN-CORE-VERSIONANSI-L1-1-1.dll,api-sets\amd64\API-MS-WIN-CORE-VERSIONANSI-L1-1-1.dll
    API-MS-WIN-CORE-WINDOWSERRORREPORTING-L1-1-0.dll,api-sets\amd64\API-MS-WIN-CORE-WINDOWSERRORREPORTING-L1-1-0.dll
    API-MS-WIN-CORE-WINDOWSERRORREPORTING-L1-1-1.dll,api-sets\amd64\API-MS-WIN-CORE-WINDOWSERRORREPORTING-L1-1-1.dll
    API-MS-WIN-CORE-WINRT-ERROR-L1-1-0.dll,api-sets\amd64\API-MS-WIN-CORE-WINRT-ERROR-L1-1-0.dll
@@ -8964,6 +8967,7 @@
    API-MS-WIN-CORE-VERSION-L1-1-1.dll,api-sets\i386\API-MS-WIN-CORE-VERSION-L1-1-1.dll
    API-MS-WIN-CORE-VERSION-PRIVATE-L1-1-0.dll,api-sets\i386\API-MS-WIN-CORE-VERSION-PRIVATE-L1-1-0.dll
    API-MS-WIN-CORE-VERSIONANSI-L1-1-0.dll,api-sets\i386\API-MS-WIN-CORE-VERSIONANSI-L1-1-0.dll
+   API-MS-WIN-CORE-VERSIONANSI-L1-1-1.dll,api-sets\i386\API-MS-WIN-CORE-VERSIONANSI-L1-1-1.dll
    API-MS-WIN-CORE-WINDOWSERRORREPORTING-L1-1-0.dll,api-sets\i386\API-MS-WIN-CORE-WINDOWSERRORREPORTING-L1-1-0.dll
    API-MS-WIN-CORE-WINDOWSERRORREPORTING-L1-1-1.dll,api-sets\i386\API-MS-WIN-CORE-WINDOWSERRORREPORTING-L1-1-1.dll
    API-MS-WIN-CORE-WINRT-ERROR-L1-1-0.dll,api-sets\i386\API-MS-WIN-CORE-WINRT-ERROR-L1-1-0.dll
