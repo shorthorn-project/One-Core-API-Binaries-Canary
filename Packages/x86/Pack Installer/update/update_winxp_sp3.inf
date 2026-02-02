@@ -2652,7 +2652,7 @@
     CopyAlways.WinSxS.Main.Files = 10 ; %windir%
     CopyAlways.WinSxS.Manifests.Files = 10 ; %windir%
     CopyAlways.WinSxS.Policies.Files = 10 ; %windir%
-    Wrapper.System32.Files=11       ; %windir%\system32 (don't delay until reboot)
+    Wrappers.System32.Files=11       ; %windir%\system32 (don't delay until reboot)
     CoreOS.Common.System32.Files=11       ; %windir%\system32 (don't delay until reboot)
     CoreOS.SPFiles.System32.Files.Files=11       ; %windir%\system32 (don't delay until reboot)
     CoreOS.Specific.System32.Files=11       ; %windir%\system32 (don't delay until reboot)
@@ -2876,7 +2876,7 @@
     cfgmgr32.dll,wrappers\cfgmgr32.dll
     comdlg32.dll,wrappers\comdlg32.dll
     gdi32.dll,wrappers\gdi32.dll
-    msvcrt.dll,base\msvcrt.dll
+    ;msvcrt.dll,base\msvcrt.dll
     pdh.dll,wrappers\pdh.dll
     psapi.dll,wrappers\psapi.dll
     setupapi.dll,wrappers\setupapi.dll

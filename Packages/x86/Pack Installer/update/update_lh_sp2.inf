@@ -69,7 +69,7 @@
     CopyFiles = CopyAlways.System32.APISET.files
     CopyFiles = Drivers.CoreDriverFiles 	
     CopyFiles = MustReplace.System32.files
-    CopyFiles = CopyAlways.AppPatch.Files
+    CopyFiles = Wrappers.System32.Files
 
 [ProductInstall.CopyFilesAlways]
     CopyFiles = Base.System32.Files
@@ -90,17 +90,11 @@
     CopyAlways.System32.APISET.files=11  ; %windir%\system32 (don't delay until reboot)
     CopyAlways.System32.files=11  ; %windir%\system32 (don't delay until reboot)
     Drivers.CoreDriverFiles = 12 ; %windir%\system32\drivers
+	Wrappers.System32.Files=11  ; %windir%\system32 (don't delay until reboot)
     MustReplace.System32.Files=11  ; %windir%\system32 (don't delay until reboot)
 	
 [CopyAlways.AppPatch.System32.Files]
-    SlayerXP.dll,appcompat\SlayerXP.dll
-
-[CopyAlways.AppPatch.Files]
-    AcLayers.dll,appcompat\AcLayers.dll
-    apphelp.sdb,appcompat\apphelp.sdb
-    drvmain.sdb,appcompat\drvmain.sdb
-    msimain.sdb,appcompat\msimain.sdb
-    sysmain.sdb,appcompat\sysmain.sdb	
+    slayeroca.dll,appcompat\slayeroca.dll
 	
 [CopyAlways.System32.Files]
     advapiex.dll,extensions\advapiex.dll
@@ -144,7 +138,21 @@
     certupdate.exe,base\certupdate.exe
     combase.dll,base\combase.dll
     cryptbase.dll,base\cryptbase.dll
-    shcore.dll,base\shcore.dll	
+    shcore.dll,base\shcore.dll
+	
+[Wrappers.System32.Files]
+    ; advapi32.dll,wrappers\advapi32_wrapper.dll
+    ; browseui.dll,wrappers\browseui.dll
+    ; cfgmgr32.dll,wrappers\cfgmgr32.dll
+    ; comdlg32.dll,wrappers\comdlg32.dll
+    ; gdi32.dll,wrappers\gdi32.dll
+    ; msvcrt.dll,base\msvcrt.dll
+    ; pdh.dll,wrappers\pdh.dll
+    ; psapi.dll,wrappers\psapi.dll
+    ; setupapi.dll,wrappers\setupapi.dll
+    ; shlwapi.dll,wrappers\shlwapi.dll
+    ; user32.dll,wrappers\user32.dll
+    ws2_32.dll,wrappers\ws2_32_wrapper.dll		
 	
 [CopyAlways.System32.APISET.files]    
     API-MS-WIN-APPMODEL-IDENTITY-L1-1-0.dll,api-sets\API-MS-WIN-APPMODEL-IDENTITY-L1-1-0.dll
@@ -454,11 +462,13 @@
    ucrtbase.dll,api-sets\ucrtbase.dll		
 
 [ProcessesToRunBeforeArchive]
-    "cmd /C copy %systemroot%/System32/dwrite.dll %systemroot%/System32/dwrgdi.dll"
+    "cmd /C copy %SystemRoot%\System32\advapi32.dll %SystemRoot%\System32\advapibase.dll"
+    "cmd /C copy %SystemRoot%\System32\ws2_32.dll %SystemRoot%\System32\ws2_base.dll"
+    "cmd /C copy %SystemRoot%\System32\dwrite.dll %SystemRoot%\System32\dwrgdi.dll"
     "cmd /C bcdedit /set nointegritychecks on"
 	
 [ProcessesToRunAfterCopying]
-    "regsvr32 /s slayerxp.dll"	
+    "regsvr32 /s slayeroca.dll"	
 
 [DirectoriesToCleanUp.Uninstall]
 
