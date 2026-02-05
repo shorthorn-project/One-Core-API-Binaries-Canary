@@ -2470,7 +2470,10 @@
     HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion","CurrentMinorVersionNumber",0x10001,00,00,00,00
 
     ;Default Compatibility Settings
-    HKLM,"SOFTWARE\OCA\Settings","DefaultVersion",0x0,"10.0.19045.0.0.2."	
+    HKLM,"SOFTWARE\OCA\Settings","DefaultVersion",0x0,"10.0.19045.0.0.2."
+	
+	;Add mmdevapi registration after reboot, because the common ways like ProcessesToRunAfterArchive and ProcessesToRunAfterReboot not working
+    HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MMdevapiReg,0x00020000,"%11%\regsvr32.exe /s "mmdevapi.dll""	
 
 [Product.Del.Reg]
     HKCR,"CLSID\{0131BE10-2001-4C5F-A9B0-CC88FAB64CE8}"
@@ -2541,15 +2544,16 @@
     HKLM,"SOFTWARE\Microsoft\MediaPlayer\Setup\Installed Versions"
 
 [ProductInstall.ReplaceFilesIfExist]
+    CopyFiles = CoreOS.Common.System32.Delay.Reboot.Files
     CopyFiles = Wrappers.System32.Files
     CopyFiles = Drivers.CoreDriverFiles 
     CopyFiles = System32.Files	
 	
 [ProductInstall.DontDelayUntilReboot]
     ;CopyFiles=Core.System32.Files
-    CopyFiles  = CoreOS.Common.System32.Files
+    CopyFiles = CoreOS.Common.System32.Files
     ;CopyFiles= CoreOS.SPFiles.System32.Files	
-    CopyFiles  =MustReplace.System32.Files
+    CopyFiles = MustReplace.System32.Files
 
 [ProductInstall.CopyFilesAlways]
     CopyFiles= Base.System32.Files	
@@ -2597,6 +2601,7 @@
     CopyFiles= CopyAlways.WinSxS.Main.Files
     CopyFiles= CopyAlways.WinSxS.Manifests.Files
     CopyFiles= CopyAlways.WinSxS.Policies.Files
+    CopyFiles= CoreOS.Common.System32.Delay.Reboot.Files
     CopyFiles= CoreOS.Common.System32.Files
     CopyFiles= CoreOS.SPFiles.System32.Files
     CopyFiles= Drivers.CoreDriverFiles	
@@ -2708,10 +2713,10 @@
     "regsvr32 /s ""%Systemdrive%\Program Files\Common Files\Microsoft Shared\ink\InkObj.dll""
     "regsvr32 /s ""%Systemdrive%\Program Files\Common Files\Microsoft Shared\ink\rtscom.dll""
     "regsvr32 /s ""%Systemdrive%\Program Files\Common Files\Microsoft Shared\ink\tpcps.dll""
-	"regsvr32 /s mmdevapi.dll"	
     "regsvr32 /s msi.dll"
     "regsvr32 /s propsys.dll"
     "regsvr32 /s slayeroca.dll"
+	"regsvr32 mmdevapi.dll"		
     "ocacertinstall.bat"
 
 [ProcessesToRunBeforeArchive]
@@ -2744,7 +2749,7 @@
 [MustReplace.System32.Files]
     ;advapi32.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%advapi32.dll
     basesrv.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%basesrv.dll
-    crypt32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%crypt32.dll
+    ;crypt32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%crypt32.dll
     halaacpi.dll,osfiles\%CURRENT_OS%\COMMON\hal\%RELEASE_TYPE_SPECIAL%\%RELEASE_FAMILY%%RELEASE_TYPE_SPECIAL%halaacpi.dll    
     halacpi.dll,osfiles\%CURRENT_OS%\COMMON\hal\%RELEASE_TYPE_SPECIAL%\%RELEASE_FAMILY%%RELEASE_TYPE_SPECIAL%halacpi.dll    
     halapic.dll,osfiles\%CURRENT_OS%\COMMON\hal\%RELEASE_TYPE_SPECIAL%\%RELEASE_FAMILY%%RELEASE_TYPE_SPECIAL%halapic.dll    
@@ -2798,12 +2803,15 @@
     "WinSxS\Policies\x86_policy.6.0.Microsoft.Windows.Common-Controls_6595b64144ccf1df_x-ww_5DDAD775\6.0.5048.0.policy"  
     "WinSxS\Policies\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4E8510AC\5.1.5048.0.policy"  
     "WinSxS\Policies\x86_policy.5.1.Microsoft.Windows.WinHTTP_6595b64144ccf1df_x-ww_7D68AE49\5.1.5048.0.policy"
+	
+[CoreOS.Common.System32.Delay.Reboot.Files]
+    crypt32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%crypt32.dll
     
 [CoreOS.Common.System32.Files]
     ;advpack.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%advpack.dll
     clbcatq.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%clbcatq.dll
     comdlgbase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%comdlgbase.dll	
-    crypt32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%crypt32.dll
+    ;crypt32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%crypt32.dll
     cryptcore.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%cryptcore.dll
     dssenh.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%dssenh.dll
     esent.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%esent.dll	
