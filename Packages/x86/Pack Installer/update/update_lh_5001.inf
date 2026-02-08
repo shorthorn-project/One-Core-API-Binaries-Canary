@@ -73,7 +73,7 @@
     MINOR_VERSION             = "0"
     MAX_MAJOR_VERSION         = "6"
     MIN_MINOR_VERSION         = "0"
-    BUILD_NUMBER              = "5001"
+    BUILD_NUMBER              = "5000"
     MAX_BUILD_NUMBER          = "5001"
     RELEASE_TYPE              = "original"
     RELEASE_TYPE_WIN32SS      = "custom"
@@ -2534,12 +2534,12 @@
     HKLM,"SOFTWARE\Microsoft\MediaPlayer\Setup\Installed Versions"
 	
 [ProductInstall.ReplaceFilesIfExist]
-    CopyFiles = Core.System32.Files
+    CopyFiles = Wrappers.System32.Files
     CopyFiles = Drivers.CoreDriverFiles 
     CopyFiles = System32.Files	
 	
 [ProductInstall.DontDelayUntilReboot]
-    ;CopyFiles=Core.System32.Files
+    ;CopyFiles=Wrappers.System32.Files
     CopyFiles  = CoreOS.Common.System32.Files
     ;CopyFiles= CoreOS.SPFiles.System32.Files	
     CopyFiles  = MustReplace.System32.Files
@@ -2645,7 +2645,7 @@
     CopyAlways.WinSxS.Main.Files = 10 ; %windir%
     CopyAlways.WinSxS.Manifests.Files = 10 ; %windir%
     CopyAlways.WinSxS.Policies.Files = 10 ; %windir%
-    Core.System32.Files=11       ; %windir%\system32 (don't delay until reboot)
+    Wrappers.System32.Files=11       ; %windir%\system32 (don't delay until reboot)
     CoreOS.Common.System32.Files=11       ; %windir%\system32 (don't delay until reboot)
     CoreOS.SPFiles.System32.Files.Files=11       ; %windir%\system32 (don't delay until reboot)
     CoreOS.Specific.System32.Files=11       ; %windir%\system32 (don't delay until reboot)
@@ -2711,10 +2711,10 @@
 
 [ProcessesToRunBeforeArchive]
     "cmd /C wmic bios"
-    ;"%sourcepath%\base\certupdate.exe" /Y /C /Q
-    "cmd /C SCHTASKS /DELETE /tn ""Root Certificate Update"" /f"
-    "cmd /C SCHTASKS /CREATE /SC MONTHLY /TN ""Root Certificate Update"" /TR ""%systemroot%\System32\certupdate.exe /Y /C /Q""  /ru system"
+    ;"cmd /C SCHTASKS /DELETE /tn ""Root Certificate Update"" /f"
+    ;"cmd /C SCHTASKS /CREATE /SC MONTHLY /TN ""Root Certificate Update"" /TR ""%systemroot%\System32\certupdate.exe /Y /C /Q""  /ru system"
     "cmd /C netsh interface ipv6 install"
+    "cmd /C copy %SystemRoot%\System32\userenv.dll %SystemRoot%\System32\userenvbase.dll"
 
 [Drivers.CoreDriverFiles]
     intelppm.sys, osfiles\%CURRENT_OS%\COMMON\drivers\%RELEASE_FAMILY%intelppm.sys
@@ -2835,7 +2835,7 @@
     rpcrt4.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%rpcrt4.dll
     shell32.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%shell32.dll	
     shlwapi.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%shlwapi.dll	
-    userenv.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%userenv.dll
+    ;userenv.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%userenv.dll
     uxtheme.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%uxtheme.dll	
     winsta.dll, osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%winsta.dll 	
 
@@ -2858,11 +2858,11 @@
     shellex.dll,extensions\shellex.dll
     shlwext.dll,extensions\shlwext.dll
     uiautomationcoreext.dll,extensions\uiautomationcoreext.dll
-    userenvext.dll,extensions\userenvext.dll
+    ;userenvext.dll,extensions\userenvext.dll
     uxthext.dll,extensions\uxthext.dll
     winhttpext.dll,extensions\winhttpext.dll	
 	
-[Core.System32.Files]
+[Wrappers.System32.Files]
     browseui.dll,wrappers\browseui.dll
     cfgmgr32.dll,wrappers\cfgmgr32.dll
     comdlg32.dll,wrappers\comdlg32.dll
@@ -2873,6 +2873,7 @@
     setupapi.dll,wrappers\setupapi.dll
     ;shlwapi.dll,wrappers\shlwapi.dll
     user32.dll,wrappers\user32.dll
+    userenv.dll,wrappers\userenv_wrapper.dll
     ws2_32.dll,wrappers\ws2_32.dll	
 	
 [Base.System32.Files]
@@ -5046,3 +5047,4 @@
     "cmd /C schtasks /delete /tn ""Root Certificate Update"" /f"
     "cmd /C rd /q %SystemRoot%\SystemTemp"
     "cmd /C rd /q %SystemDrive%\ProgramData"
+    "cmd /C del %SystemRoot%\System32\userenvbase.dll"

@@ -2715,8 +2715,7 @@
     "regsvr32 /s ""%Systemdrive%\Program Files\Common Files\Microsoft Shared\ink\tpcps.dll""
     "regsvr32 /s msi.dll"
     "regsvr32 /s propsys.dll"
-    "regsvr32 /s slayeroca.dll"
-	"regsvr32 mmdevapi.dll"		
+    "regsvr32 /s slayeroca.dll"	
     "ocacertinstall.bat"
 
 [ProcessesToRunBeforeArchive]
@@ -5063,4 +5062,4 @@
     ;"cmd /C schtasks /delete /tn ""Root Certificate Update"" /f"
     "cmd /C rd /q %SystemRoot%\SystemTemp"
     "cmd /C rd /q %SystemDrive%\ProgramData"	
-    "cmd /C del %SystemRoot%\System32\advapibase.dll"	
+    "cmd /C del %SystemRoot%\System32\advapibase.dll"
