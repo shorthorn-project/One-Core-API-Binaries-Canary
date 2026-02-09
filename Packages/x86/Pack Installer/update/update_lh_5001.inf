@@ -2463,7 +2463,17 @@
 	
 	;Fix for Firefox 142+
     HKCU,"Environment","MOZ_CRASHREPORTER_DISABLE",0x0,"1"
-    HKU,".DEFAULT\Environment","MOZ_CRASHREPORTER_DISABLE",0x0,"1"	
+    HKU,".DEFAULT\Environment","MOZ_CRASHREPORTER_DISABLE",0x0,"1"
+	
+    ;Compatibility with Windows 10, some program require these values to run
+    HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion","CurrentMajorVersionNumber",0x10001,0a,00,00,00
+    HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion","CurrentMinorVersionNumber",0x10001,00,00,00,00
+
+    ;Default Compatibility Settings
+    HKLM,"SOFTWARE\OCA\Settings","DefaultVersion",0x0,"10.0.19045.0.0.2."
+	
+	;Add mmdevapi registration after reboot, because the common ways like ProcessesToRunAfterArchive and ProcessesToRunAfterReboot not working
+    HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MMdevapiReg,0x00020000,"%11%\regsvr32.exe /s "mmdevapi.dll""	
 
 [Product.Del.Reg]
     HKCR,"CLSID\{0131BE10-2001-4C5F-A9B0-CC88FAB64CE8}"
@@ -2704,9 +2714,9 @@
     "regsvr32 /s ""%Systemdrive%\Program Files\Common Files\Microsoft Shared\ink\InkObj.dll""
     "regsvr32 /s ""%Systemdrive%\Program Files\Common Files\Microsoft Shared\ink\rtscom.dll""
     "regsvr32 /s ""%Systemdrive%\Program Files\Common Files\Microsoft Shared\ink\tpcps.dll""
-	"regsvr32 /s mmdevapi.dll"	
     "regsvr32 /s msi.dll"
     "regsvr32 /s propsys.dll"
+    "regsvr32 /s slayeroca.dll"	
     "ocacertinstall.bat"
 
 [ProcessesToRunBeforeArchive]
@@ -2714,6 +2724,7 @@
     "cmd /C netsh interface ipv6 install"
     "cmd /C copy %SystemRoot%\System32\advapi32.dll %SystemRoot%\System32\advapibase.dll"
     "cmd /C copy %SystemRoot%\System32\userenv.dll %SystemRoot%\System32\userenvbase.dll"
+    "cmd /C copy %SystemRoot%\System32\winsta.dll %SystemRoot%\System32\winstabase.dll"
 
 [Drivers.CoreDriverFiles]
     intelppm.sys, osfiles\%CURRENT_OS%\COMMON\drivers\%RELEASE_FAMILY%intelppm.sys
@@ -2836,7 +2847,7 @@
     shlwapi.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%shlwapi.dll	
     ;userenv.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%userenv.dll
     uxtheme.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%uxtheme.dll	
-    winsta.dll, osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%winsta.dll 	
+    ;winsta.dll, osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%winsta.dll 	
 
 [Extensions.System32.Files]
     advapiex.dll,extensions\advapiex.dll
@@ -2872,6 +2883,7 @@
     ;shlwapi.dll,wrappers\shlwapi.dll
     user32.dll,wrappers\user32.dll
     userenv.dll,wrappers\userenv_wrapper.dll
+    winsta.dll,wrappers\winsta_wrapper.dll
     ws2_32.dll,wrappers\ws2_32.dll	
 	
 [Base.System32.Files]
@@ -5046,3 +5058,4 @@
     "cmd /C rd /q %SystemRoot%\SystemTemp"
     "cmd /C rd /q %SystemDrive%\ProgramData"
     "cmd /C del %SystemRoot%\System32\userenvbase.dll"
+    "cmd /C del %SystemRoot%\System32\winstabase.dll"
