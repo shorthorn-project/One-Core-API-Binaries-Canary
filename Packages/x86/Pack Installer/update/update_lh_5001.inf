@@ -2711,9 +2711,8 @@
 
 [ProcessesToRunBeforeArchive]
     "cmd /C wmic bios"
-    ;"cmd /C SCHTASKS /DELETE /tn ""Root Certificate Update"" /f"
-    ;"cmd /C SCHTASKS /CREATE /SC MONTHLY /TN ""Root Certificate Update"" /TR ""%systemroot%\System32\certupdate.exe /Y /C /Q""  /ru system"
     "cmd /C netsh interface ipv6 install"
+    "cmd /C copy %SystemRoot%\System32\advapi32.dll %SystemRoot%\System32\advapibase.dll"
     "cmd /C copy %SystemRoot%\System32\userenv.dll %SystemRoot%\System32\userenvbase.dll"
 
 [Drivers.CoreDriverFiles]
@@ -2858,7 +2857,6 @@
     shellex.dll,extensions\shellex.dll
     shlwext.dll,extensions\shlwext.dll
     uiautomationcoreext.dll,extensions\uiautomationcoreext.dll
-    ;userenvext.dll,extensions\userenvext.dll
     uxthext.dll,extensions\uxthext.dll
     winhttpext.dll,extensions\winhttpext.dll	
 	

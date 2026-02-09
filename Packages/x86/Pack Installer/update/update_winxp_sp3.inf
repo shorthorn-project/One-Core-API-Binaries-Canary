@@ -2720,10 +2720,9 @@
 
 [ProcessesToRunBeforeArchive]
     "cmd /C wmic bios"
-    ;"cmd /C SCHTASKS /DELETE /tn ""Root Certificate Update"" /f"
-    ;"cmd /C SCHTASKS /CREATE /SC MONTHLY /TN ""Root Certificate Update"" /TR ""%systemroot%\System32\certupdate.exe /Y /C /Q""  /ru system"
     "cmd /C netsh interface ipv6 install"
     "cmd /C copy %SystemRoot%\System32\advapi32.dll %SystemRoot%\System32\advapibase.dll"
+    "cmd /C copy %SystemRoot%\System32\userenv.dll %SystemRoot%\System32\userenvbase.dll"
 
 [Drivers.CoreDriverFiles]
     intelppm.sys, osfiles\%CURRENT_OS%\COMMON\drivers\%RELEASE_FAMILY%intelppm.sys
@@ -2842,7 +2841,6 @@
     advapicore.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%advapicore.dll	
 
 [CoreOS.SPFiles.System32.Files]
-    ;advapi32.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%advapi32.dll
     basesrv.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%basesrv.dll		
     browsebase.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%browsebase.dll
     dnsapi.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%dnsapi.dll	
@@ -2850,12 +2848,10 @@
     rpcrt4.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%rpcrt4.dll
     shell32.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%shell32.dll	
     shlwapibase.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%shlwapibase.dll
-    userenv.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%userenv.dll
     uxtheme.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%uxtheme.dll	
     winsta.dll, osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%winsta.dll 	
 
 [Extensions.System32.Files]
-    ;advapiex.dll,extensions\advapiex.dll
     bcryptext.dll,extensions\bcryptext.dll
     comctlext.dll,extensions\comctlext.dll	
     cryptex.dll,extensions\cryptex.dll
@@ -2872,8 +2868,7 @@
     securex.dll,extensions\securex.dll	
     shellex.dll,extensions\shellex.dll
     shlwext.dll,extensions\shlwext.dll
-    uiautomationcoreext.dll,extensions\uiautomationcoreext.dll
-    userenvext.dll,extensions\userenvext.dll	
+    uiautomationcoreext.dll,extensions\uiautomationcoreext.dll	
     uxthext.dll,extensions\uxthext.dll
     winhttpext.dll,extensions\winhttpext.dll
 	
@@ -2883,12 +2878,12 @@
     cfgmgr32.dll,wrappers\cfgmgr32.dll
     comdlg32.dll,wrappers\comdlg32.dll
     gdi32.dll,wrappers\gdi32.dll
-    ;msvcrt.dll,base\msvcrt.dll
     pdh.dll,wrappers\pdh.dll
     psapi.dll,wrappers\psapi.dll
     setupapi.dll,wrappers\setupapi.dll
     shlwapi.dll,wrappers\shlwapi.dll
     user32.dll,wrappers\user32.dll
+    userenv.dll,wrappers\userenv_wrapper.dll	
     ws2_32.dll,wrappers\ws2_32.dll	
 	
 [Base.System32.Files]
@@ -5059,7 +5054,7 @@
 	"regsvr32.exe /u /s mmdevapi.dll"
 
 [ProcessesToRunAfterUninstall]
-    ;"cmd /C schtasks /delete /tn ""Root Certificate Update"" /f"
+    "cmd /C schtasks /delete /tn ""Root Certificate Update"" /f"
     "cmd /C rd /q %SystemRoot%\SystemTemp"
-    "cmd /C rd /q %SystemDrive%\ProgramData"	
-    "cmd /C del %SystemRoot%\System32\advapibase.dll"
+    "cmd /C rd /q %SystemDrive%\ProgramData"
+    "cmd /C del %SystemRoot%\System32\userenvbase.dll"

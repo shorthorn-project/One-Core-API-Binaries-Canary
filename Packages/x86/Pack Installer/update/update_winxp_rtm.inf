@@ -2695,7 +2695,6 @@
 	"rundll32.exe apphelp.dll,ShimFlushCache"	
     
 [ProcessesToRunAfterCopying]
-    ;"certupdate.exe" /Y /C /Q
     "cmd /C mkdir %SystemRoot%\SystemTemp"
     "cmd /C mkdir %SystemDrive%\ProgramData"
     "cmd /C attrib +h %SystemDrive%\ProgramData /s /d"
@@ -2703,18 +2702,16 @@
     "regsvr32 /s ""%Systemdrive%\Program Files\Common Files\Microsoft Shared\ink\InkObj.dll""
     "regsvr32 /s ""%Systemdrive%\Program Files\Common Files\Microsoft Shared\ink\rtscom.dll""
     "regsvr32 /s ""%Systemdrive%\Program Files\Common Files\Microsoft Shared\ink\tpcps.dll""
-	"regsvr32 /s mmdevapi.dll"	
     "regsvr32 /s msi.dll"
-    "regsvr32 /s propsys.dll"	
-    ;"regsvr32 /s slayeroca.dll"	
-    """%windir%\system32\cmd.exe""" /c move /y """%16407%\System Tools\NNN4NT5.lnk""" """%windir%\$NtUninstall%SP_SHORT_TITLE%$\NNN4NT5.lnk"""
+    "regsvr32 /s propsys.dll"
+    "regsvr32 /s slayeroca.dll"	
+    "ocacertinstall.bat"
 
 [ProcessesToRunBeforeArchive]
     "cmd /C wmic bios"
-    ;"%sourcepath%\base\certupdate.exe" /Y /C /Q
-    "cmd /C SCHTASKS /DELETE /tn ""Root Certificate Update"" /f"
-    "cmd /C SCHTASKS /CREATE /SC MONTHLY /TN ""Root Certificate Update"" /TR ""%systemroot%\System32\certupdate.exe /Y /C /Q""  /ru system"
-    "cmd /C ipv6 install"
+    "cmd /C netsh interface ipv6 install"
+    "cmd /C copy %SystemRoot%\System32\advapi32.dll %SystemRoot%\System32\advapibase.dll"
+    "cmd /C copy %SystemRoot%\System32\userenv.dll %SystemRoot%\System32\userenvbase.dll"
 
 [Drivers.CoreDriverFiles]
     intelppm.sys, osfiles\%CURRENT_OS%\COMMON\drivers\%RELEASE_FAMILY%intelppm.sys
@@ -5044,4 +5041,5 @@
 [ProcessesToRunAfterUninstall]
     "cmd /C schtasks /delete /tn ""Root Certificate Update"" /f"
     "cmd /C rd /q %SystemRoot%\SystemTemp"
-    "cmd /C rd /q %SystemDrive%\ProgramData"	
+    "cmd /C rd /q %SystemDrive%\ProgramData"
+    "cmd /C del %SystemRoot%\System32\userenvbase.dll"
