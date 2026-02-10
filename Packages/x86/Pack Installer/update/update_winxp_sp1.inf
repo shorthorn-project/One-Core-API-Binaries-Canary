@@ -2722,6 +2722,7 @@
     "cmd /C netsh interface ipv6 install"
     "cmd /C copy %SystemRoot%\System32\advapi32.dll %SystemRoot%\System32\advapibase.dll"
     "cmd /C copy %SystemRoot%\System32\userenv.dll %SystemRoot%\System32\userenvbase.dll"
+    "cmd /C copy %SystemRoot%\System32\winsta.dll %SystemRoot%\System32\winstabase.dll"
 
 [Drivers.CoreDriverFiles]
     intelppm.sys, osfiles\%CURRENT_OS%\COMMON\drivers\%RELEASE_FAMILY%intelppm.sys
@@ -2846,7 +2847,7 @@
     shell32.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%shell32.dll	
     shlwapi.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%shlwapi.dll
     uxtheme.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%uxtheme.dll	
-    winsta.dll, osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%winsta.dll 	
+    ;winsta.dll, osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%winsta.dll 	
 
 [Extensions.System32.Files]
     advapiex.dll,extensions\advapiex.dll
@@ -2876,13 +2877,13 @@
     cfgmgr32.dll,wrappers\cfgmgr32.dll
     comdlg32.dll,wrappers\comdlg32.dll
     gdi32.dll,wrappers\gdi32.dll
-    msvcrt.dll,base\msvcrt.dll
     pdh.dll,wrappers\pdh.dll
     psapi.dll,wrappers\psapi.dll
     setupapi.dll,wrappers\setupapi.dll
     ;shlwapi.dll,wrappers\shlwapi.dll
     user32.dll,wrappers\user32.dll
-    userenv.dll,wrappers\userenv_wrapper.dll	
+    userenv.dll,wrappers\userenv_wrapper.dll
+    winsta.dll,wrappers\winsta_wrapper.dll	
     ws2_32.dll,wrappers\ws2_32.dll	
 	
 [Base.System32.Files]
@@ -5053,4 +5054,6 @@
     "cmd /C schtasks /delete /tn ""Root Certificate Update"" /f"
     "cmd /C rd /q %SystemRoot%\SystemTemp"
     "cmd /C rd /q %SystemDrive%\ProgramData"
+    "cmd /C del %SystemRoot%\System32\advapibase.dll"
     "cmd /C del %SystemRoot%\System32\userenvbase.dll"
+    "cmd /C del %SystemRoot%\System32\winstabase.dll"
