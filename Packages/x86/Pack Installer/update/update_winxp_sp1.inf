@@ -75,9 +75,9 @@
     MIN_MINOR_VERSION         = "1"
     BUILD_NUMBER              = "2600"	
     MAX_BUILD_NUMBER          = "2600"
-    RELEASE_TYPE              = "original"
+    RELEASE_TYPE              = "custom"
     RELEASE_TYPE_WIN32SS      = "custom"
-    RELEASE_TYPE_SPECIAL      = "original"
+    RELEASE_TYPE_SPECIAL      = "custom"
     ShortCutName              = "NNN4NT5"	
     ShortCutWctName           = "Windows Compatibility Tool"	
     ShortCutDir               = "Accessories\System Tools"
@@ -2816,7 +2816,7 @@
 	iphlpapi.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%iphlpapi.dll	
     kernel32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%kernel32.dll
     loadperf.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%loadperf.dll
-    ;lsasrv.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%lsasrv.dll
+    lsasrv.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%lsasrv.dll
     netapi32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%netapi32.dll
     oleacc.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%oleacc.dll
     pdhbase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%pdhbase.dll	
