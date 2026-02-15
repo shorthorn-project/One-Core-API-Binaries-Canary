@@ -117,8 +117,9 @@
 [MustReplace.System32.Files]
     advapi32.dll,osfiles\vista\COMMON\lhadvapi32.dll	
     cfgmgr32.dll,osfiles\vista\COMMON\lhcfgmgr32.dll	
-    csrsrv.dll,osfiles\vista\COMMON\lhcsrsrv.dll	
+    ;csrsrv.dll,osfiles\vista\COMMON\lhcsrsrv.dll	
     ci.dll,osfiles\vista\COMMON\lhci.dll	
+    CodeIntegrity\driver.stl,osfiles\vista\COMMON\lhdriver.stl	
     dwmapi.dll,osfiles\vista\COMMON\lhdwmapi.dll	
     dwrite.dll,d3d\dwrite.dll	
     kernel32.dll,osfiles\vista\COMMON\lhkernel32.dll	

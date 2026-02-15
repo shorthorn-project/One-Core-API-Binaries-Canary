@@ -5052,7 +5052,6 @@
 	"regsvr32.exe /u /s mmdevapi.dll"
 
 [ProcessesToRunAfterUninstall]
-    "cmd /C schtasks /delete /tn ""Root Certificate Update"" /f"
     "cmd /C rd /q %SystemRoot%\SystemTemp"
     "cmd /C rd /q %SystemDrive%\ProgramData"
     "cmd /C del %SystemRoot%\System32\advapibase.dll"
