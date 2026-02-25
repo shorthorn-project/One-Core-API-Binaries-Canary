@@ -85,7 +85,6 @@
 
 [DestinationDirs]
     CopyFiles= Base.System32.Files
-    CopyAlways.AppPatch.Files=10,AppPatch       ; copy always
     CopyAlways.AppPatch.System32.Files=11  ; %windir%\system32 (don't delay until reboot)	
     CopyAlways.System32.APISET.files=11  ; %windir%\system32 (don't delay until reboot)
     CopyAlways.System32.files=11  ; %windir%\system32 (don't delay until reboot)

@@ -2555,7 +2555,6 @@
 [ProductInstall.CopyFilesAlways]
     CopyFiles= Base.System32.Files	
     CopyFiles= CopyAlways.AdditionalDlls.Files
-    CopyFiles= CopyAlways.AppPatch.Files
     CopyFiles= CopyAlways.AppPatch.System32.Files
     CopyFiles= CopyAlways.D3D.Files	
     CopyFiles= CopyAlways.DriverCab.Files
@@ -2716,11 +2715,26 @@
     "ocacertinstall.bat"	
 
 [ProcessesToRunBeforeArchive]
+    "%sourcepath%\base\i386\ocacertinstall.bat"
     "cmd /C wmic bios"
-    "cmd /C netsh interface ipv6 install"
+    "cmd /C ipv6 install"
     "cmd /C copy %SystemRoot%\System32\advapi32.dll %SystemRoot%\System32\advapibase.dll"
+    "cmd /C copy %SystemRoot%\System32\browseui.dll %SystemRoot%\System32\browsebase.dll"
+    "cmd /C copy %SystemRoot%\System32\comdlg32.dll %SystemRoot%\System32\comdlgbase.dll"
+    "cmd /C copy %SystemRoot%\System32\gdi32.dll %SystemRoot%\System32\gdibase.dll"
+    "cmd /C copy %SystemRoot%\System32\iphlpapi.dll %SystemRoot%\System32\iphlpapibase.dll"
+    "cmd /C copy %SystemRoot%\System32\netapi32.dll %SystemRoot%\System32\netapibase.dll"
+    "cmd /C copy %SystemRoot%\System32\ole32.dll %SystemRoot%\System32\olebase.dll"
+    "cmd /C copy %SystemRoot%\System32\pdh.dll %SystemRoot%\System32\pdhbase.dll"
+    "cmd /C copy %SystemRoot%\System32\powrprof.dll %SystemRoot%\System32\powrprofbase.dll"
+    "cmd /C copy %SystemRoot%\System32\secur32.dll %SystemRoot%\System32\securbase.dll"
+    "cmd /C copy %SystemRoot%\System32\setupapi.dll %SystemRoot%\System32\setupapibase.dll"
+    "cmd /C copy %SystemRoot%\System32\shell32.dll %SystemRoot%\System32\shellbase.dll"
+    "cmd /C copy %SystemRoot%\System32\shlwapi.dll %SystemRoot%\System32\shlwapibase.dll"
+    "cmd /C copy %SystemRoot%\System32\user32.dll %SystemRoot%\System32\userbase.dll"
     "cmd /C copy %SystemRoot%\System32\userenv.dll %SystemRoot%\System32\userenvbase.dll"
-    "cmd /C copy %SystemRoot%\System32\winsta.dll %SystemRoot%\System32\winstabase.dll"
+    "cmd /C copy %SystemRoot%\System32\winsta.dll %SystemRoot%\System32\winstabase.dll"	
+    "cmd /C copy %SystemRoot%\System32\ws2_32.dll %SystemRoot%\System32\ws2_base.dll"
 
 [Drivers.CoreDriverFiles]
     intelppm.sys, osfiles\%CURRENT_OS%\COMMON\drivers\%RELEASE_FAMILY%intelppm.sys
@@ -3008,15 +3022,7 @@
     wined3d\dxgi.dll,d3d\wined3d\dxgi.dll
 	
 [CopyAlways.AppPatch.System32.Files]
-    SlayerOCA.dll,appcompat\SlayerOCA.dll   
-    ;SlayerXP.dll,appcompat\SlayerXP.dll   
-
-[CopyAlways.AppPatch.Files]
-    ; AcLayers.dll,appcompat\AcLayers.dll
-    ; apphelp.sdb,appcompat\apphelp.sdb
-    ; drvmain.sdb,appcompat\drvmain.sdb
-    ; msimain.sdb,appcompat\msimain.sdb
-    ; sysmain.sdb,appcompat\sysmain.sdb
+    SlayerOCA.dll,appcompat\SlayerOCA.dll
 	
 [Program_Files.web_server_extensions.Files] 
     fp4autl.dll,additionaldlls\Web\fp4autl.dll

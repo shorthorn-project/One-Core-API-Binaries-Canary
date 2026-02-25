@@ -6493,14 +6493,14 @@
     HKLM,"SOFTWARE\Wow6432Node\Microsoft\MediaPlayer\Setup\Installed Versions"
 	
 [ProductInstall.ReplaceFilesIfExist]
-    CopyFiles = Core.System32.Files
-    CopyFiles = Core.SysWOW64.Files
+    CopyFiles = Wrappers.System32.Files
+    CopyFiles = Wrappers.SysWow64.Files
     CopyFiles = Drivers.CoreDriverFiles 
     ;CopyFiles = System32.Files		
 
 [ProductInstall.DontDelayUntilReboot]
-    CopyFiles = Core.System32.Files
-    CopyFiles = Core.SysWOW64.Files
+    CopyFiles = Wrappers.System32.Files
+    CopyFiles = Wrappers.SysWow64.Files
     CopyFiles = CoreOS.Common.System32.Files
     CopyFiles = CoreOS.Common.SysWOW64.Files
     CopyFiles = MustReplace.System32.Files
@@ -6563,8 +6563,8 @@
     CopyFiles= CoreOS.Common.SysWOW64.Files
     CopyFiles= CoreOS.SPFiles.System32.Files	
     CopyFiles= CoreOS.SPFiles.SysWOW64.Files
-    CopyFiles= Core.System32.Files
-    CopyFiles= Core.SysWOW64.Files	
+    CopyFiles= Wrappers.System32.Files
+    CopyFiles= Wrappers.SysWow64.Files	
     CopyFiles= Drivers.CoreDriverFiles
     CopyFiles= Extensions.System32.Files
     CopyFiles= Extensions.SysWOW64.Files
@@ -6626,8 +6626,8 @@
     CopyAlways.WinSxS.Main.Files = 10 ; %windir%
     CopyAlways.WinSxS.Manifests.Files = 10 ; %windir%
     CopyAlways.WinSxS.Policies.Files = 10 ; %windir%
-    Core.System32.Files=11       ; %windir%\system32 (don't delay until reboot)
-    Core.SysWOW64.Files=10,SysWOW64       ; %windir%\system32 (don't delay until reboot)
+    Wrappers.System32.Files=11       ; %windir%\system32 (don't delay until reboot)
+    Wrappers.SysWow64.Files=10,SysWOW64       ; %windir%\system32 (don't delay until reboot)
     CoreOS.Common.System32.Files=11       ; %windir%\system32 (don't delay until reboot)
     CoreOS.Common.SysWOW64.Files=10,SysWOW64       ; %windir%\SysWOW64 (don't delay until reboot)
     CoreOS.SPFiles.System32.Files=11       ; %windir%\system32 (don't delay until reboot)
@@ -6796,7 +6796,7 @@
     ws2_base.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wws2_base.dll	
 
 [CoreOS.SPFiles.System32.Files]
-    advapi32.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%advapi32.dll
+    ; advapi32.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%advapi32.dll
     basesrv.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%TARGET_RELEASE%basesrv.dll		
     browsebase.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%TARGET_RELEASE%browsebase.dll
     dnsapi.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%TARGET_RELEASE%dnsapi.dll	
@@ -6809,7 +6809,7 @@
     winsta.dll, osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%winsta.dll
 	
 [CoreOS.SPFiles.SysWow64.Files]	
-    advapi32.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\i386\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%wadvapi32.dll
+    ; advapi32.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\i386\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%wadvapi32.dll
     browsebase.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\i386\%RELEASE_FAMILY%%TARGET_RELEASE%wbrowsebase.dll
     dnsapi.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\i386\%RELEASE_FAMILY%%TARGET_RELEASE%wdnsapi.dll	
     ole32.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\i386\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%wole32.dll
@@ -6863,12 +6863,12 @@
     uxtheme.dll,extensions\i386\wuxtheme.dll ;Need be uxtheme (wrapper) because if use as extension and edited native uxtheme, cause "bad image" error
     winhttpext.dll,extensions\i386\wwinhttpext.dll	
 	
-[Core.System32.Files]
+[Wrappers.System32.Files]
+    advapi32.dll,wrappers\amd64\advapi32_wrapper.dll
     browseui.dll,wrappers\amd64\browseui.dll
     cfgmgr32.dll,wrappers\amd64\cfgmgr32.dll	
     comdlg32.dll,wrappers\amd64\comdlg32.dll	
     gdi32.dll,wrappers\amd64\gdi32.dll
-    msvcrt.dll,base\amd64\msvcrt.dll
     pdh.dll,wrappers\amd64\pdh.dll
     psapi.dll,wrappers\amd64\psapi.dll
     setupapi.dll,wrappers\amd64\setupapi.dll
@@ -6876,15 +6876,14 @@
     user32.dll,wrappers\amd64\user32.dll
     ws2_32.dll,wrappers\amd64\ws2_32.dll
 
-[Core.SysWow64.Files]
+[Wrappers.SysWow64.Files]
+    advapi32.dll,wrappers\i386\wadvapi32_wrapper.dll
     browseui.dll,wrappers\i386\wbrowseui.dll
     cfgmgr32.dll,wrappers\i386\wcfgmgr32.dll
     comdlg32.dll,wrappers\i386\wcomdlg32.dll	
     gdi32.dll,wrappers\i386\wgdi32.dll
-    msvcrt.dll,base\i386\wmsvcrt.dll
     pdh.dll,wrappers\i386\wpdh.dll
     psapi.dll,wrappers\i386\wpsapi.dll
-    rpcrt4.dll,wrappers\i386\wrpcrt4.dll
     setupapi.dll,wrappers\i386\wsetupapi.dll
     shlwapi.dll,wrappers\i386\wshlwapi.dll
     user32.dll,wrappers\i386\wuser32.dll
