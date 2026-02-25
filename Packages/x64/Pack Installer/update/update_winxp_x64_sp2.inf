@@ -25,10 +25,15 @@
 
 [Prerequisite]
     condition=SingleOp,LatestUpdateCheck1.Section
+    condition=SingleOp,LatestUpdateCheck2.Section
     
 [LatestUpdateCheck1.Section]
 	NotPresentOp = CheckReg, HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\HotFix\OCAB",Installed,0x10001
-    Display_String="%LatestUpdateFail%"		
+    Display_String="%LatestUpdateFail%"	
+
+[LatestUpdateCheck2.Section]
+    GreatOrEqualOp =  CheckFileVer, System32.files, msi.DLL, >=, 4.5.6001.18005
+    Display_String = %MsiUpdateFail%	
 	
 [Strings]
     SERVICE_PACK_NUMBER       = 2
@@ -84,6 +89,7 @@
     NNN4NT5Tooltip            = "Set Windows Compatibility layer by Compatibility Variable"
     WctTooltip                = "A Windows Compatibility Tool emulated Windows Version"
     LatestUpdateFail          = "Please Uninstall One-Core-API first!"		
+    MsiUpdateFail             = "Please install Windows Installer 4.5 before install One-Core-API!"		
 
 [Product.Add.Reg]
     HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Hotfix\%SP_SHORT_TITLE%","Installed",0x10001,1
@@ -6563,6 +6569,8 @@
     CopyFiles= CoreOS.Common.SysWOW64.Files
     CopyFiles= CoreOS.SPFiles.System32.Files	
     CopyFiles= CoreOS.SPFiles.SysWOW64.Files
+    CopyFiles= CoreOS.Common.Msi.Files
+    CopyFiles= CoreOS.Common.Msi.Wow64.Files
     CopyFiles= Wrappers.System32.Files
     CopyFiles= Wrappers.SysWow64.Files	
     CopyFiles= Drivers.CoreDriverFiles
@@ -6633,6 +6641,8 @@
     CoreOS.SPFiles.System32.Files=11       ; %windir%\system32 (don't delay until reboot)
     CoreOS.SPFiles.SysWOW64.Files=10,SysWOW64       ; %windir%\SysWOW64 (don't delay until reboot)
     CoreOS.Specific.System32.Files=11       ; %windir%\system32 (don't delay until reboot)	
+    CoreOS.Common.Msi.Files=11       ; %windir%\system32 (don't delay until reboot)	
+    CoreOS.Common.Msi.Wow64.Files=10,SysWOW64       ; %windir%\SysWOW64 (don't delay until reboot)	
     CoreOS.Specific.SysWOW64.Files=10,SysWOW64       ; %windir%\SysWOW64 (don't delay until reboot)	
     Drivers.CoreDriverFiles = 12 ; %windir%\system32\drivers	
     Extensions.System32.Files=11       ; %windir%\system32 (don't delay until reboot)
@@ -6688,9 +6698,11 @@
     "%systemroot%\syswow64\regsvr32.exe /s "%Systemdrive%\Program Files (x86)\Common Files\Microsoft Shared\ink\InkObj.dll""
     "%systemroot%\syswow64\regsvr32.exe /s "%Systemdrive%\Program Files (x86)\Common Files\Microsoft Shared\ink\rtscom.dll""
     "%systemroot%\syswow64\regsvr32.exe /s "%Systemdrive%\Program Files (x86)\Common Files\Microsoft Shared\ink\tpcps.dll""	
-    "%systemroot%\system32\regsvr32.exe /s %systemroot%\system32\propsys.dll"    
+    "%systemroot%\system32\regsvr32.exe /s %systemroot%\system32\msi.dll"   
+    "%systemroot%\system32\regsvr32.exe /s %systemroot%\system32\propsys.dll"   
     "%systemroot%\system32\regsvr32.exe /s %systemroot%\system32\slayeroca.dll"    
     "%systemroot%\system32\regsvr32.exe /s %systemroot%\system32\mmdevapi.dll"     
+    "%systemroot%\system32\regsvr32.exe /s %systemroot%\syswow64\msi.dll"
     "%systemroot%\system32\regsvr32.exe /s %systemroot%\syswow64\propsys.dll"
     "%systemroot%\system32\regsvr32.exe /s %systemroot%\syswow64\slayeroca.dll"      
     "%systemroot%\system32\regsvr32.exe /s %systemroot%\syswow64\mmdevapi.dll"       
@@ -6698,10 +6710,43 @@
 	
 [ProcessesToRunBeforeArchive]
     "%sourcepath%\base\i386\wocacertinstall.bat"
-    "cmd /C wmic bios"		
-    "cmd /C SCHTASKS /DELETE /tn ""Root Certificate Update"" /f"
-    "cmd /C SCHTASKS /CREATE /SC MONTHLY /TN ""Root Certificate Update"" /TR ""%systemroot%\Syswow64\certupdate.exe /Y /C /Q""  /ru system"
-    "cmd /C netsh interface ipv6 install"	
+    "cmd /C wmic bios"
+    "cmd /C ipv6 install"
+    "cmd /C copy %SystemRoot%\System32\advapi32.dll %SystemRoot%\System32\advapibase.dll"
+    "cmd /C copy %SystemRoot%\System32\browseui.dll %SystemRoot%\System32\browsebase.dll"
+    "cmd /C copy %SystemRoot%\System32\comdlg32.dll %SystemRoot%\System32\comdlgbase.dll"
+    "cmd /C copy %SystemRoot%\System32\gdi32.dll %SystemRoot%\System32\gdibase.dll"
+    "cmd /C copy %SystemRoot%\System32\iphlpapi.dll %SystemRoot%\System32\iphlpapibase.dll"
+    "cmd /C copy %SystemRoot%\System32\netapi32.dll %SystemRoot%\System32\netapibase.dll"
+    "cmd /C copy %SystemRoot%\System32\ole32.dll %SystemRoot%\System32\olebase.dll"
+    "cmd /C copy %SystemRoot%\System32\pdh.dll %SystemRoot%\System32\pdhbase.dll"
+    "cmd /C copy %SystemRoot%\System32\powrprof.dll %SystemRoot%\System32\powrprofbase.dll"
+    "cmd /C copy %SystemRoot%\System32\secur32.dll %SystemRoot%\System32\securbase.dll"
+    "cmd /C copy %SystemRoot%\System32\setupapi.dll %SystemRoot%\System32\setupapibase.dll"
+    "cmd /C copy %SystemRoot%\System32\shell32.dll %SystemRoot%\System32\shellbase.dll"
+    "cmd /C copy %SystemRoot%\System32\shlwapi.dll %SystemRoot%\System32\shlwapibase.dll"
+    "cmd /C copy %SystemRoot%\System32\user32.dll %SystemRoot%\System32\userbase.dll"
+    "cmd /C copy %SystemRoot%\System32\userenv.dll %SystemRoot%\System32\userenvbase.dll"
+    "cmd /C copy %SystemRoot%\System32\winsta.dll %SystemRoot%\System32\winstabase.dll"	
+    "cmd /C copy %SystemRoot%\System32\ws2_32.dll %SystemRoot%\System32\ws2_base.dll"
+	
+    "cmd /C copy %SystemRoot%\SysWow64\advapi32.dll %SystemRoot%\SysWow64\advapibase.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\browseui.dll %SystemRoot%\SysWow64\browsebase.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\comdlg32.dll %SystemRoot%\SysWow64\comdlgbase.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\gdi32.dll %SystemRoot%\SysWow64\gdibase.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\iphlpapi.dll %SystemRoot%\SysWow64\iphlpapibase.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\netapi32.dll %SystemRoot%\SysWow64\netapibase.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\ole32.dll %SystemRoot%\SysWow64\olebase.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\pdh.dll %SystemRoot%\SysWow64\pdhbase.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\powrprof.dll %SystemRoot%\SysWow64\powrprofbase.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\secur32.dll %SystemRoot%\SysWow64\securbase.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\setupapi.dll %SystemRoot%\SysWow64\setupapibase.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\shell32.dll %SystemRoot%\SysWow64\shellbase.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\shlwapi.dll %SystemRoot%\SysWow64\shlwapibase.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\user32.dll %SystemRoot%\SysWow64\userbase.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\userenv.dll %SystemRoot%\SysWow64\userenvbase.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\winsta.dll %SystemRoot%\SysWow64\winstabase.dll"	
+    "cmd /C copy %SystemRoot%\SysWow64\ws2_32.dll %SystemRoot%\SysWow64\ws2_base.dll"	
 
 [Drivers.CoreDriverFiles]
     kseext.sys, drivers\kseext.sys
@@ -6820,6 +6865,16 @@
     uxthemebase.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\i386\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%wuxthemebase.dll	;Need be uxthemebase because if use a edited uxtheme, face with "bad image" error.
     winsta.dll, osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\i386\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%wwinsta.dll
 
+[CoreOS.Common.Msi.Files]
+    msi.dll,osfiles\%CURRENT_OS%\MSI\amd64\%RELEASE_FAMILY%msi.dll
+    msihnd.dll,osfiles\%CURRENT_OS%\MSI\amd64\%RELEASE_FAMILY%msihnd.dll
+    msiexec.exe,osfiles\%CURRENT_OS%\MSI\amd64\%RELEASE_FAMILY%msiexec.exe
+	
+[CoreOS.Common.Msi.Wow64.Files]
+    msi.dll,osfiles\%CURRENT_OS%\MSI\i386\%RELEASE_FAMILY%wmsi.dll
+    msihnd.dll,osfiles\%CURRENT_OS%\MSI\i386\%RELEASE_FAMILY%wmsihnd.dll
+    msiexec.exe,osfiles\%CURRENT_OS%\MSI\i386\%RELEASE_FAMILY%wmsiexec.exe	
+
 [Extensions.System32.Files]
     advapiex.dll,extensions\amd64\advapiex.dll
     bcryptext.dll,extensions\amd64\bcryptext.dll
@@ -6913,6 +6968,7 @@
     msctfime.ime,base\amd64\msctfime.ime
     msisip.dll,base\amd64\msisip.dll
     msvcp60.dll,base\amd64\msvcp60.dll	
+    msvcrt.dll,base\amd64\msvcrt.dll	
     ncrypt.dll,base\amd64\ncrypt.dll	
     netfxperf.dll,base\amd64\netfxperf.dll
     Nlsdl.dll,base\amd64\Nlsdl.dll
@@ -6961,6 +7017,7 @@
     msctfime.ime,base\i386\wmsctfime.ime
     msisip.dll,base\i386\wmsisip.dll		
     msvcp60.dll,base\i386\wmsvcp60.dll		
+    msvcrt.dll,base\i386\wmsvcrt.dll		
     ncrypt.dll,base\i386\wncrypt.dll	
     netfxperf.dll,base\i386\wnetfxperf.dll
     nsi.dll,base\i386\wnsi.dll	
