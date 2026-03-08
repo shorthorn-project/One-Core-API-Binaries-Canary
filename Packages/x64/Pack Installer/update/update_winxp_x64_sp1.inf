@@ -6721,6 +6721,7 @@
     "cmd /C copy %SystemRoot%\System32\ole32.dll %SystemRoot%\System32\olebase.dll"
     "cmd /C copy %SystemRoot%\System32\pdh.dll %SystemRoot%\System32\pdhbase.dll"
     "cmd /C copy %SystemRoot%\System32\powrprof.dll %SystemRoot%\System32\powrprofbase.dll"
+    "cmd /C copy %SystemRoot%\System32\rpcrt4.dll %SystemRoot%\System32\rpcrtbase.dll"
     "cmd /C copy %SystemRoot%\System32\secur32.dll %SystemRoot%\System32\securbase.dll"
     "cmd /C copy %SystemRoot%\System32\setupapi.dll %SystemRoot%\System32\setupapibase.dll"
     "cmd /C copy %SystemRoot%\System32\shell32.dll %SystemRoot%\System32\shellbase.dll"
@@ -6739,6 +6740,7 @@
     "cmd /C copy %SystemRoot%\SysWow64\ole32.dll %SystemRoot%\SysWow64\olebase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\pdh.dll %SystemRoot%\SysWow64\pdhbase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\powrprof.dll %SystemRoot%\SysWow64\powrprofbase.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\rpcrt4.dll %SystemRoot%\SysWow64\rpcrtbase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\secur32.dll %SystemRoot%\SysWow64\securbase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\setupapi.dll %SystemRoot%\SysWow64\setupapibase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\shell32.dll %SystemRoot%\SysWow64\shellbase.dll"
@@ -6793,7 +6795,7 @@
 
 [CoreOS.Common.System32.Files]
     ;advpack.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%advpack.dll
-    ;comdlgbase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%comdlgbase.dll
+    comdlgbase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%comdlgbase.dll
     crypt32.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%crypt32.dll
     cryptcore.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%cryptcore.dll	
     dssenh.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%dssenh.dll
@@ -6845,11 +6847,11 @@
     basesrv.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%TARGET_RELEASE%basesrv.dll		
     browsebase.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%TARGET_RELEASE%browsebase.dll
     dnsapi.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%TARGET_RELEASE%dnsapi.dll	
-    ole32.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%ole32.dll
-    rpcrt4.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%rpcrt4.dll
+    ; ole32.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%ole32.dll
+    ;rpcrt4.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%rpcrt4.dll
     shell32.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%TARGET_RELEASE%shell32.dll	
     shlwapibase.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%TARGET_RELEASE%shlwapibase.dll	
-    userenv.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%userenv.dll
+    ;userenv.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%userenv.dll
     uxtheme.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%uxtheme.dll	
     winsta.dll, osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%winsta.dll
 	
@@ -6857,11 +6859,11 @@
     ; advapi32.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\i386\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%wadvapi32.dll
     browsebase.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\i386\%RELEASE_FAMILY%%TARGET_RELEASE%wbrowsebase.dll
     dnsapi.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\i386\%RELEASE_FAMILY%%TARGET_RELEASE%wdnsapi.dll	
-    ole32.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\i386\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%wole32.dll
-    rpcrtbase.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\i386\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%wrpcrtbase.dll
+    ; ole32.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\i386\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%wole32.dll
+    ; rpcrtbase.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\i386\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%wrpcrtbase.dll
     shell32.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\i386\%RELEASE_FAMILY%%TARGET_RELEASE%wshell32.dll	
     shlwapibase.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\i386\%RELEASE_FAMILY%%TARGET_RELEASE%wshlwapibase.dll	
-    userenv.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\i386\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%wuserenv.dll
+    ;userenv.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\i386\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%wuserenv.dll
     uxthemebase.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\i386\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%wuxthemebase.dll	;Need be uxthemebase because if use a edited uxtheme, face with "bad image" error.
     winsta.dll, osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\i386\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%wwinsta.dll
 
@@ -6924,11 +6926,14 @@
     cfgmgr32.dll,wrappers\amd64\cfgmgr32.dll	
     comdlg32.dll,wrappers\amd64\comdlg32.dll	
     gdi32.dll,wrappers\amd64\gdi32.dll
+    ole32.dll,wrappers\amd64\ole32_wrapper.dll
     pdh.dll,wrappers\amd64\pdh.dll
     psapi.dll,wrappers\amd64\psapi.dll
+    rpcrt4.dll,wrappers\amd64\rpcrt4.dll	
     setupapi.dll,wrappers\amd64\setupapi.dll
     shlwapi.dll,wrappers\amd64\shlwapi.dll
     user32.dll,wrappers\amd64\user32.dll
+    userenv.dll,wrappers\amd64\userenv_wrapper.dll	
     ws2_32.dll,wrappers\amd64\ws2_32.dll
 
 [Wrappers.SysWow64.Files]
@@ -6937,11 +6942,14 @@
     cfgmgr32.dll,wrappers\i386\wcfgmgr32.dll
     comdlg32.dll,wrappers\i386\wcomdlg32.dll	
     gdi32.dll,wrappers\i386\wgdi32.dll
+    ole32.dll,wrappers\i386\wole32_wrapper.dll
     pdh.dll,wrappers\i386\wpdh.dll
     psapi.dll,wrappers\i386\wpsapi.dll
+    rpcrt4.dll,wrappers\i386\wrpcrt4.dll
     setupapi.dll,wrappers\i386\wsetupapi.dll
     shlwapi.dll,wrappers\i386\wshlwapi.dll
     user32.dll,wrappers\i386\wuser32.dll
+    userenv.dll,wrappers\i386\wuserenv_wrapper.dll	
     ws2_32.dll,wrappers\i386\wws2_32.dll	
 	
 [Base.System32.Files]
@@ -9398,11 +9406,3 @@
     "cmd /C schtasks /delete /tn ""Root Certificate Update"" /f"
     "cmd /C rmdir -f %SystemDrive%\ProgramData"
     "cmd /C rmdir -f %SystemRoot%\SystemTemp"
-
-; [ProcessesToRunAfterUninstallReboot]
-    ; "cmd /C rmdir -f %SystemRoot%\WinSxS\amd64_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_34c3c365"
-    ; "cmd /C rmdir -f %SystemRoot%\WinSxS\amd64_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.5048.0_x-ww_669b08b8"
-    ; "cmd /C rmdir -f %SystemRoot%\WinSxS\amd64_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_859f8491"
-    ; "cmd /C rmdir -f %SystemRoot%\WinSxS\wow64_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.101.0_x-ww_0BC59585"
-    ; "cmd /C rmdir -f %SystemRoot%\WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.5048.0_x-ww_349122d8"
-    ; "cmd /C rmdir -f %SystemRoot%\WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_53959eb1"
