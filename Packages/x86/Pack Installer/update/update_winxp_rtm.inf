@@ -2474,6 +2474,10 @@
 	
 	;Add mmdevapi registration after reboot, because the common ways like ProcessesToRunAfterArchive and ProcessesToRunAfterReboot not working
     HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MMdevapiReg,0x00020000,"%11%\regsvr32.exe /s "mmdevapi.dll""
+	
+	;Fix for java Jdk 1.8.152+
+    HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion","CommonFilesDir (x86)",0x0,"%%SystemDrive%%\Program Files\Common Files"
+    HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion","ProgramFilesDir (x86)",0x0,"%%SystemDrive%%\Program Files"	
 
 [Product.Del.Reg]
     HKCR,"CLSID\{0131BE10-2001-4C5F-A9B0-CC88FAB64CE8}"
