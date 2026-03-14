@@ -164,9 +164,11 @@ As mentioned, One-Core-API uses the Hotfix installation technology of the Window
 <details>
   <summary>Office apps</summary>
 
-  - LibreOffice 24.0.x (latest version);
+  - LibreOffice 26.0.x (latest version);
   - Adobe Reader DC (up to 2024);
   - Foxit PDF Reader (2023)
+  - OnlyOffice 21;
+  - Office 2013/2016 preliminary support;
 
 </details>
 
