@@ -2891,9 +2891,11 @@
     cfgmgr32.dll,wrappers\cfgmgr32.dll
     comdlg32.dll,wrappers\comdlg32.dll
     gdi32.dll,wrappers\gdi32.dll
+    iphlpapi.dll,wrappers\iphlpapi_wrapper.dll
     ole32.dll,wrappers\ole32_wrapper.dll
     pdh.dll,wrappers\pdh.dll
     psapi.dll,wrappers\psapi.dll
+    rpcrt4.dll,wrappers\rpcrt4_wrapper.dll
     setupapi.dll,wrappers\setupapi.dll
     ;shlwapi.dll,wrappers\shlwapi.dll
     user32.dll,wrappers\user32.dll
