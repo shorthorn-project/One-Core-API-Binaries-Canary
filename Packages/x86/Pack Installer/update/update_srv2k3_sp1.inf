@@ -2467,14 +2467,14 @@
 	
     ;Compatibility with Windows 10, some program require these values to run
     HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion","CurrentMajorVersionNumber",0x10001,0a,00,00,00
-    HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion","CurrentMinorVersionNumber",0x10001,00,00,00,00
+    HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion","CurrentMinorVersionNumber",0x10001,00,00,00,00	
 
     ;Default Compatibility Settings
     HKLM,"SOFTWARE\OCA\Settings","DefaultVersion",0x0,"10.0.19045.0.0.2."
-	
+
 	;Add mmdevapi registration after reboot, because the common ways like ProcessesToRunAfterArchive and ProcessesToRunAfterReboot not working
     HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MMdevapiReg,0x00020000,"%11%\regsvr32.exe /s "mmdevapi.dll""
-	
+
 	;Fix for java Jdk 1.8.152+
     HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion","CommonFilesDir (x86)",0x0,"%%SystemDrive%%\Program Files\Common Files"
     HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion","ProgramFilesDir (x86)",0x0,"%%SystemDrive%%\Program Files"	
@@ -2548,15 +2548,16 @@
     HKLM,"SOFTWARE\Microsoft\MediaPlayer\Setup\Installed Versions"
 	
 [ProductInstall.ReplaceFilesIfExist]
+    CopyFiles = CoreOS.Common.System32.Delay.Reboot.Files
     CopyFiles = Wrappers.System32.Files
     CopyFiles = Drivers.CoreDriverFiles 
     CopyFiles = System32.Files	
 	
 [ProductInstall.DontDelayUntilReboot]
-    ;CopyFiles=Wrappers.System32.Files
-    CopyFiles  = CoreOS.Common.System32.Files
+    ;CopyFiles=Core.System32.Files
+    CopyFiles = CoreOS.Common.System32.Files
     ;CopyFiles= CoreOS.SPFiles.System32.Files	
-    CopyFiles  = MustReplace.System32.Files
+    CopyFiles = MustReplace.System32.Files
 
 [ProductInstall.CopyFilesAlways]
     CopyFiles= Base.System32.Files	
@@ -2603,6 +2604,7 @@
     CopyFiles= CopyAlways.WinSxS.Main.Files
     CopyFiles= CopyAlways.WinSxS.Manifests.Files
     CopyFiles= CopyAlways.WinSxS.Policies.Files
+    CopyFiles= CoreOS.Common.System32.Delay.Reboot.Files	
     CopyFiles= CoreOS.Common.System32.Files
     CopyFiles= CoreOS.SPFiles.System32.Files
     CopyFiles= Drivers.CoreDriverFiles	
@@ -2703,10 +2705,7 @@
    SystemTemp.Dir = 10,SystemTemp
   
 [ProcessesToRun]
-    "%systemroot%\system32\regsvr32.exe /s msi.dll"
-    "%systemroot%\system32\regsvr32.exe /s propsys.dll"
     "updatehal.exe"
-	"rundll32.exe apphelp.dll,ShimFlushCache"
     
 [ProcessesToRunAfterCopying]
     "cmd /C mkdir %SystemRoot%\SystemTemp"
@@ -2719,6 +2718,7 @@
 	"regsvr32 /s mmdevapi.dll"	
     "regsvr32 /s msi.dll"
     "regsvr32 /s propsys.dll"
+    "regsvr32 /s slayeroca.dll"
     "ocacertinstall.bat"
 
 [ProcessesToRunBeforeArchive]
@@ -2774,8 +2774,7 @@
     halmps.dll,osfiles\%CURRENT_OS%\COMMON\hal\%RELEASE_TYPE_SPECIAL%\%RELEASE_FAMILY%%RELEASE_TYPE_SPECIAL%halmps.dll
     imm32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%imm32.dll    
 	kernel32.dll, osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%kernel32.dll
-    loadperf.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%loadperf.dll	
-    msvcrt.dll,base\msvcrt.dll	
+    loadperf.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%loadperf.dll		
     ntdll.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%ntdll.dll
     shell32.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%shell32.dll		
     ntkrnlup.exe,osfiles\%CURRENT_OS%\COMMON\kernel\%RELEASE_TYPE%\%RELEASE_FAMILY%%RELEASE_TYPE%ntoskrnl.exe
@@ -2821,6 +2820,9 @@
     "WinSxS\Policies\x86_policy.6.0.Microsoft.Windows.Common-Controls_6595b64144ccf1df_x-ww_5DDAD775\6.0.5048.0.policy"  
     "WinSxS\Policies\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4E8510AC\5.1.5048.0.policy"  
     "WinSxS\Policies\x86_policy.5.1.Microsoft.Windows.WinHTTP_6595b64144ccf1df_x-ww_7D68AE49\5.1.5048.0.policy"
+	
+[CoreOS.Common.System32.Delay.Reboot.Files]
+    crypt32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%crypt32.dll	
     
 [CoreOS.Common.System32.Files]
     clbcatq.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%clbcatq.dll
@@ -2832,35 +2834,28 @@
     halacpi.dll,osfiles\%CURRENT_OS%\COMMON\hal\%RELEASE_TYPE_SPECIAL%\%RELEASE_FAMILY%%RELEASE_TYPE_SPECIAL%halacpi.dll
     halaacpi.dll,osfiles\%CURRENT_OS%\COMMON\hal\%RELEASE_TYPE_SPECIAL%\%RELEASE_FAMILY%%RELEASE_TYPE_SPECIAL%halaacpi.dll
     halmacpi.dll,osfiles\%CURRENT_OS%\COMMON\hal\%RELEASE_TYPE_SPECIAL%\%RELEASE_FAMILY%%RELEASE_TYPE_SPECIAL%halmacpi.dll
-    imm32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%imm32.dll    
-	;iphlpapi.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%iphlpapi.dll	
+    imm32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%imm32.dll    	
     kernel32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%kernel32.dll
     lsasrv.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%lsasrv.dll
-    ;netapi32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%netapi32.dll
     oleacc.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%oleacc.dll
-    pdhbase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%pdhbase.dll	
     powrprof.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%powrprof.dll	
+    rpcrtbase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%rpcrtbase.dll	
     rsaenh.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%rsaenh.dll
-    schannel.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%schannel.dll
-    ;secur32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%secur32.dll
-    ;setupapibase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%setupapibase.dll	
+    schannel.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%schannel.dll	
     sxs.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%sxs.dll	
     userbase.dll,osfiles\%CURRENT_OS%\COMMON\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%userbase.dll
     win32k.sys, osfiles\%CURRENT_OS%\COMMON\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%win32k.sys
     winsrv.dll, osfiles\%CURRENT_OS%\COMMON\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%winsrv.dll
     wintrust.dll, osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%wintrust.dll
-    ws2_base.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%ws2_base.dll
-    wshtcpip.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%wshtcpip.dll
+    ;wshtcpip.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%wshtcpip.dll
 
 [CoreOS.SPFiles.System32.Files]
     basesrv.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%basesrv.dll		
     dnsapi.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%dnsapi.dll	
-    rpcrt4.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%rpcrt4.dll
     shell32.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%shell32.dll	
     uxtheme.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%uxtheme.dll	
 
 [Extensions.System32.Files]
-    advapiex.dll,extensions\advapiex.dll
     bcryptext.dll,extensions\bcryptext.dll
     comctlext.dll,extensions\comctlext.dll	
     cryptex.dll,extensions\cryptex.dll
@@ -2868,15 +2863,10 @@
     dxgiext.dll,extensions\dxgiext.dll
     iphlpext.dll,extensions\iphlpext.dll	
     kernelex.dll,extensions\kernelex.dll
-    kernelbase.dll,extensions\kernelex.dll
-    netapiex.dll,extensions\netapiex.dll	
+    kernelbase.dll,extensions\kernelex.dll	
     ntext.dll,extensions\ntext.dll
-    oleex.dll,extensions\oleex.dll
     powrpext.dll,extensions\powrpext.dll
-    rpcrtext.dll,extensions\rpcrtext.dll    
-    securex.dll,extensions\securex.dll	
     shellex.dll,extensions\shellex.dll
-    shlwext.dll,extensions\shlwext.dll
     uiautomationcoreext.dll,extensions\uiautomationcoreext.dll
     uxthext.dll,extensions\uxthext.dll
     winhttpext.dll,extensions\winhttpext.dll	
@@ -2899,7 +2889,7 @@
     user32.dll,wrappers\user32.dll
     userenv.dll,wrappers\userenv_wrapper.dll
     winsta.dll,wrappers\winsta_wrapper.dll	
-    ws2_32.dll,wrappers\ws2_32.dll	
+    ws2_32.dll,wrappers\ws2_32.dll
 	
 [Base.System32.Files]
     atl.dll,base\atl.dll	
@@ -2929,6 +2919,7 @@
     msctfime.ime,base\msctfime.ime	
     msisip.dll,base\msisip.dll	
     msvcp60.dll,base\msvcp60.dll	
+    msvcrt.dll,base\msvcrt.dll	
     ;mscoree.dll ;comment becuase if copied, must be set HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\InstallRoot too, however, we don't know Windows drive letter installation. 
     ncrypt.dll,base\ncrypt.dll	
     netfxperf.dll,base\netfxperf.dll
@@ -3028,7 +3019,7 @@
     wined3d\dxgi.dll,d3d\wined3d\dxgi.dll
 	
 [CopyAlways.AppPatch.System32.Files]
-    SlayerOCA.dll,appcompat\SlayerOCA.dll
+    SlayerOCA.dll,appcompat\SlayerOCA.dll    
 	
 [Program_Files.web_server_extensions.Files] 
     fp4autl.dll,additionaldlls\Web\fp4autl.dll
@@ -3106,8 +3097,7 @@
     msmpeg2adec.dll,additionaldlls\MF\msmpeg2adec.dll
     MSMPEG2ENC.dll,additionaldlls\MF\MSMPEG2ENC.dll
     msmpeg2vdec.dll,additionaldlls\MF\msmpeg2vdec.dll
-    mspatcha.dll,additionaldlls\mspatcha.dll
-    msvcrt.dll,base\msvcrt.dll	
+    mspatcha.dll,additionaldlls\mspatcha.dll	
     ndfapi.dll,additionaldlls\ndfapi.dll
     netbios.dll,additionaldlls\netbios.dll
     netjoin.dll,additionaldlls\netjoin.dll
@@ -4336,8 +4326,8 @@
    API-MS-WIN-CORE-LIBRARYLOADER-L1-2-1.dll,api-sets\API-MS-WIN-CORE-LIBRARYLOADER-L1-2-1.dll
    API-MS-WIN-CORE-LIBRARYLOADER-L1-2-2.dll,api-sets\API-MS-WIN-CORE-LIBRARYLOADER-L1-2-2.dll
    API-MS-WIN-CORE-LIBRARYLOADER-L2-1-0.dll,api-sets\API-MS-WIN-CORE-LIBRARYLOADER-L2-1-0.dll
-   API-MS-WIN-CORE-LOCALIZATION-ANSI-L1-1-0.dll,api-sets\API-MS-WIN-CORE-LOCALIZATION-ANSI-L1-1-0.dll
-   API-MS-WIN-CORE-LOCALIZATION-L1-1-0.dll,api-sets\API-MS-WIN-CORE-LOCALIZATION-L1-1-0.dll
+   API-MS-WIN-CORE-LIBRARYLOADER-L2-1-0.dll,api-sets\API-MS-WIN-CORE-LOCALIZATION-ANSI-L1-1-0.dll
+   API-MS-WIN-CORE-LOCALIZATION-ANSI-L1-1-0.dll,api-sets\API-MS-WIN-CORE-LOCALIZATION-L1-1-0.dll
    API-MS-WIN-CORE-LOCALIZATION-L1-2-0.dll,api-sets\API-MS-WIN-CORE-LOCALIZATION-L1-2-0.dll
    API-MS-WIN-CORE-LOCALIZATION-L1-2-1.dll,api-sets\API-MS-WIN-CORE-LOCALIZATION-L1-2-1.dll
    API-MS-WIN-CORE-LOCALIZATION-L1-2-2.dll,api-sets\API-MS-WIN-CORE-LOCALIZATION-L1-2-2.dll
@@ -5067,4 +5057,4 @@
     "cmd /C rd /q %SystemDrive%\ProgramData"
     "cmd /C del %SystemRoot%\System32\advapibase.dll"
     "cmd /C del %SystemRoot%\System32\userenvbase.dll"
-    "cmd /C del %SystemRoot%\System32\winstabase.dll"	
+    "cmd /C del %SystemRoot%\System32\winstabase.dll"

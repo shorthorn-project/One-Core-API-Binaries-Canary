@@ -30,7 +30,7 @@ WinXPSP3=update\update_winxp_sp3.inf
 Srv2k3RTM=update\update_srv2k3_rtm.inf
 Srv2k3SP1=update\update_srv2k3_sp1.inf
 Srv2k3SP2=update\update_srv2k3_sp2.inf
-LhOmg13=update\update_lh_5001.inf
+LhOmg13=update\update_lh_omega13.inf
 LhSP2=update\update_lh_SP2.inf
 
 [SetupFiles.SP1RC1]
