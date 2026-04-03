@@ -39,7 +39,7 @@
     SERVICE_PACK_NUMBER       = 2
     HelpLink                  = "http://shorthornproject.com"
     URLInfoAbout              = "http://shorthornproject.com"
-    BASE_VERSION              = "4.1.0.canary"    
+    BASE_VERSION              = "4.1.2.canary"    
     UPDATE                    = "Update"
     HOTFIX                    = "Hotfix"
     SECURITY_UPDATE           = "Security Update"
@@ -108,14 +108,6 @@
     HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE%","ParentKeyName",0x00000000,"OperatingSystem"
     HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE%","ParentDisplayName",0x00000000,"%PARENT_DISPLAY_NAME%"    
     HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE%","ReleaseType",0x00000000,"HotFix"
-    ;HKLM,"SOFTWARE\Microsoft\%SP_TITLE%","InstalledVersion",0x00000000,"%BASE_VERSION%"
-	
-	;Simulate WIC installed to prevent new installation, since we use WIC from Windows 8 and need exclude older REG keys
-    ; HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE_WIC%","DisplayName",0x00000000,"%SP_TITLE%"
-    ; HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE_WIC%","DisplayVersion",0x00000000,%WIC_VERSION%
-    ; HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE_WIC%","ParentKeyName",0x00000000,"OperatingSystem"
-    ; HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE_WIC%","ReleaseType",0x00000000,"HotFix"
-    ; HKLM,"SOFTWARE\Microsoft\%SP_TITLE%","InstalledVersion",0x00000000,"%WIC_VERSION%"		
     
     ; FontCache Service
     HKLM,"SYSTEM\CurrentControlSet\Services\FontCache","Description",0x00000000,"%FNTCACHESVC_DESCRIPTION%"
@@ -6803,23 +6795,19 @@
     dssenh.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%dssenh.dll
     esent.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%esent.dll	
     gdibase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%gdibase.dll
-    ;iphlpapi.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%iphlpapi.dll	
     kernel32.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%kernel32.dll
     lsasrv.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%lsasrv.dll
-    netapi32.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%netapi32.dll
     oleacc.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%oleacc.dll
     pdhbase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%pdhbase.dll	
     powrprof.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%powrprof.dll	
     rsaenh.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%rsaenh.dll
     schannel.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%schannel.dll
-    secur32.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%secur32.dll
-    setupapibase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%setupapibase.dll	
+    ;secur32.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%secur32.dll	
     sxs.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%sxs.dll	
     userbase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%userbase.dll
     win32k.sys, osfiles\%CURRENT_OS%\COMMON\amd64\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%win32k.sys
     winsrv.dll, osfiles\%CURRENT_OS%\COMMON\amd64\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%winsrv.dll
-    wintrust.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%wintrust.dll	
-    ws2_base.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%ws2_base.dll
+    wintrust.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%wintrust.dll
 	
 [CoreOS.Common.SysWow64.Files]
     crypt32.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wcrypt32.dll
@@ -6827,33 +6815,26 @@
     dssenh.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wdssenh.dll
     esent.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wesent.dll	
     gdibase.dll,osfiles\%CURRENT_OS%\COMMON\i386\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%wgdibase.dll
-    ;iphlpapi.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wiphlpapi.dll	
     kernel32.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wkernel32.dll
-    netapi32.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wnetapi32.dll
     oleacc.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%woleacc.dll
     pdhbase.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wpdhbase.dll	
     powrprof.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wpowrprof.dll	
     rsaenh.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wrsaenh.dll
-    schannel.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wschannel.dll
-    securbase.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wsecurbase.dll ;Need be securbase because if use a edited secur32, face with "bad image" error.
-    setupapibase.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wsetupapibase.dll	
+    schannel.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wschannel.dll	
     sxs.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wsxs.dll
     userbase.dll,osfiles\%CURRENT_OS%\COMMON\i386\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%wuserbase.dll
-    wintrust.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wwintrust.dll
-    ws2_base.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wws2_base.dll	
+    wintrust.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wwintrust.dll	
 
 [CoreOS.SPFiles.System32.Files]
     basesrv.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%TARGET_RELEASE%basesrv.dll		
     dnsapi.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%TARGET_RELEASE%dnsapi.dll	
     shell32.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%TARGET_RELEASE%shell32.dll	
-    uxtheme.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%uxtheme.dll	
-    winsta.dll, osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%winsta.dll
+    uxtheme.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%uxtheme.dll
 	
 [CoreOS.SPFiles.SysWow64.Files]	
     dnsapi.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\i386\%RELEASE_FAMILY%%TARGET_RELEASE%wdnsapi.dll	
     shell32.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\i386\%RELEASE_FAMILY%%TARGET_RELEASE%wshell32.dll	
     uxthemebase.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\i386\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%wuxthemebase.dll	;Need be uxthemebase because if use a edited uxtheme, face with "bad image" error.
-    winsta.dll, osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\i386\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%wwinsta.dll
 
 [CoreOS.Common.Msi.Files]
     msi.dll,osfiles\%CURRENT_OS%\MSI\amd64\%RELEASE_FAMILY%msi.dll
@@ -6866,40 +6847,34 @@
     msiexec.exe,osfiles\%CURRENT_OS%\MSI\i386\%RELEASE_FAMILY%wmsiexec.exe	
 
 [Extensions.System32.Files]
-    advapiex.dll,extensions\amd64\advapiex.dll
     bcryptext.dll,extensions\amd64\bcryptext.dll
     comctlext.dll,extensions\amd64\comctlext.dll	
     cryptex.dll,extensions\amd64\cryptex.dll
+    d3d11ext.dll,extensions\amd64\d3d11ext.dll
     dnsapiext.dll,extensions\amd64\dnsapiext.dll
     dxgiext.dll,extensions\amd64\dxgiext.dll
-    iphlpext.dll,extensions\amd64\iphlpext.dll	
     kernelex.dll,extensions\amd64\kernelex.dll
     kernelbase.dll,extensions\amd64\kernelex.dll
-    netapiex.dll,extensions\amd64\netapiex.dll	
     ntext.dll,extensions\amd64\ntext.dll
-    oleex.dll,extensions\amd64\oleex.dll
     powrpext.dll,extensions\amd64\powrpext.dll  
     rpcrtext.dll,extensions\amd64\rpcrtext.dll	
     securex.dll,extensions\amd64\securex.dll	
-    shellex.dll,extensions\amd64\shellex.dll	
+    shellex.dll,extensions\amd64\shellex.dll
     uiautomationcoreext.dll,extensions\amd64\uiautomationcoreext.dll	
     userenvext.dll,extensions\amd64\userenvext.dll	
     uxthext.dll,extensions\amd64\uxthext.dll
     winhttpext.dll,extensions\amd64\winhttpext.dll
 
 [Extensions.SysWow64.Files]
-    advapiex.dll,extensions\i386\wadvapiex.dll
     bcryptext.dll,extensions\i386\wbcryptext.dll
     comctlext.dll,extensions\i386\wcomctlext.dll	
     cryptex.dll,extensions\i386\wcryptex.dll
+    d3d11ext.dll,extensions\i386\wd3d11ext.dll
     dnsapiext.dll,extensions\i386\wdnsapiext.dll
     dxgiext.dll,extensions\i386\wdxgiext.dll
-    iphlpext.dll,extensions\i386\wiphlpext.dll	
     kernelex.dll,extensions\i386\wkernelex.dll
     kernelbase.dll,extensions\i386\wkernelex.dll
-    netapiex.dll,extensions\i386\wnetapiex.dll	
     ntext.dll,extensions\i386\wntext.dll
-    oleex.dll,extensions\i386\woleex.dll
     powrpext.dll,extensions\i386\wpowrpext.dll   
     secur32.dll,extensions\i386\wsecur32.dll ;Need be secur32 (wrapper) because if use as extension and edited native secur32, cause "bad image" error    	
     shellex.dll,extensions\i386\wshellex.dll	
@@ -6915,14 +6890,17 @@
     comdlg32.dll,wrappers\amd64\comdlg32.dll	
     gdi32.dll,wrappers\amd64\gdi32.dll
     iphlpapi.dll,wrappers\amd64\iphlpapi_wrapper.dll
+    netapi32.dll,wrappers\amd64\netapi32_wrapper.dll	
     ole32.dll,wrappers\amd64\ole32_wrapper.dll
     pdh.dll,wrappers\amd64\pdh.dll
     psapi.dll,wrappers\amd64\psapi.dll
     rpcrt4.dll,wrappers\amd64\rpcrt4.dll	
+    secur32.dll,wrappers\amd64\secur32_wrapper.dll
     setupapi.dll,wrappers\amd64\setupapi.dll
     shlwapi.dll,wrappers\amd64\shlwapi.dll
     user32.dll,wrappers\amd64\user32.dll
-    userenv.dll,wrappers\amd64\userenv_wrapper.dll	
+    userenv.dll,wrappers\amd64\userenv_wrapper.dll
+    winsta.dll,wrappers\amd64\winsta_wrapper.dll		
     ws2_32.dll,wrappers\amd64\ws2_32.dll
 
 [Wrappers.SysWow64.Files]
@@ -6932,14 +6910,17 @@
     comdlg32.dll,wrappers\i386\wcomdlg32.dll	
     gdi32.dll,wrappers\i386\wgdi32.dll
     iphlpapi.dll,wrappers\i386\wiphlpapi_wrapper.dll
+    netapi32.dll,wrappers\i386\wnetapi32_wrapper.dll
     ole32.dll,wrappers\i386\wole32_wrapper.dll
     pdh.dll,wrappers\i386\wpdh.dll
     psapi.dll,wrappers\i386\wpsapi.dll
     rpcrt4.dll,wrappers\i386\wrpcrt4.dll
+    secur32.dll,wrappers\i386\wsecur32_wrapper.dll	
     setupapi.dll,wrappers\i386\wsetupapi.dll
     shlwapi.dll,wrappers\i386\wshlwapi.dll
     user32.dll,wrappers\i386\wuser32.dll
     userenv.dll,wrappers\i386\wuserenv_wrapper.dll	
+    winsta.dll,wrappers\i386\wwinsta_wrapper.dll		
     ws2_32.dll,wrappers\i386\wws2_32.dll	
 	
 [Base.System32.Files]
@@ -8615,7 +8596,7 @@
    API-MS-WIN-CORE-ERRORHANDLING-L1-1-3.dll,api-sets\amd64\API-MS-WIN-CORE-ERRORHANDLING-L1-1-3.dll
    API-MS-WIN-CORE-FEATURESTAGING-L1-1-0.dll,api-sets\amd64\API-MS-WIN-CORE-FEATURESTAGING-L1-1-0.dll
    API-MS-WIN-CORE-FIBERS-L1-1-0.dll,api-sets\amd64\API-MS-WIN-CORE-FIBERS-L1-1-0.dll
-   ;API-MS-WIN-CORE-FIBERS-L1-1-1.dll,api-sets\amd64\API-MS-WIN-CORE-FIBERS-L1-1-1.dll
+   API-MS-WIN-CORE-FIBERS-L1-1-1.dll,api-sets\amd64\API-MS-WIN-CORE-FIBERS-L1-1-1.dll
    API-MS-WIN-CORE-FIBERS-L2-1-0.dll,api-sets\amd64\API-MS-WIN-CORE-FIBERS-L2-1-0.dll
    API-MS-WIN-CORE-FIBERS-L2-1-1.dll,api-sets\amd64\API-MS-WIN-CORE-FIBERS-L2-1-1.dll
    API-MS-WIN-CORE-FILE-ANSI-L2-1-0.dll,api-sets\amd64\API-MS-WIN-CORE-FILE-ANSI-L2-1-0.dll
@@ -8651,6 +8632,7 @@
    API-MS-WIN-CORE-LIBRARYLOADER-L1-2-1.dll,api-sets\amd64\API-MS-WIN-CORE-LIBRARYLOADER-L1-2-1.dll
    API-MS-WIN-CORE-LIBRARYLOADER-L1-2-2.dll,api-sets\amd64\API-MS-WIN-CORE-LIBRARYLOADER-L1-2-2.dll
    API-MS-WIN-CORE-LIBRARYLOADER-L2-1-0.dll,api-sets\amd64\API-MS-WIN-CORE-LIBRARYLOADER-L2-1-0.dll
+   API-MS-WIN-CORE-LOCALIZATION-ANSI-L1-1-0.dll,api-sets\amd64\API-MS-WIN-CORE-LOCALIZATION-ANSI-L1-1-0.dll
    API-MS-WIN-CORE-LOCALIZATION-L1-1-0.dll,api-sets\amd64\API-MS-WIN-CORE-LOCALIZATION-L1-1-0.dll
    API-MS-WIN-CORE-LOCALIZATION-L1-2-0.dll,api-sets\amd64\API-MS-WIN-CORE-LOCALIZATION-L1-2-0.dll
    API-MS-WIN-CORE-LOCALIZATION-L1-2-1.dll,api-sets\amd64\API-MS-WIN-CORE-LOCALIZATION-L1-2-1.dll
@@ -8957,6 +8939,7 @@
    API-MS-WIN-CORE-LIBRARYLOADER-L1-2-1.dll,api-sets\i386\API-MS-WIN-CORE-LIBRARYLOADER-L1-2-1.dll
    API-MS-WIN-CORE-LIBRARYLOADER-L1-2-2.dll,api-sets\i386\API-MS-WIN-CORE-LIBRARYLOADER-L1-2-2.dll
    API-MS-WIN-CORE-LIBRARYLOADER-L2-1-0.dll,api-sets\i386\API-MS-WIN-CORE-LIBRARYLOADER-L2-1-0.dll
+   API-MS-WIN-CORE-LOCALIZATION-ANSI-L1-1-0.dll,api-sets\i386\API-MS-WIN-CORE-LOCALIZATION-ANSI-L1-1-0.dll
    API-MS-WIN-CORE-LOCALIZATION-L1-1-0.dll,api-sets\i386\API-MS-WIN-CORE-LOCALIZATION-L1-1-0.dll
    API-MS-WIN-CORE-LOCALIZATION-L1-2-0.dll,api-sets\i386\API-MS-WIN-CORE-LOCALIZATION-L1-2-0.dll
    API-MS-WIN-CORE-LOCALIZATION-L1-2-1.dll,api-sets\i386\API-MS-WIN-CORE-LOCALIZATION-L1-2-1.dll
