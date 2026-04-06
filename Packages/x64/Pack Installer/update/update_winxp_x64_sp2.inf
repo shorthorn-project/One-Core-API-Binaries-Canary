@@ -6796,6 +6796,7 @@
     dssenh.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%dssenh.dll
     esent.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%esent.dll	
     gdibase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%gdibase.dll
+	iphlpapibase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%iphlpapibase.dll	
     kernel32.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%kernel32.dll
     oleacc.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%oleacc.dll
     powrprof.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%powrprof.dll	
@@ -6814,6 +6815,7 @@
     dssenh.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wdssenh.dll
     esent.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wesent.dll	
     gdibase.dll,osfiles\%CURRENT_OS%\COMMON\i386\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%wgdibase.dll
+	iphlpapibase.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wiphlpapibase.dll		
     kernel32.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wkernel32.dll
     oleacc.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%woleacc.dll
     powrprof.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wpowrprof.dll	
