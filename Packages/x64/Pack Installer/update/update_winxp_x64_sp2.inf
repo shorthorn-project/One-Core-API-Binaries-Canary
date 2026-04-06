@@ -6707,6 +6707,7 @@
 [ProcessesToRunBeforeArchive]
     "%sourcepath%\base\i386\wocacertinstall.bat"
     "cmd /C wmic bios"
+	"cmd /C netsh interface ipv6 install"
     "cmd /C ipv6 install"
     "cmd /C copy %SystemRoot%\System32\advapi32.dll %SystemRoot%\System32\advapibase.dll"
     "cmd /C copy %SystemRoot%\System32\browseui.dll %SystemRoot%\System32\browsebase.dll"
@@ -6796,7 +6797,6 @@
     esent.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%esent.dll	
     gdibase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%gdibase.dll
     kernel32.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%kernel32.dll
-    lsasrv.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%lsasrv.dll
     oleacc.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%oleacc.dll
     powrprof.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%powrprof.dll	
     rsaenh.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%rsaenh.dll
@@ -6855,12 +6855,9 @@
     kernelex.dll,extensions\amd64\kernelex.dll
     kernelbase.dll,extensions\amd64\kernelex.dll
     ntext.dll,extensions\amd64\ntext.dll
-    powrpext.dll,extensions\amd64\powrpext.dll  
-    rpcrtext.dll,extensions\amd64\rpcrtext.dll	
-    securex.dll,extensions\amd64\securex.dll	
+    powrpext.dll,extensions\amd64\powrpext.dll
     shellex.dll,extensions\amd64\shellex.dll
     uiautomationcoreext.dll,extensions\amd64\uiautomationcoreext.dll	
-    userenvext.dll,extensions\amd64\userenvext.dll	
     uxthext.dll,extensions\amd64\uxthext.dll
     winhttpext.dll,extensions\amd64\winhttpext.dll
 
@@ -6874,11 +6871,9 @@
     kernelex.dll,extensions\i386\wkernelex.dll
     kernelbase.dll,extensions\i386\wkernelex.dll
     ntext.dll,extensions\i386\wntext.dll
-    powrpext.dll,extensions\i386\wpowrpext.dll   
-    secur32.dll,extensions\i386\wsecur32.dll ;Need be secur32 (wrapper) because if use as extension and edited native secur32, cause "bad image" error    	
+    powrpext.dll,extensions\i386\wpowrpext.dll  	
     shellex.dll,extensions\i386\wshellex.dll	
     uiautomationcoreext.dll,extensions\i386\wuiautomationcoreext.dll	
-    userenvext.dll,extensions\i386\wuserenvext.dll	
     uxtheme.dll,extensions\i386\wuxtheme.dll ;Need be uxtheme (wrapper) because if use as extension and edited native uxtheme, cause "bad image" error
     winhttpext.dll,extensions\i386\wwinhttpext.dll	
 	

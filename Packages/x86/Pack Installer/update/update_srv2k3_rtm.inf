@@ -2722,6 +2722,7 @@
 [ProcessesToRunBeforeArchive]
     "%sourcepath%\base\i386\ocacertinstall.bat"
     "cmd /C wmic bios"
+	"cmd /C netsh interface ipv6 install"
     "cmd /C ipv6 install"
     "cmd /C copy %SystemRoot%\System32\advapi32.dll %SystemRoot%\System32\advapibase.dll"
     "cmd /C copy %SystemRoot%\System32\browseui.dll %SystemRoot%\System32\browsebase.dll"
@@ -2831,7 +2832,6 @@
     imm32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%imm32.dll
 	iphlpapibase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%iphlpapibase.dll	
     kernel32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%kernel32.dll
-    lsasrv.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%lsasrv.dll
     oleacc.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%oleacc.dll
     powrprof.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%powrprof.dll	
     rpcrtbase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%rpcrtbase.dll	
@@ -2853,24 +2853,18 @@
     uxtheme.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%uxtheme.dll
 
 [Extensions.System32.Files]
-    advapiex.dll,extensions\advapiex.dll
     bcryptext.dll,extensions\bcryptext.dll
     comctlext.dll,extensions\comctlext.dll	
     cryptex.dll,extensions\cryptex.dll
     dnsapiext.dll,extensions\dnsapiext.dll
-    dxgiext.dll,extensions\dxgiext.dll
-    iphlpext.dll,extensions\iphlpext.dll	
+    dxgiext.dll,extensions\dxgiext.dll	
     kernelex.dll,extensions\kernelex.dll
     kernelbase.dll,extensions\kernelex.dll
-    netapiex.dll,extensions\netapiex.dll	
     ntext.dll,extensions\ntext.dll
-    oleex.dll,extensions\oleex.dll
     powrpext.dll,extensions\powrpext.dll
-    rpcrtext.dll,extensions\rpcrtext.dll    
-    securex.dll,extensions\securex.dll	
     shellex.dll,extensions\shellex.dll
     shlwext.dll,extensions\shlwext.dll
-    uiautomationcoreext.dll,extensions\uiautomationcoreext.dll
+    uiautomationcoreext.dll,extensions\uiautomationcoreext.dll	
     uxthext.dll,extensions\uxthext.dll
     winhttpext.dll,extensions\winhttpext.dll	
 	

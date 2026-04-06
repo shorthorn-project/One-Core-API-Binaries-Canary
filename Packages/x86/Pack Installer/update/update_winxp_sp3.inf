@@ -2722,6 +2722,7 @@
 [ProcessesToRunBeforeArchive]
     "%sourcepath%\base\i386\ocacertinstall.bat"
     "cmd /C wmic bios"
+	"cmd /C netsh interface ipv6 install"
     "cmd /C ipv6 install"
     "cmd /C copy %SystemRoot%\System32\advapi32.dll %SystemRoot%\System32\advapibase.dll"
     "cmd /C copy %SystemRoot%\System32\browseui.dll %SystemRoot%\System32\browsebase.dll"
@@ -2832,7 +2833,6 @@
 	iphlpapibase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%iphlpapibase.dll		
     kernel32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%kernel32.dll
     loadperf.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%loadperf.dll
-    lsasrv.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%lsasrv.dll
     oleacc.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%oleacc.dll
     pdhbase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%pdhbase.dll	
     powrprof.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%powrprof.dll
@@ -2861,7 +2861,6 @@
     cryptex.dll,extensions\cryptex.dll
     dnsapiext.dll,extensions\dnsapiext.dll
     dxgiext.dll,extensions\dxgiext.dll
-    iphlpext.dll,extensions\iphlpext.dll	
     kernelex.dll,extensions\kernelex.dll
     kernelbase.dll,extensions\kernelex.dll	
     ntext.dll,extensions\ntext.dll
