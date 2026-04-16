@@ -7306,7 +7306,7 @@
     wmdrmsdk.dll,additionaldlls\amd64\MF\wmdrmsdk.dll    
     wmphoto.dll,additionaldlls\amd64\wmphoto.dll
     wmsgapi.dll,additionaldlls\amd64\wmsgapi.dll
-    wpc.dll,additionaldlls\amd64\wpc.dll    
+    ;wpc.dll,additionaldlls\amd64\wpc.dll    
     WSDApi.dll,additionaldlls\amd64\WSDApi.dll
     ;wtsapi32.dll,additionaldlls\amd64\wtsapi32.dll ;cause fail on Windows end of support notification on XP SP3
     wusa.exe,additionaldlls\amd64\wusa.exe
