@@ -2806,7 +2806,7 @@
 [CopyAlways.WinSxS.Main.files]    
     WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_02b9dd85\comctl32.dll, WinSxS\comctl32\comctl32.dll
     WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.5048.0_x-ww_349122d8\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll	
-    WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_53959eb1\winhttp.dll, base\winhttp.dll
+    WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_53959eb1\winhttp.dll, wrappers\winhttp_wrapper.dll
     
 [CopyAlways.WinSxS.Manifests.files]    
     "WinSxS\manifests\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_02b9dd85.manifest"
@@ -2822,7 +2822,6 @@
     clbcatq.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%clbcatq.dll
     crypt32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%crypt32.dll
     cryptcore.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%cryptcore.dll
-    ;dssenh.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%dssenh.dll
     esent.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%esent.dll	
     gdibase.dll,osfiles\%CURRENT_OS%\COMMON\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%gdibase.dll
     halacpi.dll,osfiles\%CURRENT_OS%\COMMON\hal\%RELEASE_TYPE_SPECIAL%\%RELEASE_FAMILY%%RELEASE_TYPE_SPECIAL%halacpi.dll
@@ -2833,11 +2832,9 @@
     kernel32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%kernel32.dll
     loadperf.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%loadperf.dll
     oleacc.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%oleacc.dll
-    pdhbase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%pdhbase.dll	
-    powrprof.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%powrprof.dll
-    rpcrtbase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%rpcrtbase.dll		
-    ;rsaenh.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%rsaenh.dll
-    ;schannel.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%schannel.dll
+    ;pdhbase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%pdhbase.dll	
+    ;powrprof.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%powrprof.dll
+    rpcrtbase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%rpcrtbase.dll
     sxs.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%sxs.dll	
     userbase.dll,osfiles\%CURRENT_OS%\COMMON\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%userbase.dll
     win32k.sys, osfiles\%CURRENT_OS%\COMMON\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%win32k.sys
@@ -2863,7 +2860,7 @@
     kernelex.dll,extensions\kernelex.dll
     kernelbase.dll,extensions\kernelex.dll
     ntext.dll,extensions\ntext.dll
-    powrpext.dll,extensions\powrpext.dll
+    ;powrpext.dll,extensions\powrpext.dll
     shellex.dll,extensions\shellex.dll
     shlwext.dll,extensions\shlwext.dll
     uiautomationcoreext.dll,extensions\uiautomationcoreext.dll	
@@ -2879,14 +2876,16 @@
     iphlpapi.dll,wrappers\iphlpapi_wrapper.dll
     netapi32.dll,wrappers\netapi32_wrapper.dll	
     ole32.dll,wrappers\ole32_wrapper.dll
-    pdh.dll,wrappers\pdh.dll
+    pdh.dll,wrappers\pdh_wrapper.dll
+    powrprof.dll,wrappers\powrprof_wrapper.dll
     psapi.dll,wrappers\psapi.dll
     rpcrt4.dll,wrappers\rpcrt4_wrapper.dll
     secur32.dll,wrappers\secur32_wrapper.dll
-    setupapi.dll,wrappers\setupapi.dll
+    setupapi.dll,wrappers\setupapi_wrapper.dll
     ;shlwapi.dll,wrappers\shlwapi.dll
     user32.dll,wrappers\user32.dll
     userenv.dll,wrappers\userenv_wrapper.dll
+    winhttp.dll,wrappers\winhttp_wrapper.dll	
     winsta.dll,wrappers\winsta_wrapper.dll	
     ws2_32.dll,wrappers\ws2_32.dll	
 	
@@ -2940,7 +2939,7 @@
     wct.exe,base\wct.exe
     wevtapibase.dll,base\wevtapibase.dll
     winbrand.dll,base\winbrand.dll
-    winhttp.dll,base\winhttp.dll
+    winhttpbase.dll,base\winhttpbase.dll
     winstanew.dll,base\winstanew.dll
     wbem\WMIC.exe,base\WMIC.exe
 	

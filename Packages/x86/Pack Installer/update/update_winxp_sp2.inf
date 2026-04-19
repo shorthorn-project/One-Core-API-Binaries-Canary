@@ -2807,7 +2807,7 @@
 [CopyAlways.WinSxS.Main.files]    
     WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_02b9dd85\comctl32.dll, WinSxS\comctl32\comctl32.dll
     WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.5048.0_x-ww_349122d8\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll	
-    WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_53959eb1\winhttp.dll, base\winhttp.dll
+    WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_53959eb1\winhttp.dll, wrappers\winhttp_wrapper.dll
     
 [CopyAlways.WinSxS.Manifests.files]    
     "WinSxS\manifests\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_02b9dd85.manifest"
@@ -2823,7 +2823,7 @@
     clbcatq.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%clbcatq.dll
     crypt32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%crypt32.dll
     cryptcore.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%cryptcore.dll
-    dssenh.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%dssenh.dll
+    ;dssenh.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%dssenh.dll
     esent.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%esent.dll	
     gdibase.dll,osfiles\%CURRENT_OS%\COMMON\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%gdibase.dll
     halacpi.dll,osfiles\%CURRENT_OS%\COMMON\hal\%RELEASE_TYPE_SPECIAL%\%RELEASE_FAMILY%%RELEASE_TYPE_SPECIAL%halacpi.dll
@@ -2834,11 +2834,11 @@
     kernel32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%kernel32.dll
     loadperf.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%loadperf.dll
     oleacc.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%oleacc.dll
-    pdhbase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%pdhbase.dll	
-    powrprof.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%powrprof.dll
+    ;pdhbase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%pdhbase.dll	
+    ;powrprof.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%powrprof.dll
     rpcrtbase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%rpcrtbase.dll		
-    rsaenh.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%rsaenh.dll
-    schannel.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%schannel.dll
+    ;rsaenh.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%rsaenh.dll
+    ;schannel.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%schannel.dll
     sxs.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%sxs.dll	
     userbase.dll,osfiles\%CURRENT_OS%\COMMON\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%userbase.dll
     win32k.sys, osfiles\%CURRENT_OS%\COMMON\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%win32k.sys
@@ -2852,7 +2852,7 @@
 [CoreOS.SPFiles.System32.Files]
     basesrv.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%basesrv.dll
     dnsapi.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%dnsapi.dll
-    shell32.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%shell32.dll
+    ;shell32.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%shell32.dll
     uxtheme.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%uxtheme.dll 	
 
 [Extensions.System32.Files]
@@ -2864,11 +2864,11 @@
     kernelex.dll,extensions\kernelex.dll
     kernelbase.dll,extensions\kernelex.dll	
     ntext.dll,extensions\ntext.dll
-    powrpext.dll,extensions\powrpext.dll
-    shellex.dll,extensions\shellex.dll
+    ;powrpext.dll,extensions\powrpext.dll
+    ;shellex.dll,extensions\shellex.dll
     uiautomationcoreext.dll,extensions\uiautomationcoreext.dll
     uxthext.dll,extensions\uxthext.dll
-    winhttpext.dll,extensions\winhttpext.dll
+    ;winhttpext.dll,extensions\winhttpext.dll
 	
 [Wrappers.System32.Files]
     advapi32.dll,wrappers\advapi32_wrapper.dll
@@ -2879,14 +2879,17 @@
     iphlpapi.dll,wrappers\iphlpapi_wrapper.dll
     netapi32.dll,wrappers\netapi32_wrapper.dll
     ole32.dll,wrappers\ole32_wrapper.dll
-    pdh.dll,wrappers\pdh.dll
+    pdh.dll,wrappers\pdh_wrapper.dll
+    powrprof.dll,wrappers\powrprof_wrapper.dll
     psapi.dll,wrappers\psapi.dll
     rpcrt4.dll,wrappers\rpcrt4_wrapper.dll
     secur32.dll,wrappers\secur32_wrapper.dll
-    setupapi.dll,wrappers\setupapi.dll
+    setupapi.dll,wrappers\setupapi_wrapper.dll
+    shell32.dll,wrappers\shell32_wrapper.dll
     shlwapi.dll,wrappers\shlwapi.dll
     user32.dll,wrappers\user32.dll
     userenv.dll,wrappers\userenv_wrapper.dll
+    winhttp.dll,wrappers\winhttp_wrapper.dll	
     winsta.dll,wrappers\winsta_wrapper.dll	
     ws2_32.dll,wrappers\ws2_32.dll	
 	
@@ -2915,7 +2918,7 @@
     IconCodecService.dll,base\IconCodecService.dll 
     idndl.dll,base\idndl.dll
     libpng.dll,base\libpng.dll
-    msctfime.ime,base\msctfime.ime	
+    msctfime.ime,base\msctfime.ime
     msisip.dll,base\msisip.dll	
     msvcp60.dll,base\msvcp60.dll	
     msvcrt.dll,base\msvcrt.dll	
@@ -2939,7 +2942,7 @@
     wct.exe,base\wct.exe
     wevtapibase.dll,base\wevtapibase.dll
     winbrand.dll,base\winbrand.dll
-    winhttp.dll,base\winhttp.dll
+    winhttpbase.dll,base\winhttpbase.dll
     winstanew.dll,base\winstanew.dll
     wbem\WMIC.exe,base\WMIC.exe
 	
@@ -3092,7 +3095,7 @@
     msmpeg2adec.dll,additionaldlls\MF\msmpeg2adec.dll
     MSMPEG2ENC.dll,additionaldlls\MF\MSMPEG2ENC.dll
     msmpeg2vdec.dll,additionaldlls\MF\msmpeg2vdec.dll
-    mspatcha.dll,additionaldlls\mspatcha.dll	
+    mspatcha.dll,additionaldlls\mspatcha.dll
     ndfapi.dll,additionaldlls\ndfapi.dll
     netbios.dll,additionaldlls\netbios.dll
     netjoin.dll,additionaldlls\netjoin.dll
@@ -3154,7 +3157,7 @@
     wisptis.exe,additionaldlls\wisptis.exe
     wkscli.dll,additionaldlls\wkscli.dll
     wlanapi.dll,additionaldlls\wlanapi.dll
-    wlanui.dll,additionaldlls\wlanui.dll
+    wlanui.dll,additionaldlls\wlanui.dll 
     wlanutil.dll,additionaldlls\wlanutil.dll
     wldp.dll,additionaldlls\wldp.dll
     WMDRMSDK.DLL,additionaldlls\MF\WMDRMSDK.DLL
@@ -3804,11 +3807,13 @@
     winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\winsrv.dll.mui	
 	
 [CopyAlways.Mui.0409.Files]
+    advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\advapi32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\comdlg32.dll.mui
 	dxdiag.exe.mui,mui\0409\dxdiag.exe.mui
 	dxdiagn.dll.mui,mui\0409\dxdiagn.dll.mui
     dwrite.dll.mui,mui\0409\dwrite.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\kernel32.dll.mui	
+    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\kernel32.dll.mui
+    iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\iphlpapi.dll.mui	
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\setupapi.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\shlwapi.dll.mui	
 	;slayerxp.dll.mui,mui\0409\slayerxp.dll.mui
@@ -3871,7 +3876,6 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0411\slayerxp.dll.mui
@@ -3939,7 +3943,6 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0413\slayerxp.dll.mui
@@ -3973,7 +3976,6 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0414\slayerxp.dll.mui
@@ -4041,7 +4043,6 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0416\slayerxp.dll.mui
@@ -4061,7 +4062,6 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0418\slayerxp.dll.mui
@@ -4091,7 +4091,6 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0419\slayerxp.dll.mui
@@ -4125,7 +4124,6 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0424\slayerxp.dll.mui
@@ -4321,7 +4319,6 @@
    API-MS-WIN-CORE-LIBRARYLOADER-L1-2-1.dll,api-sets\API-MS-WIN-CORE-LIBRARYLOADER-L1-2-1.dll
    API-MS-WIN-CORE-LIBRARYLOADER-L1-2-2.dll,api-sets\API-MS-WIN-CORE-LIBRARYLOADER-L1-2-2.dll
    API-MS-WIN-CORE-LIBRARYLOADER-L2-1-0.dll,api-sets\API-MS-WIN-CORE-LIBRARYLOADER-L2-1-0.dll
-   API-MS-WIN-CORE-LOCALIZATION-ANSI-L1-1-0.dll,api-sets\API-MS-WIN-CORE-LOCALIZATION-ANSI-L1-1-0.dll
    API-MS-WIN-CORE-LOCALIZATION-L1-1-0.dll,api-sets\API-MS-WIN-CORE-LOCALIZATION-L1-1-0.dll
    API-MS-WIN-CORE-LOCALIZATION-L1-2-0.dll,api-sets\API-MS-WIN-CORE-LOCALIZATION-L1-2-0.dll
    API-MS-WIN-CORE-LOCALIZATION-L1-2-1.dll,api-sets\API-MS-WIN-CORE-LOCALIZATION-L1-2-1.dll
