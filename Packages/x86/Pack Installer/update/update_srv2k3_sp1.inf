@@ -2177,7 +2177,7 @@
 	
 	;Adding some keys to System Variables to improve compatibility
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","MOZ_DISABLE_CONTENT_SANDBOX",0x0,"1"
-	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","COMPLUS_EnableWriteXorExecute",0x0,"0"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","DOTNET_SYSTEM_GLOBALIZATION_INVARIANT",0x0,"1"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","_JAVA_OPTIONS",0x0,"-Djava.net.preferIPv4Stack=true -Djava.nio.channels.spi.SelectorProvider=sun.nio.ch.WindowsSelectorProvider"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","NODE_SKIP_PLATFORM_CHECK",0x0,"1"
 	
@@ -2826,7 +2826,7 @@
     crypt32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%crypt32.dll	
     
 [CoreOS.Common.System32.Files]
-    clbcatq.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%clbcatq.dll
+    ;clbcatq.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%clbcatq.dll
     crypt32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%crypt32.dll
     cryptcore.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%cryptcore.dll
     ;dssenh.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%dssenh.dll
@@ -2848,6 +2848,7 @@
     win32k.sys, osfiles\%CURRENT_OS%\COMMON\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%win32k.sys
     winsrv.dll, osfiles\%CURRENT_OS%\COMMON\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%winsrv.dll
     wintrust.dll, osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%wintrust.dll
+    ws2_base.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%ws2_base.dll	
     ;wshtcpip.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%wshtcpip.dll
 
 [CoreOS.SPFiles.System32.Files]
@@ -2884,15 +2885,15 @@
     powrprof.dll,wrappers\powrprof_wrapper.dll
     psapi.dll,wrappers\psapi.dll
     rpcrt4.dll,wrappers\rpcrt4_wrapper.dll
-    secur32.dll,wrappers\secur32_wrapper.dll	
+    secur32.dll,wrappers\secur32_wrapper.dll
     setupapi.dll,wrappers\setupapi_wrapper.dll
-    shell32.dll,wrappers\shell32_wrapper.dll	
+    shell32.dll,wrappers\shell32_wrapper.dll
     shlwapi.dll,wrappers\shlwapi.dll
     user32.dll,wrappers\user32.dll
     userenv.dll,wrappers\userenv_wrapper.dll
     winhttp.dll,wrappers\winhttp_wrapper.dll	
     winsta.dll,wrappers\winsta_wrapper.dll	
-    ws2_32.dll,wrappers\ws2_32.dll
+    ws2_32.dll,wrappers\ws2_32_wrapper.dll
 	
 [Base.System32.Files]
     atl.dll,base\atl.dll	

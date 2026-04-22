@@ -2177,7 +2177,7 @@
 	
 	;Adding some keys to System Variables to improve compatibility
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","MOZ_DISABLE_CONTENT_SANDBOX",0x0,"1"
-	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","COMPLUS_EnableWriteXorExecute",0x0,"0"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","DOTNET_SYSTEM_GLOBALIZATION_INVARIANT",0x0,"1"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","_JAVA_OPTIONS",0x0,"-Djava.net.preferIPv4Stack=true -Djava.nio.channels.spi.SelectorProvider=sun.nio.ch.WindowsSelectorProvider"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","NODE_SKIP_PLATFORM_CHECK",0x0,"1"
 	
@@ -3802,12 +3802,16 @@
     winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\winsrv.dll.mui	
 	
 [CopyAlways.Mui.0409.Files]
+    advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\advapi32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\comdlg32.dll.mui
 	dxdiag.exe.mui,mui\0409\dxdiag.exe.mui
 	dxdiagn.dll.mui,mui\0409\dxdiagn.dll.mui
     dwrite.dll.mui,mui\0409\dwrite.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\kernel32.dll.mui	
+    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\kernel32.dll.mui
+    iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\iphlpapi.dll.mui	
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\setupapi.dll.mui
+    shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\shell32.dll.mui	
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\shell32.dll.mui	
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\shlwapi.dll.mui	
 	;slayerxp.dll.mui,mui\0409\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\user32.dll.mui

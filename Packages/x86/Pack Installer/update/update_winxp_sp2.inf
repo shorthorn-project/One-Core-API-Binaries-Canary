@@ -2177,7 +2177,7 @@
 	
 	;Adding some keys to System Variables to improve compatibility
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","MOZ_DISABLE_CONTENT_SANDBOX",0x0,"1"
-	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","COMPLUS_EnableWriteXorExecute",0x0,"0"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","DOTNET_SYSTEM_GLOBALIZATION_INVARIANT",0x0,"1"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","_JAVA_OPTIONS",0x0,"-Djava.net.preferIPv4Stack=true -Djava.nio.channels.spi.SelectorProvider=sun.nio.ch.WindowsSelectorProvider"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","NODE_SKIP_PLATFORM_CHECK",0x0,"1"
 	
@@ -2773,8 +2773,7 @@
     halmps.dll,osfiles\%CURRENT_OS%\COMMON\hal\%RELEASE_TYPE_SPECIAL%\%RELEASE_FAMILY%%RELEASE_TYPE_SPECIAL%halmps.dll
     imm32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%imm32.dll    
 	kernel32.dll, osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%kernel32.dll
-    ntdll.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%ntdll.dll
-    shell32.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%shell32.dll		
+    ntdll.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%ntdll.dll	
     ntkrnlup.exe,osfiles\%CURRENT_OS%\COMMON\kernel\%RELEASE_TYPE%\%RELEASE_FAMILY%%RELEASE_TYPE%ntoskrnl.exe
     ntkrpamp.exe,osfiles\%CURRENT_OS%\COMMON\kernel\%RELEASE_TYPE_SPECIAL%\%RELEASE_FAMILY%%RELEASE_TYPE_SPECIAL%ntkrpamp.exe
     ntkrpaup.exe,osfiles\%CURRENT_OS%\COMMON\kernel\%RELEASE_TYPE_SPECIAL%\%RELEASE_FAMILY%%RELEASE_TYPE_SPECIAL%ntkrnlpa.exe
@@ -2820,7 +2819,7 @@
     "WinSxS\Policies\x86_policy.5.1.Microsoft.Windows.WinHTTP_6595b64144ccf1df_x-ww_7D68AE49\5.1.5048.0.policy"
     
 [CoreOS.Common.System32.Files]
-    clbcatq.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%clbcatq.dll
+    ;clbcatq.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%clbcatq.dll
     crypt32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%crypt32.dll
     cryptcore.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%cryptcore.dll
     ;dssenh.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%dssenh.dll
@@ -2886,12 +2885,12 @@
     secur32.dll,wrappers\secur32_wrapper.dll
     setupapi.dll,wrappers\setupapi_wrapper.dll
     shell32.dll,wrappers\shell32_wrapper.dll
-    shlwapi.dll,wrappers\shlwapi.dll
+    shlwapi.dll,wrappers\shlwapi_wrapper.dll
     user32.dll,wrappers\user32.dll
     userenv.dll,wrappers\userenv_wrapper.dll
     winhttp.dll,wrappers\winhttp_wrapper.dll	
     winsta.dll,wrappers\winsta_wrapper.dll	
-    ws2_32.dll,wrappers\ws2_32.dll	
+    ws2_32.dll,wrappers\ws2_32_wrapper.dll	
 	
 [Base.System32.Files]
     atl.dll,base\atl.dll	
@@ -3815,6 +3814,8 @@
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\kernel32.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\iphlpapi.dll.mui	
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\setupapi.dll.mui
+    shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\shell32.dll.mui	
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\shell32.dll.mui	
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\shlwapi.dll.mui	
 	;slayerxp.dll.mui,mui\0409\slayerxp.dll.mui
     user32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\user32.dll.mui

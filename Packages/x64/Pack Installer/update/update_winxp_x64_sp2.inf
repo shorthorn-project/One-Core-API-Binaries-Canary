@@ -5819,7 +5819,8 @@
 	;Adding some keys to System Variables to improve compatibility
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","MOZ_CRASHREPORTER_DISABLE ",0x0,"1"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","MOZ_DISABLE_CONTENT_SANDBOX",0x0,"1"
-	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","COMPLUS_EnableWriteXorExecute",0x0,"0"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","DOTNET_SYSTEM_GLOBALIZATION_INVARIANT",0x0,"1"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","DOTNET_GCRegionRange",0x0,"100000000"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","_JAVA_OPTIONS",0x0,"-Djava.net.preferIPv4Stack=true -Djava.nio.channels.spi.SelectorProvider=sun.nio.ch.WindowsSelectorProvider"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","NODE_SKIP_PLATFORM_CHECK",0x0,"1"
 
@@ -6861,7 +6862,7 @@
     ;shellex.dll,extensions\amd64\shellex.dll
     uiautomationcoreext.dll,extensions\amd64\uiautomationcoreext.dll	
     uxthext.dll,extensions\amd64\uxthext.dll
-    winhttpext.dll,extensions\amd64\winhttpext.dll
+    ;winhttpext.dll,extensions\amd64\winhttpext.dll
 
 [Extensions.SysWow64.Files]
     bcryptext.dll,extensions\i386\wbcryptext.dll
@@ -6896,7 +6897,7 @@
     secur32.dll,wrappers\amd64\secur32_wrapper.dll
     setupapi.dll,wrappers\amd64\setupapi_wrapper.dll
     shell32.dll,wrappers\amd64\shell32_wrapper.dll
-    shlwapi.dll,wrappers\amd64\shlwapi.dll
+    shlwapi.dll,wrappers\amd64\shlwapi_wrapper.dll
     user32.dll,wrappers\amd64\user32_wrapper.dll
     userenv.dll,wrappers\amd64\userenv_wrapper.dll
     winhttp.dll,wrappers\amd64\winhttp_wrapper.dll	
@@ -6920,7 +6921,7 @@
     secur32.dll,wrappers\i386\wsecur32_wrapper.dll	
     setupapi.dll,wrappers\i386\wsetupapi_wrapper.dll
     shell32.dll,wrappers\i386\wshell32_wrapper.dll
-    shlwapi.dll,wrappers\i386\wshlwapi.dll
+    shlwapi.dll,wrappers\i386\wshlwapi_wrapper.dll
     user32.dll,wrappers\i386\wuser32.dll
     userenv.dll,wrappers\i386\wuserenv_wrapper.dll	
     winhttp.dll,wrappers\i386\wwinhttp_wrapper.dll		
