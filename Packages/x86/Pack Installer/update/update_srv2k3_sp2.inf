@@ -2722,14 +2722,13 @@
     "ocacertinstall.bat"
 
 [ProcessesToRunBeforeArchive]
-    "%sourcepath%\base\i386\ocacertinstall.bat"
+    "%sourcepath%\base\ocacertinstall.bat"
     "cmd /C wmic bios"
 	"cmd /C netsh interface ipv6 install"
     "cmd /C ipv6 install"
     "cmd /C copy %SystemRoot%\System32\advapi32.dll %SystemRoot%\System32\advapibase.dll"
     "cmd /C copy %SystemRoot%\System32\browseui.dll %SystemRoot%\System32\browsebase.dll"
     "cmd /C copy %SystemRoot%\System32\comdlg32.dll %SystemRoot%\System32\comdlgbase.dll"
-    "cmd /C copy %SystemRoot%\System32\gdi32.dll %SystemRoot%\System32\gdibase.dll"
     "cmd /C copy %SystemRoot%\System32\iphlpapi.dll %SystemRoot%\System32\iphlpapibase.dll"
     "cmd /C copy %SystemRoot%\System32\netapi32.dll %SystemRoot%\System32\netapibase.dll"
     "cmd /C copy %SystemRoot%\System32\ole32.dll %SystemRoot%\System32\olebase.dll"
@@ -2739,10 +2738,8 @@
     "cmd /C copy %SystemRoot%\System32\setupapi.dll %SystemRoot%\System32\setupapibase.dll"
     "cmd /C copy %SystemRoot%\System32\shell32.dll %SystemRoot%\System32\shellbase.dll"
     "cmd /C copy %SystemRoot%\System32\shlwapi.dll %SystemRoot%\System32\shlwapibase.dll"
-    "cmd /C copy %SystemRoot%\System32\user32.dll %SystemRoot%\System32\userbase.dll"
     "cmd /C copy %SystemRoot%\System32\userenv.dll %SystemRoot%\System32\userenvbase.dll"
     "cmd /C copy %SystemRoot%\System32\winsta.dll %SystemRoot%\System32\winstabase.dll"	
-    "cmd /C copy %SystemRoot%\System32\ws2_32.dll %SystemRoot%\System32\ws2_base.dll"
 
 [Drivers.CoreDriverFiles]
     intelppm.sys, osfiles\%CURRENT_OS%\COMMON\drivers\%RELEASE_FAMILY%intelppm.sys
@@ -5062,7 +5059,19 @@
 [ProcessesToRunAfterUninstall]
     "cmd /C schtasks /delete /tn ""Root Certificate Update"" /f"
     "cmd /C rd /q %SystemRoot%\SystemTemp"
-    "cmd /C rd /q %SystemDrive%\ProgramData"
+    "cmd /C rd /q %SystemDrive%\ProgramData"	
     "cmd /C del %SystemRoot%\System32\advapibase.dll"
+    "cmd /C del %SystemRoot%\System32\browsebase.dll"
+    "cmd /C del %SystemRoot%\System32\comdlgbase.dll"
+    "cmd /C del %SystemRoot%\System32\gdibase.dll"
+    "cmd /C del %SystemRoot%\System32\iphlpapibase.dll"
+    "cmd /C del %SystemRoot%\System32\olebase.dll"
+    "cmd /C del %SystemRoot%\System32\pdhbase.dll"
+    "cmd /C del %SystemRoot%\System32\powrprofbase.dll"
+    "cmd /C del %SystemRoot%\System32\securbase.dll"
+    "cmd /C del %SystemRoot%\System32\setupapibase.dll"
+    "cmd /C del %SystemRoot%\System32\userbase.dll"
+    "cmd /C del %SystemRoot%\System32\setupapibase.dll"
     "cmd /C del %SystemRoot%\System32\userenvbase.dll"
     "cmd /C del %SystemRoot%\System32\winstabase.dll"
+    "cmd /C del %SystemRoot%\System32\ws2_base.dll"

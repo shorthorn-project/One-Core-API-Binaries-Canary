@@ -2720,7 +2720,7 @@
     "ocacertinstall.bat"
 
 [ProcessesToRunBeforeArchive]
-    "%sourcepath%\base\i386\ocacertinstall.bat"
+    "%sourcepath%\base\ocacertinstall.bat"
     "cmd /C wmic bios"
 	"cmd /C netsh interface ipv6 install"
     "cmd /C ipv6 install"
