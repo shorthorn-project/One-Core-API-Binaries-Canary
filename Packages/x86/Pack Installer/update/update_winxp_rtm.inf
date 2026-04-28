@@ -2976,7 +2976,7 @@
     wintypes.dll,winrt\wintypes.dll
 	
 [CopyAlways.D3D.Files]
-    d2d1.dll,d3d\d2d1.dll
+    d2d1base.dll,d3d\d2d1base.dll
     d3d9.dll,d3d\d3d9.dll
     d3d9ex.dll,d3d\d3d9ex.dll
     d3d10.dll,d3d\d3d10.dll
