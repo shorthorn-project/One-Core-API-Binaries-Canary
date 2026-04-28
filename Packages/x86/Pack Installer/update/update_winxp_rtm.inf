@@ -2553,9 +2553,7 @@
     CopyFiles = System32.Files	
 	
 [ProductInstall.DontDelayUntilReboot]
-    ;CopyFiles=Wrappers.System32.Files
-    CopyFiles  = CoreOS.Common.System32.Files
-    ;CopyFiles= CoreOS.SPFiles.System32.Files	
+    CopyFiles  = CoreOS.Common.System32.Files	
     CopyFiles  = MustReplace.System32.Files
 
 [ProductInstall.CopyFilesAlways]
@@ -2611,6 +2609,7 @@
     CopyFiles= Program_Files.web_server_extensions.Files
     CopyFiles= Program_Files.web_server_extensions.1033.Files
     CopyFiles= Program_Files.ink.Files
+	CopyFiles= Wrappers.System32.Files	
 	
 [DestinationDirs]
     Base.System32.Files=11       ; %windir%\system32 (don't delay until reboot)		
@@ -2820,7 +2819,6 @@
     "WinSxS\Policies\x86_policy.5.1.Microsoft.Windows.WinHTTP_6595b64144ccf1df_x-ww_7D68AE49\5.1.5048.0.policy"
     
 [CoreOS.Common.System32.Files]
-    clbcatq.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%clbcatq.dll
     crypt32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%crypt32.dll
     cryptcore.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%cryptcore.dll
     esent.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%esent.dll	
@@ -2846,8 +2844,7 @@
 [CoreOS.SPFiles.System32.Files]
     basesrv.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%basesrv.dll		
     dnsapi.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%dnsapi.dll
-    shell32.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%shell32.dll	
-    shlwapi.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%shlwapi.dll
+    shell32.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%shell32.dll
     uxtheme.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%uxtheme.dll	
 
 [Extensions.System32.Files]
@@ -2859,18 +2856,16 @@
     kernelex.dll,extensions\kernelex.dll
     kernelbase.dll,extensions\kernelex.dll
     ntext.dll,extensions\ntext.dll
-    ;powrpext.dll,extensions\powrpext.dll
     shellex.dll,extensions\shellex.dll
-    shlwext.dll,extensions\shlwext.dll
     uiautomationcoreext.dll,extensions\uiautomationcoreext.dll	
     uxthext.dll,extensions\uxthext.dll
-    ;winhttpext.dll,extensions\winhttpext.dll
 	
 [Wrappers.System32.Files]
     advapi32.dll,wrappers\advapi32_wrapper.dll
     browseui.dll,wrappers\browseui.dll
     cfgmgr32.dll,wrappers\cfgmgr32.dll
     comdlg32.dll,wrappers\comdlg32.dll
+    d2d1.dll,wrappers\d2d1_wrapper.dll	
     gdi32.dll,wrappers\gdi32.dll
     iphlpapi.dll,wrappers\iphlpapi_wrapper.dll
     netapi32.dll,wrappers\netapi32_wrapper.dll	
@@ -2881,12 +2876,12 @@
     rpcrt4.dll,wrappers\rpcrt4_wrapper.dll
     secur32.dll,wrappers\secur32_wrapper.dll	
     setupapi.dll,wrappers\setupapi_wrapper.dll
-    ;shlwapi.dll,wrappers\shlwapi.dll
+    shlwapi.dll,wrappers\shlwapi_wrapper.dll
     user32.dll,wrappers\user32.dll
     userenv.dll,wrappers\userenv_wrapper.dll
     winhttp.dll,wrappers\winhttp_wrapper.dll	
     winsta.dll,wrappers\winsta_wrapper.dll	
-    ws2_32.dll,wrappers\ws2_32.dll	
+    ws2_32.dll,wrappers\ws2_32_wrapper.dll	
 	
 [Base.System32.Files]
     atl.dll,base\atl.dll	
@@ -2916,6 +2911,7 @@
     msctfime.ime,base\msctfime.ime	
     msisip.dll,base\msisip.dll	
     msvcp60.dll,base\msvcp60.dll	
+    msisip.dll,base\msisip.dll	
     msvcrt.dll,base\msvcrt.dll	
     ;mscoree.dll ;comment becuase if copied, must be set HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\InstallRoot too, however, we don't know Windows drive letter installation. 
     ncrypt.dll,base\ncrypt.dll	
