@@ -7109,6 +7109,7 @@
     dxdiag.exe,d3d\amd64\dxdiag.exe
     dxdiagn.dll,d3d\amd64\dxdiagn.dll    
     dxgi.dll,d3d\amd64\dxgi.dll
+    dxgidebug.dll,d3d\amd64\dxgidebug.dll
     vcruntime140.dll,d3d\amd64\vcruntime140.dll
     wineft2.dll,d3d\amd64\wineft2.dll
     D3DCompiler_39.dll,d3d\amd64\D3DCompiler_39.dll    
@@ -7141,6 +7142,8 @@
     dxdiag.exe,d3d\i386\wdxdiag.exe
     dxdiagn.dll,d3d\i386\wdxdiagn.dll    
     dxgi.dll,d3d\i386\wdxgi.dll
+    dxgidebug.dll,d3d\i386\wdxgidebug.dll
+    wdxgidebug.dll,d3d\i386\wdxgidebug.dll
     vcruntime140.dll,d3d\i386\wvcruntime140.dll
     wineft2.dll,d3d\i386\wwineft2.dll
     D3DCompiler_39.dll,d3d\i386\wD3DCompiler_39.dll    
@@ -7308,7 +7311,7 @@
     wmsgapi.dll,additionaldlls\amd64\wmsgapi.dll
     ;wpc.dll,additionaldlls\amd64\wpc.dll    
     WSDApi.dll,additionaldlls\amd64\WSDApi.dll
-    ;wtsapi32.dll,additionaldlls\amd64\wtsapi32.dll ;cause fail on Windows end of support notification on XP SP3
+    wtsapi32.dll,additionaldlls\amd64\wtsapi32.dll ;cause fail on Windows end of support notification on XP SP3
     wusa.exe,additionaldlls\amd64\wusa.exe
     xinput1_4.dll,additionaldlls\amd64\xinput1_4.dll        
     XInput9_1_0.dll,additionaldlls\amd64\XInput9_1_0.dll
