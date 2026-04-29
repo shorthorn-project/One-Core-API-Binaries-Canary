@@ -2803,7 +2803,7 @@
 [CopyAlways.WinSxS.Main.files]    
     WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_02b9dd85\comctl32.dll, WinSxS\comctl32\comctl32.dll
     WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.5048.0_x-ww_349122d8\gdiplus.dll,WinSxS\gdiplus\gdiplus.dll	
-    WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_53959eb1\winhttp.dll, wrappers\winhttp_wrapper.dll
+    WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_53959eb1\winhttp.dll, base\winhttp.dll
     
 [CopyAlways.WinSxS.Manifests.files]    
     "WinSxS\manifests\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_02b9dd85.manifest"
@@ -2857,6 +2857,7 @@
     ntext.dll,extensions\ntext.dll
     uiautomationcoreext.dll,extensions\uiautomationcoreext.dll
     uxthext.dll,extensions\uxthext.dll
+    winhttpext.dll,extensions\winhttpext.dll	
 	
 [Wrappers.System32.Files]
     advapi32.dll,wrappers\advapi32_wrapper.dll
@@ -2878,7 +2879,7 @@
     shlwapi.dll,wrappers\shlwapi_wrapper.dll
     user32.dll,wrappers\user32.dll
     userenv.dll,wrappers\userenv_wrapper.dll
-    winhttp.dll,wrappers\winhttp_wrapper.dll	
+    ;winhttp.dll,wrappers\winhttp_wrapper.dll	
     winsta.dll,wrappers\winsta_wrapper.dll	
     ws2_32.dll,wrappers\ws2_32_wrapper.dll	
 	
@@ -2932,7 +2933,7 @@
     wct.exe,base\wct.exe
     wevtapibase.dll,base\wevtapibase.dll
     winbrand.dll,base\winbrand.dll
-    winhttpbase.dll,base\winhttpbase.dll
+    winhttp.dll,base\winhttp.dll
     winstanew.dll,base\winstanew.dll
     wbem\WMIC.exe,base\WMIC.exe
 	

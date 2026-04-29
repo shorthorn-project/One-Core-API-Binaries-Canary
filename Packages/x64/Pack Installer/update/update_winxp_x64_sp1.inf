@@ -6770,10 +6770,10 @@
 [CopyAlways.WinSxS.Main.Files]	
 	"WinSxS\amd64_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_34c3c365\comctl32.dll", WinSxS\comctl32\amd64\comctl32.dll
     "WinSxS\amd64_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.5048.0_x-ww_669b08b8\gdiplus.dll", WinSxS\gdiplus\amd64\gdiplus.dll
-	"WinSxS\amd64_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_859f8491\winhttp.dll", wrappers\amd64\winhttp_wrapper.dll
+	"WinSxS\amd64_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_859f8491\winhttp.dll", base\amd64\winhttp.dll
 	"WinSxS\wow64_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.101.0_x-ww_0BC59585\comctl32.dll", WinSxS\comctl32\i386\wcomctl32.dll
     "WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.5048.0_x-ww_349122d8\gdiplus.dll", WinSxS\gdiplus\i386\wgdiplus.dll	
-	"WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_53959eb1\winhttp.dll", wrappers\i386\wwinhttp_wrapper.dll
+	"WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_53959eb1\winhttp.dll", base\i386\wwinhttp.dll
 	
 [CopyAlways.WinSxS.Manifests.Files]	
 	"WinSxS\manifests\amd64_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_34c3c365.manifest"
@@ -6858,6 +6858,7 @@
     ntext.dll,extensions\amd64\ntext.dll
     uiautomationcoreext.dll,extensions\amd64\uiautomationcoreext.dll	
     uxthext.dll,extensions\amd64\uxthext.dll
+    winhttpext.dll,extensions\amd64\winhttpext.dll	
 
 [Extensions.SysWow64.Files]
     bcryptext.dll,extensions\i386\wbcryptext.dll
@@ -6870,7 +6871,8 @@
     kernelbase.dll,extensions\i386\wkernelex.dll
     ntext.dll,extensions\i386\wntext.dll	
     uiautomationcoreext.dll,extensions\i386\wuiautomationcoreext.dll	
-    uxtheme.dll,extensions\i386\wuxtheme.dll ;Need be uxtheme (wrapper) because if use as extension and edited native uxtheme, cause "bad image" error	
+    uxtheme.dll,extensions\i386\wuxtheme.dll ;Need be uxtheme (wrapper) because if use as extension and edited native uxtheme, cause "bad image" error
+    winhttpext.dll,extensions\i386\wwinhttpext.dll	
 	
 [Wrappers.System32.Files]
     advapi32.dll,wrappers\amd64\advapi32_wrapper.dll
@@ -6892,7 +6894,7 @@
     shlwapi.dll,wrappers\amd64\shlwapi_wrapper.dll
     user32.dll,wrappers\amd64\user32_wrapper.dll
     userenv.dll,wrappers\amd64\userenv_wrapper.dll
-    winhttp.dll,wrappers\amd64\winhttp_wrapper.dll	
+    ;winhttp.dll,wrappers\amd64\winhttp_wrapper.dll	
     winsta.dll,wrappers\amd64\winsta_wrapper.dll		
     ws2_32.dll,wrappers\amd64\ws2_32.dll
 
@@ -6916,7 +6918,7 @@
     shlwapi.dll,wrappers\i386\wshlwapi_wrapper.dll
     user32.dll,wrappers\i386\wuser32.dll
     userenv.dll,wrappers\i386\wuserenv_wrapper.dll	
-    winhttp.dll,wrappers\i386\wwinhttp_wrapper.dll		
+    ;winhttp.dll,wrappers\i386\wwinhttp_wrapper.dll		
     winsta.dll,wrappers\i386\wwinsta_wrapper.dll		
     ws2_32.dll,wrappers\i386\wws2_32.dll	
 	
@@ -6960,7 +6962,7 @@
     wct.exe,base\amd64\wct.exe
     wevtapibase.dll,base\amd64\wevtapibase.dll
     winbrand.dll,base\amd64\winbrand.dll
-    winhttpbase.dll,base\amd64\winhttpbase.dll
+    winhttp.dll,base\amd64\winhttp.dll
     winstanew.dll,base\amd64\winstanew.dll
     wbem\WMIC.exe,base\amd64\WMIC.exe
 	
@@ -7011,7 +7013,7 @@
     version.dll,base\i386\wversion.dll
     wevtapibase.dll,base\i386\wwevtapibase.dll
     winbrand.dll,base\i386\wwinbrand.dll
-    winhttpbase.dll,base\i386\wwinhttpbase.dll
+    winhttp.dll,base\i386\wwinhttp.dll
     winstanew.dll,base\i386\wwinstanew.dll
     wbem\WMIC.exe,base\i386\wWMIC.exe	
 
