@@ -5819,7 +5819,7 @@
 	;Adding some keys to System Variables to improve compatibility
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","MOZ_CRASHREPORTER_DISABLE ",0x0,"1"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","MOZ_DISABLE_CONTENT_SANDBOX",0x0,"1"
-	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","DOTNET_SYSTEM_GLOBALIZATION_INVARIANT",0x0,"1"
+	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","DOTNET_SYSTEM_GLOBALIZATION_USENLS",0x0,"true"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","DOTNET_GCRegionRange",0x0,"100000000"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","_JAVA_OPTIONS",0x0,"-Djava.net.preferIPv4Stack=true -Djava.nio.channels.spi.SelectorProvider=sun.nio.ch.WindowsSelectorProvider"
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","NODE_SKIP_PLATFORM_CHECK",0x0,"1"
