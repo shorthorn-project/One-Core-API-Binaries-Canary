@@ -7454,7 +7454,7 @@
     wmsgapi.dll,additionaldlls\i386\wwmsgapi.dll
     ;wpc.dll,additionaldlls\i386\wwpc.dll    
     WSDApi.dll,additionaldlls\i386\wWSDApi.dll
-    ; wtsapi32.dll,additionaldlls\i386\wwtsapi32.dll ;cause fail on Windows end of support notification on XP SP3
+    wtsapi32.dll,additionaldlls\i386\wwtsapi32.dll ;cause fail on Windows end of support notification on XP SP3
     wusa.exe,additionaldlls\i386\wwusa.exe
     xinput1_4.dll,additionaldlls\i386\wxinput1_4.dll        
     XInput9_1_0.dll,additionaldlls\i386\wXInput9_1_0.dll
