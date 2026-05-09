@@ -25,21 +25,16 @@
 
 [Prerequisite]
     condition=SingleOp,LatestUpdateCheck1.Section
-    condition=SingleOp,LatestUpdateCheck2.Section
     
 [LatestUpdateCheck1.Section]
 	NotPresentOp = CheckReg, HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\HotFix\OCAB",Installed,0x10001
     Display_String="%LatestUpdateFail%"	
-
-[LatestUpdateCheck2.Section]
-    GreatOrEqualOp =  CheckFileVer, System32.files, msi.DLL, >=, 4.5.6001.18005
-    Display_String = %MsiUpdateFail%	
 	
 [Strings]
     SERVICE_PACK_NUMBER       = 2
     HelpLink                  = "http://shorthornproject.com"
     URLInfoAbout              = "http://shorthornproject.com"
-    BASE_VERSION              = "4.1.2.canary"    
+    BASE_VERSION              = "4.1.4.canary"    
     UPDATE                    = "Update"
     HOTFIX                    = "Hotfix"
     SECURITY_UPDATE           = "Security Update"
@@ -88,8 +83,7 @@
     ShortCutDir               = "Accessories\System Tools"
     NNN4NT5Tooltip            = "Set Windows Compatibility layer by Compatibility Variable"
     WctTooltip                = "A Windows Compatibility Tool emulated Windows Version"
-    LatestUpdateFail          = "Please Uninstall One-Core-API first!"		
-    MsiUpdateFail             = "Please install Windows Installer 4.5 before install One-Core-API!"		
+    LatestUpdateFail          = "Please Uninstall One-Core-API first!"	
 
 [Product.Add.Reg]
     HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Hotfix\%SP_SHORT_TITLE%","Installed",0x10001,1
@@ -6361,6 +6355,10 @@
 	;Add mmdevapi registration after reboot, because the common ways like ProcessesToRunAfterArchive and ProcessesToRunAfterReboot not working
     HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MMdevapiReg,0x00020000,"%11%\regsvr32.exe /s "mmdevapi.dll""	
     HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MMdevapiRegWow64,0x00020000,"%11%\regsvr32.exe /s "%SystemDrive%\Windows\SysWow64\mmdevapi.dll""	
+    HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MSIRegKey,0x00020000,"%11%\regsvr32.exe /s "msi.dll""
+    HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MSIHndRegKey,0x00020000,"%11%\regsvr32.exe /s "msihnd.dll""
+    HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MSIRegKeyWow64,0x00020000,"%11%\regsvr32.exe /s "%SystemDrive%\Windows\SysWow64\msi.dll""
+    HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MSIHndRegKeyWow64,0x00020000,"%11%\regsvr32.exe /s "%SystemDrive%\Windows\SysWow64\msihnd.dll""	
 
 [Product.Del.Reg]
     HKCR,"CLSID\{0131BE10-2001-4C5F-A9B0-CC88FAB64CE8}"
@@ -6562,12 +6560,12 @@
     CopyFiles= CopyAlways.WinSxS.Main.Files
     CopyFiles= CopyAlways.WinSxS.Manifests.Files
     CopyFiles= CopyAlways.WinSxS.Policies.Files
+    CopyFiles= CoreOS.Common.Msi.Files
+    CopyFiles= CoreOS.Common.Msi.Wow64.Files	
     CopyFiles= CoreOS.Common.System32.Files
     CopyFiles= CoreOS.Common.SysWOW64.Files
     CopyFiles= CoreOS.SPFiles.System32.Files	
     CopyFiles= CoreOS.SPFiles.SysWOW64.Files
-    CopyFiles= CoreOS.Common.Msi.Files
-    CopyFiles= CoreOS.Common.Msi.Wow64.Files
     CopyFiles= Wrappers.System32.Files
     CopyFiles= Wrappers.SysWow64.Files	
     CopyFiles= Drivers.CoreDriverFiles
@@ -6696,10 +6694,12 @@
     "%systemroot%\syswow64\regsvr32.exe /s "%Systemdrive%\Program Files (x86)\Common Files\Microsoft Shared\ink\rtscom.dll""
     "%systemroot%\syswow64\regsvr32.exe /s "%Systemdrive%\Program Files (x86)\Common Files\Microsoft Shared\ink\tpcps.dll""	
     "%systemroot%\system32\regsvr32.exe /s %systemroot%\system32\msi.dll"   
+    "%systemroot%\system32\regsvr32.exe /s %systemroot%\system32\msihnd.dll"   
     "%systemroot%\system32\regsvr32.exe /s %systemroot%\system32\propsys.dll"   
     "%systemroot%\system32\regsvr32.exe /s %systemroot%\system32\slayeroca.dll"    
     "%systemroot%\system32\regsvr32.exe /s %systemroot%\system32\mmdevapi.dll"     
     "%systemroot%\system32\regsvr32.exe /s %systemroot%\syswow64\msi.dll"
+    "%systemroot%\system32\regsvr32.exe /s %systemroot%\syswow64\msihnd.dll"
     "%systemroot%\system32\regsvr32.exe /s %systemroot%\syswow64\propsys.dll"
     "%systemroot%\system32\regsvr32.exe /s %systemroot%\syswow64\slayeroca.dll"      
     "%systemroot%\system32\regsvr32.exe /s %systemroot%\syswow64\mmdevapi.dll"       
@@ -6713,13 +6713,14 @@
     "cmd /C copy %SystemRoot%\System32\advapi32.dll %SystemRoot%\System32\advapibase.dll"
     "cmd /C copy %SystemRoot%\System32\browseui.dll %SystemRoot%\System32\browsebase.dll"
     "cmd /C copy %SystemRoot%\System32\comdlg32.dll %SystemRoot%\System32\comdlgbase.dll"
+    "cmd /C copy %SystemRoot%\System32\dnsapi.dll %SystemRoot%\System32\dnsapibase.dll"
     "cmd /C copy %SystemRoot%\System32\gdi32.dll %SystemRoot%\System32\gdibase.dll"
     "cmd /C copy %SystemRoot%\System32\iphlpapi.dll %SystemRoot%\System32\iphlpapibase.dll"
     "cmd /C copy %SystemRoot%\System32\netapi32.dll %SystemRoot%\System32\netapibase.dll"
     "cmd /C copy %SystemRoot%\System32\ole32.dll %SystemRoot%\System32\olebase.dll"
     "cmd /C copy %SystemRoot%\System32\pdh.dll %SystemRoot%\System32\pdhbase.dll"
     "cmd /C copy %SystemRoot%\System32\powrprof.dll %SystemRoot%\System32\powrprofbase.dll"
-    "cmd /C copy %SystemRoot%\System32\rpcrt4.dll %SystemRoot%\System32\rpcrtbase.dll"
+    ;"cmd /C copy %SystemRoot%\System32\rpcrt4.dll %SystemRoot%\System32\rpcrtbase.dll"
     "cmd /C copy %SystemRoot%\System32\secur32.dll %SystemRoot%\System32\securbase.dll"
     "cmd /C copy %SystemRoot%\System32\setupapi.dll %SystemRoot%\System32\setupapibase.dll"
     "cmd /C copy %SystemRoot%\System32\shell32.dll %SystemRoot%\System32\shellbase.dll"
@@ -6732,13 +6733,14 @@
     "cmd /C copy %SystemRoot%\SysWow64\advapi32.dll %SystemRoot%\SysWow64\advapibase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\browseui.dll %SystemRoot%\SysWow64\browsebase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\comdlg32.dll %SystemRoot%\SysWow64\comdlgbase.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\dnsapi.dll %SystemRoot%\SysWow64\dnsapibase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\gdi32.dll %SystemRoot%\SysWow64\gdibase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\iphlpapi.dll %SystemRoot%\SysWow64\iphlpapibase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\netapi32.dll %SystemRoot%\SysWow64\netapibase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\ole32.dll %SystemRoot%\SysWow64\olebase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\pdh.dll %SystemRoot%\SysWow64\pdhbase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\powrprof.dll %SystemRoot%\SysWow64\powrprofbase.dll"
-    "cmd /C copy %SystemRoot%\SysWow64\rpcrt4.dll %SystemRoot%\SysWow64\rpcrtbase.dll"
+    ;"cmd /C copy %SystemRoot%\SysWow64\rpcrt4.dll %SystemRoot%\SysWow64\rpcrtbase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\secur32.dll %SystemRoot%\SysWow64\securbase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\setupapi.dll %SystemRoot%\SysWow64\setupapibase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\shell32.dll %SystemRoot%\SysWow64\shellbase.dll"
@@ -6799,8 +6801,8 @@
     gdibase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%gdibase.dll
 	iphlpapibase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%iphlpapibase.dll	
     kernel32.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%kernel32.dll
-    oleacc.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%oleacc.dll
-    ;powrprof.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%powrprof.dll	
+    oleacc.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%oleacc.dll	
+    rpcrtbase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%rpcrtbase.dll	
     ;rsaenh.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%rsaenh.dll
     ;schannel.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%schannel.dll
     sxs.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%sxs.dll	
@@ -6818,8 +6820,8 @@
     gdibase.dll,osfiles\%CURRENT_OS%\COMMON\i386\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%wgdibase.dll
 	iphlpapibase.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wiphlpapibase.dll		
     kernel32.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wkernel32.dll
-    oleacc.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%woleacc.dll
-    ;powrprof.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wpowrprof.dll	
+    oleacc.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%woleacc.dll	
+    rpcrtbase.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wrpcrtbase.dll	
     ;rsaenh.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wrsaenh.dll
     ;schannel.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wschannel.dll	
     sxs.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wsxs.dll
@@ -6829,29 +6831,33 @@
 
 [CoreOS.SPFiles.System32.Files]
     basesrv.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%TARGET_RELEASE%basesrv.dll		
-    dnsapi.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%TARGET_RELEASE%dnsapi.dll	
+    ;dnsapi.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%TARGET_RELEASE%dnsapi.dll	
     uxtheme.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\amd64\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%uxtheme.dll
 	
 [CoreOS.SPFiles.SysWow64.Files]	
-    dnsapi.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\i386\%RELEASE_FAMILY%%TARGET_RELEASE%wdnsapi.dll	
+    ;dnsapi.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\i386\%RELEASE_FAMILY%%TARGET_RELEASE%wdnsapi.dll	
     uxthemebase.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\i386\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%wuxthemebase.dll	;Need be uxthemebase because if use a edited uxtheme, face with "bad image" error.
 
 [CoreOS.Common.Msi.Files]
-    msi.dll,osfiles\%CURRENT_OS%\MSI\amd64\%RELEASE_FAMILY%msi.dll
-    msihnd.dll,osfiles\%CURRENT_OS%\MSI\amd64\%RELEASE_FAMILY%msihnd.dll
-    msiexec.exe,osfiles\%CURRENT_OS%\MSI\amd64\%RELEASE_FAMILY%msiexec.exe
+    msi.dll,osfiles\NT5\COMMON\MSI\amd64\msi.dll
+    msiexec.exe,osfiles\NT5\COMMON\MSI\amd64\msiexec.exe	
+    msihnd.dll,osfiles\NT5\COMMON\MSI\amd64\msihnd.dll
+    msimsg.dll,osfiles\NT5\COMMON\MSI\amd64\msimsg.dll
+    msisip.dll,osfiles\NT5\COMMON\MSI\amd64\msisip.dll	
 	
 [CoreOS.Common.Msi.Wow64.Files]
-    msi.dll,osfiles\%CURRENT_OS%\MSI\i386\%RELEASE_FAMILY%wmsi.dll
-    msihnd.dll,osfiles\%CURRENT_OS%\MSI\i386\%RELEASE_FAMILY%wmsihnd.dll
-    msiexec.exe,osfiles\%CURRENT_OS%\MSI\i386\%RELEASE_FAMILY%wmsiexec.exe	
+    msi.dll,osfiles\NT5\COMMON\MSI\i386\wmsi.dll
+    msiexec.exe,osfiles\NT5\COMMON\MSI\i386\wmsiexec.exe
+    msihnd.dll,osfiles\NT5\COMMON\MSI\i386\wmsihnd.dll	
+    msimsg.dll,osfiles\NT5\COMMON\MSI\i386\wmsimsg.dll	
+    msisip.dll,osfiles\NT5\COMMON\MSI\i386\wmsisip.dll	
 
 [Extensions.System32.Files]
     bcryptext.dll,extensions\amd64\bcryptext.dll
     comctlext.dll,extensions\amd64\comctlext.dll	
     cryptex.dll,extensions\amd64\cryptex.dll
     d3d11ext.dll,extensions\amd64\d3d11ext.dll
-    dnsapiext.dll,extensions\amd64\dnsapiext.dll
+    ;dnsapiext.dll,extensions\amd64\dnsapiext.dll
     dxgiext.dll,extensions\amd64\dxgiext.dll
     kernelex.dll,extensions\amd64\kernelex.dll
     kernelbase.dll,extensions\amd64\kernelex.dll
@@ -6865,7 +6871,7 @@
     comctlext.dll,extensions\i386\wcomctlext.dll	
     cryptex.dll,extensions\i386\wcryptex.dll
     d3d11ext.dll,extensions\i386\wd3d11ext.dll
-    dnsapiext.dll,extensions\i386\wdnsapiext.dll
+    ;dnsapiext.dll,extensions\i386\wdnsapiext.dll
     dxgiext.dll,extensions\i386\wdxgiext.dll
     kernelex.dll,extensions\i386\wkernelex.dll
     kernelbase.dll,extensions\i386\wkernelex.dll
@@ -6880,6 +6886,7 @@
     cfgmgr32.dll,wrappers\amd64\cfgmgr32.dll	
     comdlg32.dll,wrappers\amd64\comdlg32.dll
     d2d1.dll,wrappers\amd64\d2d1_wrapper.dll
+    dnsapi.dll,wrappers\amd64\dnsapi_wrapper.dll
     gdi32.dll,wrappers\amd64\gdi32.dll
     iphlpapi.dll,wrappers\amd64\iphlpapi_wrapper.dll
     netapi32.dll,wrappers\amd64\netapi32_wrapper.dll	
@@ -6904,6 +6911,7 @@
     cfgmgr32.dll,wrappers\i386\wcfgmgr32.dll
     comdlg32.dll,wrappers\i386\wcomdlg32.dll	
     d2d1.dll,wrappers\i386\wd2d1_wrapper.dll	
+    dnsapi.dll,wrappers\i386\wdnsapi_wrapper.dll	
     gdi32.dll,wrappers\i386\wgdi32.dll
     iphlpapi.dll,wrappers\i386\wiphlpapi_wrapper.dll
     netapi32.dll,wrappers\i386\wnetapi32_wrapper.dll
@@ -6944,7 +6952,6 @@
     libpng.dll,base\amd64\libpng.dll
     mscoree.dll,base\amd64\mscoree.dll
     msctfime.ime,base\amd64\msctfime.ime
-    msisip.dll,base\amd64\msisip.dll
     msvcp60.dll,base\amd64\msvcp60.dll	
     msvcrt.dll,base\amd64\msvcrt.dll	
     ncrypt.dll,base\amd64\ncrypt.dll	
@@ -6991,8 +6998,7 @@
     idndl.dll,base\i386\widndl.dll
     libpng.dll,base\i386\wlibpng.dll
     mscoree.dll,base\i386\wmscoree.dll
-    msctfime.ime,base\i386\wmsctfime.ime
-    msisip.dll,base\i386\wmsisip.dll		
+    msctfime.ime,base\i386\wmsctfime.ime		
     msvcp60.dll,base\i386\wmsvcp60.dll		
     msvcrt.dll,base\i386\wmsvcrt.dll		
     ncrypt.dll,base\i386\wncrypt.dll	
@@ -9372,3 +9378,11 @@
     "cmd /C schtasks /delete /tn ""Root Certificate Update"" /f"
     "cmd /C rmdir -f %SystemDrive%\ProgramData"
     "cmd /C rmdir -f %SystemRoot%\SystemTemp"
+    "%systemroot%\system32\regsvr32.exe /s %systemroot%\system32\msi.dll"   
+    "%systemroot%\system32\regsvr32.exe /s %systemroot%\system32\msihnd.dll"
+    "%systemroot%\system32\regsvr32.exe /s /u %systemroot%\system32\slayeroca.dll"    
+    "%systemroot%\system32\regsvr32.exe /s /u %systemroot%\system32\mmdevapi.dll"     
+    "%systemroot%\system32\regsvr32.exe /s %systemroot%\syswow64\msi.dll"
+    "%systemroot%\system32\regsvr32.exe /s %systemroot%\syswow64\msihnd.dll"
+    "%systemroot%\system32\regsvr32.exe /s /u %systemroot%\syswow64\slayeroca.dll"      
+    "%systemroot%\system32\regsvr32.exe /s /u %systemroot%\syswow64\mmdevapi.dll" 	
