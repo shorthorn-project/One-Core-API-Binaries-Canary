@@ -518,10 +518,7 @@
     HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","API-MS-WIN-CRT-UTILITY-L1-1-0",0x0,"API-MS-WIN-CRT-UTILITY-L1-1-0.DLL"
     HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","vcruntim140",0x0,"vcruntime140.dll"
     HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","progwrp",0x0,"progwrp.dll"
-
-    ;key to prevent .net framework 4.5+ installation error when Windows XP is without any previous .net Framework installed
-    ;HKLM,"Software\Microsoft\.NETFramework","InstallRoot",0x0,"%SystemRoot%\Microsoft.NET\Framework\" ;Commented for now, because .net Framework not allow %SystemRoot% to get "C:\Windows"
-    
+	
     ;Keys to support IFileDialog
     HKLM,"SOFTWARE\Classes\CLSID\{DC1C5A9C-E88A-4dde-A5A1-60F82A20AEF7}",,0x0,"File Open Dialog"
     HKLM,"SOFTWARE\Classes\CLSID\{DC1C5A9C-E88A-4dde-A5A1-60F82A20AEF7}\InProcServer32",,0x20000,"%%SystemRoot%%\System32\comdlg32.dll"
@@ -2476,10 +2473,6 @@
     HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MMdevapiReg,0x00020000,"%11%\regsvr32.exe /s "mmdevapi.dll""
     HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MSIRegKey,0x00020000,"%11%\regsvr32.exe /s "msi.dll""
     HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MSIHndRegKey,0x00020000,"%11%\regsvr32.exe /s "msihnd.dll""
-	
-	;Fix for java Jdk 1.8.152+
-    HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion","CommonFilesDir (x86)",0x0,"%%SystemDrive%%\Program Files\Common Files"
-    HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion","ProgramFilesDir (x86)",0x0,"%%SystemDrive%%\Program Files"	
 
 [Product.Del.Reg]
     HKCR,"CLSID\{0131BE10-2001-4C5F-A9B0-CC88FAB64CE8}"
@@ -2705,6 +2698,7 @@
    SystemTemp.Dir = 10,SystemTemp
   
 [ProcessesToRun]
+    "ocatasks.exe"
     "updatehal.exe"
     
 [ProcessesToRunAfterCopying]
@@ -2746,7 +2740,9 @@
 [Drivers.CoreDriverFiles]
     intelppm.sys, osfiles\%CURRENT_OS%\COMMON\drivers\%RELEASE_FAMILY%intelppm.sys
     kseext.sys, drivers\kseext.sys
+    msfs.sys, osfiles\%CURRENT_OS%\COMMON\drivers\%RELEASE_FAMILY%msfs.sys 	
     ndis.sys, osfiles\%CURRENT_OS%\COMMON\drivers\%RELEASE_FAMILY%ndis.sys 	
+    npfs.sys, osfiles\%CURRENT_OS%\COMMON\drivers\%RELEASE_FAMILY%npfs.sys 	
     ntoskrn8.sys, osfiles\%CURRENT_OS%\COMMON\drivers\%RELEASE_FAMILY%ntoskrn8.sys	
     tcpip6.sys, osfiles\%CURRENT_OS%\COMMON\drivers\%RELEASE_FAMILY%tcpip6.sys 
     tdi.sys, osfiles\%CURRENT_OS%\COMMON\drivers\%RELEASE_FAMILY%tdi.sys 
@@ -2922,14 +2918,15 @@
     msctfime.ime,base\msctfime.ime
     msvcp60.dll,base\msvcp60.dll
     msvcrt.dll,base\msvcrt.dll	
-    ;mscoree.dll ;comment becuase if copied, must be set HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\InstallRoot too, however, we don't know Windows drive letter installation. 
+    mscoree.dll,base\mscoree.dll ;comment becuase if copied, must be set HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\InstallRoot too, however, we don't know Windows drive letter installation. 
     ncrypt.dll,base\ncrypt.dll	
     netfxperf.dll,base\netfxperf.dll
     Nlsdl.dll,base\Nlsdl.dll
     NNN4NT5.exe,base\NNN4NT5.exe	
     normaliz.dll,base\normaliz.dll
     nsi.dll,base\nsi.dll
-    ocacertinstall.bat,base\ocacertinstall.bat	
+    ocacertinstall.bat,base\ocacertinstall.bat
+    ocatasks.exe,base\ocatasks.exe	
     progwrp.dll,base\progwrp.dll
     propsys.dll,base\propsys.dll		
     roots.sst,base\roots.sst

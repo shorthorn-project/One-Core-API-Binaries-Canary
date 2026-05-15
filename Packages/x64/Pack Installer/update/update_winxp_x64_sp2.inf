@@ -1265,10 +1265,6 @@
     HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","vcruntim140",0x0,"vcruntime140.dll"
     HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs","progwrp",0x0,"progwrp.dll"
 
-    ;key to prevent .net framework 4.5+ installation error when Windows XP is without any previous .net Framework installed
-    HKLM,"Software\Microsoft\.NETFramework","InstallRoot",0x0,"C:\Windows\Microsoft.NET\Framework64\"
-    HKLM,"Software\Wow6432Node\Microsoft\.NETFramework","InstallRoot",0x0,"C:\Windows\Microsoft.NET\Framework\" ;Commented for now, because .net Framework not allow %SystemRoot% to get "C:\Windows"
-
     ;Keys to support IFileDialog
     HKLM,"SOFTWARE\Classes\CLSID\{DC1C5A9C-E88A-4dde-A5A1-60F82A20AEF7}",,0x0,"File Open Dialog"
     HKLM,"SOFTWARE\Classes\CLSID\{DC1C5A9C-E88A-4dde-A5A1-60F82A20AEF7}\InProcServer32",,0x20000,"%%SystemRoot%%\System32\comdlg32.dll"
@@ -6679,7 +6675,7 @@
    %ShortCutWctName%=0x00000017,%ShortCutDir%,"""%SystemRoot%\System32\wct.exe""",%SystemRoot%\System32\wct.exe,0,"%HOMEDRIVE%%HOMEPATH%",,1,"%WctTooltip%",,	
 
 [ProcessesToRun]
-	"rundll32.exe apphelp.dll,ShimFlushCache"	
+	"ocatasks64.exe"	
     
 [ProcessesToRunAfterCopying]
     "cmd /C mkdir %SystemRoot%\SystemTemp"
@@ -6960,6 +6956,7 @@
     NNN4NT5.exe,base\amd64\NNN4NT5.exe	
     normaliz.dll,base\amd64\normaliz.dll
     nsi.dll,base\amd64\nsi.dll		
+    ocatasks64.exe,base\amd64\ocatasks64.exe		
     progwrp.dll,base\amd64\progwrp.dll
     propsys.dll,base\amd64\propsys.dll		
     setx.exe,base\amd64\setx.exe
