@@ -7609,7 +7609,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0C0A\slayerxp.dll.mui
@@ -7643,7 +7643,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\040b\slayerxp.dll.mui
@@ -7677,7 +7677,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\040c\slayerxp.dll.mui
@@ -7711,7 +7711,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\040d\slayerxp.dll.mui
@@ -7745,7 +7745,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\040e\slayerxp.dll.mui
@@ -7765,7 +7765,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041a\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\041a\slayerxp.dll.mui
@@ -7795,7 +7795,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\041b\slayerxp.dll.mui
@@ -7829,7 +7829,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\041d\slayerxp.dll.mui
@@ -7849,7 +7849,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041e\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\041e\slayerxp.dll.mui
@@ -7879,7 +7879,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\041f\slayerxp.dll.mui
@@ -7913,7 +7913,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0401\slayerxp.dll.mui
@@ -7933,7 +7933,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0402\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0402\slayerxp.dll.mui
@@ -7963,7 +7963,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0404\slayerxp.dll.mui
@@ -7997,7 +7997,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0405\slayerxp.dll.mui
@@ -8031,7 +8031,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0406\slayerxp.dll.mui
@@ -8065,7 +8065,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0407\slayerxp.dll.mui
@@ -8099,7 +8099,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0408\slayerxp.dll.mui
@@ -8144,7 +8144,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0410\slayerxp.dll.mui
@@ -8178,7 +8178,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0411\slayerxp.dll.mui
@@ -8212,7 +8212,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0412\slayerxp.dll.mui
@@ -8246,7 +8246,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0413\slayerxp.dll.mui
@@ -8280,7 +8280,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0414\slayerxp.dll.mui
@@ -8314,7 +8314,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0415\slayerxp.dll.mui
@@ -8348,7 +8348,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0416\slayerxp.dll.mui
@@ -8368,7 +8368,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0418\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0418\slayerxp.dll.mui
@@ -8398,7 +8398,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0419\slayerxp.dll.mui
@@ -8432,7 +8432,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0424\slayerxp.dll.mui
@@ -8452,7 +8452,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0425\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0425\slayerxp.dll.mui
@@ -8468,7 +8468,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0426\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0426\slayerxp.dll.mui
@@ -8484,7 +8484,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0427\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0427\slayerxp.dll.mui
@@ -8514,7 +8514,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0804\slayerxp.dll.mui
@@ -8548,7 +8548,7 @@
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\setupapi.dll.mui
     shell32.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\shell32.dll.mui
-    ;shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\shell32.dll.mui
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\shell32.dll.mui
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\shlwapi.dll.mui
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\shlwapi.dll.mui
 	;slayerxp.dll.mui,mui\0816\slayerxp.dll.mui
@@ -9382,4 +9382,34 @@
     "%systemroot%\system32\regsvr32.exe /s %systemroot%\syswow64\msi.dll"
     "%systemroot%\system32\regsvr32.exe /s %systemroot%\syswow64\msihnd.dll"
     "%systemroot%\system32\regsvr32.exe /s /u %systemroot%\syswow64\slayeroca.dll"      
-    "%systemroot%\system32\regsvr32.exe /s /u %systemroot%\syswow64\mmdevapi.dll" 	
+    "%systemroot%\system32\regsvr32.exe /s /u %systemroot%\syswow64\mmdevapi.dll"
+    "cmd /C del %SystemRoot%\System32\advapibase.dll"
+    "cmd /C del %SystemRoot%\System32\browsebase.dll"
+    "cmd /C del %SystemRoot%\System32\comdlgbase.dll"
+    "cmd /C del %SystemRoot%\System32\gdibase.dll"
+    "cmd /C del %SystemRoot%\System32\iphlpapibase.dll"
+    "cmd /C del %SystemRoot%\System32\olebase.dll"
+    "cmd /C del %SystemRoot%\System32\pdhbase.dll"
+    "cmd /C del %SystemRoot%\System32\powrprofbase.dll"
+    "cmd /C del %SystemRoot%\System32\securbase.dll"
+    "cmd /C del %SystemRoot%\System32\setupapibase.dll"
+    "cmd /C del %SystemRoot%\System32\shellbase.dll"
+    "cmd /C del %SystemRoot%\System32\userbase.dll"	
+    "cmd /C del %SystemRoot%\System32\userenvbase.dll"
+    "cmd /C del %SystemRoot%\System32\winstabase.dll"
+    "cmd /C del %SystemRoot%\System32\ws2_base.dll"
+    "cmd /C del %SystemRoot%\Syswow64\advapibase.dll"
+    "cmd /C del %SystemRoot%\Syswow64\browsebase.dll"
+    "cmd /C del %SystemRoot%\Syswow64\comdlgbase.dll"
+    "cmd /C del %SystemRoot%\Syswow64\gdibase.dll"
+    "cmd /C del %SystemRoot%\Syswow64\iphlpapibase.dll"
+    "cmd /C del %SystemRoot%\Syswow64\olebase.dll"
+    "cmd /C del %SystemRoot%\Syswow64\pdhbase.dll"
+    "cmd /C del %SystemRoot%\Syswow64\powrprofbase.dll"
+    "cmd /C del %SystemRoot%\Syswow64\securbase.dll"
+    "cmd /C del %SystemRoot%\Syswow64\setupapibase.dll"
+    "cmd /C del %SystemRoot%\Syswow64\shellbase.dll"
+    "cmd /C del %SystemRoot%\Syswow64\userbase.dll"	
+    "cmd /C del %SystemRoot%\Syswow64\userenvbase.dll"
+    "cmd /C del %SystemRoot%\Syswow64\winstabase.dll"
+    "cmd /C del %SystemRoot%\Syswow64\ws2_base.dll"	

@@ -2885,7 +2885,6 @@
     ole32.dll,wrappers\ole32_wrapper.dll
     pdh.dll,wrappers\pdh_wrapper.dll
     powrprof.dll,wrappers\powrprof_wrapper.dll
-    psapi.dll,wrappers\psapi.dll
     rpcrt4.dll,wrappers\rpcrt4_wrapper.dll
     secur32.dll,wrappers\secur32_wrapper.dll
     setupapi.dll,wrappers\setupapi_wrapper.dll
@@ -2935,7 +2934,8 @@
     ocacertinstall.bat,base\ocacertinstall.bat
     ocatasks.exe,base\ocatasks.exe	
     progwrp.dll,base\progwrp.dll
-    propsys.dll,base\propsys.dll		
+    propsys.dll,base\propsys.dll
+    psapi.dll,base\psapi.dll	
     roots.sst,base\roots.sst
     setx.exe,base\setx.exe
     shcore.dll,base\shcore.dll
@@ -5070,8 +5070,8 @@
     "cmd /C del %SystemRoot%\System32\powrprofbase.dll"
     "cmd /C del %SystemRoot%\System32\securbase.dll"
     "cmd /C del %SystemRoot%\System32\setupapibase.dll"
-    "cmd /C del %SystemRoot%\System32\userbase.dll"
-    "cmd /C del %SystemRoot%\System32\setupapibase.dll"
+    "cmd /C del %SystemRoot%\System32\shellbase.dll"
+    "cmd /C del %SystemRoot%\System32\userbase.dll"	
     "cmd /C del %SystemRoot%\System32\userenvbase.dll"
     "cmd /C del %SystemRoot%\System32\winstabase.dll"
     "cmd /C del %SystemRoot%\System32\ws2_base.dll"
