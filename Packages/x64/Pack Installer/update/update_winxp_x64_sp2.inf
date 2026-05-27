@@ -8218,7 +8218,7 @@
     kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\kernel32.dll.mui	
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\setupapi.dll.mui
-    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\shellbase.dll.mui	
+    shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\shell32.dll.mui	
     shlwapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\shlwapi.dll.mui	
     shlwapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\shlwapi.dll.mui	
 	;slayerxp.dll.mui,mui\0409\slayerxp.dll.mui

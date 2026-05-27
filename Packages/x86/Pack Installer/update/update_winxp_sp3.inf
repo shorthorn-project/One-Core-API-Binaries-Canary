@@ -3906,6 +3906,8 @@
     winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\winsrv.dll.mui	
 	
 [CopyAlways.Mui.0409.Files]
+    advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\advapi32.dll.mui
+    advapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\advapi32.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\comdlg32.dll.mui
 	dxdiag.exe.mui,mui\0409\dxdiag.exe.mui
