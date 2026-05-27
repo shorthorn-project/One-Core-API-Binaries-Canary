@@ -6758,6 +6758,8 @@
 
 [Drivers.CoreDriverFiles]
     kseext.sys, drivers\kseext.sys
+    msfs.sys, osfiles\%CURRENT_OS%\COMMON\amd64\drivers\%RELEASE_FAMILY%msfs.sys	
+    npfs.sys, osfiles\%CURRENT_OS%\COMMON\amd64\drivers\%RELEASE_FAMILY%npfs.sys	
     ntoskrn8.sys, osfiles\%CURRENT_OS%\COMMON\amd64\drivers\%RELEASE_FAMILY%ntoskrn8.sys 	
     tcpip6.sys, osfiles\%CURRENT_OS%\COMMON\amd64\drivers\%RELEASE_FAMILY%tcpip6.sys 	
 
@@ -6893,6 +6895,7 @@
     comdlg32.dll,wrappers\amd64\comdlg32.dll
     d2d1.dll,wrappers\amd64\d2d1_wrapper.dll
     dnsapi.dll,wrappers\amd64\dnsapi_wrapper.dll
+    dwrite.dll,wrappers\amd64\dwrite_wrapper.dll	
     gdi32.dll,wrappers\amd64\gdi32.dll
     iphlpapi.dll,wrappers\amd64\iphlpapi_wrapper.dll
     netapi32.dll,wrappers\amd64\netapi32_wrapper.dll	
@@ -6917,7 +6920,8 @@
     cfgmgr32.dll,wrappers\i386\wcfgmgr32.dll
     comdlg32.dll,wrappers\i386\wcomdlg32.dll	
     d2d1.dll,wrappers\i386\wd2d1_wrapper.dll	
-    dnsapi.dll,wrappers\i386\wdnsapi_wrapper.dll	
+    dnsapi.dll,wrappers\i386\wdnsapi_wrapper.dll
+    dwrite.dll,d3d\i386\wdwrite_wrapper.dll	
     gdi32.dll,wrappers\i386\wgdi32.dll
     iphlpapi.dll,wrappers\i386\wiphlpapi_wrapper.dll
     netapi32.dll,wrappers\i386\wnetapi32_wrapper.dll
@@ -7119,7 +7123,6 @@
     d3d12.dll,d3d\amd64\d3d12.dll
     d3d12core.dll,d3d\amd64\d3d12core.dll
     d3dwine.dll,d3d\amd64\d3dwine.dll
-    dwrite.dll,d3d\amd64\dwrite.dll
     dwritecore.dll,d3d\amd64\dwritecore.dll
     dxdiag.exe,d3d\amd64\dxdiag.exe
     dxdiagn.dll,d3d\amd64\dxdiagn.dll    
@@ -7152,7 +7155,6 @@
     d3d12.dll,d3d\i386\wd3d12.dll
     d3d12core.dll,d3d\i386\wd3d12core.dll
     d3dwine.dll,d3d\i386\wd3dwine.dll
-    dwrite.dll,d3d\i386\wdwrite.dll
     dwritecore.dll,d3d\i386\wdwritecore.dll
     dxdiag.exe,d3d\i386\wdxdiag.exe
     dxdiagn.dll,d3d\i386\wdxdiagn.dll    

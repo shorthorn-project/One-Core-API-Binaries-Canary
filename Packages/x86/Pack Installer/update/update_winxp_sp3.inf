@@ -2878,6 +2878,7 @@
     d2d1.dll,wrappers\d2d1_wrapper.dll
     d3d9.dll,wrappers\d3d9_wrapper.dll
     dnsapi.dll,wrappers\dnsapi_wrapper.dll
+    dwrite.dll,wrappers\dwrite_wrapper.dll	
     gdi32.dll,wrappers\gdi32.dll
     iphlpapi.dll,wrappers\iphlpapi_wrapper.dll
     netapi32.dll,wrappers\netapi32_wrapper.dll
@@ -3004,7 +3005,6 @@
     d3d12.dll,d3d\d3d12.dll
     d3d12core.dll,d3d\d3d12core.dll
     d3dwine.dll,d3d\d3dwine.dll
-    dwrite.dll,d3d\dwrite.dll
     dwritecore.dll,d3d\dwritecore.dll
     dxdiag.exe,d3d\dxdiag.exe
     dxdiagn.dll,d3d\dxdiagn.dll    
