@@ -62,6 +62,7 @@
     WIC_VERSION               = "3.0.0.0"
     LANGTYPEVALUE             = 0x0
     SP_SHORT_TITLE_WIC        = "WIC"
+    NT_FAMILY                 = "NT5"	
     CURRENT_OS                = "XP"
     TARGET_RELEASE            = "SP3"
     SPECIFIC_TARGET_RELEASE   = "SP"
@@ -2844,15 +2845,15 @@
     advapicore.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%advapicore.dll
 	
 [CoreOS.Common.Base.Files]
-    d3d9base.dll,osfiles\NT5\COMMON\BASE\d3d9base.dll
-	iphlpapibase.dll,osfiles\NT5\COMMON\BASE\iphlpapibase.dll	
+    d3d9base.dll,osfiles\%NT_FAMILY%\COMMON\BASE\%NT_FAMILY%d3d9base.dll
+	iphlpapibase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\%NT_FAMILY%iphlpapibase.dll	
 
 [CoreOS.Common.Msi.Files]
-    msi.dll,osfiles\NT5\COMMON\MSI\msi.dll
-    msiexec.exe,osfiles\NT5\COMMON\MSI\msiexec.exe	
-    msihnd.dll,osfiles\NT5\COMMON\MSI\msihnd.dll
-    msimsg.dll,osfiles\NT5\COMMON\MSI\msimsg.dll
-    msisip.dll,osfiles\NT5\COMMON\MSI\msisip.dll
+    msi.dll,osfiles\%NT_FAMILY%\COMMON\MSI\%NT_FAMILY%msi.dll
+    msiexec.exe,osfiles\%NT_FAMILY%\COMMON\MSI\%NT_FAMILY%msiexec.exe	
+    msihnd.dll,osfiles\%NT_FAMILY%\COMMON\MSI\%NT_FAMILY%msihnd.dll
+    msimsg.dll,osfiles\%NT_FAMILY%\COMMON\MSI\%NT_FAMILY%msimsg.dll
+    msisip.dll,osfiles\%NT_FAMILY%\COMMON\MSI\%NT_FAMILY%msisip.dll
 
 [CoreOS.SPFiles.System32.Files]
     basesrv.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\%RELEASE_FAMILY%%TARGET_RELEASE%basesrv.dll
@@ -3906,8 +3907,6 @@
     winsrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\winsrv.dll.mui	
 	
 [CopyAlways.Mui.0409.Files]
-    advapi32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\advapi32.dll.mui
-    advapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\advapi32.dll.mui
     comdlg32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\comdlg32.dll.mui
 	dxdiag.exe.mui,mui\0409\dxdiag.exe.mui
