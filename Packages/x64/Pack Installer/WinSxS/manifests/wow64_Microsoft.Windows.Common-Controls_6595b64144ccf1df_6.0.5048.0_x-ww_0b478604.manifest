@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1">
+	<noInheritable></noInheritable>
+	<assemblyIdentity type="win32" name="Microsoft.Windows.Common-Controls" version="6.0.100.0" processorArchitecture="wow64" publicKeyToken="6595b64144ccf1df"></assemblyIdentity>
+	<file name="comctl32.dll" hash="4f02ff771050b8657e289d75f19163fe2ab02600" hashalg="SHA1" cmiv3:importPath="$(build.nttree)\wow6432\asms\601000\msft\windows\common\controls\" xmlns:cmiv3="urn:schemas-microsoft-com:asm.v3">
+		<windowClass versioned="yes">ToolbarWindow32</windowClass>
+		<windowClass versioned="yes">ComboBoxEx32</windowClass>
+		<windowClass versioned="yes">msctls_trackbar32</windowClass>
+		<windowClass versioned="yes">msctls_updown32</windowClass>
+		<windowClass versioned="yes">msctls_progress32</windowClass>
+		<windowClass versioned="yes">msctls_hotkey32</windowClass>
+		<windowClass versioned="yes">msctls_statusbar32</windowClass>
+		<windowClass versioned="yes">SysHeader32</windowClass>
+		<windowClass versioned="yes">SysListView32</windowClass>
+		<windowClass versioned="yes">SysTreeView32</windowClass>
+		<windowClass versioned="yes">SysTabControl32</windowClass>
+		<windowClass versioned="yes">SysIPAddress32</windowClass>
+		<windowClass versioned="yes">SysPager</windowClass>
+		<windowClass versioned="yes">NativeFontCtl</windowClass>
+		<windowClass versioned="yes">Button</windowClass>
+		<windowClass versioned="yes">Static</windowClass>
+		<windowClass versioned="yes">Listbox</windowClass>
+		<windowClass versioned="yes">ScrollBar</windowClass>
+		<windowClass versioned="yes">SysLink</windowClass>
+		<windowClass versioned="yes">tooltips_class32</windowClass>
+		<windowClass versioned="yes">ButtonListBox</windowClass>
+		<windowClass versioned="yes">SysAnimate32</windowClass>
+		<windowClass versioned="yes">SysMonthCal32</windowClass>
+		<windowClass versioned="yes">SysDateTimePick32</windowClass>
+		<windowClass versioned="yes">ReBarWindow32</windowClass>
+		<windowClass versioned="yes">Edit</windowClass>
+		<windowClass versioned="yes">Combobox</windowClass>
+		<windowClass versioned="yes">ComboLBox</windowClass>
+		<windowClass versioned="yes">ReaderModeCtl</windowClass>
+	</file>
+	<memberships xmlns:auto-ns1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v3">
+		<categoryMembership>
+			<id name="Microsoft.Windows.Fusion_Components_All" version="6.0.5048.0" processorArchitecture="x86" language="neutral" buildType="release" publicKeyToken="1122334455667788"></id>
+		</categoryMembership>
+	</memberships>
+	<cbb:debuggingInfo xmlns:cbb="urn:schemas-microsoft-com:asm.internal.v1">
+		<cbb:sourceManifest sourcePath="%sdxroot%\base\manifests\sxs\wow64_controls601000.man"></cbb:sourceManifest>
+	</cbb:debuggingInfo>
+</assembly>
