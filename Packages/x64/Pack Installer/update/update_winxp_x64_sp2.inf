@@ -6775,7 +6775,7 @@
 	"WinSxS\amd64_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_34c3c365\comctl32.dll", WinSxS\comctl32\amd64\comctl32.dll
     "WinSxS\amd64_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.5048.0_x-ww_669b08b8\gdiplus.dll", WinSxS\gdiplus\amd64\gdiplus.dll
 	"WinSxS\amd64_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_859f8491\winhttp.dll", base\amd64\winhttp.dll
-	"WinSxS\wow64_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_0b478604\comctl32.dll", WinSxS\comctl32\i386\wcomctl32.dll
+	"WinSxS\wow64_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.101.0_x-ww_0BC59585\comctl32.dll", WinSxS\comctl32\i386\wcomctl32.dll
 	"WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_02b9dd85\comctl32.dll", WinSxS\comctl32\i386\wcomctl32.dll
     "WinSxS\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.5048.0_x-ww_349122d8\gdiplus.dll", WinSxS\gdiplus\i386\wgdiplus.dll	
 	"WinSxS\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_53959eb1\winhttp.dll", base\i386\wwinhttp.dll
@@ -6784,7 +6784,7 @@
 	"WinSxS\manifests\amd64_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_34c3c365.manifest"
 	"WinSxS\manifests\amd64_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.5048.0_x-ww_669b08b8.manifest"
 	"WinSxS\manifests\amd64_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_859f8491.manifest"
-	"WinSxS\manifests\wow64_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_0b478604.manifest"
+	"WinSxS\manifests\wow64_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.101.0_x-ww_0BC59585.manifest"
     "WinSxS\manifests\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.5048.0_x-ww_02b9dd85.manifest"	
 	"WinSxS\manifests\x86_Microsoft.Windows.GdiPlus_6595b64144ccf1df_1.0.5048.0_x-ww_349122d8.manifest"
 	"WinSxS\manifests\x86_Microsoft.Windows.WinHTTP_6595b64144ccf1df_5.1.5048.0_x-ww_53959eb1.manifest"
@@ -6794,7 +6794,7 @@
 	"WinSxS\Policies\amd64_policy.6.0.Microsoft.Windows.Common-Controls_6595b64144ccf1df_x-ww_BD997995\6.0.5048.0.policy"
 	"WinSxS\Policies\amd64_policy.5.1.Microsoft.Windows.WinHTTP_6595b64144ccf1df_x-ww_DD275069\5.1.5048.0.policy"	
 	"WinSxS\Policies\wow64_policy.6.0.Microsoft.Windows.Common-Controls_6595b64144ccf1df_x-ww_5C2DC83C\6.0.5048.0.policy"
-    "WinSxS\Policies\x86_policy.6.0.Microsoft.Windows.Common-Controls_6595b64144ccf1df_x-ww_5DDAD775\6.0.5048.0.policy"  	
+    "WinSxS\Policies\x86_policy.6.0.Microsoft.Windows.Common-Controls_6595b64144ccf1df_x-ww_5ddad775\6.0.5048.0.policy"  	
 	"WinSxS\Policies\x86_policy.1.0.Microsoft.Windows.GdiPlus_6595b64144ccf1df_x-ww_4e8510ac\5.1.7601.0.policy"	  
 	"WinSxS\Policies\x86_policy.5.1.Microsoft.Windows.WinHTTP_6595b64144ccf1df_x-ww_7D68AE49\5.1.5048.0.policy"	  
 
@@ -6931,7 +6931,7 @@
     setupapi.dll,wrappers\i386\wsetupapi_wrapper.dll
     shell32.dll,wrappers\i386\wshell32_wrapper.dll
     shlwapi.dll,wrappers\i386\wshlwapi_wrapper.dll
-    user32.dll,wrappers\i386\wuser32.dll
+    user32.dll,wrappers\i386\wuser32_wrapper.dll
     userenv.dll,wrappers\i386\wuserenv_wrapper.dll	
     ;winhttp.dll,wrappers\i386\wwinhttp_wrapper.dll		
     winsta.dll,wrappers\i386\wwinsta_wrapper.dll		
