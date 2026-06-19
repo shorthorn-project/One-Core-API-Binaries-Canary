@@ -33,7 +33,7 @@
     SERVICE_PACK_NUMBER       = 2
     HelpLink                  = "http://shorthornproject.com"
     URLInfoAbout              = "http://shorthornproject.com"
-    BASE_VERSION              = "4.2.0-canary"    
+    BASE_VERSION              = "4.3.0-canary"    
     UPDATE                    = "Update"
     HOTFIX                    = "Hotfix"
     SECURITY_UPDATE           = "Security Update"
@@ -2895,7 +2895,7 @@
     setupapi.dll,wrappers\setupapi_wrapper.dll
     ;shell32.dll,wrappers\shell32_wrapper.dll
     shlwapi.dll,wrappers\shlwapi_wrapper.dll
-    user32.dll,wrappers\user32.dll
+    user32.dll,wrappers\user32_wrapper.dll
     userenv.dll,wrappers\userenv_wrapper.dll
     ;winhttp.dll,wrappers\winhttp_wrapper.dll	
     winsta.dll,wrappers\winsta_wrapper.dll	
