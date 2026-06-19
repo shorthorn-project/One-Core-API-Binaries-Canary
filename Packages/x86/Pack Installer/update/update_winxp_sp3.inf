@@ -2543,6 +2543,8 @@
     HKCR,"CLSID\{FB012959-F4F6-44D7-9D09-DAA087A9DB57}"
     ;To prevent wrong installed version if using Mui packs and trying use WMP12
     HKLM,"SOFTWARE\Microsoft\MediaPlayer\Setup\Installed Versions"
+	;Remove old Variable used to run dotnet to not conflit with new way to run
+	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","DOTNET_SYSTEM_GLOBALIZATION_INVARIANT",0x0,"1"	
 
 [ProductInstall.ReplaceFilesIfExist]
     CopyFiles = Wrappers.System32.Files
@@ -3135,6 +3137,9 @@
     slc.dll,additionaldlls\slc.dll
     SLCExt.dll,additionaldlls\SLCExt.dll
     sppc.dll,additionaldlls\sppc.dll
+    sqlceoledb30.dll,additionaldlls\sqlceoledb30.dll
+    sqlceqp30.dll,additionaldlls\sqlceqp30.dll
+    sqlcese30.dll,additionaldlls\sqlcese30.dll
     sqmapi.dll,additionaldlls\sqmapi.dll
     srvcli.dll,additionaldlls\srvcli.dll
     svrapi.dll,additionaldlls\svrapi.dll
