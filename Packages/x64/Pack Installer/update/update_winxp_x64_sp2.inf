@@ -9570,12 +9570,8 @@
     "cmd /C schtasks /delete /tn ""Root Certificate Update"" /f"
     "cmd /C rmdir -f %SystemDrive%\ProgramData"
     "cmd /C rmdir -f %SystemRoot%\SystemTemp"
-    "%systemroot%\system32\regsvr32.exe %systemroot%\system32\msi.dll"   
-    "%systemroot%\system32\regsvr32.exe %systemroot%\system32\msihnd.dll"
     "%systemroot%\system32\regsvr32.exe /s /u %systemroot%\system32\slayeroca.dll"    
     "%systemroot%\system32\regsvr32.exe /s /u %systemroot%\system32\mmdevapi.dll"     
-    "%systemroot%\system32\regsvr32.exe %systemroot%\syswow64\msi.dll"
-    "%systemroot%\system32\regsvr32.exe %systemroot%\syswow64\msihnd.dll"
     "%systemroot%\system32\regsvr32.exe /s /u %systemroot%\syswow64\slayeroca.dll"      
     "%systemroot%\system32\regsvr32.exe /s /u %systemroot%\syswow64\mmdevapi.dll"
     "cmd /C del %SystemRoot%\System32\advapibase.dll"
@@ -9607,4 +9603,11 @@
     "cmd /C del %SystemRoot%\Syswow64\userbase.dll"	
     "cmd /C del %SystemRoot%\Syswow64\userenvbase.dll"
     "cmd /C del %SystemRoot%\Syswow64\winstabase.dll"
-    "cmd /C del %SystemRoot%\Syswow64\ws2_base.dll"	
+    "cmd /C del %SystemRoot%\Syswow64\ws2_base.dll"
+	
+[Add.Reg.Uninstall]
+	;Add mmdevapi registration after uninstall reboot, because the common ways like ProcessesToRunAfterUninstallReboo not working don't know why
+    HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MSIRegKey,0x00020000,"%11%\regsvr32.exe /s "msi.dll""
+    HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MSIHndRegKey,0x00020000,"%11%\regsvr32.exe /s "msihnd.dll""
+    HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MSIRegKeyWow64,0x00020000,"%11%\regsvr32.exe /s "%SystemDrive%\Windows\SysWow64\msi.dll""
+    HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MSIHndRegKeyWow64,0x00020000,"%11%\regsvr32.exe /s "%SystemDrive%\Windows\SysWow64\msihnd.dll""	
