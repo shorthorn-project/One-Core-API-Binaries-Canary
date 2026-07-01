@@ -2838,6 +2838,7 @@
     imm32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%imm32.dll		
     kernel32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%kernel32.dll
     loadperf.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%loadperf.dll
+    lsasrv.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%lsasrv.dll
     mswsock.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%mswsock.dll
     oleacc.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%oleacc.dll
     ;rpcrtbase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%rpcrtbase.dll		

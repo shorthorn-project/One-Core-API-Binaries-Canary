@@ -6809,6 +6809,7 @@
     gdibase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%gdibase.dll
 	iphlpapibase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%iphlpapibase.dll	
     kernel32.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%kernel32.dll
+    lsasrv.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%lsasrv.dll
     oleacc.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%oleacc.dll	
     rpcrtbase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%rpcrtbase.dll	
     ;rsaenh.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%rsaenh.dll
