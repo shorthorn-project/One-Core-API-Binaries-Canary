@@ -2475,6 +2475,11 @@
     HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MMdevapiReg,0x00020000,"%11%\regsvr32.exe /s "mmdevapi.dll""
     HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MSIRegKey,0x00020000,"%11%\regsvr32.exe /s "msi.dll""
     HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MSIHndRegKey,0x00020000,"%11%\regsvr32.exe /s "msihnd.dll""
+	
+    ;Support for Pci driver from Lh 5048	
+    HKLM,"SYSTEM\CurrentControlSet\Control\Arbiters\InaccessibleRange","Pci",0x0,"PhysicalAddress"
+    HKLM,"SYSTEM\CurrentControlSet\Control\Arbiters\InaccessibleRange","Root",0x0,"PhysicalAddress"
+    HKLM,"SYSTEM\CurrentControlSet\Control\Arbiters\InaccessibleRange","PhysicalAddress",0xA0001,48,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,01,00,00,00,00,00,00,00,01,00,00,00,00,03,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,01,00,ff,ff,ff,ff,ff,ff,ff,ff
 
 [Product.Del.Reg]
     HKCR,"CLSID\{0131BE10-2001-4C5F-A9B0-CC88FAB64CE8}"
@@ -2736,9 +2741,9 @@
     "cmd /C copy %SystemRoot%\System32\netapi32.dll %SystemRoot%\System32\netapibase.dll"
     "cmd /C copy %SystemRoot%\System32\ole32.dll %SystemRoot%\System32\olebase.dll"
     "cmd /C copy %SystemRoot%\System32\pdh.dll %SystemRoot%\System32\pdhbase.dll"
-    "cmd /C copy %SystemRoot%\System32\powrprof.dll %SystemRoot%\System32\powrprofbase.dll"
+    ;"cmd /C copy %SystemRoot%\System32\powrprof.dll %SystemRoot%\System32\powrprofbase.dll"
     "cmd /C copy %SystemRoot%\System32\secur32.dll %SystemRoot%\System32\securbase.dll"
-    "cmd /C copy %SystemRoot%\System32\setupapi.dll %SystemRoot%\System32\setupapibase.dll"
+    ;"cmd /C copy %SystemRoot%\System32\setupapi.dll %SystemRoot%\System32\setupapibase.dll"
     "cmd /C copy %SystemRoot%\System32\shell32.dll %SystemRoot%\System32\shellbase.dll"
     "cmd /C copy %SystemRoot%\System32\shlwapi.dll %SystemRoot%\System32\shlwapibase.dll"
     "cmd /C copy %SystemRoot%\System32\userenv.dll %SystemRoot%\System32\userenvbase.dll"
@@ -2838,7 +2843,7 @@
     kernel32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%kernel32.dll
     loadperf.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%loadperf.dll
     lsasrv.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%lsasrv.dll
-    mswsock.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%mswsock.dll	
+    mswsock.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%mswsock.dll
     oleacc.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%oleacc.dll
     rpcrtbase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%rpcrtbase.dll		
     ;rsaenh.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%rsaenh.dll
@@ -2854,7 +2859,10 @@
 	
 [CoreOS.Common.Base.Files]
     d3d9base.dll,osfiles\%NT_FAMILY%\COMMON\BASE\%NT_FAMILY%d3d9base.dll
-	iphlpapibase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\%NT_FAMILY%iphlpapibase.dll	
+	iphlpapibase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\%NT_FAMILY%iphlpapibase.dll
+	powrprofbase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\%NT_FAMILY%powrprofbase.dll
+    setupapibase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\%NT_FAMILY%setupapibase.dll	
+    umpnpmgr.dll,osfiles\%NT_FAMILY%\COMMON\BASE\%NT_FAMILY%umpnpmgr.dll	
 
 [CoreOS.Common.Msi.Files]
     msi.dll,osfiles\%NT_FAMILY%\COMMON\MSI\%NT_FAMILY%msi.dll
@@ -3055,7 +3063,7 @@
     avrt.dll,additionaldlls\avrt.dll
     bluetoothapis.dll,additionaldlls\bluetoothapis.dll
     browcli.dll,additionaldlls\browcli.dll
-    cabiext.dll,additionaldlls\cabiext.dll
+    cabinet.dll,additionaldlls\cabinet.dll
     cardgames.dll,additionaldlls\cardgames.dll        
     COLORCNV.dll,additionaldlls\MF\COLORCNV.dll
     connect.dll,additionaldlls\connect.dll
@@ -5264,7 +5272,7 @@
     "cmd /C del %SystemRoot%\System32\userenvbase.dll"
     "cmd /C del %SystemRoot%\System32\winstabase.dll"
     "cmd /C del %SystemRoot%\System32\ws2_base.dll"
-
+	
 [Add.Reg.Uninstall]
 	;Add msi.dll registration after uninstall reboot, because the common ways like ProcessesToRunAfterUninstallReboo not working don't know why
     HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MSIRegKey,0x00020000,"%11%\regsvr32.exe /s "msi.dll""

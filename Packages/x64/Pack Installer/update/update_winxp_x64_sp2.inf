@@ -34,7 +34,7 @@
     SERVICE_PACK_NUMBER       = 2
     HelpLink                  = "http://shorthornproject.com"
     URLInfoAbout              = "http://shorthornproject.com"
-    BASE_VERSION              = "4.5.0.canary"    
+    BASE_VERSION              = "4.5.0-canary"    
     UPDATE                    = "Update"
     HOTFIX                    = "Hotfix"
     SECURITY_UPDATE           = "Security Update"
@@ -6367,6 +6367,11 @@
     HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MSIRegKeyWow64,0x00020000,"%11%\regsvr32.exe /s "%SystemDrive%\Windows\SysWow64\msi.dll""
     HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MSIHndRegKeyWow64,0x00020000,"%11%\regsvr32.exe /s "%SystemDrive%\Windows\SysWow64\msihnd.dll""	
 
+    ;Support for Pci driver from Lh 5048	
+    HKLM,"SYSTEM\CurrentControlSet\Control\Arbiters\InaccessibleRange","Pci",0x0,"PhysicalAddress"
+    HKLM,"SYSTEM\CurrentControlSet\Control\Arbiters\InaccessibleRange","Root",0x0,"PhysicalAddress"
+    HKLM,"SYSTEM\CurrentControlSet\Control\Arbiters\InaccessibleRange","PhysicalAddress",0xA0001,48,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,01,00,00,00,00,00,00,00,01,00,00,00,00,03,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,01,00,ff,ff,ff,ff,ff,ff,ff,ff
+
 [Product.Del.Reg]
     HKCR,"CLSID\{0131BE10-2001-4C5F-A9B0-CC88FAB64CE8}"
     HKCR,"CLSID\{05AF94D8-7174-4CD2-BE4A-4124B80EE4B8}"
@@ -6567,6 +6572,8 @@
     CopyFiles= CopyAlways.WinSxS.Main.Files
     CopyFiles= CopyAlways.WinSxS.Manifests.Files
     CopyFiles= CopyAlways.WinSxS.Policies.Files
+	CopyFiles= CoreOS.Common.Base.System32.Files
+	CopyFiles= CoreOS.Common.Base.Syswow64.Files
     CopyFiles= CoreOS.Common.Msi.Files
     CopyFiles= CoreOS.Common.Msi.Wow64.Files	
     CopyFiles= CoreOS.Common.System32.Files
@@ -6638,6 +6645,8 @@
     CopyAlways.WinSxS.Policies.Files = 10 ; %windir%
     Wrappers.System32.Files=11       ; %windir%\system32 (don't delay until reboot)
     Wrappers.SysWow64.Files=10,SysWOW64       ; %windir%\system32 (don't delay until reboot)
+    CoreOS.Common.Base.System32.Files=11       ; %windir%\system32 (don't delay until reboot)	
+    CoreOS.Common.Base.SysWOW64.Files=10,SysWOW64       ; %windir%\SysWOW64 (don't delay until reboot)	
     CoreOS.Common.System32.Files=11       ; %windir%\system32 (don't delay until reboot)
     CoreOS.Common.SysWOW64.Files=10,SysWOW64       ; %windir%\SysWOW64 (don't delay until reboot)
     CoreOS.SPFiles.System32.Files=11       ; %windir%\system32 (don't delay until reboot)
@@ -6724,10 +6733,10 @@
     "cmd /C copy %SystemRoot%\System32\netapi32.dll %SystemRoot%\System32\netapibase.dll"
     "cmd /C copy %SystemRoot%\System32\ole32.dll %SystemRoot%\System32\olebase.dll"
     "cmd /C copy %SystemRoot%\System32\pdh.dll %SystemRoot%\System32\pdhbase.dll"
-    "cmd /C copy %SystemRoot%\System32\powrprof.dll %SystemRoot%\System32\powrprofbase.dll"
+    ;"cmd /C copy %SystemRoot%\System32\powrprof.dll %SystemRoot%\System32\powrprofbase.dll"
     ;"cmd /C copy %SystemRoot%\System32\rpcrt4.dll %SystemRoot%\System32\rpcrtbase.dll"
     "cmd /C copy %SystemRoot%\System32\secur32.dll %SystemRoot%\System32\securbase.dll"
-    "cmd /C copy %SystemRoot%\System32\setupapi.dll %SystemRoot%\System32\setupapibase.dll"
+    ;"cmd /C copy %SystemRoot%\System32\setupapi.dll %SystemRoot%\System32\setupapibase.dll"
     "cmd /C copy %SystemRoot%\System32\shell32.dll %SystemRoot%\System32\shellbase.dll"
     "cmd /C copy %SystemRoot%\System32\shlwapi.dll %SystemRoot%\System32\shlwapibase.dll"
     "cmd /C copy %SystemRoot%\System32\userenv.dll %SystemRoot%\System32\userenvbase.dll"
@@ -6742,10 +6751,10 @@
     "cmd /C copy %SystemRoot%\SysWow64\netapi32.dll %SystemRoot%\SysWow64\netapibase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\ole32.dll %SystemRoot%\SysWow64\olebase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\pdh.dll %SystemRoot%\SysWow64\pdhbase.dll"
-    "cmd /C copy %SystemRoot%\SysWow64\powrprof.dll %SystemRoot%\SysWow64\powrprofbase.dll"
+    ;"cmd /C copy %SystemRoot%\SysWow64\powrprof.dll %SystemRoot%\SysWow64\powrprofbase.dll"
     ;"cmd /C copy %SystemRoot%\SysWow64\rpcrt4.dll %SystemRoot%\SysWow64\rpcrtbase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\secur32.dll %SystemRoot%\SysWow64\securbase.dll"
-    "cmd /C copy %SystemRoot%\SysWow64\setupapi.dll %SystemRoot%\SysWow64\setupapibase.dll"
+    ;"cmd /C copy %SystemRoot%\SysWow64\setupapi.dll %SystemRoot%\SysWow64\setupapibase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\shell32.dll %SystemRoot%\SysWow64\shellbase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\shlwapi.dll %SystemRoot%\SysWow64\shlwapibase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\userenv.dll %SystemRoot%\SysWow64\userenvbase.dll"
@@ -6848,6 +6857,19 @@
     ;dnsapi.dll,osfiles\%CURRENT_OS%\%TARGET_RELEASE%\i386\%RELEASE_FAMILY%%TARGET_RELEASE%wdnsapi.dll	
     uxthemebase.dll,osfiles\%CURRENT_OS%\SPECIFIC\%SPECIFIC_TARGET_RELEASE%\i386\%RELEASE_FAMILY%%SPECIFIC_TARGET_RELEASE%wuxthemebase.dll	;Need be uxthemebase because if use a edited uxtheme, face with "bad image" error.
 
+[CoreOS.Common.Base.System32.Files]
+    d3d9base.dll,osfiles\%NT_FAMILY%\COMMON\BASE\amd64\%NT_FAMILY%d3d9base.dll
+	iphlpapibase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\amd64\%NT_FAMILY%iphlpapibase.dll
+	powrprofbase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\amd64\%NT_FAMILY%powrprofbase.dll
+    setupapibase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\amd64\%NT_FAMILY%setupapibase.dll	
+    umpnpmgr.dll,osfiles\%NT_FAMILY%\COMMON\BASE\amd64\%NT_FAMILY%umpnpmgr.dll
+	
+[CoreOS.Common.Base.Syswow64.Files]
+    d3d9base.dll,osfiles\%NT_FAMILY%\COMMON\BASE\i386\%NT_FAMILY%wd3d9base.dll
+	iphlpapibase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\i386\%NT_FAMILY%wiphlpapibase.dll
+	powrprofbase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\i386\%NT_FAMILY%wpowrprofbase.dll
+    setupapibase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\i386\%NT_FAMILY%wsetupapibase.dll	
+
 [CoreOS.Common.Msi.Files]
     msi.dll,osfiles\%NT_FAMILY%\COMMON\MSI\amd64\%NT_FAMILY%msi.dll
     msiexec.exe,osfiles\%NT_FAMILY%\COMMON\MSI\amd64\%NT_FAMILY%msiexec.exe	
@@ -6914,7 +6936,7 @@
     userenv.dll,wrappers\amd64\userenv_wrapper.dll
     ;winhttp.dll,wrappers\amd64\winhttp_wrapper.dll	
     winsta.dll,wrappers\amd64\winsta_wrapper.dll		
-    ws2_32.dll,wrappers\amd64\ws2_32.dll
+    ws2_32_wrapper.dll,wrappers\amd64\ws2_32_wrapper.dll
 
 [Wrappers.SysWow64.Files]
     advapi32.dll,wrappers\i386\wadvapi32_wrapper.dll
@@ -6940,7 +6962,7 @@
     userenv.dll,wrappers\i386\wuserenv_wrapper.dll	
     ;winhttp.dll,wrappers\i386\wwinhttp_wrapper.dll		
     winsta.dll,wrappers\i386\wwinsta_wrapper.dll		
-    ws2_32.dll,wrappers\i386\wws2_32.dll	
+    ws2_32_wrapper.dll,wrappers\i386\wws2_32_wrapper.dll	
 	
 [Base.System32.Files]
     atl.dll,base\amd64\atl.dll	
@@ -7199,7 +7221,7 @@
     avrt.dll,additionaldlls\amd64\avrt.dll
     bluetoothapis.dll,additionaldlls\amd64\bluetoothapis.dll
     browcli.dll,additionaldlls\amd64\browcli.dll
-    cabiext.dll,additionaldlls\amd64\cabiext.dll
+    cabinet.dll,additionaldlls\amd64\cabinet.dll
     CardGames.dll,additionaldlls\amd64\CardGames.dll
     COLORCNV.dll,additionaldlls\amd64\MF\COLORCNV.dll
     connect.dll,additionaldlls\amd64\connect.dll
@@ -7350,7 +7372,7 @@
     avrt.dll,additionaldlls\i386\wavrt.dll
     bluetoothapis.dll,additionaldlls\i386\wbluetoothapis.dll
     browcli.dll,additionaldlls\i386\wbrowcli.dll
-    cabiext.dll,additionaldlls\i386\wcabiext.dll
+    cabinet.dll,additionaldlls\i386\wcabinet.dll
     CardGames.dll,additionaldlls\i386\wCardGames.dll
     COLORCNV.dll,additionaldlls\i386\MF\wCOLORCNV.dll
     connect.dll,additionaldlls\i386\wconnect.dll

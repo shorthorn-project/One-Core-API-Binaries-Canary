@@ -2476,6 +2476,11 @@
     HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MSIRegKey,0x00020000,"%11%\regsvr32.exe /s "msi.dll""
     HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,MSIHndRegKey,0x00020000,"%11%\regsvr32.exe /s "msihnd.dll""
 
+    ;Support for Pci driver from Lh 5048 - Need custom kernel	
+    HKLM,"SYSTEM\CurrentControlSet\Control\Arbiters\InaccessibleRange","Pci",0x0,"PhysicalAddress"
+    HKLM,"SYSTEM\CurrentControlSet\Control\Arbiters\InaccessibleRange","Root",0x0,"PhysicalAddress"
+    HKLM,"SYSTEM\CurrentControlSet\Control\Arbiters\InaccessibleRange","PhysicalAddress",0xA0001,48,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,01,00,00,00,00,00,00,00,01,00,00,00,00,03,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,01,00,ff,ff,ff,ff,ff,ff,ff,ff
+
 [Product.Del.Reg]
     HKCR,"CLSID\{0131BE10-2001-4C5F-A9B0-CC88FAB64CE8}"
     HKCR,"CLSID\{05AF94D8-7174-4CD2-BE4A-4124B80EE4B8}"
@@ -2738,7 +2743,7 @@
     "cmd /C copy %SystemRoot%\System32\pdh.dll %SystemRoot%\System32\pdhbase.dll"
     "cmd /C copy %SystemRoot%\System32\powrprof.dll %SystemRoot%\System32\powrprofbase.dll"
     "cmd /C copy %SystemRoot%\System32\secur32.dll %SystemRoot%\System32\securbase.dll"
-    "cmd /C copy %SystemRoot%\System32\setupapi.dll %SystemRoot%\System32\setupapibase.dll"
+    ;"cmd /C copy %SystemRoot%\System32\setupapi.dll %SystemRoot%\System32\setupapibase.dll"
     "cmd /C copy %SystemRoot%\System32\shell32.dll %SystemRoot%\System32\shellbase.dll"
     "cmd /C copy %SystemRoot%\System32\shlwapi.dll %SystemRoot%\System32\shlwapibase.dll"
     "cmd /C copy %SystemRoot%\System32\userenv.dll %SystemRoot%\System32\userenvbase.dll"
@@ -2778,6 +2783,7 @@
     halmps.dll,osfiles\%CURRENT_OS%\COMMON\hal\%RELEASE_TYPE_SPECIAL%\%RELEASE_FAMILY%%RELEASE_TYPE_SPECIAL%halmps.dll
     imm32.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%imm32.dll    
 	kernel32.dll, osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%kernel32.dll
+	msvcrt.dll,base\msvcrt.dll
     ntdll.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%ntdll.dll	
     ntkrnlup.exe,osfiles\%CURRENT_OS%\COMMON\kernel\%RELEASE_TYPE%\%RELEASE_FAMILY%%RELEASE_TYPE%ntoskrnl.exe
     ntkrpamp.exe,osfiles\%CURRENT_OS%\COMMON\kernel\%RELEASE_TYPE_SPECIAL%\%RELEASE_FAMILY%%RELEASE_TYPE_SPECIAL%ntkrpamp.exe
@@ -2840,7 +2846,7 @@
     lsasrv.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%lsasrv.dll
     mswsock.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%mswsock.dll
     oleacc.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%oleacc.dll
-    rpcrtbase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%rpcrtbase.dll		
+    rpcrtbase.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%rpcrtbase.dll				
     ;rsaenh.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%rsaenh.dll
     ;schannel.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%schannel.dll
     sxs.dll,osfiles\%CURRENT_OS%\COMMON\%RELEASE_FAMILY%sxs.dll	
@@ -2854,7 +2860,10 @@
 	
 [CoreOS.Common.Base.Files]
     d3d9base.dll,osfiles\%NT_FAMILY%\COMMON\BASE\%NT_FAMILY%d3d9base.dll
-	iphlpapibase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\%NT_FAMILY%iphlpapibase.dll	
+	iphlpapibase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\%NT_FAMILY%iphlpapibase.dll
+	powrprofbase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\%NT_FAMILY%powrprofbase.dll
+    setupapibase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\%NT_FAMILY%setupapibase.dll	
+    umpnpmgr.dll,osfiles\%NT_FAMILY%\COMMON\BASE\%NT_FAMILY%umpnpmgr.dll	
 
 [CoreOS.Common.Msi.Files]
     msi.dll,osfiles\%NT_FAMILY%\COMMON\MSI\%NT_FAMILY%msi.dll
@@ -2932,7 +2941,7 @@
     libpng.dll,base\libpng.dll
     msctfime.ime,base\msctfime.ime
     msvcp60.dll,base\msvcp60.dll
-    msvcrt.dll,base\msvcrt.dll	
+    ;msvcrt.dll,base\msvcrt.dll	
     mscoree.dll,base\mscoree.dll ;comment becuase if copied, must be set HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\InstallRoot too, however, we don't know Windows drive letter installation. 
     ncrypt.dll,base\ncrypt.dll	
     netfxperf.dll,base\netfxperf.dll
@@ -3055,7 +3064,7 @@
     avrt.dll,additionaldlls\avrt.dll
     bluetoothapis.dll,additionaldlls\bluetoothapis.dll
     browcli.dll,additionaldlls\browcli.dll
-    cabiext.dll,additionaldlls\cabiext.dll
+    cabinet.dll,additionaldlls\cabinet.dll
     cardgames.dll,additionaldlls\cardgames.dll        
     COLORCNV.dll,additionaldlls\MF\COLORCNV.dll
     connect.dll,additionaldlls\connect.dll
@@ -3922,6 +3931,8 @@
     winsrv.dll.mui,osfiles\%NT_FAMILY%\COMMON\MUI\0408\winsrv.dll.mui	
 	
 [CopyAlways.Mui.0409.Files]
+    advapi32.dll.mui,osfiles\%NT_FAMILY%\COMMON\MUI\0409\advapi32.dll.mui
+    advapibase.dll.mui,osfiles\%NT_FAMILY%\COMMON\MUI\0409\advapi32.dll.mui
     comdlg32.dll.mui,osfiles\%NT_FAMILY%\COMMON\MUI\0409\comdlg32.dll.mui
     comdlgbase.dll.mui,osfiles\%NT_FAMILY%\COMMON\MUI\0409\comdlg32.dll.mui
 	dxdiag.exe.mui,mui\0409\dxdiag.exe.mui
@@ -5263,7 +5274,7 @@
     "cmd /C del %SystemRoot%\System32\userbase.dll"	
     "cmd /C del %SystemRoot%\System32\userenvbase.dll"
     "cmd /C del %SystemRoot%\System32\winstabase.dll"
-    "cmd /C del %SystemRoot%\System32\ws2_base.dll"	
+    "cmd /C del %SystemRoot%\System32\ws2_base.dll"
 	
 [Add.Reg.Uninstall]
 	;Add msi.dll registration after uninstall reboot, because the common ways like ProcessesToRunAfterUninstallReboo not working don't know why

@@ -1,23 +1,44 @@
 [Version]
-    LanguageType           = %LANGTYPEVALUE%
-    MaxNtBuildToUpdate        = 6003
-    MaxNtMajorVersionToUpdate = 6
-    MaxNtMinorVersionToUpdate = 0
-    MaxNtServicePackVersion   = 1024
-    MinNtServicePackVersion   = 0
-    NtBuildToUpdate           = 6002
-    NtMajorVersionToUpdate    = 6
-    NtMinorVersionToUpdate    = 0
     Signature                 = "$Windows NT$"
+    LanguageType              = %LANGTYPEVALUE%
+    MaxNtBuildToUpdate        = %MAX_BUILD_NUMBER%
+    MaxNtMajorVersionToUpdate = %MAX_MAJOR_VERSION%
+    MaxNtMinorVersionToUpdate = %MIN_MINOR_VERSION%
+    MaxNtServicePackVersion   = %SERVICE_PACK_MAX_VALUE%
+    MinNtServicePackVersion   = %SERVICE_PACK_MIN_VALUE%
+    ThisServicePackVersion    = %SERVICE_PACK_CURRENT_VALUE%
+    NtBuildToUpdate           = %BUILD_NUMBER%
+    NtMajorVersionToUpdate    = %MAX_MAJOR_VERSION%
+    NtMinorVersionToUpdate    = %MIN_MINOR_VERSION%   
+    
+[Configuration]
+    noPNPFiles=1
+    InstallationType          = Hotfix
+    InstallLogFileName        = %SP_SHORT_TITLE%.log
+    UnInstallLogFileName      = %SP_SHORT_TITLE%Uninst.log
+    UnInstallDirName          = $NtUninstall%SP_SHORT_TITLE%$
+    EventLogKeyName           = NtServicePack
+    EventLogDllName           = spmsg.dll    
+    ServiceFileInUseDetect    = 1
+    AppFileinUseDetect        = 3
     
 [Configuration]
     noPNPfiles=1
-    InstallationType        = Hotfix
+    InstallationType        = Update
     InstallLogFileName      = %SP_SHORT_TITLE%.log
     UnInstallLogFileName    = %SP_SHORT_TITLE%Uninst.log
     UnInstallDirName        = $NtUninstall%SP_SHORT_TITLE%$
     EventLogKeyName         = NtServicePack
-    EventLogDllName         = spmsg.dll    
+    EventLogDllName         = spmsg.dll
+    ServiceFileInUseDetect    = 1
+    AppFileinUseDetect        = 3	
+
+[Prerequisite]
+    condition=SingleOp,LatestUpdateCheck1.Section
+    
+[LatestUpdateCheck1.Section]
+	NotPresentOp = CheckReg, HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\HotFix\OCAB",Installed,0x10001
+    Display_String="%LatestUpdateFail%"	
     
 [Strings]
     SERVICE_PACK_NUMBER     = 3
@@ -32,10 +53,23 @@
     SP_SHORT_TITLE          = "OCAB"
     SP_TITLE                = "One-Core-API Pack"
     PARENT_DISPLAY_NAME     = "One-Core-API"
+    SERVICE_PACK_MIN_VALUE    = "512"
+    SERVICE_PACK_CURRENT_VALUE= "512"
+    SERVICE_PACK_MAX_VALUE    = "512"
+    MAJOR_VERSION             = "6"
+    MINOR_VERSION             = "0"
+    MAX_MAJOR_VERSION         = "6"
+    MIN_MINOR_VERSION         = "0"
+    BUILD_NUMBER              = "6002"	
+    MAX_BUILD_NUMBER          = "6003"	
     LOC_UPDATE="Update"
     LOC_CRITICALUPDATE="Critical Update"
     LOC_HOTFIX="Hotfix"
-    LOC_SECURITY_UPDATE="Security Update"    
+    LOC_SECURITY_UPDATE="Security Update"
+    ShortCutWctName           = "Windows Compatibility Tool"	
+    ShortCutDir               = "Accessories\System Tools"	
+    WctTooltip                = "A Windows Compatibility Tool emulated Windows Version"
+    LatestUpdateFail          = "Please Uninstall One-Core-API first!"
     
 [Product.Add.Reg]
     HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Setup", "LogLevel", 0x10001, 0
@@ -59,14 +93,11 @@
 	;Adding some keys to System Variables to improve compatibility
 	HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Environment","MOZ_DISABLE_CONTENT_SANDBOX",0x0,"1"
 
-    HKCR,"CLSID\{513D916F-2A8E-4F51-AEAB-0CBC76FB1AF8}\InprocServer32",,0x0,"SlayerXP.dll"
-    HKLM,"SOFTWARE\Classes\CLSID\{513D916F-2A8E-4F51-AEAB-0CBC76FB1AF8}\InprocServer32",,0x0,"SlayerXP.dll"
-
 [ProductInstall.ReplaceFilesIfExist]
     ;CopyFiles=System32.files
     
 [ProductInstall.DontDelayUntilReboot]
-    CopyFiles = CopyAlways.System32.APISET.files
+    ;CopyFiles = CopyAlways.System32.APISET.files
     CopyFiles = Drivers.CoreDriverFiles 	
     CopyFiles = MustReplace.System32.files
     CopyFiles = Wrappers.System32.Files
@@ -92,6 +123,9 @@
 	Wrappers.System32.Files=11  ; %windir%\system32 (don't delay until reboot)
     MustReplace.System32.Files=11  ; %windir%\system32 (don't delay until reboot)
 	
+[LinkItems.Create]
+   %ShortCutWctName%=0x00000017,%ShortCutDir%,"""%SystemRoot%\System32\wct.exe""",%SystemRoot%\System32\wct.exe,0,"%HOMEDRIVE%%HOMEPATH%",,1,"%WctTooltip%",,		
+	
 [CopyAlways.AppPatch.System32.Files]
     slayeroca.dll,appcompat\slayeroca.dll
 	
@@ -116,16 +150,16 @@
 [MustReplace.System32.Files]
     advapi32.dll,osfiles\vista\COMMON\lhadvapi32.dll	
     cfgmgr32.dll,osfiles\vista\COMMON\lhcfgmgr32.dll	
+    cabinet.dll,additionaldlls\cabinet.dll	
     ;csrsrv.dll,osfiles\vista\COMMON\lhcsrsrv.dll	
     ci.dll,osfiles\vista\COMMON\lhci.dll	
     CodeIntegrity\driver.stl,osfiles\vista\COMMON\lhdriver.stl	
     dwmapi.dll,osfiles\vista\COMMON\lhdwmapi.dll	
-    dwrite.dll,d3d\dwrite.dll	
     kernel32.dll,osfiles\vista\COMMON\lhkernel32.dll	
 	netapi32.dll,osfiles\vista\COMMON\lhnetapi32.dll
 	ntdll.dll,osfiles\vista\COMMON\lhntdll.dll
 	ole32.dll,osfiles\vista\COMMON\lhole32.dll
-	powrprof.dll,osfiles\vista\COMMON\lhpowrprof.dll
+	;powrprof.dll,osfiles\vista\COMMON\lhpowrprof.dll
 	shell32.dll,osfiles\vista\COMMON\lhshell32.dll
 	user32.dll,osfiles\vista\COMMON\lhuser32.dll	
 	userenv.dll,osfiles\vista\COMMON\lhuserenv.dll	
@@ -139,6 +173,7 @@
     combase.dll,base\combase.dll
     cryptbase.dll,base\cryptbase.dll
     shcore.dll,base\shcore.dll
+    wct.exe,base\wct.exe	
 	
 [Wrappers.System32.Files]
     ; advapi32.dll,wrappers\advapi32_wrapper.dll
@@ -148,6 +183,9 @@
     ; gdi32.dll,wrappers\gdi32.dll
     ; msvcrt.dll,base\msvcrt.dll
     ; pdh.dll,wrappers\pdh.dll
+    dwrite.dll,wrappers\dwrite_wrapper.dll	
+    ;ole32.dll,wrappers\ole32_wrapper.dll
+    powrprof.dll,wrappers\powrprof_wrapper.dll
     ; psapi.dll,wrappers\psapi.dll
     ; setupapi.dll,wrappers\setupapi.dll
     ; shlwapi.dll,wrappers\shlwapi.dll
@@ -464,6 +502,8 @@
 
 [ProcessesToRunBeforeArchive]
     "cmd /C copy %SystemRoot%\System32\advapi32.dll %SystemRoot%\System32\advapibase.dll"
+    "cmd /C copy %SystemRoot%\System32\ole32.dll %SystemRoot%\System32\olebase.dll"
+    "cmd /C copy %SystemRoot%\System32\powrprof.dll %SystemRoot%\System32\powrprofbase.dll"
     "cmd /C copy %SystemRoot%\System32\ws2_32.dll %SystemRoot%\System32\ws2_base.dll"
     "cmd /C copy %SystemRoot%\System32\dwrite.dll %SystemRoot%\System32\dwrgdi.dll"
     "cmd /C bcdedit /set nointegritychecks on"

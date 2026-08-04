@@ -34,7 +34,7 @@
     SERVICE_PACK_NUMBER       = 2
     HelpLink                  = "http://shorthornproject.com"
     URLInfoAbout              = "http://shorthornproject.com"
-    BASE_VERSION              = "4.5.0.canary"    
+    BASE_VERSION              = "4.5.0-canary"    
     UPDATE                    = "Update"
     HOTFIX                    = "Hotfix"
     SECURITY_UPDATE           = "Security Update"
@@ -7199,7 +7199,7 @@
     avrt.dll,additionaldlls\amd64\avrt.dll
     bluetoothapis.dll,additionaldlls\amd64\bluetoothapis.dll
     browcli.dll,additionaldlls\amd64\browcli.dll
-    cabiext.dll,additionaldlls\amd64\cabiext.dll
+    cabinet.dll,additionaldlls\amd64\cabinet.dll
     CardGames.dll,additionaldlls\amd64\CardGames.dll
     COLORCNV.dll,additionaldlls\amd64\MF\COLORCNV.dll
     connect.dll,additionaldlls\amd64\connect.dll
@@ -7350,7 +7350,7 @@
     avrt.dll,additionaldlls\i386\wavrt.dll
     bluetoothapis.dll,additionaldlls\i386\wbluetoothapis.dll
     browcli.dll,additionaldlls\i386\wbrowcli.dll
-    cabiext.dll,additionaldlls\i386\wcabiext.dll
+    cabinet.dll,additionaldlls\i386\wcabinet.dll
     CardGames.dll,additionaldlls\i386\wCardGames.dll
     COLORCNV.dll,additionaldlls\i386\MF\wCOLORCNV.dll
     connect.dll,additionaldlls\i386\wconnect.dll
