@@ -6936,7 +6936,7 @@
     userenv.dll,wrappers\amd64\userenv_wrapper.dll
     ;winhttp.dll,wrappers\amd64\winhttp_wrapper.dll	
     winsta.dll,wrappers\amd64\winsta_wrapper.dll		
-    ws2_32_wrapper.dll,wrappers\amd64\ws2_32_wrapper.dll
+    ws2_32.dll,wrappers\amd64\ws2_32_wrapper.dll
 
 [Wrappers.SysWow64.Files]
     advapi32.dll,wrappers\i386\wadvapi32_wrapper.dll
@@ -6962,7 +6962,7 @@
     userenv.dll,wrappers\i386\wuserenv_wrapper.dll	
     ;winhttp.dll,wrappers\i386\wwinhttp_wrapper.dll		
     winsta.dll,wrappers\i386\wwinsta_wrapper.dll		
-    ws2_32_wrapper.dll,wrappers\i386\wws2_32_wrapper.dll	
+    ws2_32.dll,wrappers\i386\wws2_32_wrapper.dll	
 	
 [Base.System32.Files]
     atl.dll,base\amd64\atl.dll	
