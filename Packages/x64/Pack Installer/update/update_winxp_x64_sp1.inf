@@ -34,7 +34,7 @@
     SERVICE_PACK_NUMBER       = 2
     HelpLink                  = "http://shorthornproject.com"
     URLInfoAbout              = "http://shorthornproject.com"
-    BASE_VERSION              = "4.5.0-canary"    
+    BASE_VERSION              = "4.6.0-canary"    
     UPDATE                    = "Update"
     HOTFIX                    = "Hotfix"
     SECURITY_UPDATE           = "Security Update"
@@ -6729,6 +6729,7 @@
     "cmd /C copy %SystemRoot%\System32\browseui.dll %SystemRoot%\System32\browsebase.dll"
     "cmd /C copy %SystemRoot%\System32\comdlg32.dll %SystemRoot%\System32\comdlgbase.dll"
     "cmd /C copy %SystemRoot%\System32\dnsapi.dll %SystemRoot%\System32\dnsapibase.dll"
+    "cmd /C copy %SystemRoot%\System32\httpapi.dll %SystemRoot%\System32\httpapibase.dll"
     "cmd /C copy %SystemRoot%\System32\iphlpapi.dll %SystemRoot%\System32\iphlpapibase.dll"
     "cmd /C copy %SystemRoot%\System32\netapi32.dll %SystemRoot%\System32\netapibase.dll"
     "cmd /C copy %SystemRoot%\System32\ole32.dll %SystemRoot%\System32\olebase.dll"
@@ -6740,13 +6741,16 @@
     "cmd /C copy %SystemRoot%\System32\shell32.dll %SystemRoot%\System32\shellbase.dll"
     "cmd /C copy %SystemRoot%\System32\shlwapi.dll %SystemRoot%\System32\shlwapibase.dll"
     "cmd /C copy %SystemRoot%\System32\userenv.dll %SystemRoot%\System32\userenvbase.dll"
+    "cmd /C copy %SystemRoot%\System32\version.dll %SystemRoot%\System32\versionbase.dll"
     "cmd /C copy %SystemRoot%\System32\winsta.dll %SystemRoot%\System32\winstabase.dll"	
     "cmd /C copy %SystemRoot%\System32\ws2_32.dll %SystemRoot%\System32\ws2_base.dll"
+    "cmd /C copy %SystemRoot%\System32\wintrust.dll %SystemRoot%\System32\wintrustcore.dll"	
 	
     "cmd /C copy %SystemRoot%\SysWow64\advapi32.dll %SystemRoot%\SysWow64\advapibase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\browseui.dll %SystemRoot%\SysWow64\browsebase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\comdlg32.dll %SystemRoot%\SysWow64\comdlgbase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\dnsapi.dll %SystemRoot%\SysWow64\dnsapibase.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\httpapi.dll %SystemRoot%\SysWow64\httpapibase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\iphlpapi.dll %SystemRoot%\SysWow64\iphlpapibase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\netapi32.dll %SystemRoot%\SysWow64\netapibase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\ole32.dll %SystemRoot%\SysWow64\olebase.dll"
@@ -6758,8 +6762,10 @@
     "cmd /C copy %SystemRoot%\SysWow64\shell32.dll %SystemRoot%\SysWow64\shellbase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\shlwapi.dll %SystemRoot%\SysWow64\shlwapibase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\userenv.dll %SystemRoot%\SysWow64\userenvbase.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\version.dll %SystemRoot%\SysWow64\versionbase.dll"
     "cmd /C copy %SystemRoot%\SysWow64\winsta.dll %SystemRoot%\SysWow64\winstabase.dll"	
-    "cmd /C copy %SystemRoot%\SysWow64\ws2_32.dll %SystemRoot%\SysWow64\ws2_base.dll"	
+    "cmd /C copy %SystemRoot%\SysWow64\ws2_32.dll %SystemRoot%\SysWow64\ws2_base.dll"
+    "cmd /C copy %SystemRoot%\SysWow64\wintrust.dll %SystemRoot%\SysWow64\wintrustcore.dll"	
 
 [Drivers.CoreDriverFiles]
     kseext.sys, drivers\kseext.sys
@@ -6816,7 +6822,6 @@
     ;dssenh.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%dssenh.dll
     esent.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%esent.dll	
     gdibase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%gdibase.dll
-	iphlpapibase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%iphlpapibase.dll	
     kernel32.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%kernel32.dll
     lsasrv.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%lsasrv.dll
     oleacc.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%oleacc.dll	
@@ -6827,7 +6832,6 @@
     userbase.dll,osfiles\%CURRENT_OS%\COMMON\amd64\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%userbase.dll
     win32k.sys, osfiles\%CURRENT_OS%\COMMON\amd64\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%win32k.sys
     winsrv.dll, osfiles\%CURRENT_OS%\COMMON\amd64\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%winsrv.dll
-    wintrust.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%wintrust.dll
     ws2_base.dll,osfiles\%CURRENT_OS%\COMMON\amd64\%RELEASE_FAMILY%ws2_base.dll	 ;If you renamed native ws2_32 cause a delay on Adobe installers
 	
 [CoreOS.Common.SysWow64.Files]
@@ -6837,7 +6841,6 @@
     ;dssenh.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wdssenh.dll
     esent.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wesent.dll	
     gdibase.dll,osfiles\%CURRENT_OS%\COMMON\i386\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%wgdibase.dll
-	iphlpapibase.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wiphlpapibase.dll		
     kernel32.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wkernel32.dll
     oleacc.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%woleacc.dll	
     rpcrtbase.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wrpcrtbase.dll	
@@ -6845,7 +6848,6 @@
     ;schannel.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wschannel.dll	
     sxs.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wsxs.dll
     userbase.dll,osfiles\%CURRENT_OS%\COMMON\i386\win32ss\%RELEASE_TYPE_WIN32SS%\%RELEASE_FAMILY%%RELEASE_TYPE_WIN32SS%wuserbase.dll
-    wintrust.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wwintrust.dll
     ws2_base.dll,osfiles\%CURRENT_OS%\COMMON\i386\%RELEASE_FAMILY%wws2_base.dll	
 
 [CoreOS.SPFiles.System32.Files]
@@ -6863,12 +6865,14 @@
 	powrprofbase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\amd64\%NT_FAMILY%powrprofbase.dll
     setupapibase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\amd64\%NT_FAMILY%setupapibase.dll	
     umpnpmgr.dll,osfiles\%NT_FAMILY%\COMMON\BASE\amd64\%NT_FAMILY%umpnpmgr.dll
+	wintrustbase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\amd64\%NT_FAMILY%wintrustbase.dll
 	
 [CoreOS.Common.Base.Syswow64.Files]
     d3d9base.dll,osfiles\%NT_FAMILY%\COMMON\BASE\i386\%NT_FAMILY%wd3d9base.dll
 	iphlpapibase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\i386\%NT_FAMILY%wiphlpapibase.dll
 	powrprofbase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\i386\%NT_FAMILY%wpowrprofbase.dll
-    setupapibase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\i386\%NT_FAMILY%wsetupapibase.dll	
+    setupapibase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\i386\%NT_FAMILY%wsetupapibase.dll
+	wintrustbase.dll,osfiles\%NT_FAMILY%\COMMON\BASE\i386\%NT_FAMILY%wwintrustbase.dll
 
 [CoreOS.Common.Msi.Files]
     msi.dll,osfiles\%NT_FAMILY%\COMMON\MSI\amd64\%NT_FAMILY%msi.dll
@@ -6921,6 +6925,7 @@
     ;dnsapi.dll,wrappers\amd64\dnsapi_wrapper.dll
     dwrite.dll,wrappers\amd64\dwrite_wrapper.dll	
     gdi32.dll,wrappers\amd64\gdi32_wrapper.dll
+    httpapi.dll,wrappers\amd64\httpapi_wrapper.dll
     iphlpapi.dll,wrappers\amd64\iphlpapi_wrapper.dll
     netapi32.dll,wrappers\amd64\netapi32_wrapper.dll	
     ole32.dll,wrappers\amd64\ole32_wrapper.dll
@@ -6934,8 +6939,10 @@
     shlwapi.dll,wrappers\amd64\shlwapi_wrapper.dll
     user32.dll,wrappers\amd64\user32_wrapper.dll
     userenv.dll,wrappers\amd64\userenv_wrapper.dll
+    version.dll,wrappers\amd64\version_wrapper.dll	
     ;winhttp.dll,wrappers\amd64\winhttp_wrapper.dll	
-    winsta.dll,wrappers\amd64\winsta_wrapper.dll		
+    winsta.dll,wrappers\amd64\winsta_wrapper.dll
+    wintrust.dll,wrappers\amd64\wintrust_wrapper.dll	
     ws2_32.dll,wrappers\amd64\ws2_32_wrapper.dll
 
 [Wrappers.SysWow64.Files]
@@ -6947,6 +6954,7 @@
     ;dnsapi.dll,wrappers\i386\wdnsapi_wrapper.dll
     dwrite.dll,wrappers\i386\wdwrite_wrapper.dll	
     gdi32.dll,wrappers\i386\wgdi32_wrapper.dll
+    httpapi.dll,wrappers\i386\whttpapi_wrapper.dll
     iphlpapi.dll,wrappers\i386\wiphlpapi_wrapper.dll
     netapi32.dll,wrappers\i386\wnetapi32_wrapper.dll
     ole32.dll,wrappers\i386\wole32_wrapper.dll
@@ -6959,9 +6967,11 @@
     shell32.dll,wrappers\i386\wshell32_wrapper.dll
     shlwapi.dll,wrappers\i386\wshlwapi_wrapper.dll
     user32.dll,wrappers\i386\wuser32_wrapper.dll
-    userenv.dll,wrappers\i386\wuserenv_wrapper.dll	
+    userenv.dll,wrappers\i386\wuserenv_wrapper.dll
+    version.dll,wrappers\i386\wversion_wrapper.dll	
     ;winhttp.dll,wrappers\i386\wwinhttp_wrapper.dll		
-    winsta.dll,wrappers\i386\wwinsta_wrapper.dll		
+    winsta.dll,wrappers\i386\wwinsta_wrapper.dll	
+    wintrust.dll,wrappers\i386\wwintrust_wrapper.dll	
     ws2_32.dll,wrappers\i386\wws2_32_wrapper.dll	
 	
 [Base.System32.Files]
@@ -7000,7 +7010,7 @@
     setx.exe,base\amd64\setx.exe
     shcore.dll,base\amd64\shcore.dll
     sspicli.dll,base\amd64\sspicli.dll
-    version.dll,base\amd64\version.dll
+    ;versionbase.dll,base\amd64\versionbase.dll
     wct.exe,base\amd64\wct.exe
     wevtapibase.dll,base\amd64\wevtapibase.dll
     winbrand.dll,base\amd64\winbrand.dll
@@ -7051,7 +7061,7 @@
     sspicli.dll,base\i386\wsspicli.dll
     updroots.exe,base\i386\wupdroots.exe
     updroots.sst,base\i386\wupdroots.sst 	
-    version.dll,base\i386\wversion.dll
+    ;versionbase.dll,base\i386\wversionbase.dll
     wevtapibase.dll,base\i386\wwevtapibase.dll
     winbrand.dll,base\i386\wwinbrand.dll
     winhttp.dll,base\i386\wwinhttp.dll
@@ -7229,6 +7239,7 @@
     cryptxml.dll,additionaldlls\amd64\cryptxml.dll	
     davclnt.dll,additionaldlls\amd64\davclnt.dll
     dcomp.dll,additionaldlls\amd64\dcomp.dll
+    DismApi.dll,additionaldlls\amd64\DismApi.dll
     dpx.dll,additionaldlls\amd64\dpx.dll
     dsrole.dll,additionaldlls\amd64\dsrole.dll
     dui70.dll,additionaldlls\amd64\dui70.dll
@@ -7245,11 +7256,12 @@
     gameux.dll,additionaldlls\amd64\gameux.dll
     GameUXLegacyGDFs.dll,additionaldlls\amd64\GameUXLegacyGDFs.dll
     gamingtcui.dll,additionaldlls\amd64\gamingtcui.dll
-    httpapi.dll,additionaldlls\amd64\httpapi.dll
-    httpnew.dll,additionaldlls\amd64\httpnew.dll    
+    ;httpapi.dll,additionaldlls\amd64\httpapi.dll
+    httpapinew.dll,additionaldlls\amd64\httpapinew.dll    
     icu.dll,additionaldlls\amd64\icu.dll
     icuin.dll,additionaldlls\amd64\icuin.dll
     icuuc.dll,additionaldlls\amd64\icuuc.dll    
+    imagehlp.dll,additionaldlls\amd64\imagehlp.dll    
     ktmw32.dll,additionaldlls\amd64\ktmw32.dll
     lodctr.exe,additionaldlls\amd64\lodctr.exe
     logoncli.dll,additionaldlls\amd64\logoncli.dll
@@ -7281,6 +7293,8 @@
     MSMPEG2ENC.dll,additionaldlls\amd64\MF\MSMPEG2ENC.dll
     msmpeg2vdec.dll,additionaldlls\amd64\MF\msmpeg2vdec.dll
     mspatcha.dll,additionaldlls\amd64\mspatcha.dll
+    msvcp_win.dll,additionaldlls\amd64\msvcp_win.dll
+    msvcp110_win.dll,additionaldlls\amd64\msvcp110_win.dll
     ndfapi.dll,additionaldlls\amd64\ndfapi.dll
     netbios.dll,additionaldlls\amd64\netbios.dll
     netjoin.dll,additionaldlls\amd64\netjoin.dll
@@ -7292,6 +7306,7 @@
     offreg.dll,additionaldlls\amd64\offreg.dll
     onex.dll,additionaldlls\amd64\onex.dll     
     opcservices.dll,additionaldlls\amd64\opcservices.dll     
+    pcwum.dll,additionaldlls\amd64\pcwum.dll     
     pidgenx.dll,additionaldlls\amd64\pidgenx.dll
     photometadatahandler.dll,additionaldlls\amd64\photometadatahandler.dll
     pkgmgr.exe,additionaldlls\amd64\pkgmgr.exe
@@ -7380,6 +7395,7 @@
     cryptxml.dll,additionaldlls\i386\wcryptxml.dll	
     davclnt.dll,additionaldlls\i386\wdavclnt.dll
     dcomp.dll,additionaldlls\i386\wdcomp.dll
+    DismApi.dll,additionaldlls\i386\wDismApi.dll
     dpx.dll,additionaldlls\i386\wdpx.dll
     dsrole.dll,additionaldlls\i386\wdsrole.dll
     dui70.dll,additionaldlls\i386\wdui70.dll
@@ -7396,11 +7412,12 @@
     gameux.dll,additionaldlls\i386\wgameux.dll
     GameUXLegacyGDFs.dll,additionaldlls\i386\wGameUXLegacyGDFs.dll
     gamingtcui.dll,additionaldlls\i386\wgamingtcui.dll
-    httpapi.dll,additionaldlls\i386\whttpapi.dll
-    httpnew.dll,additionaldlls\i386\whttpnew.dll    
+    ;httpapi.dll,additionaldlls\i386\whttpapi.dll
+    httpapinew.dll,additionaldlls\i386\whttpapinew.dll    
     icu.dll,additionaldlls\i386\wicu.dll
     icuin.dll,additionaldlls\i386\wicuin.dll
     icuuc.dll,additionaldlls\i386\wicuuc.dll    
+    imagehlp.dll,additionaldlls\i386\wimagehlp.dll   
     ktmw32.dll,additionaldlls\i386\wktmw32.dll
     lodctr.exe,additionaldlls\i386\wlodctr.exe
     logoncli.dll,additionaldlls\i386\wlogoncli.dll
@@ -7432,6 +7449,8 @@
     MSMPEG2ENC.dll,additionaldlls\i386\MF\wMSMPEG2ENC.dll
     msmpeg2vdec.dll,additionaldlls\i386\MF\wmsmpeg2vdec.dll
     mspatcha.dll,additionaldlls\i386\wmspatcha.dll
+    msvcp_win.dll,additionaldlls\i386\wmsvcp_win.dll
+    msvcp110_win.dll,additionaldlls\i386\wmsvcp110_win.dll
     ndfapi.dll,additionaldlls\i386\wndfapi.dll
     netbios.dll,additionaldlls\i386\wnetbios.dll
     netjoin.dll,additionaldlls\i386\wnetjoin.dll
@@ -7441,6 +7460,7 @@
     offreg.dll,additionaldlls\i386\woffreg.dll
     onex.dll,additionaldlls\i386\wonex.dll     
     opcservices.dll,additionaldlls\i386\wopcservices.dll     
+    pcwum.dll,additionaldlls\i386\wpcwum.dll     
     pidgenx.dll,additionaldlls\i386\wpidgenx.dll
     photometadatahandler.dll,additionaldlls\i386\wphotometadatahandler.dll
     pkgmgr.exe,additionaldlls\i386\wpkgmgr.exe
@@ -7650,7 +7670,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0C0A\lsasrv.dll.mui
 	mmc.exe.mui,mui\0C0A\mmc.exe.mui	
 	mmcbase.dll.mui,mui\0C0A\mmcbase.dll.mui	
@@ -7690,7 +7710,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\040b\lsasrv.dll.mui
 	mmc.exe.mui,mui\040b\mmc.exe.mui	
 	mmcbase.dll.mui,mui\040b\mmcbase.dll.mui	
@@ -7730,7 +7750,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\040c\lsasrv.dll.mui
 	mmc.exe.mui,mui\040c\mmc.exe.mui	
 	mmcbase.dll.mui,mui\040c\mmcbase.dll.mui	
@@ -7770,7 +7790,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\040d\lsasrv.dll.mui
 	mmc.exe.mui,mui\040d\mmc.exe.mui	
 	mmcbase.dll.mui,mui\040d\mmcbase.dll.mui	
@@ -7810,7 +7830,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\040e\lsasrv.dll.mui
 	mmc.exe.mui,mui\040e\mmc.exe.mui	
 	mmcbase.dll.mui,mui\040e\mmcbase.dll.mui	
@@ -7867,7 +7887,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\041b\lsasrv.dll.mui
 	mmc.exe.mui,mui\041b\mmc.exe.mui	
 	mmcbase.dll.mui,mui\041b\mmcbase.dll.mui	
@@ -7907,7 +7927,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\041d\lsasrv.dll.mui
 	mmc.exe.mui,mui\041d\mmc.exe.mui	
 	mmcbase.dll.mui,mui\041d\mmcbase.dll.mui	
@@ -7965,7 +7985,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\041f\lsasrv.dll.mui
 	mmc.exe.mui,mui\041f\mmc.exe.mui	
 	mmcbase.dll.mui,mui\041f\mmcbase.dll.mui	
@@ -8005,7 +8025,7 @@
     ;esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0401\lsasrv.dll.mui
 	mmc.exe.mui,mui\0401\mmc.exe.mui	
 	mmcbase.dll.mui,mui\0401\mmcbase.dll.mui	
@@ -8063,7 +8083,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0404\lsasrv.dll.mui
 	mmc.exe.mui,mui\0404\mmc.exe.mui	
 	mmcbase.dll.mui,mui\0404\mmcbase.dll.mui	
@@ -8103,7 +8123,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0405\lsasrv.dll.mui
 	mmc.exe.mui,mui\0405\mmc.exe.mui	
 	mmcbase.dll.mui,mui\0405\mmcbase.dll.mui	
@@ -8143,7 +8163,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0406\lsasrv.dll.mui
 	mmc.exe.mui,mui\0406\mmc.exe.mui	
 	mmcbase.dll.mui,mui\0406\mmcbase.dll.mui	
@@ -8183,7 +8203,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0407\lsasrv.dll.mui
 	mmc.exe.mui,mui\0407\mmc.exe.mui	
 	mmcbase.dll.mui,mui\0407\mmcbase.dll.mui	
@@ -8223,7 +8243,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0408\lsasrv.dll.mui
 	mmc.exe.mui,mui\0408\mmc.exe.mui	
 	mmcbase.dll.mui,mui\0408\mmcbase.dll.mui	
@@ -8255,7 +8275,7 @@
 	dxdiag.exe.mui,mui\0409\dxdiag.exe.mui
 	dxdiagn.dll.mui,mui\0409\dxdiagn.dll.mui
     dwrite.dll.mui,mui\0409\dwrite.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\kernel32.dll.mui	
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\kernel32.dll.mui	
     setupapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\setupapi.dll.mui
     setupapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\setupapi.dll.mui
     shellbase.dll.mui,osfiles\%CURRENT_OS%\MUI\0409\shell32.dll.mui	
@@ -8279,7 +8299,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0410\lsasrv.dll.mui
 	mmc.exe.mui,mui\0410\mmc.exe.mui	
 	mmcbase.dll.mui,mui\0410\mmcbase.dll.mui	
@@ -8319,7 +8339,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0411\lsasrv.dll.mui
 	mmc.exe.mui,mui\0411\mmc.exe.mui	
 	mmcbase.dll.mui,mui\0411\mmcbase.dll.mui	
@@ -8359,7 +8379,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0412\lsasrv.dll.mui
 	mmc.exe.mui,mui\0412\mmc.exe.mui	
 	mmcbase.dll.mui,mui\0412\mmcbase.dll.mui	
@@ -8399,7 +8419,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0413\lsasrv.dll.mui
 	mmc.exe.mui,mui\0413\mmc.exe.mui	
 	mmcbase.dll.mui,mui\0413\mmcbase.dll.mui	
@@ -8439,7 +8459,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0414\lsasrv.dll.mui
 	mmc.exe.mui,mui\0414\mmc.exe.mui	
 	mmcbase.dll.mui,mui\0414\mmcbase.dll.mui	
@@ -8479,7 +8499,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0415\lsasrv.dll.mui
 	mmc.exe.mui,mui\0415\mmc.exe.mui	
 	mmcbase.dll.mui,mui\0415\mmcbase.dll.mui	
@@ -8519,7 +8539,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0416\lsasrv.dll.mui
 	mmc.exe.mui,mui\0416\mmc.exe.mui	
 	mmcbase.dll.mui,mui\0416\mmcbase.dll.mui	
@@ -8577,7 +8597,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0419\lsasrv.dll.mui
 	mmc.exe.mui,mui\0419\mmc.exe.mui	
 	mmcbase.dll.mui,mui\0419\mmcbase.dll.mui	
@@ -8617,7 +8637,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0424\lsasrv.dll.mui
 	mmc.exe.mui,mui\0424\mmc.exe.mui	
 	mmcbase.dll.mui,mui\0424\mmcbase.dll.mui	
@@ -8711,7 +8731,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0804\lsasrv.dll.mui
 	mmc.exe.mui,mui\0804\mmc.exe.mui	
 	mmcbase.dll.mui,mui\0804\mmcbase.dll.mui	
@@ -8751,7 +8771,7 @@
     esent.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\esent.dll.mui
     iphlpapi.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\iphlpapi.dll.mui
     iphlpapibase.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\iphlpapi.dll.mui
-    kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\kernel32.dll.mui
+    ;kernel32.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\kernel32.dll.mui
     lsasrv.dll.mui,osfiles\%CURRENT_OS%\MUI\0816\lsasrv.dll.mui
 	mmc.exe.mui,mui\0816\mmc.exe.mui	
 	mmcbase.dll.mui,mui\0816\mmcbase.dll.mui	
